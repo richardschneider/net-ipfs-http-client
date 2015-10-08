@@ -11,7 +11,7 @@ namespace Ipfs.Api
     ///to contain all IpfsClientTest Unit Tests
     ///</summary>
     [TestClass]
-    public class IpfsClientTest
+    public partial class IpfsClientTest
     {
 
         /// <summary>
