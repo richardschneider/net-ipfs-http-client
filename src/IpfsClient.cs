@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.Reflection;
+using System.Web;
 
 namespace Ipfs.Api
 {
@@ -38,9 +39,12 @@ namespace Ipfs.Api
         /// </value>
         public string UserAgent { get; set; }
 
-        protected Uri BuildCommand(string command)
+        protected Uri BuildCommand(string command, string arg = null)
         {
-            return new Uri(ApiAddress, "/api/v0/" + command);
+            var url = "/api/v0/" + command;
+            if (arg != null)
+                url += "?arg=" + HttpUtility.UrlEncode(arg);
+            return new Uri(ApiAddress, url);
         }
 
         protected WebClient Api()

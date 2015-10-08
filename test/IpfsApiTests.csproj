@@ -46,6 +46,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IdTest.cs" />
     <Compile Include="VersionTest.cs" />
     <Compile Include="IpfsClientTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
