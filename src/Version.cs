@@ -17,11 +17,7 @@ namespace Ipfs.Api
         /// </returns>
         public string Version()
         {
-            var api = new WebClient
-            {
-                Encoding = Encoding.UTF8
-            };
-            return api.DownloadString(BuildCommand("version"));
+            return Api().DownloadString(BuildCommand("version"));
         }
     }
 }
