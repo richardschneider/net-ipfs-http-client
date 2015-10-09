@@ -41,8 +41,7 @@ namespace Ipfs.Api
             if (address == null)
                 throw new ArgumentNullException();
 
-            ipfs.Api()
-                .DownloadString(ipfs.BuildCommand("bootstrap/add", address.ToString()));
+            ipfs.DoCommand("bootstrap/add", address.ToString());
         }
 
         /// <inheritdoc />
@@ -88,8 +87,7 @@ namespace Ipfs.Api
             if (address == null)
                 throw new ArgumentNullException();
 
-            ipfs.Api()
-                .DownloadString(ipfs.BuildCommand("bootstrap/rm", address.ToString()));
+            ipfs.DoCommand("bootstrap/rm", address.ToString());
 
             return true;
         }
@@ -110,11 +108,7 @@ namespace Ipfs.Api
 
         void Fetch()
         {
-            var result = ipfs.Api()
-                .DownloadString(ipfs.BuildCommand("bootstrap/list"));
-            peers = JsonConvert
-                .DeserializeObject<BootstrapListResponse>(result)
-                .Peers;
+            peers = ipfs.DoCommand<BootstrapListResponse>("bootstrap/list").Peers;
         }
     }
 }

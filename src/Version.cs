@@ -17,7 +17,7 @@ namespace Ipfs.Api
         /// </returns>
         public string Version()
         {
-            return Api().DownloadString(BuildCommand("version"));
+            return DoCommand("version");
         }
     }
 }

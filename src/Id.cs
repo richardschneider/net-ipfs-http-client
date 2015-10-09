@@ -20,9 +20,8 @@ namespace Ipfs.Api
         /// <returns>
         /// </returns>
         public PeerNode Id(string peer = null)
-        {          
-            var result = Api().DownloadString(BuildCommand("id", peer));
-            return JsonConvert.DeserializeObject<PeerNode>(result);
+        {
+            return DoCommand<PeerNode>("id", peer);
         }
     }
 }

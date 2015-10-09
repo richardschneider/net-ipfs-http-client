@@ -5,6 +5,7 @@ using System.Text;
 using System.Net;
 using System.Reflection;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace Ipfs.Api
 {
@@ -52,7 +53,7 @@ namespace Ipfs.Api
         /// </remarks>
         public TruestedPeerCollection TrustedPeers { get; private set; }
 
-        protected internal Uri BuildCommand(string command, string arg = null)
+        Uri BuildCommand(string command, string arg = null)
         {
             var url = "/api/v0/" + command;
             if (arg != null)
@@ -60,7 +61,7 @@ namespace Ipfs.Api
             return new Uri(ApiAddress, url);
         }
 
-        protected internal WebClient Api()
+        WebClient Api()
         {
             var api = new WebClient
             {
@@ -68,6 +69,17 @@ namespace Ipfs.Api
             };
             api.Headers["User-Agent"] = UserAgent;
             return api;
+        }
+
+        protected internal string DoCommand(string command, string arg = null)
+        {
+            return Api().DownloadString(BuildCommand(command, arg));
+        }
+
+        protected internal T DoCommand<T>(string command, string arg = null)
+        {
+            var json = Api().DownloadString(BuildCommand(command, arg));
+            return JsonConvert.DeserializeObject<T>(json);
         }
     }
 }
