@@ -73,13 +73,27 @@ namespace Ipfs.Api
 
         protected internal string DoCommand(string command, string arg = null)
         {
-            return Api().DownloadString(BuildCommand(command, arg));
+            try
+            {
+                return Api().DownloadString(BuildCommand(command, arg));
+            }
+            catch (Exception e)
+            {
+                throw new IpfsException(e);
+            }
         }
 
         protected internal T DoCommand<T>(string command, string arg = null)
         {
-            var json = Api().DownloadString(BuildCommand(command, arg));
-            return JsonConvert.DeserializeObject<T>(json);
+            try
+            {
+                var json = Api().DownloadString(BuildCommand(command, arg));
+                return JsonConvert.DeserializeObject<T>(json);
+            }
+            catch (Exception e)
+            {
+                throw new IpfsException(e);
+            }
         }
     }
 }
