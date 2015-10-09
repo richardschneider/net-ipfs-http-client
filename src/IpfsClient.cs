@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,8 @@ namespace Ipfs.Api
     /// <seealso href="https://ipfs.io/docs/commands/">IPFS commands</seealso>
     public partial class IpfsClient
     {
+        static ILog log = LogManager.GetCurrentClassLogger();
+
         /// <summary>
         ///   Creates a new instance of the <see cref="IpfsClient"/> class and sets the
         ///   default values;
@@ -75,7 +78,13 @@ namespace Ipfs.Api
         {
             try
             {
-                return Api().DownloadString(BuildCommand(command, arg));
+                var url = BuildCommand(command, arg);
+                if (log.IsDebugEnabled)
+                    log.Debug("GET " + url.ToString());
+                var s = Api().DownloadString(url);
+                if (log.IsDebugEnabled)
+                    log.Debug("RSP " + s);
+                return s;
             }
             catch (Exception e)
             {
@@ -85,15 +94,8 @@ namespace Ipfs.Api
 
         protected internal T DoCommand<T>(string command, string arg = null)
         {
-            try
-            {
-                var json = Api().DownloadString(BuildCommand(command, arg));
-                return JsonConvert.DeserializeObject<T>(json);
-            }
-            catch (Exception e)
-            {
-                throw new IpfsException(e);
-            }
+            var json = DoCommand(command, arg);
+            return JsonConvert.DeserializeObject<T>(json);
         }
     }
 }
