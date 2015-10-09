@@ -30,5 +30,13 @@ namespace Ipfs.Api
             ipfs.TrustedPeers.Remove(newTrustedPeer);
             Assert.IsFalse(ipfs.TrustedPeers.Contains(newTrustedPeer));
         }
+
+        [TestMethod]
+        public void Trusted_Peers_Add_Missing_Peer_ID()
+        {
+            var missingPeerId = new MultiAddress("/ip4/25.196.147.100/tcp/4001");
+            var ipfs = new IpfsClient();
+            ExceptionAssert.Throws<IpfsException>(() => ipfs.TrustedPeers.Add(missingPeerId), "invalid ipfs address");
+        }
     }
 }
