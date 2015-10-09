@@ -10,11 +10,15 @@ namespace Ipfs.Api
 {
     public partial class IpfsClient
     {
+        class BootstrapListResponse
+        {
+            public MultiAddress[] Peers;
+        }
+
         public IEnumerable<MultiAddress> BootstrapPeers()
         {
             var result = Api().DownloadString(BuildCommand("bootstrap/list"));
-            // TODO: return JsonConvert.DeserializeObject<MultiAddress[]>(result);
-            throw new NotImplementedException();
+            return JsonConvert.DeserializeObject<BootstrapListResponse>(result).Peers;
         }
 
     }

@@ -86,5 +86,10 @@ namespace Ipfs.Api
                 Parts.Add(new Part { Protocol = parts[i], Value = parts[i + 1] });
             }
         }
+
+        static public implicit operator MultiAddress(string s)
+        {
+            return new MultiAddress(s);
+        }
     }
 }
