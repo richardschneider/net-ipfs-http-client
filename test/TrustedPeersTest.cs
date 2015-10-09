@@ -9,10 +9,10 @@ namespace Ipfs.Api
     public partial class IpfsClientTest
     {
         [TestMethod]
-        public void Bootstrap_Peers()
+        public void Trusted_Peers_List()
         {
             var ipfs = new IpfsClient();
-            var peers = ipfs.BootstrapPeers().ToArray();
+            var peers = ipfs.TrustedPeers().ToArray();
             Assert.IsNotNull(peers);
             Assert.IsTrue(peers.Length > 0);
         }
