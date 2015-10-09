@@ -14,7 +14,7 @@ namespace Ipfs.Api
     /// </summary>
     /// <remarks>
     ///   This is the list of peers that are initially trusted by IPFS. Its equivalent to the
-    ///   <c>ipfs bootstrap list</c> command.
+    ///   <see cref="https://ipfs.io/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example#/ipfs/QmThrNbvLj7afQZhxH72m5Nn1qiVn3eMKWFYV49Zp2mv9B/bootstrap/readme.md"/>ipfs bootstrap</see> command.
     /// </remarks>
     /// <returns>
     ///   A series of <see cref="MultiAddress"/>.  Each address ends with an IPNS node id, for
@@ -35,12 +35,14 @@ namespace Ipfs.Api
             this.ipfs = ipfs;
         }
 
-        #region ICollection<MultiAddress> Members
-
         /// <inheritdoc />
-        public void Add(MultiAddress item)
+        public void Add(MultiAddress address)
         {
-            throw new NotImplementedException();
+            if (address == null)
+                throw new ArgumentNullException();
+
+            ipfs.Api()
+                .DownloadString(ipfs.BuildCommand("bootstrap/add", address.ToString()));
         }
 
         /// <inheritdoc />
@@ -52,8 +54,7 @@ namespace Ipfs.Api
         /// <inheritdoc />
         public bool Contains(MultiAddress item)
         {
-            if (peers == null)
-                Fetch();
+            Fetch();
             return peers.Contains(item);
         }
 
@@ -82,14 +83,16 @@ namespace Ipfs.Api
         }
 
         /// <inheritdoc />
-        public bool Remove(MultiAddress item)
+        public bool Remove(MultiAddress address)
         {
-            throw new NotImplementedException();
+            if (address == null)
+                throw new ArgumentNullException();
+
+            ipfs.Api()
+                .DownloadString(ipfs.BuildCommand("bootstrap/rm", address.ToString()));
+
+            return true;
         }
-
-        #endregion
-
-        #region IEnumerable Members
 
         /// <inheritdoc />
         public IEnumerator<MultiAddress> GetEnumerator()
@@ -104,8 +107,6 @@ namespace Ipfs.Api
             Fetch();
             return peers.GetEnumerator();
         }
-
-        #endregion
 
         void Fetch()
         {

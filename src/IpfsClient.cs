@@ -11,7 +11,11 @@ namespace Ipfs.Api
     /// <summary>
     ///   A client that allows access to the InterPlanetary File System (IPFS).
     /// </summary>
+    /// <remarks>
+    ///   The API is based on the <see href="https://ipfs.io/docs/commands/">IPFS commands</see>.
+    /// </remarks>
     /// <seealso href="https://ipfs.io/docs/api/">IPFS API</seealso>
+    /// <seealso href="https://ipfs.io/docs/commands/">IPFS commands</seealso>
     public partial class IpfsClient
     {
         /// <summary>
