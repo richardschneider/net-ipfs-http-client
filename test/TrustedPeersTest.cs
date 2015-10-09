@@ -12,9 +12,8 @@ namespace Ipfs.Api
         public void Trusted_Peers_List()
         {
             var ipfs = new IpfsClient();
-            var peers = ipfs.TrustedPeers().ToArray();
-            Assert.IsNotNull(peers);
-            Assert.IsTrue(peers.Length > 0);
+            Assert.IsNotNull(ipfs.TrustedPeers);
+            Assert.IsTrue(ipfs.TrustedPeers.Count > 0);
         }
 
     }

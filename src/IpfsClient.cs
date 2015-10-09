@@ -23,6 +23,7 @@ namespace Ipfs.Api
             ApiAddress = new Uri("http://localhost:5001");
             var version = Assembly.GetExecutingAssembly().GetName().Version;
             UserAgent = string.Format("net-ipfs/{0}.{1}", version.Major, version.Minor);
+            TrustedPeers = new TruestedPeerCollection(this);
         }
 
         /// <summary>
@@ -39,7 +40,15 @@ namespace Ipfs.Api
         /// </value>
         public string UserAgent { get; set; }
 
-        protected Uri BuildCommand(string command, string arg = null)
+        /// <summary>
+        ///   The list of peers that are initially trusted by IPFS.
+        /// </summary>
+        /// <remarks>
+        ///   This is equilivent to <c>ipfs bootstrap list</c>.
+        /// </remarks>
+        public TruestedPeerCollection TrustedPeers { get; private set; }
+
+        protected internal Uri BuildCommand(string command, string arg = null)
         {
             var url = "/api/v0/" + command;
             if (arg != null)
@@ -47,7 +56,7 @@ namespace Ipfs.Api
             return new Uri(ApiAddress, url);
         }
 
-        protected WebClient Api()
+        protected internal WebClient Api()
         {
             var api = new WebClient
             {

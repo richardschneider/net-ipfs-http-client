@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Add.cs" />
-    <Compile Include="TrustedPeers.cs" />
+    <Compile Include="TrustedPeerCollection.cs" />
     <Compile Include="Id.cs" />
     <Compile Include="MultiAddress.cs" />
     <Compile Include="PeerNode.cs" />
