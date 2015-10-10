@@ -42,12 +42,14 @@ namespace Ipfs.Api
                 throw new ArgumentNullException();
 
             ipfs.DoCommand("bootstrap/add", address.ToString());
+            peers = null;
         }
 
         /// <inheritdoc />
         public void Clear()
         {
-            throw new NotImplementedException();
+            ipfs.DoCommand("bootstrap/rm", null, "all=true");
+            peers = null;
         }
 
         /// <inheritdoc />
@@ -88,7 +90,7 @@ namespace Ipfs.Api
                 throw new ArgumentNullException();
 
             ipfs.DoCommand("bootstrap/rm", address.ToString());
-
+            peers = null;
             return true;
         }
 

@@ -38,5 +38,17 @@ namespace Ipfs.Api
             var ipfs = new IpfsClient();
             ExceptionAssert.Throws<IpfsException>(() => ipfs.TrustedPeers.Add(missingPeerId), "invalid ipfs address");
         }
+
+        [TestMethod]
+        public void Trusted_Peers_Clear()
+        {
+            var ipfs = new IpfsClient();
+            var original = ipfs.TrustedPeers.ToArray();
+            ipfs.TrustedPeers.Clear();
+            Assert.AreEqual(0, ipfs.TrustedPeers.Count);
+
+            foreach (var a in original)
+                ipfs.TrustedPeers.Add(a);
+        }
     }
 }

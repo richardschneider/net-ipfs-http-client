@@ -56,11 +56,39 @@ namespace Ipfs.Api
         /// </remarks>
         public TruestedPeerCollection TrustedPeers { get; private set; }
 
-        Uri BuildCommand(string command, string arg = null)
+        Uri BuildCommand(string command, string arg = null, params string[] options)
         {
             var url = "/api/v0/" + command;
+            var q = new StringBuilder();
             if (arg != null)
-                url += "?arg=" + HttpUtility.UrlEncode(arg);
+            {
+                q.Append("&arg=");
+                q.Append(HttpUtility.UrlEncode(arg));
+            }
+
+            foreach (var option in options)
+            {
+                q.Append('&');
+                var i = option.IndexOf('=');
+                if (i < 0)
+                {
+                    q.Append(option);
+                }
+                else
+                {
+                    q.Append(option.Substring(0, i));
+                    q.Append('=');
+                    q.Append(HttpUtility.UrlEncode(option.Substring(i + 1)));
+                }
+            }
+
+            if (q.Length > 0)
+            {
+                q[0] = '?';
+                q.Insert(0, url);
+                url = q.ToString();
+            }
+
             return new Uri(ApiAddress, url);
         }
 
@@ -74,11 +102,11 @@ namespace Ipfs.Api
             return api;
         }
 
-        protected internal string DoCommand(string command, string arg = null)
+        protected internal string DoCommand(string command, string arg = null, params string[] options)
         {
             try
             {
-                var url = BuildCommand(command, arg);
+                var url = BuildCommand(command, arg, options);
                 if (log.IsDebugEnabled)
                     log.Debug("GET " + url.ToString());
                 var s = Api().DownloadString(url);
@@ -92,9 +120,9 @@ namespace Ipfs.Api
             }
         }
 
-        protected internal T DoCommand<T>(string command, string arg = null)
+        protected internal T DoCommand<T>(string command, string arg = null, params string[] options)
         {
-            var json = DoCommand(command, arg);
+            var json = DoCommand(command, arg, options);
             return JsonConvert.DeserializeObject<T>(json);
         }
     }
