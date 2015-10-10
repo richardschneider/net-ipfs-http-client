@@ -44,9 +44,26 @@ namespace Ipfs.Api
         {
             var ipfs = new IpfsClient();
             var original = ipfs.TrustedPeers.ToArray();
+
             ipfs.TrustedPeers.Clear();
             Assert.AreEqual(0, ipfs.TrustedPeers.Count);
 
+            foreach (var a in original)
+                ipfs.TrustedPeers.Add(a);
+        }
+
+        [TestMethod]
+        public void Trusted_Peers_Add_Default_Nodes()
+        {
+            var ipfs = new IpfsClient();
+            var original = ipfs.TrustedPeers.ToArray();
+
+            ipfs.TrustedPeers.Clear();
+            Assert.AreEqual(0, ipfs.TrustedPeers.Count);
+            ipfs.TrustedPeers.AddDefaultNodes();
+            Assert.AreNotEqual(0, ipfs.TrustedPeers.Count);
+
+            ipfs.TrustedPeers.Clear();
             foreach (var a in original)
                 ipfs.TrustedPeers.Add(a);
         }

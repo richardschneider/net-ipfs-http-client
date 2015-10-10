@@ -36,16 +36,33 @@ namespace Ipfs.Api
         }
 
         /// <inheritdoc />
-        public void Add(MultiAddress address)
+        public void Add(MultiAddress peer)
         {
-            if (address == null)
+            if (peer == null)
                 throw new ArgumentNullException();
 
-            ipfs.DoCommand("bootstrap/add", address.ToString());
+            ipfs.DoCommand("bootstrap/add", peer.ToString());
             peers = null;
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        ///    Add the default bootstrap nodes to the trusted peers.
+        /// </summary>
+        /// <remarks>
+        ///    Equivalent to <c>ipfs bootstrap add --default</c>.
+        /// </remarks>
+        public void AddDefaultNodes()
+        {
+            ipfs.DoCommand("bootstrap/add", null, "default=true");
+            peers = null;
+        }
+
+        /// <summary>
+        ///    Remove all the trusted peers.
+        /// </summary>
+        /// <remarks>
+        ///    Equivalent to <c>ipfs bootstrap rm --all</c>.
+        /// </remarks>
         public void Clear()
         {
             ipfs.DoCommand("bootstrap/rm", null, "all=true");
@@ -83,13 +100,18 @@ namespace Ipfs.Api
             get { return false; }
         }
 
-        /// <inheritdoc />
-        public bool Remove(MultiAddress address)
+        /// <summary>
+        ///    Remove the trusted peer.
+        /// </summary>
+        /// <remarks>
+        ///    Equivalent to <c>ipfs bootstrap rm <i>peer</i></c>.
+        /// </remarks>
+        public bool Remove(MultiAddress peer)
         {
-            if (address == null)
+            if (peer == null)
                 throw new ArgumentNullException();
 
-            ipfs.DoCommand("bootstrap/rm", address.ToString());
+            ipfs.DoCommand("bootstrap/rm", peer.ToString());
             peers = null;
             return true;
         }
