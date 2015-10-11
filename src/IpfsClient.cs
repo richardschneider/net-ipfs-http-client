@@ -23,21 +23,40 @@ namespace Ipfs.Api
         static ILog log = LogManager.GetCurrentClassLogger();
 
         /// <summary>
+        ///   The default URL to the IPFS API server.  The default is "http://localhost:5001".
+        /// </summary>
+        public static Uri DefaultApiUri = new Uri("http://localhost:5001");
+
+        /// <summary>
         ///   Creates a new instance of the <see cref="IpfsClient"/> class and sets the
-        ///   default values;
+        ///   default values.
         /// </summary>
         public IpfsClient()
         {
-            ApiAddress = new Uri("http://localhost:5001");
+            ApiUri = DefaultApiUri;
             var version = Assembly.GetExecutingAssembly().GetName().Version;
             UserAgent = string.Format("net-ipfs/{0}.{1}", version.Major, version.Minor);
             TrustedPeers = new TruestedPeerCollection(this);
         }
 
         /// <summary>
-        ///   The URL to the IPFS API server.  The default is "http://localhost:5001";
+        ///   Creates a new instance of the <see cref="IpfsClient"/> class and specifies
+        ///   the <see cref="ApiUri">API host's URL</see>.
+        ///   default values
         /// </summary>
-        public Uri ApiAddress { get; set; }
+        /// <param name="host">
+        ///   The URL of the API host.  For example "http://localhost:5001" or "http://ipv4.fiddler:5001".
+        /// </param>
+        public IpfsClient(string host)
+            : this()
+        {
+            ApiUri = new Uri(host);
+        }
+        
+        /// <summary>
+        ///   The URL to the IPFS API server.  The default is "http://localhost:5001".
+        /// </summary>
+        public Uri ApiUri { get; set; }
 
         /// <summary>
         ///   The value of HTTP User-Agent header sent to the API server. 
@@ -89,7 +108,7 @@ namespace Ipfs.Api
                 url = q.ToString();
             }
 
-            return new Uri(ApiAddress, url);
+            return new Uri(ApiUri, url);
         }
 
         WebClient Api()
