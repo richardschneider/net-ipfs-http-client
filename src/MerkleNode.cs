@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 namespace Ipfs.Api
 {
     /// <summary>
-    ///   The IPFS MerkleDag is the datastructure at the heart of IPFS. It is an acyclic directed graph whose edges are hashes.
+    ///   The IPFS <see href="https://github.com/ipfs/specs/tree/master/merkledag">MerkleDag</see> is the datastructure at the heart of IPFS. It is an acyclic directed graph whose edges are hashes.
     /// </summary>
     /// <remarks>
     ///   Initially an <b>MerkleNode</b> is just constructed with its MultiHash.  Its other properties are lazily loaded.
