@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
+using System.IO;
 
 namespace Ipfs.Api
 {
@@ -63,5 +64,22 @@ namespace Ipfs.Api
             Assert.AreEqual(a0.GetHashCode(), a1.GetHashCode());
             Assert.AreNotEqual(a0.GetHashCode(), b.GetHashCode());
         }
+
+        [TestMethod]
+        public void RawData()
+        {
+            var node = new MerkleNode(IpfsInfo);
+            byte[] data;
+            using (var raw = node.GetRawData())
+            using (var s = new MemoryStream())
+            {
+                raw.CopyTo(s);
+                data = s.ToArray();
+            }
+
+            // TODO: verify GetRawData() hash equal node's hash.
+        }
+
+    
     }
 }
