@@ -7,6 +7,7 @@ using System.Net;
 using System.Reflection;
 using System.Web;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace Ipfs.Api
 {
@@ -144,5 +145,21 @@ namespace Ipfs.Api
             var json = DoCommand(command, arg, options);
             return JsonConvert.DeserializeObject<T>(json);
         }
+
+        protected internal Stream Download(string command, string arg = null, params string[] options)
+        {
+            try
+            {
+                var url = BuildCommand(command, arg, options);
+                if (log.IsDebugEnabled)
+                    log.Debug("GET " + url.ToString());
+                return Api().OpenRead(url);
+            }
+            catch (Exception e)
+            {
+                throw new IpfsException(e);
+            }
+        }
+    
     }
 }

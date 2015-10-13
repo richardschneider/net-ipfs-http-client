@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json.Linq;
-
-// TODO: GetRawData()
-// TODO: GetJsonData()
+using System.IO;
 
 namespace Ipfs.Api
 {
@@ -140,6 +138,20 @@ namespace Ipfs.Api
             }
         }
 
+        /// <summary>
+        ///   Gets the raw encoded data of the node.
+        /// </summary>
+        /// <returns>
+        ///   A <see cref="Stream"/> contain the raw encode data of the node.  This <b>Stream</b>
+        ///   must be closed.
+        /// </returns>
+        /// <remarks>
+        ///   Equivalent to <c>ipfs block get <see cref="Hash"/></c>.
+        /// </remarks>
+        public Stream GetRawData()
+        {
+            return new IpfsClient().Download("block/get", Hash);
+        }
 
         /// <summary>
         ///   Get object statistics about the node, <c>ipfs object stat <i>hash</i></c>
