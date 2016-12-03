@@ -21,7 +21,7 @@ namespace Ipfs.Api
         [AssemblyInitialize]
         public static void AssemblyInit(TestContext context)
         {
-            IpfsClient.DefaultApiUri = new Uri("http://127.0.0.1.:5001");
+            //IpfsClient.DefaultApiUri = new Uri("http://127.0.0.1.:5001");
         }
 
         /// <summary>
