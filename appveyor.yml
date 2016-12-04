@@ -47,7 +47,7 @@ after_build:
 
 after_test: 
 # Generate coverage report
-    - packages\OpenCover.4.6.210-rc\tools\OpenCover.Console.exe -register:user -filter:"+[Ipfs*]* -[*Tests]*" -target:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\MSTest.exe" -targetargs:"/testcontainer:test//bin/Release/Ipfs.Api.Tests.dll" -output:coverage.xml
+    - packages\OpenCover.4.6.210-rc\tools\OpenCover.Console.exe -register:user -filter:"+[Ipfs.Api*]* -[*Tests]*" -target:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\MSTest.exe" -targetargs:"/testcontainer:test//bin/Release/Ipfs.Api.Tests.dll" -output:coverage.xml
     - if defined COVERALLS_REPO_TOKEN packages\coveralls.net.0.6.0\tools\csmacnz.coveralls.exe --opencover -i ./coverage.xml --serviceName appveyor --jobId %APPVEYOR_BUILD_NUMBER%
 
 # publish NuGet package on tag build
