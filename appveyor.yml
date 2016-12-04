@@ -1,9 +1,9 @@
 # gitversion will change the version number
 version: x-{build}
 
-#environment:
-#  COVERALLS_REPO_TOKEN:
-#    secure: j4sELCwhVRRjNXFVhjPZjdG4y2itz8jrExhlyDU/lTiLlRQ/P4brB69MGQRFBQae
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: u109t00NLIZQyREMNUyPlMd8gCi6w3o790yT8mQnzEC0LvZyevt+04u63TQfrifC
 #  snk_secret:
 #    secure: 5QzEIgiDqTIrZruPaIQIvTlNMl5BZ7TGEps7ALyBfHE=
 
