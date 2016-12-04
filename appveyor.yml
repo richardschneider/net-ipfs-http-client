@@ -14,7 +14,7 @@ install:
   - if defined snk_secret secure-file\tools\secure-file -decrypt src\ipfs.ci.snk.enc -secret %snk_secret% -out src\ipfs.dev.snk
   - choco install ipfs
   - ipfs init
-  - start /B ipfs daemon
+  - start ipfs daemon
 
 pull_requests:
   do_not_increment_build_number: true
