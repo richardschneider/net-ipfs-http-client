@@ -1,0 +1,58 @@
+# gitversion will change the version number
+version: x-{build}
+
+#environment:
+#  COVERALLS_REPO_TOKEN:
+#    secure: j4sELCwhVRRjNXFVhjPZjdG4y2itz8jrExhlyDU/lTiLlRQ/P4brB69MGQRFBQae
+#  snk_secret:
+#    secure: 5QzEIgiDqTIrZruPaIQIvTlNMl5BZ7TGEps7ALyBfHE=
+
+# tools we need for bulding/testing/deploying
+install:
+  - choco install gitversion.portable -pre -y
+  - nuget install secure-file -ExcludeVersion
+  - if defined snk_secret secure-file\tools\secure-file -decrypt src\ipfs.ci.snk.enc -secret %snk_secret% -out src\ipfs.dev.snk
+  - choco install ipfs
+  - ipfs init
+  - start /B ipfs daemon
+
+pull_requests:
+  do_not_increment_build_number: true
+
+# gitversion will change the assembly info
+assembly_info:
+  patch: false
+
+nuget:
+  account_feed: true
+  project_feed: true
+  disable_publish_on_pr: true
+
+before_build:
+  - nuget restore
+  - ps: gitversion /output buildserver /updateAssemblyInfo >gitversion.log
+
+platform: Any CPU
+configuration: Release
+
+build:
+  project: IpfsApi.sln
+  publish_nuget: false
+  verbosity: minimal
+
+after_build:
+#  - cmd: nuget pack src\IpfsApi.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
+#  - cmd: appveyor PushArtifact "Ipfs.Api.%GitVersion_NuGetVersion%.nupkg"
+
+after_test: 
+# Generate coverage report
+    - packages\OpenCover.4.6.210-rc\tools\OpenCover.Console.exe -register:user -filter:"+[Ipfs*]* -[*Tests]* -[Ipfs.Api]SHA3*" -target:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\MSTest.exe" -targetargs:"/testcontainer:test//bin/Release/Ipfs.Api.Tests.dll" -output:coverage.xml
+    - if defined COVERALLS_REPO_TOKEN packages\coveralls.net.0.6.0\tools\csmacnz.coveralls.exe --opencover -i ./coverage.xml --serviceName appveyor --jobId %APPVEYOR_BUILD_NUMBER%
+
+# publish NuGet package on tag build
+#deploy:
+#- provider: NuGet
+#  api_key:
+#    secure: OdmGEj/l0K0ZPDmXAYx+fryCzV012eTrM29ALBuL0waxvwLvrufdDXiI+1iNhWEG
+#  on:
+#    appveyor_repo_tag: true
