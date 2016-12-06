@@ -42,8 +42,8 @@ build:
 
 after_build:
   - echo %GitVersion_NuGetVersion%
-#  - cmd: nuget pack src\IpfsApi.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
-#  - cmd: appveyor PushArtifact "Ipfs.Api.%GitVersion_NuGetVersion%.nupkg"
+  - cmd: nuget pack src\IpfsApi.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
+  - cmd: appveyor PushArtifact "Ipfs.Api.%GitVersion_NuGetVersion%.nupkg"
 
 after_test: 
 # Generate coverage report
@@ -51,9 +51,9 @@ after_test:
     - if defined COVERALLS_REPO_TOKEN packages\coveralls.net.0.6.0\tools\csmacnz.coveralls.exe --opencover -i ./coverage.xml --serviceName appveyor --jobId %APPVEYOR_BUILD_NUMBER%
 
 # publish NuGet package on tag build
-#deploy:
-#- provider: NuGet
-#  api_key:
-#    secure: OdmGEj/l0K0ZPDmXAYx+fryCzV012eTrM29ALBuL0waxvwLvrufdDXiI+1iNhWEG
-#  on:
-#    appveyor_repo_tag: true
+deploy:
+- provider: NuGet
+  api_key:
+    secure: OdmGEj/l0K0ZPDmXAYx+fryCzV012eTrM29ALBuL0waxvwLvrufdDXiI+1iNhWEG
+  on:
+    appveyor_repo_tag: true
