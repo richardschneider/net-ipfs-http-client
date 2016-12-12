@@ -33,5 +33,15 @@ namespace Ipfs.Api
             IpfsClient target = new IpfsClient();
             Assert.IsNotNull(target);
         }
+
+        [TestMethod]
+        public void Do_Command_Throws_IpfsException_On_Invalid_Command()
+        {
+            IpfsClient target = new IpfsClient();
+            object unknown;
+            ExceptionAssert.Throws<IpfsException>(() => unknown = target.DoCommandAsync("foobar").Result);
+
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Ipfs.Api
@@ -14,6 +15,18 @@ namespace Ipfs.Api
             try
             {
                 action();
+            }
+            catch (AggregateException e)
+            {
+                var match = e.InnerExceptions.OfType<T>().FirstOrDefault();
+                if (match != null)
+                {
+                    if (expectedMessage != null)
+                        Assert.AreEqual(expectedMessage, match.Message, "Wrong exception message.");
+                    return match;
+                }
+
+                throw;
             }
             catch (T e)
             {

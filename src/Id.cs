@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace Ipfs.Api
 {
@@ -19,9 +20,9 @@ namespace Ipfs.Api
         /// </param>
         /// <returns>
         /// </returns>
-        public PeerNode Id(string peer = null)
+        public Task<PeerNode> Id(string peer = null)
         {
-            return DoCommand<PeerNode>("id", peer);
+            return DoCommandAsync<PeerNode>("id", peer);
         }
     }
 }
