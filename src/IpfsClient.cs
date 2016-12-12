@@ -20,9 +20,15 @@ namespace Ipfs.Api
     /// </remarks>
     /// <seealso href="https://ipfs.io/docs/api/">IPFS API</seealso>
     /// <seealso href="https://ipfs.io/docs/commands/">IPFS commands</seealso>
+    /// <remarks>
+    ///   <b>IpfsClient</b> is thread safe, only one instance is required
+    ///   by the application.
+    /// </remarks>
     public partial class IpfsClient
     {
         static ILog log = LogManager.GetCurrentClassLogger();
+        static object safe = new object();
+        static HttpClient api = null;
 
         /// <summary>
         ///   The default URL to the IPFS API server.  The default is "http://localhost:5001".
@@ -113,10 +119,28 @@ namespace Ipfs.Api
             return new Uri(ApiUri, url);
         }
 
+        /// <summary>
+        ///   Get the IPFS API.
+        /// </summary>
+        /// <returns>
+        ///   A <see cref="HttpClient"/>.
+        /// </returns>
+        /// <remarks>
+        ///   Only one client is needed.  Its thread safe.
+        /// </remarks>
         HttpClient Api()
         {
-            var api = new HttpClient();
-            api.DefaultRequestHeaders.Add("User-Agent", UserAgent);
+            if (api == null)
+            {
+                lock (safe)
+                {
+                    if (api == null)
+                    {
+                        api = new HttpClient();
+                        api.DefaultRequestHeaders.Add("User-Agent", UserAgent);
+                    }
+                }
+            }
             return api;
         }
 
