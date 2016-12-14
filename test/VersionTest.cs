@@ -12,7 +12,8 @@ namespace Ipfs.Api
         public void Version_Is_Present()
         {
             var ipfs = new IpfsClient();
-            Assert.IsNotNull(ipfs.Version());
+            var version = ipfs.Version().Result;
+            Assert.IsNotNull(version);
         }
     }
 }

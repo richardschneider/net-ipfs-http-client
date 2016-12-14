@@ -13,16 +13,16 @@ namespace Ipfs.Api
         public void Local_Node_Info()
         {
             var ipfs = new IpfsClient();
-            var node = ipfs.Id();
-            Assert.IsNotNull(node);
+            var node = ipfs.Id().Result;
+            Assert.IsInstanceOfType(node, typeof(PeerNode));
         }
 
         [TestMethod]
         public void Mars_Node_Info()
         {
             var ipfs = new IpfsClient();
-            var node = ipfs.Id(marsId);
-            Assert.IsNotNull(node);
+            var node = ipfs.Id(marsId).Result;
+            Assert.IsInstanceOfType(node, typeof(PeerNode));
         }
     }
 }

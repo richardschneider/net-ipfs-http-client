@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Ipfs.Api
@@ -15,10 +16,22 @@ namespace Ipfs.Api
             {
                 action();
             }
+            catch (AggregateException e)
+            {
+                var match = e.InnerExceptions.OfType<T>().FirstOrDefault();
+                if (match != null)
+                {
+                    if (expectedMessage != null)
+                        Assert.AreEqual(expectedMessage, match.Message, "Wrong exception message.");
+                    return match;
+                }
+
+                throw;
+            }
             catch (T e)
             {
                 if (expectedMessage != null)
-                    Assert.AreEqual(expectedMessage, e.Message, "Wrong exception message.");
+                    Assert.AreEqual(expectedMessage, e.Message);
                 return e;
             }
             Assert.Fail("Exception of type {0} should be thrown.", typeof(T));

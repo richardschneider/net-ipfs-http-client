@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace Ipfs.Api
 {
@@ -15,9 +16,9 @@ namespace Ipfs.Api
         /// <returns>
         ///   A string representing the version of the API server.  For example "0.3.8-dev".
         /// </returns>
-        public string Version()
+        public Task<string> Version()
         {
-            return DoCommand("version");
+            return DoCommandAsync("version");
         }
     }
 }

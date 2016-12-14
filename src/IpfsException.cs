@@ -65,7 +65,7 @@ namespace Ipfs.Api
         ///   The <see cref="Exception"/> that is the cause of the current exception.
         /// </param>
         public IpfsException(Exception innerException)
-            : base(GetMessage(innerException), innerException)
+            : base(defaultMessage, innerException)
         {
         }
 
@@ -87,29 +87,6 @@ namespace Ipfs.Api
         {
         }
 
-        /// <summary>
-        ///   The API server returns an JSON error in the form <c>{ "Message": "...", "Code": ... }</c>.
-        /// </summary>
-        static string GetMessage(Exception e)
-        {
-            var we = e as WebException;
-            if (we == null || we.Response == null || we.Response.ContentType != "application/json")
-                return defaultMessage;
-            var response = we.Response as HttpWebResponse;
-            if (response == null)
-                return defaultMessage;
-
-            var encoding = response.CharacterSet == ""
-                ? Encoding.UTF8
-                : Encoding.GetEncoding(response.CharacterSet);
-
-            using (var stream = response.GetResponseStream())
-            {
-                var reader = new StreamReader(stream, encoding);
-                var json = reader.ReadToEnd();
-                return JsonConvert.DeserializeObject<dynamic>(json).Message;
-            }
-        }
     }
 }
 

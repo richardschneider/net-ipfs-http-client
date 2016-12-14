@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Net;
 using System.Reflection;
-using System.Web;
 using Newtonsoft.Json;
 using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Net;
 
 namespace Ipfs.Api
 {
@@ -19,9 +20,15 @@ namespace Ipfs.Api
     /// </remarks>
     /// <seealso href="https://ipfs.io/docs/api/">IPFS API</seealso>
     /// <seealso href="https://ipfs.io/docs/commands/">IPFS commands</seealso>
+    /// <remarks>
+    ///   <b>IpfsClient</b> is thread safe, only one instance is required
+    ///   by the application.
+    /// </remarks>
     public partial class IpfsClient
     {
         static ILog log = LogManager.GetCurrentClassLogger();
+        static object safe = new object();
+        static HttpClient api = null;
 
         /// <summary>
         ///   The default URL to the IPFS API server.  The default is "http://localhost:5001".
@@ -83,7 +90,7 @@ namespace Ipfs.Api
             if (arg != null)
             {
                 q.Append("&arg=");
-                q.Append(HttpUtility.UrlEncode(arg));
+                q.Append(WebUtility.UrlEncode(arg));
             }
 
             foreach (var option in options)
@@ -98,7 +105,7 @@ namespace Ipfs.Api
                 {
                     q.Append(option.Substring(0, i));
                     q.Append('=');
-                    q.Append(HttpUtility.UrlEncode(option.Substring(i + 1)));
+                    q.Append(WebUtility.UrlEncode(option.Substring(i + 1)));
                 }
             }
 
@@ -112,13 +119,28 @@ namespace Ipfs.Api
             return new Uri(ApiUri, url);
         }
 
-        WebClient Api()
+        /// <summary>
+        ///   Get the IPFS API.
+        /// </summary>
+        /// <returns>
+        ///   A <see cref="HttpClient"/>.
+        /// </returns>
+        /// <remarks>
+        ///   Only one client is needed.  Its thread safe.
+        /// </remarks>
+        HttpClient Api()
         {
-            var api = new WebClient
+            if (api == null)
             {
-                Encoding = Encoding.UTF8
-            };
-            api.Headers["User-Agent"] = UserAgent;
+                lock (safe)
+                {
+                    if (api == null)
+                    {
+                        api = new HttpClient();
+                        api.DefaultRequestHeaders.Add("User-Agent", UserAgent);
+                    }
+                }
+            }
             return api;
         }
 
@@ -138,17 +160,25 @@ namespace Ipfs.Api
         /// <returns>
         ///   A string representation of the command's result.
         /// </returns>
-        public string DoCommand(string command, string arg = null, params string[] options)
+        public async Task<string> DoCommandAsync(string command, string arg = null, params string[] options)
         {
             try
             {
                 var url = BuildCommand(command, arg, options);
                 if (log.IsDebugEnabled)
                     log.Debug("GET " + url.ToString());
-                var s = Api().DownloadString(url);
-                if (log.IsDebugEnabled)
-                    log.Debug("RSP " + s);
-                return s;
+                using (var response = await Api().GetAsync(url))
+                {
+                    await ThrowOnError(response);
+                    var body = await response.Content.ReadAsStringAsync();
+                    if (log.IsDebugEnabled)
+                        log.Debug("RSP " + body);
+                    return body;
+                }
+            }
+            catch (IpfsException)
+            {
+                throw;
             }
             catch (Exception e)
             {
@@ -180,10 +210,98 @@ namespace Ipfs.Api
         ///   The command's response is converted to <typeparamref name="T"/> using
         ///   <c>JsonConvert</c>.
         /// </remarks>
+        public async Task<T> DoCommandAsync<T>(string command, string arg = null, params string[] options)
+        {
+            var json = await DoCommandAsync(command, arg, options);
+            return JsonConvert.DeserializeObject<T>(json);
+        }
+
+        /// <summary>
+        ///  Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a
+        ///  <see cref="Stream"/>.
+        /// </summary>
+        /// <param name="command">
+        ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+        ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
+        /// </param>
+        /// <param name="arg">
+        ///   The optional argument to the command.
+        /// </param>
+        /// <param name="options">
+        ///   The optional flags to the command.
+        /// </param>
+        /// <returns>
+        ///   A <see cref="Stream"/> containing the command's result.
+        /// </returns>
+        public async Task<Stream> DownloadAsync(string command, string arg = null, params string[] options)
+        {
+            try
+            {
+                var url = BuildCommand(command, arg, options);
+                if (log.IsDebugEnabled)
+                    log.Debug("GET " + url.ToString());
+                var response = await Api().GetAsync(url);
+                await ThrowOnError(response);
+                return await response.Content.ReadAsStreamAsync();
+            }
+            catch (IpfsException)
+            {
+                throw;
+            }
+            catch (Exception e)
+            {
+                throw new IpfsException(e);
+            }
+        }
+
+        /// <summary>
+        ///  Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a string.
+        /// </summary>
+        /// <param name="command">
+        ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+        ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
+        /// </param>
+        /// <param name="arg">
+        ///   The optional argument to the command.
+        /// </param>
+        /// <param name="options">
+        ///   The optional flags to the command.
+        /// </param>
+        /// <returns>
+        ///   A string representation of the command's result.
+        /// </returns>
+        public string DoCommand(string command, string arg = null, params string[] options)
+        {
+            return DoCommandAsync(command, arg, options).Result;
+        }
+
+        /// <summary>
+        ///   Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning 
+        ///   a specific <see cref="Type"/>.
+        /// </summary>
+        /// <typeparam name="T">
+        ///   The <see cref="Type"/> of object to return.
+        /// </typeparam>
+        /// <param name="command">
+        ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+        ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
+        /// </param>
+        /// <param name="arg">
+        ///   The optional argument to the command.
+        /// </param>
+        /// <param name="options">
+        ///   The optional flags to the command.
+        /// </param>
+        /// <returns>
+        ///   A <typeparamref name="T"/>.
+        /// </returns>
+        /// <remarks>
+        ///   The command's response is converted to <typeparamref name="T"/> using
+        ///   <c>JsonConvert</c>.
+        /// </remarks>
         public T DoCommand<T>(string command, string arg = null, params string[] options)
         {
-            var json = DoCommand(command, arg, options);
-            return JsonConvert.DeserializeObject<T>(json);
+            return DoCommandAsync<T>(command, arg, options).Result;
         }
 
         /// <summary>
@@ -205,18 +323,30 @@ namespace Ipfs.Api
         /// </returns>
         public Stream Download(string command, string arg = null, params string[] options)
         {
-            try
-            {
-                var url = BuildCommand(command, arg, options);
-                if (log.IsDebugEnabled)
-                    log.Debug("GET " + url.ToString());
-                return Api().OpenRead(url);
-            }
-            catch (Exception e)
-            {
-                throw new IpfsException(e);
-            }
+            return DownloadAsync(command, arg, options).Result;
         }
-    
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="response"></param>
+        /// <returns></returns>
+        /// <remarks>
+        ///   The API server returns an JSON error in the form <c>{ "Message": "...", "Code": ... }</c>.
+        /// </remarks>
+        async Task<bool> ThrowOnError(HttpResponseMessage response)
+        {
+            if (response.IsSuccessStatusCode)
+                return true; ;
+            if (response.StatusCode == HttpStatusCode.NotFound)
+                throw new IpfsException("Invalid command");
+
+            var body = await response.Content.ReadAsStringAsync();
+            if (log.IsDebugEnabled)
+                log.Debug("ERR " + body);
+            var message = (string)JsonConvert.DeserializeObject<dynamic>(body).Message;
+            throw new IpfsException(message);
+        }
+
     }
 }
