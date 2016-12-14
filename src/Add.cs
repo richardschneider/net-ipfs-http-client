@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json.Linq;
 
 namespace Ipfs.Api
 {
@@ -12,16 +16,16 @@ namespace Ipfs.Api
         ///   Add a file to the interplanetary file system.
         /// </summary>
         /// <param name="path"></param>
-        public MerkleNode AddFile(string path)
+        public Task<MerkleNode> AddFileAsync(string path)
         {
-            throw new NotImplementedException();
+            return AddAsync(new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read));
         }
 
         /// <summary>
         ///   Add a directory and its files to the interplanetary file system.
         /// </summary>
         /// <param name="path"></param>
-        public MerkleNode AddDirectory(string path, bool recursive = true)
+        public Task<MerkleNode> AddDirectoryAsync(string path, bool recursive = true)
         {
             throw new NotImplementedException();
         }
@@ -30,18 +34,32 @@ namespace Ipfs.Api
         ///   Add some text to the interplanetary file system.
         /// </summary>
         /// <param name="text"></param>
-        public MerkleNode AddText(string text)
+        public Task<MerkleNode> AddTextAsync(string text)
         {
-            throw new NotImplementedException();
+            return AddAsync(new MemoryStream(Encoding.UTF8.GetBytes(text)));
         }
 
         /// <summary>
         ///   Add a <see cref="Stream"/> to interplanetary file system.
         /// </summary>
-        /// <param name="s"></param>
-        public MerkleNode Add(Stream s)
+        /// <param name="stream"></param>
+        public async Task<MerkleNode> AddAsync(Stream stream)
         {
-            throw new NotImplementedException();
+            var content = new MultipartFormDataContent();
+            var streamContent = new StreamContent(stream);
+            streamContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+            content.Add(streamContent, "file");
+
+            var url = BuildCommand("add");
+            if (log.IsDebugEnabled)
+                log.Debug("POST " + url.ToString());
+            var response = await Api().PostAsync(url, content);
+            var json = await response.Content.ReadAsStringAsync();
+            if (log.IsDebugEnabled)
+                log.Debug("RSP " + json);
+            var r = JObject.Parse(json);
+
+            return new MerkleNode((string)r["Hash"]);
         }
     }
 }
