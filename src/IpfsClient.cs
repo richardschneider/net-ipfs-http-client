@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace Ipfs.Api
 {
@@ -167,10 +168,18 @@ namespace Ipfs.Api
                 var url = BuildCommand(command, arg, options);
                 if (log.IsDebugEnabled)
                     log.Debug("GET " + url.ToString());
-                var s = await Api().GetStringAsync(url);
-                if (log.IsDebugEnabled)
-                    log.Debug("RSP " + s);
-                return s;
+                using (var response = await Api().GetAsync(url))
+                {
+                    await ThrowOnError(response);
+                    var body = await response.Content.ReadAsStringAsync();
+                    if (log.IsDebugEnabled)
+                        log.Debug("RSP " + body);
+                    return body;
+                }
+            }
+            catch (IpfsException)
+            {
+                throw;
             }
             catch (Exception e)
             {
@@ -225,12 +234,25 @@ namespace Ipfs.Api
         /// <returns>
         ///   A <see cref="Stream"/> containing the command's result.
         /// </returns>
-        public Task<Stream> DownloadAsync(string command, string arg = null, params string[] options)
+        public async Task<Stream> DownloadAsync(string command, string arg = null, params string[] options)
         {
-            var url = BuildCommand(command, arg, options);
-            if (log.IsDebugEnabled)
-                log.Debug("GET " + url.ToString());
-            return Api().GetStreamAsync(url);
+            try
+            {
+                var url = BuildCommand(command, arg, options);
+                if (log.IsDebugEnabled)
+                    log.Debug("GET " + url.ToString());
+                var response = await Api().GetAsync(url);
+                await ThrowOnError(response);
+                return await response.Content.ReadAsStreamAsync();
+            }
+            catch (IpfsException)
+            {
+                throw;
+            }
+            catch (Exception e)
+            {
+                throw new IpfsException(e);
+            }
         }
 
         /// <summary>
@@ -304,6 +326,28 @@ namespace Ipfs.Api
         {
             return DownloadAsync(command, arg, options).Result;
         }
-    
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="response"></param>
+        /// <returns></returns>
+        /// <remarks>
+        ///   The API server returns an JSON error in the form <c>{ "Message": "...", "Code": ... }</c>.
+        /// </remarks>
+        async Task<bool> ThrowOnError(HttpResponseMessage response)
+        {
+            if (response.IsSuccessStatusCode)
+                return true; ;
+            if (response.StatusCode == HttpStatusCode.NotFound)
+                throw new IpfsException("Invalid command");
+
+            var body = await response.Content.ReadAsStringAsync();
+            if (log.IsDebugEnabled)
+                log.Debug("ERR " + body);
+            var message = (string)JsonConvert.DeserializeObject<dynamic>(body).Message;
+            throw new IpfsException(message);
+        }
+
     }
 }

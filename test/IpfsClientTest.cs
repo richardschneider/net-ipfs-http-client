@@ -39,7 +39,7 @@ namespace Ipfs.Api
         {
             IpfsClient target = new IpfsClient();
             object unknown;
-            ExceptionAssert.Throws<IpfsException>(() => unknown = target.DoCommandAsync("foobar").Result);
+            ExceptionAssert.Throws<IpfsException>(() => unknown = target.DoCommandAsync("foobar").Result, "Invalid command");
 
         }
 

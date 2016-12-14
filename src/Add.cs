@@ -50,16 +50,30 @@ namespace Ipfs.Api
             streamContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
             content.Add(streamContent, "file");
 
-            var url = BuildCommand("add");
-            if (log.IsDebugEnabled)
-                log.Debug("POST " + url.ToString());
-            var response = await Api().PostAsync(url, content);
-            var json = await response.Content.ReadAsStringAsync();
-            if (log.IsDebugEnabled)
-                log.Debug("RSP " + json);
-            var r = JObject.Parse(json);
+            try
+            {
+                var url = BuildCommand("add");
+                if (log.IsDebugEnabled)
+                    log.Debug("POST " + url.ToString());
+                using (var response = await Api().PostAsync(url, content))
+                {
+                    await ThrowOnError(response);
+                    var json = await response.Content.ReadAsStringAsync();
+                    if (log.IsDebugEnabled)
+                        log.Debug("RSP " + json);
+                    var r = JObject.Parse(json);
 
-            return new MerkleNode((string)r["Hash"]);
+                    return new MerkleNode((string)r["Hash"]);
+                }
+            }
+            catch (IpfsException)
+            {
+                throw;
+            }
+            catch (Exception e)
+            {
+                throw new IpfsException(e);
+            }
         }
     }
 }
