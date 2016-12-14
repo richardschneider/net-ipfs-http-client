@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Reflection;
-using System.Web;
 using Newtonsoft.Json;
 using System.IO;
 using System.Net.Http;
@@ -91,7 +90,7 @@ namespace Ipfs.Api
             if (arg != null)
             {
                 q.Append("&arg=");
-                q.Append(HttpUtility.UrlEncode(arg));
+                q.Append(WebUtility.UrlEncode(arg));
             }
 
             foreach (var option in options)
@@ -106,7 +105,7 @@ namespace Ipfs.Api
                 {
                     q.Append(option.Substring(0, i));
                     q.Append('=');
-                    q.Append(HttpUtility.UrlEncode(option.Substring(i + 1)));
+                    q.Append(WebUtility.UrlEncode(option.Substring(i + 1)));
                 }
             }
 

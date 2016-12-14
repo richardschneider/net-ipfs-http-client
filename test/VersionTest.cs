@@ -13,7 +13,6 @@ namespace Ipfs.Api
         {
             var ipfs = new IpfsClient();
             var version = ipfs.Version().Result;
-            Console.WriteLine(version);
             Assert.IsNotNull(version);
         }
     }
