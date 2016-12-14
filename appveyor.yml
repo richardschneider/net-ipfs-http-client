@@ -30,7 +30,7 @@ nuget:
 
 before_build:
   - nuget restore
-  - ps: gitversion /output buildserver /updateAssemblyInfo >gitversion.log
+  - ps: gitversion /output buildserver /updateAssemblyInfo 
 
 platform: Any CPU
 configuration: Release
