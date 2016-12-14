@@ -31,7 +31,7 @@ namespace Ipfs.Api
             catch (T e)
             {
                 if (expectedMessage != null)
-                    Assert.AreEqual(expectedMessage, e.Message, "Wrong exception message.");
+                    Assert.AreEqual(expectedMessage, e.Message);
                 return e;
             }
             Assert.Fail("Exception of type {0} should be thrown.", typeof(T));
