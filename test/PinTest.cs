@@ -17,5 +17,20 @@ namespace Ipfs.Api
             Assert.IsTrue(ipfs.PinnedObjects.Count > 0);
         }
 
+        [TestMethod]
+        public void Pin_Add_Remove()
+        {
+            var ipfs = new IpfsClient();
+            var result = ipfs.AddTextAsync("I am pinned").Result;
+            var id = result.Hash;
+
+            ipfs.PinnedObjects.Add(id);
+            Assert.IsTrue(ipfs.PinnedObjects.Contains(id));
+
+            ipfs.PinnedObjects.Remove(id);
+            Assert.IsFalse(ipfs.PinnedObjects.Contains(id));
+        }
+
+
     }
 }

@@ -48,7 +48,30 @@ namespace Ipfs.Api
             if (obj == null)
                 throw new ArgumentNullException();
 
-            throw new NotImplementedException();
+            var recursive = "recursive=" + (obj.Mode == PinMode.Recursive).ToString().ToLowerInvariant();
+            ipfs.DoCommand("pin/add", obj.Id, recursive);
+            pins = null;
+        }
+
+        /// <summary>
+        ///   Pin an object.
+        /// </summary>
+        /// <param name="id">
+        ///   The string representation of the object's <see cref="MultiHash"/>.
+        /// </param>
+        /// <param name="recursive">
+        ///   True to also pin the object's links; False to just pin the object. Defaults to true.  
+        /// </param>
+        /// <remarks>
+        ///    Equivalent to <c>ipfs pin add <i>id</i></c>.
+        /// </remarks>
+        public void Add(string id, bool recursive = true)
+        {
+            Add(new PinnedObject
+            {
+                Id = id,
+                Mode = recursive ? PinMode.Recursive : PinMode.Direct
+            });
         }
 
         /// <summary>
@@ -66,6 +89,11 @@ namespace Ipfs.Api
         public bool Contains(PinnedObject item)
         {
             return Pins.Contains(item);
+        }
+
+        public bool Contains(string id)
+        {
+            return Pins.Any(pin => pin.Id == id);
         }
 
         /// <inheritdoc />
@@ -90,17 +118,42 @@ namespace Ipfs.Api
         }
 
         /// <summary>
-        ///    Remove the trusted peer.
+        ///    Remove the pinned object.
         /// </summary>
         /// <remarks>
-        ///    Equivalent to <c>ipfs bootstrap rm <i>peer</i></c>.
+        ///    Equivalent to <c>ipfs pin rm <i>id</i></c>.
         /// </remarks>
-        public bool Remove(PinnedObject peer)
+        public bool Remove(PinnedObject obj)
         {
-            if (peer == null)
+            if (obj == null)
                 throw new ArgumentNullException();
 
-            throw new NotImplementedException();
+            var recursive = "recursive=" + (obj.Mode == PinMode.Recursive).ToString().ToLowerInvariant();
+            ipfs.DoCommand("pin/rm", obj.Id, recursive);
+            pins = null;
+
+            return true;
+        }
+
+        /// <summary>
+        ///   Unpin an object.
+        /// </summary>
+        /// <param name="id">
+        ///   The string representation of the object's <see cref="MultiHash"/>.
+        /// </param>
+        /// <param name="recursive">
+        ///   True to also unpin the object's links; False to just unpin the object. Defaults to true.  
+        /// </param>
+        /// <remarks>
+        ///    Equivalent to <c>ipfs pin rm <i>id</i></c>.
+        /// </remarks>
+        public bool Remove(string id, bool recursive = true)
+        {
+            return Remove(new PinnedObject
+            {
+                Id = id,
+                Mode = recursive ? PinMode.Recursive : PinMode.Direct
+            });
         }
 
         /// <inheritdoc />
