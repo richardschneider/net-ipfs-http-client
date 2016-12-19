@@ -26,7 +26,7 @@ namespace Ipfs.Api
     /// </remarks>
     public partial class IpfsClient
     {
-        static ILog log = LogManager.GetCurrentClassLogger();
+        static ILog log = LogManager.GetLogger(typeof(IpfsClient));
         static object safe = new object();
         static HttpClient api = null;
 
