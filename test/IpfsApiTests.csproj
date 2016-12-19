@@ -68,6 +68,7 @@
     <Compile Include="AddTest.cs" />
     <Compile Include="MerkleNodeTest.cs" />
     <Compile Include="ExceptionAssert.cs" />
+    <Compile Include="PinTest.cs" />
     <Compile Include="TrustedPeersTest.cs" />
     <Compile Include="IdTest.cs" />
     <Compile Include="VersionTest.cs" />

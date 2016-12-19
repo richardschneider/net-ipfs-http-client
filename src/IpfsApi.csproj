@@ -64,6 +64,9 @@
     <Compile Include="Add.cs" />
     <Compile Include="IpfsException.cs" />
     <Compile Include="MerkleNode.cs" />
+    <Compile Include="PinMode.cs" />
+    <Compile Include="PinnedObject.cs" />
+    <Compile Include="PinnedCollection .cs" />
     <Compile Include="TrustedPeerCollection.cs" />
     <Compile Include="Id.cs" />
     <Compile Include="PeerNode.cs" />
