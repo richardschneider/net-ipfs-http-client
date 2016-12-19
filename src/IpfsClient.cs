@@ -44,7 +44,7 @@ namespace Ipfs.Api
             ApiUri = DefaultApiUri;
             var version = Assembly.GetExecutingAssembly().GetName().Version;
             UserAgent = string.Format("net-ipfs/{0}.{1}", version.Major, version.Minor);
-            TrustedPeers = new TruestedPeerCollection(this);
+            TrustedPeers = new TrustedPeerCollection(this);
             PinnedObjects = new PinnedCollection(this);
         }
 
@@ -82,7 +82,7 @@ namespace Ipfs.Api
         /// <remarks>
         ///   This is equilivent to <c>ipfs bootstrap list</c>.
         /// </remarks>
-        public TruestedPeerCollection TrustedPeers { get; private set; }
+        public TrustedPeerCollection TrustedPeers { get; private set; }
 
         /// <summary>
         ///   The list of objects that are permanently stored on the local host.

@@ -20,7 +20,7 @@ namespace Ipfs.Api
     ///   A series of <see cref="MultiAddress"/>.  Each address ends with an IPNS node id, for
     ///   example "/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ".
     /// </returns>
-    public class TruestedPeerCollection : ICollection<MultiAddress>
+    public class TrustedPeerCollection : ICollection<MultiAddress>
     {
         class BootstrapListResponse
         {
@@ -30,7 +30,7 @@ namespace Ipfs.Api
         IpfsClient ipfs;
         MultiAddress[] peers;
 
-        internal TruestedPeerCollection(IpfsClient ipfs)
+        internal TrustedPeerCollection(IpfsClient ipfs)
         {
             this.ipfs = ipfs;
         }
