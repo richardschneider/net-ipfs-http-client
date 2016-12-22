@@ -40,6 +40,10 @@ namespace Ipfs.Api
         ///   Creates a new instance of the <see cref="IpfsClient"/> class and sets the
         ///   default values.
         /// </summary>
+        /// <remarks>
+        ///   All methods of IpfsClient are thread safe.  Typically, only one instance is required for
+        ///   an application.
+        /// </remarks>
         public IpfsClient()
         {
             ApiUri = DefaultApiUri;
@@ -48,6 +52,7 @@ namespace Ipfs.Api
             TrustedPeers = new TrustedPeerCollection(this);
             PinnedObjects = new PinnedCollection(this);
             Block = new BlockCommand(this);
+            Config = new ConfigCommand(this);
         }
 
         /// <summary>
@@ -98,6 +103,11 @@ namespace Ipfs.Api
         ///   Provides access to the <see cref="BlockCommand">Block API</see>.
         /// </summary>
         public BlockCommand Block { get; private set; }
+
+        /// <summary>
+        ///   Provides access to the <see cref="ConfigCommand">Config API</see>.
+        /// </summary>
+        public ConfigCommand Config { get; private set; }
 
         Uri BuildCommand(string command, string arg = null, params string[] options)
         {
@@ -230,6 +240,48 @@ namespace Ipfs.Api
         {
             var json = await DoCommandAsync(command, arg, options);
             return JsonConvert.DeserializeObject<T>(json);
+        }
+
+        /// <summary>
+        ///  Post an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a string.
+        /// </summary>
+        /// <param name="command">
+        ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+        ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
+        /// </param>
+        /// <param name="arg">
+        ///   The optional argument to the command.
+        /// </param>
+        /// <param name="options">
+        ///   The optional flags to the command.
+        /// </param>
+        /// <returns>
+        ///   A string representation of the command's result.
+        /// </returns>
+        public async Task<string> PostCommandAsync(string command, string arg = null, params string[] options)
+        {
+            try
+            {
+                var url = BuildCommand(command, arg, options);
+                if (log.IsDebugEnabled)
+                    log.Debug("POST " + url.ToString());
+                using (var response = await Api().PostAsync(url, null))
+                {
+                    await ThrowOnError(response);
+                    var body = await response.Content.ReadAsStringAsync();
+                    if (log.IsDebugEnabled)
+                        log.Debug("RSP " + body);
+                    return body;
+                }
+            }
+            catch (IpfsException)
+            {
+                throw;
+            }
+            catch (Exception e)
+            {
+                throw new IpfsException(e);
+            }
         }
 
         /// <summary>
