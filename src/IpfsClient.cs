@@ -9,6 +9,7 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net;
+using System.Net.Http.Headers;
 
 namespace Ipfs.Api
 {
@@ -46,6 +47,7 @@ namespace Ipfs.Api
             UserAgent = string.Format("net-ipfs/{0}.{1}", version.Major, version.Minor);
             TrustedPeers = new TrustedPeerCollection(this);
             PinnedObjects = new PinnedCollection(this);
+            Block = new BlockCommand(this);
         }
 
         /// <summary>
@@ -91,6 +93,11 @@ namespace Ipfs.Api
         ///   This is equilivent to <c>ipfs pin ls</c>.
         /// </remarks>
         public PinnedCollection PinnedObjects { get; private set; }
+
+        /// <summary>
+        ///   Provides access to the <see cref="BlockCommand">Block API</see>.
+        /// </summary>
+        public BlockCommand Block { get; private set; }
 
         Uri BuildCommand(string command, string arg = null, params string[] options)
         {
@@ -252,6 +259,112 @@ namespace Ipfs.Api
                 var response = await Api().GetAsync(url);
                 await ThrowOnError(response);
                 return await response.Content.ReadAsStreamAsync();
+            }
+            catch (IpfsException)
+            {
+                throw;
+            }
+            catch (Exception e)
+            {
+                throw new IpfsException(e);
+            }
+        }
+
+        /// <summary>
+        ///  Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a
+        ///  a byte array.
+        /// </summary>
+        /// <param name="command">
+        ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+        ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
+        /// </param>
+        /// <param name="arg">
+        ///   The optional argument to the command.
+        /// </param>
+        /// <param name="options">
+        ///   The optional flags to the command.
+        /// </param>
+        /// <returns>
+        ///   A byte arra> containing the command's result.
+        /// </returns>
+        public async Task<byte[]> DownloadBytesAsync(string command, string arg = null, params string[] options)
+        {
+            try
+            {
+                var url = BuildCommand(command, arg, options);
+                if (log.IsDebugEnabled)
+                    log.Debug("GET " + url.ToString());
+                var response = await Api().GetAsync(url);
+                await ThrowOnError(response);
+                return await response.Content.ReadAsByteArrayAsync();
+            }
+            catch (IpfsException)
+            {
+                throw;
+            }
+            catch (Exception e)
+            {
+                throw new IpfsException(e);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="command"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public async Task<String> UploadAsync(string command, Stream data)
+        {
+            var content = new MultipartFormDataContent();
+            var streamContent = new StreamContent(data);
+            streamContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+            content.Add(streamContent, "file");
+
+            try
+            {
+                var url = BuildCommand(command);
+                if (log.IsDebugEnabled)
+                    log.Debug("POST " + url.ToString());
+                using (var response = await Api().PostAsync(url, content))
+                {
+                    await ThrowOnError(response);
+                    var json = await response.Content.ReadAsStringAsync();
+                    if (log.IsDebugEnabled)
+                        log.Debug("RSP " + json);
+                    return json;
+                }
+            }
+            catch (IpfsException)
+            {
+                throw;
+            }
+            catch (Exception e)
+            {
+                throw new IpfsException(e);
+            }
+        }
+
+        public async Task<String> UploadAsync(string command, byte[] data)
+        {
+            var content = new MultipartFormDataContent();
+            var streamContent = new ByteArrayContent(data);
+            streamContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+            content.Add(streamContent, "file");
+
+            try
+            {
+                var url = BuildCommand(command);
+                if (log.IsDebugEnabled)
+                    log.Debug("POST " + url.ToString());
+                using (var response = await Api().PostAsync(url, content))
+                {
+                    await ThrowOnError(response);
+                    var json = await response.Content.ReadAsStringAsync();
+                    if (log.IsDebugEnabled)
+                        log.Debug("RSP " + json);
+                    return json;
+                }
             }
             catch (IpfsException)
             {

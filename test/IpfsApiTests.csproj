@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddTest.cs" />
+    <Compile Include="Commands\BlockTest.cs" />
     <Compile Include="MerkleNodeTest.cs" />
     <Compile Include="ExceptionAssert.cs" />
     <Compile Include="PinTest.cs" />

@@ -45,35 +45,9 @@ namespace Ipfs.Api
         /// <param name="stream"></param>
         public async Task<MerkleNode> AddAsync(Stream stream)
         {
-            var content = new MultipartFormDataContent();
-            var streamContent = new StreamContent(stream);
-            streamContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-            content.Add(streamContent, "file");
-
-            try
-            {
-                var url = BuildCommand("add");
-                if (log.IsDebugEnabled)
-                    log.Debug("POST " + url.ToString());
-                using (var response = await Api().PostAsync(url, content))
-                {
-                    await ThrowOnError(response);
-                    var json = await response.Content.ReadAsStringAsync();
-                    if (log.IsDebugEnabled)
-                        log.Debug("RSP " + json);
-                    var r = JObject.Parse(json);
-
-                    return new MerkleNode((string)r["Hash"]);
-                }
-            }
-            catch (IpfsException)
-            {
-                throw;
-            }
-            catch (Exception e)
-            {
-                throw new IpfsException(e);
-            }
+            var json = await UploadAsync("add", stream);
+            var r = JObject.Parse(json);
+            return new MerkleNode((string)r["Hash"]);
         }
     }
 }
