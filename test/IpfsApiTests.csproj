@@ -70,14 +70,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddTest.cs" />
+    <Compile Include="Commands\GenericTest.cs" />
     <Compile Include="Commands\ConfigTest.cs" />
     <Compile Include="Commands\BlockTest.cs" />
     <Compile Include="MerkleNodeTest.cs" />
     <Compile Include="ExceptionAssert.cs" />
     <Compile Include="PinTest.cs" />
     <Compile Include="TrustedPeersTest.cs" />
-    <Compile Include="IdTest.cs" />
-    <Compile Include="VersionTest.cs" />
     <Compile Include="IpfsClientTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

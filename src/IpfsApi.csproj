@@ -70,9 +70,8 @@
     <Compile Include="PinnedObject.cs" />
     <Compile Include="PinnedCollection .cs" />
     <Compile Include="TrustedPeerCollection.cs" />
-    <Compile Include="Id.cs" />
+    <Compile Include="Commands\GenericApi.cs" />
     <Compile Include="PeerNode.cs" />
-    <Compile Include="Version.cs" />
     <Compile Include="IpfsClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
