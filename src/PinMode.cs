@@ -28,8 +28,8 @@ namespace Ipfs.Api
         Indirect = 4,
 
         /// <summary>
-        ///   Any 
+        ///   All 
         /// </summary>
-        Any = 7
+        All = 7
     }
 }

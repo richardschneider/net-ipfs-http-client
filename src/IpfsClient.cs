@@ -53,6 +53,7 @@ namespace Ipfs.Api
             PinnedObjects = new PinnedCollection(this);
             Block = new BlockCommand(this);
             Config = new ConfigCommand(this);
+            Pin = new PinApi(this);
         }
 
         /// <summary>
@@ -108,6 +109,11 @@ namespace Ipfs.Api
         ///   Provides access to the <see cref="ConfigCommand">Config API</see>.
         /// </summary>
         public ConfigCommand Config { get; private set; }
+
+        /// <summary>
+        ///   Provides access to the <see cref="BlockCommand">Block API</see>.
+        /// </summary>
+        public PinApi Pin { get; private set; }
 
         Uri BuildCommand(string command, string arg = null, params string[] options)
         {

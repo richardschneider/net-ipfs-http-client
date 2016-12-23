@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddTest.cs" />
+    <Compile Include="Commands\PinTest.cs" />
     <Compile Include="Commands\GenericTest.cs" />
     <Compile Include="Commands\ConfigTest.cs" />
     <Compile Include="Commands\BlockTest.cs" />
