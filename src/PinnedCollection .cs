@@ -47,9 +47,7 @@ namespace Ipfs.Api
         {
             if (obj == null)
                 throw new ArgumentNullException();
-
-            var recursive = "recursive=" + (obj.Mode == PinMode.Recursive).ToString().ToLowerInvariant();
-            ipfs.DoCommand("pin/add", obj.Id, recursive);
+            var _ = ipfs.Pin.AddAsync(obj.Id, obj.Mode == PinMode.Recursive).Result;
             pins = null;
         }
 
@@ -128,11 +126,9 @@ namespace Ipfs.Api
             if (obj == null)
                 throw new ArgumentNullException();
 
-            var recursive = "recursive=" + (obj.Mode == PinMode.Recursive).ToString().ToLowerInvariant();
-            ipfs.DoCommand("pin/rm", obj.Id, recursive);
+            var unpins = ipfs.Pin.RemoveAsync(obj.Id, obj.Mode == PinMode.Recursive).Result;
             pins = null;
-
-            return true;
+            return unpins.Any(p => p.Id == obj.Id);
         }
 
         /// <summary>
@@ -169,20 +165,11 @@ namespace Ipfs.Api
         }
 
         /// <summary>
-        ///   Ask IPFS for the pinned the objects.
+        ///   Ask IPFS for the pinned objects.
         /// </summary>
         public void Refresh()
         {
-            var json = ipfs.DoCommand("pin/ls");
-            var keys = (JObject) (JObject.Parse(json)["Keys"]);
-            pins = keys
-                .Properties()
-                .Select(p => new PinnedObject
-                {
-                    Id = p.Name,
-                    Mode = (PinMode)Enum.Parse(typeof(PinMode), (string) keys[p.Name]["Type"], true)
-                })
-                .ToArray();
-         }
+            pins = ipfs.Pin.ListAsync().Result;
+        }
     }
 }
