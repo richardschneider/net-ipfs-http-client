@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Add.cs" />
+    <Compile Include="Commands\DhtApi.cs" />
     <Compile Include="Commands\PinApi.cs" />
     <Compile Include="Commands\ConfigCommand.cs" />
     <Compile Include="Commands\BlockCommand.cs" />

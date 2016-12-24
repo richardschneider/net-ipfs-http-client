@@ -54,6 +54,7 @@ namespace Ipfs.Api
             Block = new BlockCommand(this);
             Config = new ConfigCommand(this);
             Pin = new PinApi(this);
+            Dht = new DhtApi(this);
         }
 
         /// <summary>
@@ -111,9 +112,14 @@ namespace Ipfs.Api
         public ConfigCommand Config { get; private set; }
 
         /// <summary>
-        ///   Provides access to the <see cref="BlockCommand">Block API</see>.
+        ///   Provides access to the <see cref="PinApi">Pin API</see>.
         /// </summary>
         public PinApi Pin { get; private set; }
+
+        /// <summary>
+        ///   Provides access to the <see cref="DhtApi">Distributed Hash Table API</see>.
+        /// </summary>
+        public DhtApi Dht { get; private set; }
 
         Uri BuildCommand(string command, string arg = null, params string[] options)
         {
@@ -279,6 +285,43 @@ namespace Ipfs.Api
                         log.Debug("RSP " + body);
                     return body;
                 }
+            }
+            catch (IpfsException)
+            {
+                throw;
+            }
+            catch (Exception e)
+            {
+                throw new IpfsException(e);
+            }
+        }
+
+        /// <summary>
+        ///  Post an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a string.
+        /// </summary>
+        /// <param name="command">
+        ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+        ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
+        /// </param>
+        /// <param name="arg">
+        ///   The optional argument to the command.
+        /// </param>
+        /// <param name="options">
+        ///   The optional flags to the command.
+        /// </param>
+        /// <returns>
+        ///   A <see cref="Stream"/> containing the command's result.
+        /// </returns>
+        public async Task<Stream> PostDownloadAsync(string command, string arg = null, params string[] options)
+        {
+            try
+            {
+                var url = BuildCommand(command, arg, options);
+                if (log.IsDebugEnabled)
+                    log.Debug("POST " + url.ToString());
+                var response = await Api().PostAsync(url, null);
+                await ThrowOnError(response);
+                return await response.Content.ReadAsStreamAsync();
             }
             catch (IpfsException)
             {
