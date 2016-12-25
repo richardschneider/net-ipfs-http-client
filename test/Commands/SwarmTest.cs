@@ -49,7 +49,7 @@ namespace Ipfs.Api
                 .Select(async p =>
                 {
                     var peer = await ipfs.Id(p.Id);
-                    Assert.AreNotEqual("", peer.ProtocolVersion);
+                    Assert.AreNotEqual("", peer.PublicKey);
                 }));
         }
 
