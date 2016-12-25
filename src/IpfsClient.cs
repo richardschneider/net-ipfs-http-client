@@ -55,6 +55,7 @@ namespace Ipfs.Api
             Config = new ConfigCommand(this);
             Pin = new PinApi(this);
             Dht = new DhtApi(this);
+            Swarm = new SwarmApi(this);
         }
 
         /// <summary>
@@ -120,6 +121,11 @@ namespace Ipfs.Api
         ///   Provides access to the <see cref="DhtApi">Distributed Hash Table API</see>.
         /// </summary>
         public DhtApi Dht { get; private set; }
+
+        /// <summary>
+        ///   Provides access to the <see cref="SwarmApi">Swarm API</see>.
+        /// </summary>
+        public SwarmApi Swarm { get; private set; }
 
         Uri BuildCommand(string command, string arg = null, params string[] options)
         {
