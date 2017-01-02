@@ -56,6 +56,7 @@ namespace Ipfs.Api
             Pin = new PinApi(this);
             Dht = new DhtApi(this);
             Swarm = new SwarmApi(this);
+            Dag = new DagApi(this);
         }
 
         /// <summary>
@@ -116,6 +117,11 @@ namespace Ipfs.Api
         ///   Provides access to the <see cref="PinApi">Pin API</see>.
         /// </summary>
         public PinApi Pin { get; private set; }
+
+        /// <summary>
+        ///   Provides access to the <see cref="DagApi">DAG API</see>.
+        /// </summary>
+        public DagApi Dag { get; private set; }
 
         /// <summary>
         ///   Provides access to the <see cref="DhtApi">Distributed Hash Table API</see>.
