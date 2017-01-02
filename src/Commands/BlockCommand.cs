@@ -24,7 +24,19 @@ namespace Ipfs.Api
     ///   Manages raw <see cref="Block">IPFS blocks</see>.
     /// </summary>
     /// <remarks>
+    ///   An IPFS Block is a byte sequence that represents an IPFS Object 
+    ///   (i.e. serialized byte buffers). It is useful to talk about them as "blocks" in Bitswap 
+    ///   and other things that do not care about what is being stored. 
+    ///   <para>
+    ///   It is also possible to store arbitrary stuff using ipfs block put/get as the API 
+    ///   does not check for proper IPFS Object formatting.
+    ///   </para>
+    ///   <note>
+    ///   This may be very good or bad, we haven't decided yet 😄
+    ///   </note>
+    ///   <para>
     ///   This API is accessed via the <see cref="IpfsClient.Block"/> property.
+    ///   </para>
     /// </remarks>
     /// <seealso href="https://github.com/ipfs/interface-ipfs-core/tree/master/API/block">Block API</seealso>
     public class BlockCommand
