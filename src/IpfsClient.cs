@@ -225,7 +225,7 @@ namespace Ipfs.Api
                     log.Debug("GET " + url.ToString());
                 using (var response = await Api().GetAsync(url))
                 {
-                    await ThrowOnError(response);
+                    await ThrowOnErrorAsync(response);
                     var body = await response.Content.ReadAsStringAsync();
                     if (log.IsDebugEnabled)
                         log.Debug("RSP " + body);
@@ -297,7 +297,7 @@ namespace Ipfs.Api
                     log.Debug("POST " + url.ToString());
                 using (var response = await Api().PostAsync(url, null))
                 {
-                    await ThrowOnError(response);
+                    await ThrowOnErrorAsync(response);
                     var body = await response.Content.ReadAsStringAsync();
                     if (log.IsDebugEnabled)
                         log.Debug("RSP " + body);
@@ -368,7 +368,7 @@ namespace Ipfs.Api
                 if (log.IsDebugEnabled)
                     log.Debug("POST " + url.ToString());
                 var response = await Api().PostAsync(url, null);
-                await ThrowOnError(response);
+                await ThrowOnErrorAsync(response);
                 return await response.Content.ReadAsStreamAsync();
             }
             catch (IpfsException)
@@ -406,7 +406,7 @@ namespace Ipfs.Api
                 if (log.IsDebugEnabled)
                     log.Debug("GET " + url.ToString());
                 var response = await Api().GetAsync(url);
-                await ThrowOnError(response);
+                await ThrowOnErrorAsync(response);
                 return await response.Content.ReadAsStreamAsync();
             }
             catch (IpfsException)
@@ -444,7 +444,7 @@ namespace Ipfs.Api
                 if (log.IsDebugEnabled)
                     log.Debug("GET " + url.ToString());
                 var response = await Api().GetAsync(url);
-                await ThrowOnError(response);
+                await ThrowOnErrorAsync(response);
                 return await response.Content.ReadAsByteArrayAsync();
             }
             catch (IpfsException)
@@ -477,7 +477,7 @@ namespace Ipfs.Api
                     log.Debug("POST " + url.ToString());
                 using (var response = await Api().PostAsync(url, content))
                 {
-                    await ThrowOnError(response);
+                    await ThrowOnErrorAsync(response);
                     var json = await response.Content.ReadAsStringAsync();
                     if (log.IsDebugEnabled)
                         log.Debug("RSP " + json);
@@ -508,7 +508,7 @@ namespace Ipfs.Api
                     log.Debug("POST " + url.ToString());
                 using (var response = await Api().PostAsync(url, content))
                 {
-                    await ThrowOnError(response);
+                    await ThrowOnErrorAsync(response);
                     var json = await response.Content.ReadAsStringAsync();
                     if (log.IsDebugEnabled)
                         log.Debug("RSP " + json);
@@ -605,10 +605,10 @@ namespace Ipfs.Api
         /// <remarks>
         ///   The API server returns an JSON error in the form <c>{ "Message": "...", "Code": ... }</c>.
         /// </remarks>
-        async Task<bool> ThrowOnError(HttpResponseMessage response)
+        async Task<bool> ThrowOnErrorAsync(HttpResponseMessage response)
         {
             if (response.IsSuccessStatusCode)
-                return true; ;
+                return true;
             if (response.StatusCode == HttpStatusCode.NotFound)
                 throw new IpfsException("Invalid command");
 

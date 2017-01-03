@@ -34,7 +34,7 @@ namespace Ipfs.Api
         ///   Get the peers in the current swarm.
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<PeerNode>> Addresses()
+        public async Task<IEnumerable<PeerNode>> AddressesAsync()
         {
             var json = await ipfs.DoCommandAsync("swarm/addrs");
             return ((JObject)JObject.Parse(json)["Addrs"])
@@ -53,7 +53,7 @@ namespace Ipfs.Api
         /// <returns>
         ///   A sequence of <see cref="ConnectedPeer">Connected Peers</see>.
         /// </returns>
-        public async Task<IEnumerable<ConnectedPeer>> Peers()
+        public async Task<IEnumerable<ConnectedPeer>> PeersAsync()
         {
             var json = await ipfs.DoCommandAsync("swarm/peers", null, "verbose=true");
             var result = JObject.Parse(json);
@@ -99,7 +99,7 @@ namespace Ipfs.Api
         ///   An ipfs <see cref="MultiAddress"/>, such as
         ///  <c>/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ</c>.
         /// </param>
-        public async Task Connect(MultiAddress address)
+        public async Task ConnectAsync(MultiAddress address)
         {
             await ipfs.DoCommandAsync("swarm/connect", address.ToString());
         }
@@ -111,7 +111,7 @@ namespace Ipfs.Api
         ///   An ipfs <see cref="MultiAddress"/>, such as
         ///  <c>/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ</c>.
         /// </param>
-        public async Task Disconnect(MultiAddress address)
+        public async Task DisconnectAsync(MultiAddress address)
         {
             await ipfs.DoCommandAsync("swarm/disconnect", address.ToString());
         }

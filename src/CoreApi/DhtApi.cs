@@ -41,7 +41,7 @@ namespace Ipfs.Api
         /// </param>
         public Task<PeerNode> FindPeerAsync(string id)
         {
-            return ipfs.Id(id);
+            return ipfs.IdAsync(id);
         }
 
         /// <summary>

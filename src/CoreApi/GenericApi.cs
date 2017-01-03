@@ -20,7 +20,7 @@ namespace Ipfs.Api
         /// </param>
         /// <returns>
         /// </returns>
-        public Task<PeerNode> Id(string peer = null)
+        public Task<PeerNode> IdAsync(string peer = null)
         {
             return DoCommandAsync<PeerNode>("id", peer);
         }
@@ -28,7 +28,7 @@ namespace Ipfs.Api
         /// <summary>
         ///   Get the version information of the API server.
         /// </summary>
-        public Task<Dictionary<string, string>> Version()
+        public Task<Dictionary<string, string>> VersionAsync()
         {
             return DoCommandAsync<Dictionary<string, string>>("version");
         }

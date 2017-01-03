@@ -14,7 +14,7 @@ namespace Ipfs.Api
         public void Local_Node_Info()
         {
             var ipfs = new IpfsClient();
-            var node = ipfs.Id().Result;
+            var node = ipfs.IdAsync().Result;
             Assert.IsInstanceOfType(node, typeof(PeerNode));
         }
 
@@ -22,7 +22,7 @@ namespace Ipfs.Api
         public void Mars_Node_Info()
         {
             var ipfs = new IpfsClient();
-            var node = ipfs.Id(marsId).Result;
+            var node = ipfs.IdAsync(marsId).Result;
             Assert.IsInstanceOfType(node, typeof(PeerNode));
         }
 
@@ -30,7 +30,7 @@ namespace Ipfs.Api
         public void Version_Info()
         {
             var ipfs = new IpfsClient();
-            var versions = ipfs.Version().Result;
+            var versions = ipfs.VersionAsync().Result;
             Assert.IsNotNull(versions);
             Assert.IsTrue(versions.ContainsKey("Version"));
             Assert.IsTrue(versions.ContainsKey("Repo"));
