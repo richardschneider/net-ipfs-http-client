@@ -15,6 +15,10 @@ namespace Ipfs.Api
     ///   Manages the Directed Acrylic Graph.
     /// </summary>
     /// <remarks>
+    ///   <note>
+    ///   The Dag API seems to be a work in progress.  There are no tests nor implemtations
+    ///   of it.  All methods throw <see cref="NotImplementedException"/>.
+    ///   </note>
     ///   <para>
     ///   This API is accessed via the <see cref="IpfsClient.DagApi"/> property.
     ///   </para>
@@ -22,7 +26,7 @@ namespace Ipfs.Api
     /// <seealso href="https://github.com/ipfs/interface-ipfs-core/tree/master/API/dag">DAG API</seealso>
     public class DagApi
     {
-        static ILog log = LogManager.GetLogger<DhtApi>();
+        static ILog log = LogManager.GetLogger<DagApi>();
 
         IpfsClient ipfs;
 

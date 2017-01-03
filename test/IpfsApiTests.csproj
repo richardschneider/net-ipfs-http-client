@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddTest.cs" />
+    <Compile Include="Commands\ObjectTest.cs" />
     <Compile Include="Commands\SwarmTest.cs" />
     <Compile Include="Commands\DhtTest.cs" />
     <Compile Include="Commands\PinTest.cs" />

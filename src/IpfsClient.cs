@@ -57,6 +57,7 @@ namespace Ipfs.Api
             Dht = new DhtApi(this);
             Swarm = new SwarmApi(this);
             Dag = new DagApi(this);
+            Object = new ObjectApi(this);
         }
 
         /// <summary>
@@ -132,6 +133,11 @@ namespace Ipfs.Api
         ///   Provides access to the <see cref="SwarmApi">Swarm API</see>.
         /// </summary>
         public SwarmApi Swarm { get; private set; }
+
+        /// <summary>
+        ///   Provides access to the <see cref="ObjectApi">Object API</see>.
+        /// </summary>
+        public ObjectApi Object { get; private set; }
 
         Uri BuildCommand(string command, string arg = null, params string[] options)
         {
@@ -309,6 +315,36 @@ namespace Ipfs.Api
         }
 
         /// <summary>
+        ///   Post an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning 
+        ///   a specific <see cref="Type"/>.
+        /// </summary>
+        /// <typeparam name="T">
+        ///   The <see cref="Type"/> of object to return.
+        /// </typeparam>
+        /// <param name="command">
+        ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+        ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
+        /// </param>
+        /// <param name="arg">
+        ///   The optional argument to the command.
+        /// </param>
+        /// <param name="options">
+        ///   The optional flags to the command.
+        /// </param>
+        /// <returns>
+        ///   A <typeparamref name="T"/>.
+        /// </returns>
+        /// <remarks>
+        ///   The command's response is converted to <typeparamref name="T"/> using
+        ///   <c>JsonConvert</c>.
+        /// </remarks>
+        public async Task<T> PostCommandAsync<T>(string command, string arg = null, params string[] options)
+        {
+            var json = await PostCommandAsync(command, arg, options);
+            return JsonConvert.DeserializeObject<T>(json);
+        }
+
+        /// <summary>
         ///  Post an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a string.
         /// </summary>
         /// <param name="command">
@@ -427,7 +463,7 @@ namespace Ipfs.Api
         /// <param name="command"></param>
         /// <param name="data"></param>
         /// <returns></returns>
-        public async Task<String> UploadAsync(string command, Stream data)
+        public async Task<String> UploadAsync(string command, Stream data, params string[] options)
         {
             var content = new MultipartFormDataContent();
             var streamContent = new StreamContent(data);
@@ -436,7 +472,7 @@ namespace Ipfs.Api
 
             try
             {
-                var url = BuildCommand(command);
+                var url = BuildCommand(command, null, options);
                 if (log.IsDebugEnabled)
                     log.Debug("POST " + url.ToString());
                 using (var response = await Api().PostAsync(url, content))
@@ -458,7 +494,7 @@ namespace Ipfs.Api
             }
         }
 
-        public async Task<String> UploadAsync(string command, byte[] data)
+        public async Task<String> UploadAsync(string command, byte[] data, params string[] options)
         {
             var content = new MultipartFormDataContent();
             var streamContent = new ByteArrayContent(data);
@@ -467,7 +503,7 @@ namespace Ipfs.Api
 
             try
             {
-                var url = BuildCommand(command);
+                var url = BuildCommand(command, null, options);
                 if (log.IsDebugEnabled)
                     log.Debug("POST " + url.ToString());
                 using (var response = await Api().PostAsync(url, content))

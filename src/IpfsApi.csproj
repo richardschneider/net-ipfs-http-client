@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Add.cs" />
+    <Compile Include="Commands\ObjectApi.cs" />
     <Compile Include="Commands\DagApi.cs" />
     <Compile Include="Commands\SwarmApi.cs" />
     <Compile Include="Commands\DhtApi.cs" />
