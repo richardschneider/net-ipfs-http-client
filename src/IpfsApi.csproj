@@ -78,13 +78,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Add.cs" />
-    <Compile Include="Commands\ObjectApi.cs" />
-    <Compile Include="Commands\DagApi.cs" />
-    <Compile Include="Commands\SwarmApi.cs" />
-    <Compile Include="Commands\DhtApi.cs" />
-    <Compile Include="Commands\PinApi.cs" />
-    <Compile Include="Commands\ConfigCommand.cs" />
-    <Compile Include="Commands\BlockCommand.cs" />
+    <Compile Include="CoreApi\ObjectApi.cs" />
+    <Compile Include="CoreApi\DagApi.cs" />
+    <Compile Include="CoreApi\SwarmApi.cs" />
+    <Compile Include="CoreApi\DhtApi.cs" />
+    <Compile Include="CoreApi\PinApi.cs" />
+    <Compile Include="CoreApi\ConfigApi.cs" />
+    <Compile Include="CoreApi\BlockApi.cs" />
     <Compile Include="ConnectedPeer.cs" />
     <Compile Include="IpfsException.cs" />
     <Compile Include="MerkleNode.cs" />
@@ -92,7 +92,7 @@
     <Compile Include="PinnedObject.cs" />
     <Compile Include="PinnedCollection .cs" />
     <Compile Include="TrustedPeerCollection.cs" />
-    <Compile Include="Commands\GenericApi.cs" />
+    <Compile Include="CoreApi\GenericApi.cs" />
     <Compile Include="PeerNode.cs" />
     <Compile Include="IpfsClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

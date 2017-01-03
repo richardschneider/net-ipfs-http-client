@@ -20,11 +20,11 @@ namespace Ipfs.Api
     ///   </para>
     /// </remarks>
     /// <seealso href="https://github.com/ipfs/interface-ipfs-core/tree/master/API/config">Config API</seealso>
-    public class ConfigCommand
+    public class ConfigApi
     {
         IpfsClient ipfs;
 
-        internal ConfigCommand(IpfsClient ipfs)
+        internal ConfigApi(IpfsClient ipfs)
         {
             this.ipfs = ipfs;
         }

@@ -39,11 +39,11 @@ namespace Ipfs.Api
     ///   </para>
     /// </remarks>
     /// <seealso href="https://github.com/ipfs/interface-ipfs-core/tree/master/API/block">Block API</seealso>
-    public class BlockCommand
+    public class BlockApi
     {
         IpfsClient ipfs;
 
-        internal BlockCommand(IpfsClient ipfs)
+        internal BlockApi(IpfsClient ipfs)
         {
             this.ipfs = ipfs;
         }

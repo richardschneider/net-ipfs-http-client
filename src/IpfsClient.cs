@@ -51,8 +51,8 @@ namespace Ipfs.Api
             UserAgent = string.Format("net-ipfs/{0}.{1}", version.Major, version.Minor);
             TrustedPeers = new TrustedPeerCollection(this);
             PinnedObjects = new PinnedCollection(this);
-            Block = new BlockCommand(this);
-            Config = new ConfigCommand(this);
+            Block = new BlockApi(this);
+            Config = new ConfigApi(this);
             Pin = new PinApi(this);
             Dht = new DhtApi(this);
             Swarm = new SwarmApi(this);
@@ -105,14 +105,14 @@ namespace Ipfs.Api
         public PinnedCollection PinnedObjects { get; private set; }
 
         /// <summary>
-        ///   Provides access to the <see cref="BlockCommand">Block API</see>.
+        ///   Provides access to the <see cref="BlockApi">Block API</see>.
         /// </summary>
-        public BlockCommand Block { get; private set; }
+        public BlockApi Block { get; private set; }
 
         /// <summary>
-        ///   Provides access to the <see cref="ConfigCommand">Config API</see>.
+        ///   Provides access to the <see cref="ConfigApi">Config API</see>.
         /// </summary>
-        public ConfigCommand Config { get; private set; }
+        public ConfigApi Config { get; private set; }
 
         /// <summary>
         ///   Provides access to the <see cref="PinApi">Pin API</see>.
