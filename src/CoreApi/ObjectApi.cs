@@ -26,13 +26,34 @@ namespace Ipfs.Api
 
         IpfsClient ipfs;
 
+        /// <summary>
+        ///  TODO
+        /// </summary>
         public class DagInfo
         {
+            /// <summary>
+            ///  TODO
+            /// </summary>
             public string Hash { get; set; }
+            /// <summary>
+            ///  TODO
+            /// </summary>
             public int NumLinks { get; set; }
+            /// <summary>
+            ///  TODO
+            /// </summary>
             public long BlockSize { get; set; }
+            /// <summary>
+            ///  TODO
+            /// </summary>
             public long LinksSize { get; set; }
+            /// <summary>
+            ///  TODO
+            /// </summary>
             public long DataSize { get; set; }
+            /// <summary>
+            ///  TODO
+            /// </summary>
             public long CumulativeSize { get; set; }
         }
 

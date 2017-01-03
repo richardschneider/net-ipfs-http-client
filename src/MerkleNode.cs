@@ -32,6 +32,7 @@ namespace Ipfs.Api
         /// <param name="hash">
         ///   The Base58 hash of the node or "/ipfs/hash".
         /// </param>
+        /// <param name="name"></param>
         public MerkleNode(string hash, string name = null)
         {
             if (string.IsNullOrWhiteSpace(hash))
@@ -82,6 +83,9 @@ namespace Ipfs.Api
             }
         }
 
+        /// <summary>
+        ///  TODO
+        /// </summary>
         public long LinksCount
         {
             get
@@ -91,6 +95,9 @@ namespace Ipfs.Api
             }
         }
 
+        /// <summary>
+        ///  TODO
+        /// </summary>
         public IEnumerable<MerkleNode> Links
         {
             get
@@ -217,6 +224,9 @@ namespace Ipfs.Api
             return this.Hash == that.Hash;
         }
 
+        /// <summary>
+        ///  TODO
+        /// </summary>
         public static bool operator ==(MerkleNode a, MerkleNode b)
         {
             if (object.ReferenceEquals(a, b)) return true;
@@ -226,6 +236,9 @@ namespace Ipfs.Api
             return a.Equals(b);
         }
 
+        /// <summary>
+        ///  TODO
+        /// </summary>
         public static bool operator !=(MerkleNode a, MerkleNode b)
         {
             if (object.ReferenceEquals(a, b)) return false;
@@ -241,6 +254,9 @@ namespace Ipfs.Api
             return "/ipfs/" + Hash;
         }
 
+        /// <summary>
+        ///  TODO
+        /// </summary>
         static public implicit operator MerkleNode(string hash)
         {
             return new MerkleNode(hash);

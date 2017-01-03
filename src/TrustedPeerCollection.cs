@@ -14,7 +14,7 @@ namespace Ipfs.Api
     /// </summary>
     /// <remarks>
     ///   This is the list of peers that are initially trusted by IPFS. Its equivalent to the
-    ///   <see cref="https://ipfs.io/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example#/ipfs/QmThrNbvLj7afQZhxH72m5Nn1qiVn3eMKWFYV49Zp2mv9B/bootstrap/readme.md"/>ipfs bootstrap</see> command.
+    ///   <see href="https://ipfs.io/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example#/ipfs/QmThrNbvLj7afQZhxH72m5Nn1qiVn3eMKWFYV49Zp2mv9B/bootstrap/readme.md">ipfs bootstrap</see> command.
     /// </remarks>
     /// <returns>
     ///   A series of <see cref="MultiAddress"/>.  Each address ends with an IPNS node id, for

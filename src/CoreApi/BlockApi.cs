@@ -7,16 +7,35 @@ using System.Threading.Tasks;
 
 namespace Ipfs.Api
 {
-
+    /// <summary>
+    ///   
+    /// </summary>
     public class Block
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public string Hash { get; set; }
+
+        /// <summary>
+        ///  TODO
+        /// </summary>
         public byte[] Data { get; set; }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class BlockInfo
     {
+        /// <summary>
+        ///  TODO
+        /// </summary>
         public string Key { get; set; }
+
+        /// <summary>
+        ///  TODO
+        /// </summary>
         public long Size { get; set; }
     }
 

@@ -20,7 +20,7 @@ namespace Ipfs.Api
     ///   of it.  All methods throw <see cref="NotImplementedException"/>.
     ///   </note>
     ///   <para>
-    ///   This API is accessed via the <see cref="IpfsClient.DagApi"/> property.
+    ///   This API is accessed via the <see cref="IpfsClient.Dag"/> property.
     ///   </para>
     /// </remarks>
     /// <seealso href="https://github.com/ipfs/interface-ipfs-core/tree/master/API/dag">DAG API</seealso>
@@ -35,11 +35,17 @@ namespace Ipfs.Api
             this.ipfs = ipfs;
         }
 
+        /// <summary>
+        ///  TODO
+        /// </summary>
         public Task PutAsync(DagNode node, string multicodec, string hashAlgorithm = MultiHash.DefaultAlgorithmName)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        ///  TODO
+        /// </summary>
         public Task<DagNode> GetAsync(string cid)
         {
             throw new NotImplementedException();

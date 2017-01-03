@@ -462,6 +462,7 @@ namespace Ipfs.Api
         /// </summary>
         /// <param name="command"></param>
         /// <param name="data"></param>
+        /// <param name="options"></param>
         /// <returns></returns>
         public async Task<String> UploadAsync(string command, Stream data, params string[] options)
         {
@@ -494,6 +495,9 @@ namespace Ipfs.Api
             }
         }
 
+        /// <summary>
+        ///  TODO
+        /// </summary>
         public async Task<String> UploadAsync(string command, byte[] data, params string[] options)
         {
             var content = new MultipartFormDataContent();

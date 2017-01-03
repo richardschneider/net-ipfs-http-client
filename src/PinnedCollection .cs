@@ -15,7 +15,7 @@ namespace Ipfs.Api
     /// </summary>
     /// <remarks>
     ///   This is the list of objects that are permanently stored on the local host.
-    ///   <see cref="https://ipfs.io/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example#/ipfs/QmThrNbvLj7afQZhxH72m5Nn1qiVn3eMKWFYV49Zp2mv9B/pin/readme.md"/>ipfs pin</see> command.
+    ///   <see href="https://ipfs.io/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example#/ipfs/QmThrNbvLj7afQZhxH72m5Nn1qiVn3eMKWFYV49Zp2mv9B/pin/readme.md">ipfs pin</see> command.
     /// </remarks>
     /// <returns>
     ///   A series of <see cref="PinnedObject"/>.
@@ -89,6 +89,12 @@ namespace Ipfs.Api
             return Pins.Contains(item);
         }
 
+        /// <summary>
+        ///   Determines if the collection contains a <see cref="PinnedObject"/>
+        ///   with the specified id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool Contains(string id)
         {
             return Pins.Any(pin => pin.Id == id);

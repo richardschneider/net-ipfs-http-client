@@ -25,6 +25,7 @@ namespace Ipfs.Api
         ///   Add a directory and its files to the interplanetary file system.
         /// </summary>
         /// <param name="path"></param>
+        /// <param name="recursive"></param>
         public Task<MerkleNode> AddDirectoryAsync(string path, bool recursive = true)
         {
             throw new NotImplementedException();
