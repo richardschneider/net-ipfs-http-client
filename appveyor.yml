@@ -1,6 +1,16 @@
 # gitversion will change the version number
 version: x-{build}
 
+platform: Any CPU
+configuration: Release
+image: Visual Studio 2015
+
+init:
+  - git config --global core.autocrlf input
+
+cache:
+  - packages -> **\packages.config      # preserve "packages" directory in the root of build folder but will reset it if packages.config is modified
+
 environment:
   COVERALLS_REPO_TOKEN:
     secure: u109t00NLIZQyREMNUyPlMd8gCi6w3o790yT8mQnzEC0LvZyevt+04u63TQfrifC
@@ -16,24 +26,15 @@ install:
   - ipfs init
   - ps: Start-Process -FilePath "ipfs.exe" -ArgumentList "daemon"
 
+# gitversion will change the assembly info
 pull_requests:
   do_not_increment_build_number: true
-
-# gitversion will change the assembly info
 assembly_info:
   patch: false
 
-nuget:
-  account_feed: true
-  project_feed: true
-  disable_publish_on_pr: true
-
 before_build:
   - nuget restore
-  - ps: gitversion /output buildserver /updateAssemblyInfo 
-
-platform: Any CPU
-configuration: Release
+  - ps: gitversion /output buildserver /updateAssemblyInfo >gitversion.log
 
 build:
   project: IpfsApi.sln
@@ -51,6 +52,10 @@ after_test:
     - if defined COVERALLS_REPO_TOKEN packages\coveralls.net.0.6.0\tools\csmacnz.coveralls.exe --opencover -i ./coverage.xml --serviceName appveyor --jobId %APPVEYOR_BUILD_NUMBER%
 
 # publish NuGet package on tag build
+nuget:
+  account_feed: true
+  project_feed: true
+  disable_publish_on_pr: true
 deploy:
 - provider: NuGet
   api_key:
