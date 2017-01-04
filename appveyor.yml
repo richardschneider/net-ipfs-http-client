@@ -42,9 +42,13 @@ build:
   verbosity: minimal
 
 after_build:
+# Build the nuget package
   - echo %GitVersion_NuGetVersion%
   - cmd: nuget pack src\IpfsApi.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
   - cmd: appveyor PushArtifact "Ipfs.Api.%GitVersion_NuGetVersion%.nupkg"
+# Build documentation in doc\_site
+  - .\tools\docfx\docfx metadata doc\docfx.json
+  - .\tools\docfx\docfx build doc\docfx.json
 
 after_test: 
 # Generate coverage report
