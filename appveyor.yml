@@ -47,8 +47,9 @@ after_build:
   - cmd: nuget pack src\IpfsApi.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
   - cmd: appveyor PushArtifact "Ipfs.Api.%GitVersion_NuGetVersion%.nupkg"
 # Build documentation in doc\_site
-  - .\tools\docfx\docfx metadata doc\docfx.json
-  - .\tools\docfx\docfx build doc\docfx.json
+# docfx+appyeyor not working, see https://github.com/richardschneider/net-ipfs-core/wiki/Manual-build-of-documentation
+#  - .\tools\docfx\docfx metadata doc\docfx.json
+#  - .\tools\docfx\docfx build doc\docfx.json
 
 after_test: 
 # Generate coverage report
