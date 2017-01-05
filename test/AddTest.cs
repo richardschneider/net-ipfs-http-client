@@ -1,6 +1,7 @@
 ﻿using Ipfs.Api;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.IO;
 
 namespace Ipfs.Api
 {
@@ -19,9 +20,18 @@ namespace Ipfs.Api
         [TestMethod]
         public void AddFile()
         {
-            var ipfs = new IpfsClient();
-            var result = ipfs.AddFileAsync("helloworld.txt").Result; ;
-            Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", result.Hash);
+            var path = Path.GetTempFileName();
+            File.WriteAllText(path, "hello world");
+            try
+            {
+                var ipfs = new IpfsClient();
+                var result = ipfs.AddFileAsync(path).Result; ;
+                Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", result.Hash);
+            }
+            finally
+            {
+                File.Delete(path);
+            }
         }
     }
 }
