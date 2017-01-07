@@ -70,11 +70,23 @@
     <Content Include="images\docs-latest-green.svg" />
     <Content Include="images\ipfs-logo.svg" />
     <Content Include="packages.config" />
+    <Content Include="template\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="template\styles\main.css" />
     <Content Include="toc.yml" />
     <Content Include="index.md" />
     <Content Include="docfx.json" />
     <Content Include="articles\intro.md" />
+    <Content Include="template\partials\class.header.tmpl.partial" />
+    <Content Include="template\partials\class.tmpl.partial" />
+    <Content Include="template\partials\classSubtitle.tmpl.partial" />
+    <Content Include="template\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="template\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="template\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="template\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="template\fonts\Lato-Regular.eot" />
+    <Content Include="template\fonts\Lato-Regular.ttf" />
+    <Content Include="template\fonts\Lato-Regular.woff" />
+    <Content Include="template\fonts\Lato-Regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

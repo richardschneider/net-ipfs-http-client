@@ -135,27 +135,17 @@
 {{#example}}
 {{{.}}}
 {{/example}}
+
 {{#exceptions.0}}
 <h5 class="exceptions">{{__global.exceptions}}</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>{{__global.type}}</th>
-      <th>{{__global.condition}}</th>
-    </tr>
-  </thead>
-  <tbody>
 {{/exceptions.0}}
 {{#exceptions}}
-    <tr>
-      <td>{{{type.specName.0.value}}}</td>
-      <td>{{{description}}}</td>
-    </tr>
+    <div>
+      {{{type.specName.0.value}}}
+      {{{description}}}
+    </div>
 {{/exceptions}}
-{{#exceptions.0}}
-  </tbody>
-</table>
-{{/exceptions.0}}
+
 {{#seealso.0}}
 <h5 id="{{id}}_seealso">{{__global.seealso}}</h5>
 <div class="seealso">
