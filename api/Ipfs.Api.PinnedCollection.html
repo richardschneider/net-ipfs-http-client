@@ -10,9 +10,9 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PinnedCollection
    | IPFS API documentation ">
-    <meta name="generator" content="docfx 2.9.3.0">
+    <meta name="generator" content="docfx 1.0.0.0">
     
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="../images/ipfs-favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../styles/docfx.css">
     <link rel="stylesheet" href="../styles/main.css">
@@ -74,541 +74,487 @@
               <div class="markdown level0 summary"><p>A list of pinned object.</p>
 </div>
               <div class="markdown level0 conceptual"></div>
+              
+              <div class="markdown level0 remarks"><p>This is the list of objects that are permanently stored on the local host.
+<a href="https://ipfs.io/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example#/ipfs/QmThrNbvLj7afQZhxH72m5Nn1qiVn3eMKWFYV49Zp2mv9B/pin/readme.md">ipfs pin</a> command.</p>
+</div>
+              
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public class PinnedCollection : ICollection&lt;PinnedObject&gt;, IEnumerable&lt;PinnedObject&gt;, IEnumerable</code></pre>
+              </div>
+              
               <div class="inheritance">
                 <h5>Inheritance</h5>
                   <div class="level0"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></div>
                   <div class="level1"><span class="xref">PinnedCollection</span></div>
               </div>
-              <div class="inheritedMembers">
-                <h5>Inherited Members</h5>
-                <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/7bxwbwt2(v=vs.110).aspx">Object.ToString()</a>
-                </div>
-                <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/bsc2ak47(v=vs.110).aspx">Object.Equals(Object)</a>
-                </div>
-                <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/w4hkze5k(v=vs.110).aspx">Object.Equals(Object, Object)</a>
-                </div>
-                <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/hz2a0b8x(v=vs.110).aspx">Object.ReferenceEquals(Object, Object)</a>
-                </div>
-                <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/zdee4b3y(v=vs.110).aspx">Object.GetHashCode()</a>
-                </div>
-                <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/dfwy45w9(v=vs.110).aspx">Object.GetType()</a>
-                </div>
-                <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/57ctke0a(v=vs.110).aspx">Object.MemberwiseClone()</a>
-                </div>
-              </div>
-              <h6><strong>Namespace</strong>:Ipfs.Api</h6>
-              <h6><strong>Assembly</strong>:Ipfs.Api.dll</h6>
-              <h5 id="Ipfs_Api_PinnedCollection_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public class PinnedCollection : ICollection&lt;PinnedObject&gt;, IEnumerable&lt;PinnedObject&gt;, IEnumerable</code></pre>
-              </div>
-              <h5 id="Ipfs_Api_PinnedCollection_remarks"><strong>Remarks</strong></h5>
-              <div class="markdown level0 remarks"><p>This is the list of objects that are permanently stored on the local host.
-<a href="https://ipfs.io/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example#/ipfs/QmThrNbvLj7afQZhxH72m5Nn1qiVn3eMKWFYV49Zp2mv9B/pin/readme.md">ipfs pin</a> command.</p>
-</div>
+              
+              <h6><strong>Namespace</strong>: Ipfs.Api</h6>
+              <h6><strong>Assembly</strong>: Ipfs.Api.dll</h6>
+              
+              
+              
               <h3 id="properties">Properties
               </h3>
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/doc/apispec/new?filename=Ipfs_Api_PinnedCollection_Count.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Count%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinnedCollection_Count.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Count%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PinnedCollection .cs/#L110">View Source</a>
               </span>
               <a id="Ipfs_Api_PinnedCollection_Count_" data-uid="Ipfs.Api.PinnedCollection.Count*"></a>
               <h4 id="Ipfs_Api_PinnedCollection_Count" data-uid="Ipfs.Api.PinnedCollection.Count">Count</h4>
+              
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
+              <div class="markdown level1 remarks"></div>
+              
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
               </div>
+              
+              
+              
+              
               <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.int32(v=vs.110).aspx">Int32</a></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div>
+                <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.int32(v=vs.110).aspx">Int32</a>
+                
+              </div>
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="https://msdn.microsoft.com/en-us/library/5s3kzhec(v=vs.110).aspx">ICollection&lt;T&gt;.Count</a></div>
+              
+              
+              
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/doc/apispec/new?filename=Ipfs_Api_PinnedCollection_IsReadOnly.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.IsReadOnly%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinnedCollection_IsReadOnly.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.IsReadOnly%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PinnedCollection .cs/#L119">View Source</a>
               </span>
               <a id="Ipfs_Api_PinnedCollection_IsReadOnly_" data-uid="Ipfs.Api.PinnedCollection.IsReadOnly*"></a>
               <h4 id="Ipfs_Api_PinnedCollection_IsReadOnly" data-uid="Ipfs.Api.PinnedCollection.IsReadOnly">IsReadOnly</h4>
+              
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
+              <div class="markdown level1 remarks"></div>
+              
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
               </div>
+              
+              
+              
+              
               <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div>
+                <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a>
+                
+              </div>
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="https://msdn.microsoft.com/en-us/library/0cfatk9t(v=vs.110).aspx">ICollection&lt;T&gt;.IsReadOnly</a></div>
+              
+              
+              
               <h3 id="methods">Methods
               </h3>
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/doc/apispec/new?filename=Ipfs_Api_PinnedCollection_Add_Ipfs_Api_PinnedObject_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Add(Ipfs.Api.PinnedObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinnedCollection_Add_Ipfs_Api_PinnedObject_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Add(Ipfs.Api.PinnedObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PinnedCollection .cs/#L46">View Source</a>
               </span>
               <a id="Ipfs_Api_PinnedCollection_Add_" data-uid="Ipfs.Api.PinnedCollection.Add*"></a>
               <h4 id="Ipfs_Api_PinnedCollection_Add_Ipfs_Api_PinnedObject_" data-uid="Ipfs.Api.PinnedCollection.Add(Ipfs.Api.PinnedObject)">Add(PinnedObject)</h4>
+              
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
+              <div class="markdown level1 remarks"></div>
+              
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void Add(PinnedObject obj)</code></pre>
               </div>
+              
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a></td>
-                    <td><span class="parametername">obj</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div>
+                  <a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a>
+                  <span class="parametername">obj</span>
+                  
+              </div>
+              
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="https://msdn.microsoft.com/en-us/library/63ywd54z(v=vs.110).aspx">ICollection&lt;T&gt;.Add(T)</a></div>
+              
+              
+              
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/doc/apispec/new?filename=Ipfs_Api_PinnedCollection_Add_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Add(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinnedCollection_Add_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Add(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PinnedCollection .cs/#L66">View Source</a>
               </span>
               <a id="Ipfs_Api_PinnedCollection_Add_" data-uid="Ipfs.Api.PinnedCollection.Add*"></a>
               <h4 id="Ipfs_Api_PinnedCollection_Add_System_String_System_Boolean_" data-uid="Ipfs.Api.PinnedCollection.Add(System.String,System.Boolean)">Add(String, Boolean)</h4>
+              
               <div class="markdown level1 summary"><p>Pin an object.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
+              <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs pin add <em>id</em></code>.</p>
+</div>
+              
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void Add(string id, bool recursive = true)</code></pre>
               </div>
+              
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
-                    <td><span class="parametername">id</span></td>
-                    <td><p>The string representation of the object&#39;s <a class="xref" href="api/Ipfs.MultiHash.html">MultiHash</a>.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
-                    <td><span class="parametername">recursive</span></td>
-                    <td><p>True to also pin the object&#39;s links; False to just pin the object. Defaults to true.  </p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 id="Ipfs_Api_PinnedCollection_Add_System_String_System_Boolean__remarks">Remarks</h5>
-              <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs pin add <em>id</em></code>.</p>
-</div>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
+                  <span class="parametername">id</span>
+                  <p>The string representation of the object&#39;s <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a>.</p>
+
+              </div>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a>
+                  <span class="parametername">recursive</span>
+                  <p>True to also pin the object&#39;s links; False to just pin the object. Defaults to true.  </p>
+
+              </div>
+              
+              
+              
+              
+              
+              
+              
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/doc/apispec/new?filename=Ipfs_Api_PinnedCollection_Clear.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Clear%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinnedCollection_Clear.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Clear%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PinnedCollection .cs/#L81">View Source</a>
               </span>
               <a id="Ipfs_Api_PinnedCollection_Clear_" data-uid="Ipfs.Api.PinnedCollection.Clear*"></a>
               <h4 id="Ipfs_Api_PinnedCollection_Clear" data-uid="Ipfs.Api.PinnedCollection.Clear">Clear()</h4>
+              
               <div class="markdown level1 summary"><p>Remove all the trusted peers.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
+              <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs bootstrap rm --all</code>.</p>
+</div>
+              
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
               </div>
+              
+              
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="https://msdn.microsoft.com/en-us/library/5axy4fbh(v=vs.110).aspx">ICollection&lt;T&gt;.Clear()</a></div>
-              <h5 id="Ipfs_Api_PinnedCollection_Clear_remarks">Remarks</h5>
-              <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs bootstrap rm --all</code>.</p>
-</div>
+              
+              
+              
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/doc/apispec/new?filename=Ipfs_Api_PinnedCollection_Contains_Ipfs_Api_PinnedObject_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Contains(Ipfs.Api.PinnedObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinnedCollection_Contains_Ipfs_Api_PinnedObject_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Contains(Ipfs.Api.PinnedObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PinnedCollection .cs/#L87">View Source</a>
               </span>
               <a id="Ipfs_Api_PinnedCollection_Contains_" data-uid="Ipfs.Api.PinnedCollection.Contains*"></a>
               <h4 id="Ipfs_Api_PinnedCollection_Contains_Ipfs_Api_PinnedObject_" data-uid="Ipfs.Api.PinnedCollection.Contains(Ipfs.Api.PinnedObject)">Contains(PinnedObject)</h4>
+              
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
+              <div class="markdown level1 remarks"></div>
+              
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public bool Contains(PinnedObject item)</code></pre>
               </div>
+              
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a></td>
-                    <td><span class="parametername">item</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div>
+                  <a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a>
+                  <span class="parametername">item</span>
+                  
+              </div>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a>
+                  
+              </div>
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="https://msdn.microsoft.com/en-us/library/k5cf1d56(v=vs.110).aspx">ICollection&lt;T&gt;.Contains(T)</a></div>
+              
+              
+              
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/doc/apispec/new?filename=Ipfs_Api_PinnedCollection_Contains_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Contains(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinnedCollection_Contains_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Contains(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PinnedCollection .cs/#L98">View Source</a>
               </span>
               <a id="Ipfs_Api_PinnedCollection_Contains_" data-uid="Ipfs.Api.PinnedCollection.Contains*"></a>
               <h4 id="Ipfs_Api_PinnedCollection_Contains_System_String_" data-uid="Ipfs.Api.PinnedCollection.Contains(System.String)">Contains(String)</h4>
+              
               <div class="markdown level1 summary"><p>Determines if the collection contains a <a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a>
 with the specified id.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
+              <div class="markdown level1 remarks"></div>
+              
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public bool Contains(string id)</code></pre>
               </div>
+              
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
-                    <td><span class="parametername">id</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
+                  <span class="parametername">id</span>
+                  
+              </div>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a>
+                  
+              </div>
+              
+              
+              
+              
+              
+              
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/doc/apispec/new?filename=Ipfs_Api_PinnedCollection_CopyTo_Ipfs_Api_PinnedObject___System_Int32_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.CopyTo(Ipfs.Api.PinnedObject%5B%5D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinnedCollection_CopyTo_Ipfs_Api_PinnedObject___System_Int32_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.CopyTo(Ipfs.Api.PinnedObject%5B%5D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PinnedCollection .cs/#L104">View Source</a>
               </span>
               <a id="Ipfs_Api_PinnedCollection_CopyTo_" data-uid="Ipfs.Api.PinnedCollection.CopyTo*"></a>
               <h4 id="Ipfs_Api_PinnedCollection_CopyTo_Ipfs_Api_PinnedObject___System_Int32_" data-uid="Ipfs.Api.PinnedCollection.CopyTo(Ipfs.Api.PinnedObject[],System.Int32)">CopyTo(PinnedObject[], Int32)</h4>
+              
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
+              <div class="markdown level1 remarks"></div>
+              
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void CopyTo(PinnedObject[] array, int index)</code></pre>
               </div>
+              
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a>[]</td>
-                    <td><span class="parametername">array</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.int32(v=vs.110).aspx">Int32</a></td>
-                    <td><span class="parametername">index</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div>
+                  <a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a>[]
+                  <span class="parametername">array</span>
+                  
+              </div>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.int32(v=vs.110).aspx">Int32</a>
+                  <span class="parametername">index</span>
+                  
+              </div>
+              
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="https://msdn.microsoft.com/en-us/library/0efx51xw(v=vs.110).aspx">ICollection&lt;T&gt;.CopyTo(T[], Int32)</a></div>
+              
+              
+              
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/doc/apispec/new?filename=Ipfs_Api_PinnedCollection_GetEnumerator.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinnedCollection_GetEnumerator.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PinnedCollection .cs/#L162">View Source</a>
               </span>
               <a id="Ipfs_Api_PinnedCollection_GetEnumerator_" data-uid="Ipfs.Api.PinnedCollection.GetEnumerator*"></a>
               <h4 id="Ipfs_Api_PinnedCollection_GetEnumerator" data-uid="Ipfs.Api.PinnedCollection.GetEnumerator">GetEnumerator()</h4>
+              
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
+              <div class="markdown level1 remarks"></div>
+              
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public IEnumerator&lt;PinnedObject&gt; GetEnumerator()</code></pre>
               </div>
+              
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/78dfe2yb(v=vs.110).aspx">IEnumerator</a>&lt;<a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/78dfe2yb(v=vs.110).aspx">IEnumerator</a>&lt;<a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a>&gt;
+                  
+              </div>
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="https://msdn.microsoft.com/en-us/library/s793z9y2(v=vs.110).aspx">IEnumerable&lt;T&gt;.GetEnumerator()</a></div>
+              
+              
+              
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/doc/apispec/new?filename=Ipfs_Api_PinnedCollection_Refresh.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Refresh%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinnedCollection_Refresh.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Refresh%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PinnedCollection .cs/#L176">View Source</a>
               </span>
               <a id="Ipfs_Api_PinnedCollection_Refresh_" data-uid="Ipfs.Api.PinnedCollection.Refresh*"></a>
               <h4 id="Ipfs_Api_PinnedCollection_Refresh" data-uid="Ipfs.Api.PinnedCollection.Refresh">Refresh()</h4>
+              
               <div class="markdown level1 summary"><p>Ask IPFS for the pinned objects.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
+              <div class="markdown level1 remarks"></div>
+              
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void Refresh()</code></pre>
               </div>
+              
+              
+              
+              
+              
+              
+              
+              
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/doc/apispec/new?filename=Ipfs_Api_PinnedCollection_Remove_Ipfs_Api_PinnedObject_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Remove(Ipfs.Api.PinnedObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinnedCollection_Remove_Ipfs_Api_PinnedObject_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Remove(Ipfs.Api.PinnedObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PinnedCollection .cs/#L130">View Source</a>
               </span>
               <a id="Ipfs_Api_PinnedCollection_Remove_" data-uid="Ipfs.Api.PinnedCollection.Remove*"></a>
               <h4 id="Ipfs_Api_PinnedCollection_Remove_Ipfs_Api_PinnedObject_" data-uid="Ipfs.Api.PinnedCollection.Remove(Ipfs.Api.PinnedObject)">Remove(PinnedObject)</h4>
+              
               <div class="markdown level1 summary"><p>Remove the pinned object.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
+              <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs pin rm <em>id</em></code>.</p>
+</div>
+              
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public bool Remove(PinnedObject obj)</code></pre>
               </div>
+              
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a></td>
-                    <td><span class="parametername">obj</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div>
+                  <a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a>
+                  <span class="parametername">obj</span>
+                  
+              </div>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a>
+                  
+              </div>
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="https://msdn.microsoft.com/en-us/library/bye7h94w(v=vs.110).aspx">ICollection&lt;T&gt;.Remove(T)</a></div>
-              <h5 id="Ipfs_Api_PinnedCollection_Remove_Ipfs_Api_PinnedObject__remarks">Remarks</h5>
-              <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs pin rm <em>id</em></code>.</p>
-</div>
+              
+              
+              
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/doc/apispec/new?filename=Ipfs_Api_PinnedCollection_Remove_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Remove(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinnedCollection_Remove_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.Remove(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PinnedCollection .cs/#L152">View Source</a>
               </span>
               <a id="Ipfs_Api_PinnedCollection_Remove_" data-uid="Ipfs.Api.PinnedCollection.Remove*"></a>
               <h4 id="Ipfs_Api_PinnedCollection_Remove_System_String_System_Boolean_" data-uid="Ipfs.Api.PinnedCollection.Remove(System.String,System.Boolean)">Remove(String, Boolean)</h4>
+              
               <div class="markdown level1 summary"><p>Unpin an object.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
+              <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs pin rm <em>id</em></code>.</p>
+</div>
+              
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public bool Remove(string id, bool recursive = true)</code></pre>
               </div>
+              
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
-                    <td><span class="parametername">id</span></td>
-                    <td><p>The string representation of the object&#39;s <a class="xref" href="api/Ipfs.MultiHash.html">MultiHash</a>.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
-                    <td><span class="parametername">recursive</span></td>
-                    <td><p>True to also unpin the object&#39;s links; False to just unpin the object. Defaults to true.  </p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
+                  <span class="parametername">id</span>
+                  <p>The string representation of the object&#39;s <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a>.</p>
+
+              </div>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a>
+                  <span class="parametername">recursive</span>
+                  <p>True to also unpin the object&#39;s links; False to just unpin the object. Defaults to true.  </p>
+
+              </div>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 id="Ipfs_Api_PinnedCollection_Remove_System_String_System_Boolean__remarks">Remarks</h5>
-              <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs pin rm <em>id</em></code>.</p>
-</div>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a>
+                  
+              </div>
+              
+              
+              
+              
+              
+              
               <h3 id="eii">Explicit Interface Implementations
               </h3>
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/doc/apispec/new?filename=Ipfs_Api_PinnedCollection_System_Collections_IEnumerable_GetEnumerator.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.System%23Collections%23IEnumerable%23GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinnedCollection_System_Collections_IEnumerable_GetEnumerator.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection.System%23Collections%23IEnumerable%23GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PinnedCollection .cs/#L168">View Source</a>
               </span>
               <a id="Ipfs_Api_PinnedCollection_System_Collections_IEnumerable_GetEnumerator_" data-uid="Ipfs.Api.PinnedCollection.System#Collections#IEnumerable#GetEnumerator*"></a>
               <h4 id="Ipfs_Api_PinnedCollection_System_Collections_IEnumerable_GetEnumerator" data-uid="Ipfs.Api.PinnedCollection.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+              
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
+              <div class="markdown level1 remarks"></div>
+              
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
               </div>
+              
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.collections.ienumerator(v=vs.110).aspx">IEnumerator</a></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.collections.ienumerator(v=vs.110).aspx">IEnumerator</a>
+                  
+              </div>
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="https://msdn.microsoft.com/en-us/library/5zae5365(v=vs.110).aspx">IEnumerable.GetEnumerator()</a></div>
+              
+              
+              
             </article>
           </div>
           
@@ -617,7 +563,7 @@ with the specified id.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/doc/apispec/new?filename=Ipfs_Api_PinnedCollection.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinnedCollection.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinnedCollection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
                     <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PinnedCollection .cs/#L23" class="contribution-link">View Source</a>
