@@ -1,12 +1,15 @@
 # gitversion will change the version number
 version: x-{build}
 
-platform: Any CPU
 configuration: Release
-image: Visual Studio 2015
+os: Visual Studio 2015
 
 init:
   - git config --global core.autocrlf input
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:git_token):x-oauth-basic@github.com`n"
+  - git config --global user.email "noreply@emanon.org"
+  - git config --global user.name "Appveyor CI"
 
 cache:
   - packages -> **\packages.config      # preserve "packages" directory in the root of build folder but will reset it if packages.config is modified
@@ -14,14 +17,16 @@ cache:
 environment:
   COVERALLS_REPO_TOKEN:
     secure: u109t00NLIZQyREMNUyPlMd8gCi6w3o790yT8mQnzEC0LvZyevt+04u63TQfrifC
-#  snk_secret:
-#    secure: 5QzEIgiDqTIrZruPaIQIvTlNMl5BZ7TGEps7ALyBfHE=
+  git_token:
+    secure: NeX5NCOUXsCLc1UjTJjqB9F02FZ8Wq0VsxqTXC8kBdyK6zjxjebrf/9Da2sY1Kql
+  snk_secret:
+    secure: 5QzEIgiDqTIrZruPaIQIvTlNMl5BZ7TGEps7ALyBfHE=
 
 # tools we need for bulding/testing/deploying
 install:
   - choco install gitversion.portable -pre -y
-  - nuget install secure-file -ExcludeVersion
-  - if defined snk_secret secure-file\tools\secure-file -decrypt src\ipfs.ci.snk.enc -secret %snk_secret% -out src\ipfs.dev.snk
+#  - nuget install secure-file -ExcludeVersion
+#  - if defined snk_secret secure-file\tools\secure-file -decrypt src\ipfs.ci.snk.enc -secret %snk_secret% -out src\ipfs.dev.snk
   - choco install ipfs
   - ipfs init
   - ps: Start-Process -FilePath "ipfs.exe" -ArgumentList "daemon"
@@ -42,14 +47,12 @@ build:
   verbosity: minimal
 
 after_build:
-# Build the nuget package
-  - echo %GitVersion_NuGetVersion%
-  - cmd: nuget pack src\IpfsApi.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
-  - cmd: appveyor PushArtifact "Ipfs.Api.%GitVersion_NuGetVersion%.nupkg"
 # Build documentation in doc\_site
-# docfx+appyeyor not working, see https://github.com/richardschneider/net-ipfs-core/wiki/Manual-build-of-documentation
-  - .\tools\docfx\docfx metadata doc\docfx.json
-  - .\tools\docfx\docfx build doc\docfx.json
+  - tools\docfx\docfx doc\docfx.json
+  - if defined git_token gh-pages -d doc\_site -m "new docs %GitVersion_FullSemVer%"
+# Build the nuget package
+  - nuget pack src\IpfsApi.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
+  - appveyor PushArtifact "Ipfs.Api.%GitVersion_NuGetVersion%.nupkg"
 
 after_test: 
 # Generate coverage report
