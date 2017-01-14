@@ -252,7 +252,7 @@ namespace Ipfs.Api
         /// <inheritdoc />
         public bool Equals(MerkleNode that)
         {
-            return this.Hash == that.Hash;
+            return that != null && this.Hash == that.Hash;
         }
 
         /// <summary>

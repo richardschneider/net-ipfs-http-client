@@ -13,6 +13,35 @@ namespace Ipfs.Api
         const string IpfsInfo = "QmVtU7ths96fMgZ8YSZAbKghyieq7AjxNdcqyVzxTt3qVe";
 
         [TestMethod]
+        public void HashWithNamespace()
+        {
+            var node = new MerkleNode("/ipfs/" + IpfsInfo);
+            Assert.AreEqual(IpfsInfo, node.Hash);
+        }
+
+        [TestMethod]
+        public void Stringify()
+        {
+            var node = new MerkleNode(IpfsInfo);
+            Assert.AreEqual("/ipfs/" + IpfsInfo, node.ToString());
+        }
+
+        [TestMethod]
+        public void FromString()
+        {
+            var a = new MerkleNode(IpfsInfo);
+            var b = (MerkleNode)IpfsInfo;
+            Assert.AreEqual(a, b);
+        }
+
+        [TestMethod]
+        public void NullHash()
+        {
+            ExceptionAssert.Throws<ArgumentNullException>(() => new MerkleNode((string)null));
+            ExceptionAssert.Throws<ArgumentNullException>(() => new MerkleNode(""));
+        }
+
+        [TestMethod]
         public void Stats()
         {
             var node = new MerkleNode(IpfsInfo);
@@ -63,23 +92,28 @@ namespace Ipfs.Api
             Assert.IsTrue(a0 == a0);
             Assert.IsTrue(a0 == a1);
             Assert.IsFalse(a0 == b);
+            Assert.IsFalse(a0 == null);
 
             #pragma warning disable 1718
             Assert.IsFalse(a0 != a0);
             Assert.IsFalse(a0 != a1);
             Assert.IsTrue(a0 != b);
+            Assert.IsTrue(a0 != null);
 
             Assert.IsTrue(a0.Equals(a0));
             Assert.IsTrue(a0.Equals(a1));
             Assert.IsFalse(a0.Equals(b));
+            Assert.IsFalse(a0.Equals(null));
 
             Assert.AreEqual(a0, a0);
             Assert.AreEqual(a0, a1);
             Assert.AreNotEqual(a0, b);
+            Assert.AreNotEqual(a0, null);
 
             Assert.AreEqual<MerkleNode>(a0, a0);
             Assert.AreEqual<MerkleNode>(a0, a1);
             Assert.AreNotEqual<MerkleNode>(a0, b);
+            Assert.AreNotEqual<MerkleNode>(a0, null);
 
             Assert.AreEqual(a0.GetHashCode(), a0.GetHashCode());
             Assert.AreEqual(a0.GetHashCode(), a1.GetHashCode());
