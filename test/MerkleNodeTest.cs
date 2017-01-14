@@ -32,6 +32,16 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
+        public void FromALink()
+        {
+            var node = new MerkleNode(IpfsInfo);
+            var link = new MerkleNode(node.Links.First());
+            Assert.AreEqual(link.Hash, node.Links.First().Hash);
+            Assert.AreEqual(link.Name, node.Links.First().Name);
+            Assert.AreEqual(link.BlockSize, node.Links.First().Size);
+        }
+
+        [TestMethod]
         public void Value_Equality()
         {
             var a0 = new MerkleNode("QmStfpa7ppKPSsdnazBy3Q5QH4zNzGLcpWV88otjVSV7SY");

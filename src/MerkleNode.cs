@@ -23,7 +23,7 @@ namespace Ipfs.Api
         long linksSize;
         long linksCount;
         string name;
-        MerkleNode[] links;
+        IEnumerable<DagLink> links;
         IpfsClient ipfsClient;
 
         /// <summary>
@@ -44,6 +44,17 @@ namespace Ipfs.Api
 
             Hash = hash;
             Name = name;
+        }
+
+        /// <summary>
+        ///   Creates a new instance of the <see cref="MerkleNode"/> from the
+        ///   <see cref="DagLink"/>.
+        /// </summary>
+        /// <param name="link">The link to a node.</param>
+        public MerkleNode(DagLink link)
+        {
+            Hash = link.Hash;
+            Name = link.Name;
         }
 
         internal IpfsClient IpfsClient
@@ -117,22 +128,13 @@ namespace Ipfs.Api
         /// <summary>
         ///  TODO
         /// </summary>
-        public IEnumerable<MerkleNode> Links
+        public IEnumerable<DagLink> Links
         {
             get
             {
                 if (links == null)
                 {
-                    if (linksCount == 0)
-                    {
-                        links = new MerkleNode[0];
-                    }
-                    else
-                    {
-                        var result = IpfsClient.DoCommand<dynamic>("object/links", Hash);
-                        links = ((JArray)result.Links)
-                            .Select(l => new MerkleNode((string)l["Hash"], (string)l["Name"])).ToArray();
-                    }
+                    links = IpfsClient.Object.LinksAsync(Hash).Result;
                 }
 
                 return links;
@@ -198,6 +200,8 @@ namespace Ipfs.Api
             dataSize = stats.DataSize;
             linksSize = stats.LinksSize;
             linksCount = stats.NumLinks;
+            if (linksCount == 0)
+                links = new DagLink[0];
 
             hasObjectStats = true;
             hasBlockStats = true;
