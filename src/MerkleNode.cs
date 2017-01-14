@@ -55,6 +55,8 @@ namespace Ipfs.Api
         {
             Hash = link.Hash;
             Name = link.Name;
+            blockSize = link.Size;
+            hasBlockStats = true;
         }
 
         internal IpfsClient IpfsClient
@@ -192,9 +194,7 @@ namespace Ipfs.Api
             if (hasObjectStats)
                 return;
 
-            var stats = IpfsClient.DoCommand<dynamic>("object/stat", Hash);
-            if (stats.Hash != Hash)
-                throw new IpfsException("Did not receive object/stat for the request merkle node.");
+            var stats = IpfsClient.Object.StatAsync(Hash).Result;
             blockSize = stats.BlockSize;
             cumulativeSize = stats.CumulativeSize;
             dataSize = stats.DataSize;
@@ -218,9 +218,7 @@ namespace Ipfs.Api
             if (hasBlockStats)
                 return;
 
-            var stats = IpfsClient.DoCommand<dynamic>("block/stat", Hash);
-            if (stats.Key != Hash)
-                throw new IpfsException("Did not receive block/stat for the request merkle node.");
+            var stats = IpfsClient.Block.StatAsync(Hash).Result;
             blockSize = stats.Size;
 
             hasBlockStats = true;
