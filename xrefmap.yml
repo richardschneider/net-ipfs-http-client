@@ -286,12 +286,12 @@ references:
   commentId: Overload:Ipfs.Api.IpfsClient.#ctor
   fullName: Ipfs.Api.IpfsClient.IpfsClient
   nameWithType: IpfsClient.IpfsClient
-- uid: Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream)
-  name: AddAsync(Stream)
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_AddAsync_System_IO_Stream_
-  commentId: M:Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream)
-  fullName: Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream)
-  nameWithType: IpfsClient.AddAsync(Stream)
+- uid: Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream,System.String)
+  name: AddAsync(Stream, String)
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_AddAsync_System_IO_Stream_System_String_
+  commentId: M:Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream,System.String)
+  fullName: Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream, System.String)
+  nameWithType: IpfsClient.AddAsync(Stream, String)
 - uid: Ipfs.Api.IpfsClient.AddAsync*
   name: AddAsync
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_AddAsync_
@@ -700,6 +700,12 @@ references:
   commentId: T:Ipfs.Api.MerkleNode
   fullName: Ipfs.Api.MerkleNode
   nameWithType: MerkleNode
+- uid: Ipfs.Api.MerkleNode.#ctor(Ipfs.DagLink)
+  name: MerkleNode(DagLink)
+  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode__ctor_Ipfs_DagLink_
+  commentId: M:Ipfs.Api.MerkleNode.#ctor(Ipfs.DagLink)
+  fullName: Ipfs.Api.MerkleNode.MerkleNode(Ipfs.DagLink)
+  nameWithType: MerkleNode.MerkleNode(DagLink)
 - uid: Ipfs.Api.MerkleNode.#ctor(System.String,System.String)
   name: MerkleNode(String, String)
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode__ctor_System_String_System_String_
@@ -892,6 +898,18 @@ references:
   commentId: Overload:Ipfs.Api.MerkleNode.op_Inequality
   fullName: Ipfs.Api.MerkleNode.Inequality
   nameWithType: MerkleNode.Inequality
+- uid: Ipfs.Api.MerkleNode.ToLink
+  name: ToLink()
+  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_ToLink
+  commentId: M:Ipfs.Api.MerkleNode.ToLink
+  fullName: Ipfs.Api.MerkleNode.ToLink()
+  nameWithType: MerkleNode.ToLink()
+- uid: Ipfs.Api.MerkleNode.ToLink*
+  name: ToLink
+  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_ToLink_
+  commentId: Overload:Ipfs.Api.MerkleNode.ToLink
+  fullName: Ipfs.Api.MerkleNode.ToLink
+  nameWithType: MerkleNode.ToLink
 - uid: Ipfs.Api.MerkleNode.ToString
   name: ToString()
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_ToString
@@ -1036,6 +1054,18 @@ references:
   commentId: Overload:Ipfs.Api.ObjectApi.NewAsync
   fullName: Ipfs.Api.ObjectApi.NewAsync
   nameWithType: ObjectApi.NewAsync
+- uid: Ipfs.Api.ObjectApi.NewDirectoryAsync
+  name: NewDirectoryAsync()
+  href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_NewDirectoryAsync
+  commentId: M:Ipfs.Api.ObjectApi.NewDirectoryAsync
+  fullName: Ipfs.Api.ObjectApi.NewDirectoryAsync()
+  nameWithType: ObjectApi.NewDirectoryAsync()
+- uid: Ipfs.Api.ObjectApi.NewDirectoryAsync*
+  name: NewDirectoryAsync
+  href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_NewDirectoryAsync_
+  commentId: Overload:Ipfs.Api.ObjectApi.NewDirectoryAsync
+  fullName: Ipfs.Api.ObjectApi.NewDirectoryAsync
+  nameWithType: ObjectApi.NewDirectoryAsync
 - uid: Ipfs.Api.ObjectApi.PutAsync(Ipfs.DagNode)
   name: PutAsync(DagNode)
   href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_PutAsync_Ipfs_DagNode_

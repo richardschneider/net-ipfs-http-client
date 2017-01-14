@@ -74,14 +74,14 @@
               <div class="markdown level0 summary"><p>A client that allows access to the InterPlanetary File System (IPFS).</p>
 </div>
               <div class="markdown level0 conceptual"></div>
-              
+
               <div class="markdown level0 remarks"><p>The API is based on the <a href="https://ipfs.io/docs/commands/">IPFS commands</a>.</p>
 </div>
               
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public class IpfsClient</code></pre>
               </div>
-              
+
               <div class="inheritance">
                 <h5>Inheritance</h5>
                   <div class="level0"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></div>
@@ -91,7 +91,7 @@
               <h6><strong>Namespace</strong>: Ipfs.Api</h6>
               <h6><strong>Assembly</strong>: Ipfs.Api.dll</h6>
               
-              
+
               
               <h3 id="constructors">Constructors
               </h3>
@@ -112,11 +112,11 @@ default values.</p>
               <div class="markdown level1 remarks"><p>All methods of IpfsClient are thread safe.  Typically, only one instance is required for
 an application.</p>
 </div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public IpfsClient()</code></pre>
               </div>
-              
+
               
               
               
@@ -140,11 +140,11 @@ default values</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public IpfsClient(string host)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -174,11 +174,11 @@ default values</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public static Uri DefaultApiUri</code></pre>
               </div>
-              
+
               
               
               <h5 class="fieldValue">Field Value</h5>
@@ -217,11 +217,11 @@ default values</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Uri ApiUri { get; set; }</code></pre>
               </div>
-              
+
               
               
               
@@ -248,11 +248,11 @@ default values</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public BlockApi Block { get; }</code></pre>
               </div>
-              
+
               
               
               
@@ -279,11 +279,11 @@ default values</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public ConfigApi Config { get; }</code></pre>
               </div>
-              
+
               
               
               
@@ -310,11 +310,11 @@ default values</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public DagApi Dag { get; }</code></pre>
               </div>
-              
+
               
               
               
@@ -341,11 +341,11 @@ default values</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public DhtApi Dht { get; }</code></pre>
               </div>
-              
+
               
               
               
@@ -372,11 +372,11 @@ default values</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public ObjectApi Object { get; }</code></pre>
               </div>
-              
+
               
               
               
@@ -403,11 +403,11 @@ default values</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public PinApi Pin { get; }</code></pre>
               </div>
-              
+
               
               
               
@@ -435,11 +435,11 @@ default values</p>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"><p>This is equilivent to <code>ipfs pin ls</code>.</p>
 </div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public PinnedCollection PinnedObjects { get; }</code></pre>
               </div>
-              
+
               
               
               
@@ -466,11 +466,11 @@ default values</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public SwarmApi Swarm { get; }</code></pre>
               </div>
-              
+
               
               
               
@@ -498,11 +498,11 @@ default values</p>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"><p>This is equilivent to <code>ipfs bootstrap list</code>.</p>
 </div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public TrustedPeerCollection TrustedPeers { get; }</code></pre>
               </div>
-              
+
               
               
               
@@ -529,11 +529,11 @@ default values</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public string UserAgent { get; set; }</code></pre>
               </div>
-              
+
               
               
               
@@ -552,27 +552,32 @@ numbers of the assembly.</p>
               </h3>
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_AddAsync_System_IO_Stream_.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_AddAsync_System_IO_Stream_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Add.cs/#L47">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Add.cs/#L69">View Source</a>
               </span>
               <a id="Ipfs_Api_IpfsClient_AddAsync_" data-uid="Ipfs.Api.IpfsClient.AddAsync*"></a>
-              <h4 id="Ipfs_Api_IpfsClient_AddAsync_System_IO_Stream_" data-uid="Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream)">AddAsync(Stream)</h4>
+              <h4 id="Ipfs_Api_IpfsClient_AddAsync_System_IO_Stream_System_String_" data-uid="Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream,System.String)">AddAsync(Stream, String)</h4>
               
               <div class="markdown level1 summary"><p>Add a <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">Stream</a> to interplanetary file system.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;MerkleNode&gt; AddAsync(Stream stream)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;MerkleNode&gt; AddAsync(Stream stream, string name = &quot;&quot;)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">Stream</a>
                   <span class="parametername">stream</span>
+                  
+              </div>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
+                  <span class="parametername">name</span>
                   
               </div>
               
@@ -592,7 +597,7 @@ numbers of the assembly.</p>
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_AddDirectoryAsync_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.AddDirectoryAsync(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Add.cs/#L29">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Add.cs/#L31">View Source</a>
               </span>
               <a id="Ipfs_Api_IpfsClient_AddDirectoryAsync_" data-uid="Ipfs.Api.IpfsClient.AddDirectoryAsync*"></a>
               <h4 id="Ipfs_Api_IpfsClient_AddDirectoryAsync_System_String_System_Boolean_" data-uid="Ipfs.Api.IpfsClient.AddDirectoryAsync(System.String,System.Boolean)">AddDirectoryAsync(String, Boolean)</h4>
@@ -601,11 +606,11 @@ numbers of the assembly.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;MerkleNode&gt; AddDirectoryAsync(string path, bool recursive = true)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -643,11 +648,11 @@ numbers of the assembly.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;MerkleNode&gt; AddFileAsync(string path)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -671,7 +676,7 @@ numbers of the assembly.</p>
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_AddTextAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.AddTextAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Add.cs/#L38">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Add.cs/#L59">View Source</a>
               </span>
               <a id="Ipfs_Api_IpfsClient_AddTextAsync_" data-uid="Ipfs.Api.IpfsClient.AddTextAsync*"></a>
               <h4 id="Ipfs_Api_IpfsClient_AddTextAsync_System_String_" data-uid="Ipfs.Api.IpfsClient.AddTextAsync(System.String)">AddTextAsync(String)</h4>
@@ -680,11 +685,11 @@ numbers of the assembly.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;MerkleNode&gt; AddTextAsync(string text)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -717,11 +722,11 @@ numbers of the assembly.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public string DoCommand(string command, string arg = null, params string[] options)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -772,11 +777,11 @@ a specific <a class="xref" href="https://msdn.microsoft.com/en-us/library/system
               <div class="markdown level1 remarks"><p>The command&#39;s response is converted to <span class="typeparamref">T</span> using
 <code>JsonConvert</code>.</p>
 </div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public T DoCommand&lt;T&gt;(string command, string arg = null, params string[] options)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -841,11 +846,11 @@ The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.type(v
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;string&gt; DoCommandAsync(string command, string arg = null, params string[] options)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -896,11 +901,11 @@ a specific <a class="xref" href="https://msdn.microsoft.com/en-us/library/system
               <div class="markdown level1 remarks"><p>The command&#39;s response is converted to <span class="typeparamref">T</span> using
 <code>JsonConvert</code>.</p>
 </div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;T&gt; DoCommandAsync&lt;T&gt;(string command, string arg = null, params string[] options)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -966,11 +971,11 @@ The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.type(v
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Stream Download(string command, string arg = null, params string[] options)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -1019,11 +1024,11 @@ The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.type(v
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;Stream&gt; DownloadAsync(string command, string arg = null, params string[] options)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -1072,11 +1077,11 @@ a byte array.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;byte[]&gt; DownloadBytesAsync(string command, string arg = null, params string[] options)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -1124,11 +1129,11 @@ a byte array.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;PeerNode&gt; IdAsync(string peer = null)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -1163,11 +1168,11 @@ peer is used.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;string&gt; PostCommandAsync(string command, string arg = null, params string[] options)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -1218,11 +1223,11 @@ a specific <a class="xref" href="https://msdn.microsoft.com/en-us/library/system
               <div class="markdown level1 remarks"><p>The command&#39;s response is converted to <span class="typeparamref">T</span> using
 <code>JsonConvert</code>.</p>
 </div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;T&gt; PostCommandAsync&lt;T&gt;(string command, string arg = null, params string[] options)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -1287,11 +1292,11 @@ The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.type(v
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;Stream&gt; PostDownloadAsync(string command, string arg = null, params string[] options)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -1339,11 +1344,11 @@ The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.type(v
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;string&gt; UploadAsync(string command, byte[] data, params string[] options)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -1385,11 +1390,11 @@ The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.type(v
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;string&gt; UploadAsync(string command, Stream data, params string[] options)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -1432,11 +1437,11 @@ The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.type(v
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;Dictionary&lt;string, string&gt;&gt; VersionAsync()</code></pre>
               </div>
-              
+
               
               <h5 class="returns">Returns</h5>
               <div>

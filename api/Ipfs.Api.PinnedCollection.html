@@ -74,7 +74,7 @@
               <div class="markdown level0 summary"><p>A list of pinned object.</p>
 </div>
               <div class="markdown level0 conceptual"></div>
-              
+
               <div class="markdown level0 remarks"><p>This is the list of objects that are permanently stored on the local host.
 <a href="https://ipfs.io/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example#/ipfs/QmThrNbvLj7afQZhxH72m5Nn1qiVn3eMKWFYV49Zp2mv9B/pin/readme.md">ipfs pin</a> command.</p>
 </div>
@@ -82,7 +82,7 @@
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public class PinnedCollection : ICollection&lt;PinnedObject&gt;, IEnumerable&lt;PinnedObject&gt;, IEnumerable</code></pre>
               </div>
-              
+
               <div class="inheritance">
                 <h5>Inheritance</h5>
                   <div class="level0"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></div>
@@ -92,7 +92,7 @@
               <h6><strong>Namespace</strong>: Ipfs.Api</h6>
               <h6><strong>Assembly</strong>: Ipfs.Api.dll</h6>
               
-              
+
               
               <h3 id="properties">Properties
               </h3>
@@ -109,11 +109,11 @@
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
               </div>
-              
+
               
               
               
@@ -141,11 +141,11 @@
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
               </div>
-              
+
               
               
               
@@ -175,11 +175,11 @@
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void Add(PinnedObject obj)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a>
@@ -210,11 +210,11 @@
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs pin add <em>id</em></code>.</p>
 </div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void Add(string id, bool recursive = true)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -250,11 +250,11 @@
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs bootstrap rm --all</code>.</p>
 </div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
               </div>
-              
+
               
               
               
@@ -277,11 +277,11 @@
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public bool Contains(PinnedObject item)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a>
@@ -317,11 +317,11 @@ with the specified id.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public bool Contains(string id)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -353,11 +353,11 @@ with the specified id.</p>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void CopyTo(PinnedObject[] array, int index)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a>[]
@@ -391,11 +391,11 @@ with the specified id.</p>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public IEnumerator&lt;PinnedObject&gt; GetEnumerator()</code></pre>
               </div>
-              
+
               
               <h5 class="returns">Returns</h5>
               <div>
@@ -424,11 +424,11 @@ with the specified id.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void Refresh()</code></pre>
               </div>
-              
+
               
               
               
@@ -451,11 +451,11 @@ with the specified id.</p>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs pin rm <em>id</em></code>.</p>
 </div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public bool Remove(PinnedObject obj)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a>
@@ -491,11 +491,11 @@ with the specified id.</p>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs pin rm <em>id</em></code>.</p>
 </div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public bool Remove(string id, bool recursive = true)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -536,11 +536,11 @@ with the specified id.</p>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
               </div>
-              
+
               
               <h5 class="returns">Returns</h5>
               <div>

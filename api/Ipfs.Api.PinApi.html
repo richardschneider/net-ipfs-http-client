@@ -74,7 +74,7 @@
               <div class="markdown level0 summary"><p>Manages pinned objects (local stored and permanent).</p>
 </div>
               <div class="markdown level0 conceptual"></div>
-              
+
               <div class="markdown level0 remarks"><p>This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Pin">Pin</a> property.</p>
 <p>
 Pinned objects are locally stored and never garbage collected.
@@ -84,7 +84,7 @@ Pinned objects are locally stored and never garbage collected.
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public class PinApi</code></pre>
               </div>
-              
+
               <div class="inheritance">
                 <h5>Inheritance</h5>
                   <div class="level0"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></div>
@@ -94,7 +94,7 @@ Pinned objects are locally stored and never garbage collected.
               <h6><strong>Namespace</strong>: Ipfs.Api</h6>
               <h6><strong>Assembly</strong>: Ipfs.Api.dll</h6>
               
-              
+
               
               <h3 id="methods">Methods
               </h3>
@@ -112,11 +112,11 @@ Pinned objects are locally stored and never garbage collected.
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;PinnedObject[]&gt; AddAsync(string hash, bool recursive = true)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
@@ -157,11 +157,11 @@ the specified object.  Default is <strong>true</strong>.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;PinnedObject[]&gt; ListAsync(PinMode mode = PinMode.Recursive | PinMode.Direct | PinMode.Indirect | PinMode.All)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="Ipfs.Api.PinMode.html">PinMode</a>
@@ -196,11 +196,11 @@ Defaults to <a class="xref" href="Ipfs.Api.PinMode.html#Ipfs_Api_PinMode_All">Al
 </div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
-              
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;PinnedObject[]&gt; RemoveAsync(string hash, bool recursive = true)</code></pre>
               </div>
-              
+
               <h5 class="parameters">Parameters</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
