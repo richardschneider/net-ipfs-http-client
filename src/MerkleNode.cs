@@ -24,6 +24,7 @@ namespace Ipfs.Api
         long linksCount;
         string name;
         MerkleNode[] links;
+        IpfsClient ipfsClient;
 
         /// <summary>
         ///   Creates a new instance of the <see cref="MerkleNode"/> with the specified
@@ -45,6 +46,24 @@ namespace Ipfs.Api
             Name = name;
         }
 
+        internal IpfsClient IpfsClient
+        {
+            get
+            {
+                if (ipfsClient == null)
+                {
+                    lock (this)
+                    {
+                        ipfsClient = new IpfsClient();
+                    }
+                }
+                return ipfsClient;
+            }
+            set
+            {
+                ipfsClient = value;
+            }
+        }
         /// <summary>
         ///   The multihash (Base58 hash) for the node.
         /// </summary>
@@ -110,7 +129,7 @@ namespace Ipfs.Api
                     }
                     else
                     {
-                        var result = new IpfsClient().DoCommand<dynamic>("object/links", Hash);
+                        var result = IpfsClient.DoCommand<dynamic>("object/links", Hash);
                         links = ((JArray)result.Links)
                             .Select(l => new MerkleNode((string)l["Hash"], (string)l["Name"])).ToArray();
                     }
@@ -157,7 +176,7 @@ namespace Ipfs.Api
         /// </remarks>
         public Stream GetRawData()
         {
-            return new IpfsClient().Download("block/get", Hash);
+            return IpfsClient.Download("block/get", Hash);
         }
 
         /// <summary>
@@ -171,7 +190,7 @@ namespace Ipfs.Api
             if (hasObjectStats)
                 return;
 
-            var stats = new IpfsClient().DoCommand<dynamic>("object/stat", Hash);
+            var stats = IpfsClient.DoCommand<dynamic>("object/stat", Hash);
             if (stats.Hash != Hash)
                 throw new IpfsException("Did not receive object/stat for the request merkle node.");
             blockSize = stats.BlockSize;
@@ -195,7 +214,7 @@ namespace Ipfs.Api
             if (hasBlockStats)
                 return;
 
-            var stats = new IpfsClient().DoCommand<dynamic>("block/stat", Hash);
+            var stats = IpfsClient.DoCommand<dynamic>("block/stat", Hash);
             if (stats.Key != Hash)
                 throw new IpfsException("Did not receive block/stat for the request merkle node.");
             blockSize = stats.Size;

@@ -48,7 +48,10 @@ namespace Ipfs.Api
         {
             var json = await UploadAsync("add", stream);
             var r = JObject.Parse(json);
-            return new MerkleNode((string)r["Hash"]);
+            return new MerkleNode((string)r["Hash"])
+            {
+                IpfsClient = this
+            };
         }
     }
 }

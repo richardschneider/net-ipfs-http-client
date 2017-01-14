@@ -13,7 +13,7 @@ namespace Ipfs.Api
         public void AddText()
         {
             var ipfs = new IpfsClient();
-            var result = ipfs.AddTextAsync("hello world").Result; ;
+            var result = ipfs.AddTextAsync("hello world").Result;
             Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", result.Hash);
         }
 
@@ -25,7 +25,7 @@ namespace Ipfs.Api
             try
             {
                 var ipfs = new IpfsClient();
-                var result = ipfs.AddFileAsync(path).Result; ;
+                var result = ipfs.AddFileAsync(path).Result;
                 Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", result.Hash);
             }
             finally
