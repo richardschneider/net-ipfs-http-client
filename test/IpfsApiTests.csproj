@@ -95,6 +95,7 @@
     <Compile Include="Commands\BlockTest.cs" />
     <Compile Include="MerkleNodeTest.cs" />
     <Compile Include="ExceptionAssert.cs" />
+    <Compile Include="PinnedObjectsTest.cs" />
     <Compile Include="PinnedObjectTest.cs" />
     <Compile Include="TrustedPeersTest.cs" />
     <Compile Include="IpfsClientTest.cs" />
