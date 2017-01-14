@@ -28,6 +28,8 @@ namespace Ipfs.Api
                 var ipfs = new IpfsClient();
                 var result = ipfs.AddFileAsync(path).Result;
                 Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", result.Hash);
+                Assert.AreEqual(0, result.LinksCount);
+                Assert.AreEqual(0, result.Links.Count());
             }
             finally
             {
