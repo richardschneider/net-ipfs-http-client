@@ -92,7 +92,7 @@ namespace Ipfs.Api
         }
 
         /// <summary>
-        ///   Size of the raw, encoded code.
+        ///   Size of the raw, encoded node.
         /// </summary>
         public long BlockSize
         {
@@ -181,6 +181,16 @@ namespace Ipfs.Api
         public Stream GetRawData()
         {
             return IpfsClient.Download("block/get", Hash);
+        }
+        /// <summary>
+        ///   Returns a <see cref="DagLink"/> to the node.
+        /// </summary>
+        /// <returns>
+        ///   A new <see cref="DagLink"/> to node.
+        /// </returns>
+        public DagLink ToLink()
+        {
+            return new DagLink(Name, Hash, BlockSize);
         }
 
         /// <summary>
