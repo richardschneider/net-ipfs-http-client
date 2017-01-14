@@ -26,6 +26,10 @@ namespace Ipfs.Api
         {
             var node = await ipfs.Object.NewAsync("unixfs-dir");
             Assert.AreEqual("QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn", node.Hash);
+
+            node = await ipfs.Object.NewDirectoryAsync();
+            Assert.AreEqual("QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn", node.Hash);
+
         }
 
         [TestMethod]

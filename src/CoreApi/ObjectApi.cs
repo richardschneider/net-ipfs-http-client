@@ -63,9 +63,21 @@ namespace Ipfs.Api
         }
 
         /// <summary>
+        ///   Creates a new file directory in IPFS.
+        /// </summary>
+        /// <returns></returns>
+        /// <remarks>
+        ///   Equivalent to <c>NewAsync("unixfs-dir")</c>.
+        /// </remarks>
+        public Task<DagNode> NewDirectoryAsync()
+        {
+            return NewAsync("unixfs-dir");
+        }
+
+        /// <summary>
         ///   Create a new MerkleDAG node, using a specific layout.
         /// </summary>
-        /// <param name="template"></param>
+        /// <param name="template"><b>null</b> or "unixfs-dir".</param>
         /// <returns></returns>
         /// <remarks>
         ///  Caveat: So far, only UnixFS object layouts are supported.
