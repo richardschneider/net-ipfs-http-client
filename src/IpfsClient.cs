@@ -36,6 +36,8 @@ namespace Ipfs.Api
         /// </summary>
         public static Uri DefaultApiUri = new Uri("http://localhost:5001");
 
+        Lazy<DagNode> emptyFolder;
+
         /// <summary>
         ///   Creates a new instance of the <see cref="IpfsClient"/> class and sets the
         ///   default values.
@@ -58,6 +60,8 @@ namespace Ipfs.Api
             Swarm = new SwarmApi(this);
             Dag = new DagApi(this);
             Object = new ObjectApi(this);
+
+            emptyFolder = new Lazy<DagNode>(() => Object.NewDirectoryAsync().Result);
         }
 
         /// <summary>

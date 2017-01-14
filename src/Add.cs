@@ -12,6 +12,7 @@ namespace Ipfs.Api
 {
     public partial class IpfsClient
     {
+
         /// <summary>
         ///   Add a file to the interplanetary file system.
         /// </summary>
@@ -30,8 +31,8 @@ namespace Ipfs.Api
         /// <param name="recursive"></param>
         public async Task<MerkleNode> AddDirectoryAsync(string path, bool recursive = true)
         {
+            // Add the files and sub-directories.
             path = Path.GetFullPath(path);
-            var folder = await Object.NewDirectoryAsync();
             var files = Directory
                 .EnumerateFiles(path)
                 .Select(AddFileAsync);
@@ -43,12 +44,12 @@ namespace Ipfs.Api
                 files = files.Union(folders);
             }
             var nodes = await Task.WhenAll(files);
+
+            // Create the directory with links to the created files and sub-directories
             var links = nodes.Select(node => node.ToLink());
-
-            // TODO: Use DagNode.AddLinks
-            folder = new DagNode(folder.Data, links);
-
+            var folder = emptyFolder.Value.AddLinks(links);
             var directory = await Object.PutAsync(folder);
+
             return new MerkleNode(directory.Hash, Path.GetFileName(path));
         }
 
