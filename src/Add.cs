@@ -50,7 +50,12 @@ namespace Ipfs.Api
             var folder = emptyFolder.Value.AddLinks(links);
             var directory = await Object.PutAsync(folder);
 
-            return new MerkleNode(directory.Hash, Path.GetFileName(path));
+            return new MerkleNode(directory.Hash)
+            {
+                Name = Path.GetFileName(path),
+                IpfsClient = this
+            };
+
         }
 
         /// <summary>
