@@ -49,6 +49,12 @@ namespace Ipfs.Api
                 Assert.AreEqual(2, files.Length);
                 Assert.AreEqual("alpha.txt", files[0].Name);
                 Assert.AreEqual("beta.txt", files[1].Name);
+
+                Assert.AreEqual("alpha", ipfs.ReadAllTextAsync(files[0].Hash).Result);
+                Assert.AreEqual("beta", ipfs.ReadAllTextAsync(files[1].Hash).Result);
+
+                Assert.AreEqual("alpha", ipfs.ReadAllTextAsync(dir.Hash + "/alpha.txt").Result);
+                Assert.AreEqual("beta", ipfs.ReadAllTextAsync(dir.Hash + "/beta.txt").Result);
             }
             finally
             {
@@ -78,6 +84,8 @@ namespace Ipfs.Api
                 files = new MerkleNode(files[1]).Links.ToArray();
                 Assert.AreEqual(1, files.Length);
                 Assert.AreEqual("y.txt", files[0].Name);
+
+                Assert.AreEqual("y", ipfs.ReadAllTextAsync(dir.Hash + "/x/y/y.txt").Result);
             }
             finally
             {

@@ -80,6 +80,7 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Read.cs" />
     <Compile Include="Add.cs" />
     <Compile Include="CoreApi\ObjectApi.cs" />
     <Compile Include="CoreApi\DagApi.cs" />
