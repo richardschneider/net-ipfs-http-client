@@ -580,6 +580,30 @@ references:
   commentId: Overload:Ipfs.Api.IpfsClient.PostDownloadAsync
   fullName: Ipfs.Api.IpfsClient.PostDownloadAsync
   nameWithType: IpfsClient.PostDownloadAsync
+- uid: Ipfs.Api.IpfsClient.ReadAllTextAsync(System.String)
+  name: ReadAllTextAsync(String)
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ReadAllTextAsync_System_String_
+  commentId: M:Ipfs.Api.IpfsClient.ReadAllTextAsync(System.String)
+  fullName: Ipfs.Api.IpfsClient.ReadAllTextAsync(System.String)
+  nameWithType: IpfsClient.ReadAllTextAsync(String)
+- uid: Ipfs.Api.IpfsClient.ReadAllTextAsync*
+  name: ReadAllTextAsync
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ReadAllTextAsync_
+  commentId: Overload:Ipfs.Api.IpfsClient.ReadAllTextAsync
+  fullName: Ipfs.Api.IpfsClient.ReadAllTextAsync
+  nameWithType: IpfsClient.ReadAllTextAsync
+- uid: Ipfs.Api.IpfsClient.ReadFileAsync(System.String)
+  name: ReadFileAsync(String)
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ReadFileAsync_System_String_
+  commentId: M:Ipfs.Api.IpfsClient.ReadFileAsync(System.String)
+  fullName: Ipfs.Api.IpfsClient.ReadFileAsync(System.String)
+  nameWithType: IpfsClient.ReadFileAsync(String)
+- uid: Ipfs.Api.IpfsClient.ReadFileAsync*
+  name: ReadFileAsync
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ReadFileAsync_
+  commentId: Overload:Ipfs.Api.IpfsClient.ReadFileAsync
+  fullName: Ipfs.Api.IpfsClient.ReadFileAsync
+  nameWithType: IpfsClient.ReadFileAsync
 - uid: Ipfs.Api.IpfsClient.Swarm
   name: Swarm
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Swarm
