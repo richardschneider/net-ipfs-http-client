@@ -63,9 +63,16 @@ namespace Ipfs.Api
             // tests that a connection can be made to at least one peer.
             foreach (var peer in peers)
             {
-                await ipfs.Swarm.DisconnectAsync(peer.ConnectedAddress);
-                await ipfs.Swarm.ConnectAsync(peer.ConnectedAddress);
-                return;
+                try
+                {
+                    await ipfs.Swarm.DisconnectAsync(peer.ConnectedAddress);
+                    await ipfs.Swarm.ConnectAsync(peer.ConnectedAddress);
+                    return;
+                }
+                catch (Exception)
+                {
+                    // eat it
+                }
             }
 
             Assert.Fail("Cannot connect to any peer");
