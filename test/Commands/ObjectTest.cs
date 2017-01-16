@@ -38,7 +38,7 @@ namespace Ipfs.Api
             var adata = Encoding.UTF8.GetBytes("alpha");
             var bdata = Encoding.UTF8.GetBytes("beta");
             var alpha = new DagNode(adata);
-            var beta = new DagNode(bdata, new DagLink[] { alpha.ToLink() });
+            var beta = new DagNode(bdata, new[] { alpha.ToLink() });
             var x = await ipfs.Object.PutAsync(beta);
             var node = await ipfs.Object.GetAsync(x.Hash);
             CollectionAssert.AreEqual(beta.DataBytes, node.DataBytes);
@@ -54,7 +54,7 @@ namespace Ipfs.Api
             var adata = Encoding.UTF8.GetBytes("alpha");
             var bdata = Encoding.UTF8.GetBytes("beta");
             var alpha = new DagNode(adata);
-            var beta = await ipfs.Object.PutAsync(bdata, new DagLink[] { alpha.ToLink() });
+            var beta = await ipfs.Object.PutAsync(bdata, new[] { alpha.ToLink() });
             var node = await ipfs.Object.GetAsync(beta.Hash);
             CollectionAssert.AreEqual(beta.DataBytes, node.DataBytes);
             Assert.AreEqual(beta.Links.Count(), node.Links.Count());
@@ -82,7 +82,7 @@ namespace Ipfs.Api
             var adata = Encoding.UTF8.GetBytes("alpha");
             var bdata = Encoding.UTF8.GetBytes("beta");
             var alpha = new DagNode(adata);
-            var beta = await ipfs.Object.PutAsync(bdata, new DagLink[] { alpha.ToLink() });
+            var beta = await ipfs.Object.PutAsync(bdata, new[] { alpha.ToLink() });
             var links = await ipfs.Object.LinksAsync(beta.Hash);
             Assert.AreEqual(beta.Links.Count(),links.Count());
             Assert.AreEqual(beta.Links.First().Hash, links.First().Hash);
@@ -97,7 +97,7 @@ namespace Ipfs.Api
             var data2 = Encoding.UTF8.GetBytes("Some data 2");
             var node2 = new DagNode(data2);
             var node1 = await ipfs.Object.PutAsync(data1,
-                new DagLink[] { node2.ToLink("some-link") });
+                new[] { node2.ToLink("some-link") });
             var info = await ipfs.Object.StatAsync(node1.Hash);
             Assert.AreEqual("QmPR7W4kaADkAo4GKEVVPQN81EDUFCHJtqejQZ5dEG7pBC", info.Hash);
             Assert.AreEqual(1, info.NumLinks);

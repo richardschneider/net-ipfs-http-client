@@ -74,7 +74,7 @@ namespace Ipfs.Api
         public void ToALink()
         {
             var node = new MerkleNode(IpfsInfo);
-            DagLink link = node.ToLink();
+            var link = node.ToLink();
             Assert.AreEqual(link.Hash, node.Hash);
             Assert.AreEqual(link.Name, node.Name);
             Assert.AreEqual(link.Size, node.BlockSize);

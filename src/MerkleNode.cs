@@ -13,7 +13,7 @@ namespace Ipfs.Api
     /// <remarks>
     ///   Initially an <b>MerkleNode</b> is just constructed with its MultiHash.  Its other properties are lazily loaded.
     /// </remarks>
-    public class MerkleNode : IMerkleNode<DagLink>, IEquatable<MerkleNode>
+    public class MerkleNode : IMerkleNode<IMerkleLink>, IEquatable<MerkleNode>
     {
         bool hasObjectStats;
         bool hasBlockStats;
@@ -23,7 +23,7 @@ namespace Ipfs.Api
         long linksSize;
         long linksCount;
         string name;
-        IEnumerable<DagLink> links;
+        IEnumerable<IMerkleLink> links;
         IpfsClient ipfsClient;
 
         /// <summary>
@@ -48,10 +48,10 @@ namespace Ipfs.Api
 
         /// <summary>
         ///   Creates a new instance of the <see cref="MerkleNode"/> from the
-        ///   <see cref="DagLink"/>.
+        ///   <see cref="IMerkleLink"/>.
         /// </summary>
         /// <param name="link">The link to a node.</param>
-        public MerkleNode(DagLink link)
+        public MerkleNode(IMerkleLink link)
         {
             Hash = link.Hash;
             Name = link.Name;
@@ -127,7 +127,7 @@ namespace Ipfs.Api
         }
 
         /// <inheritdoc />
-        public IEnumerable<DagLink> Links
+        public IEnumerable<IMerkleLink> Links
         {
             get
             {
@@ -151,7 +151,6 @@ namespace Ipfs.Api
                 return dataSize;
             }
         }
-
 
         /// <summary>
         ///   Cumulative size of object and its references.
@@ -189,7 +188,7 @@ namespace Ipfs.Api
         }
 
         /// <inheritdoc />
-        public DagLink ToLink(string name = null)
+        public IMerkleLink ToLink(string name = null)
         {
             return new DagLink(name != null ? name : Name, Hash, BlockSize);
         }

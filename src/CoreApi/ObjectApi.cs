@@ -111,7 +111,7 @@ namespace Ipfs.Api
         /// <param name="links">
         ///   The links to other nodes.
         /// </param>
-        public Task<DagNode> PutAsync(byte[] data, IEnumerable<DagLink> links = null)
+        public Task<DagNode> PutAsync(byte[] data, IEnumerable<IMerkleLink> links = null)
         {
             return PutAsync(new DagNode(data, links));
         }
@@ -147,7 +147,7 @@ namespace Ipfs.Api
         ///   The <see cref="string"/> representation of an encoded <see cref="Ipfs.MultiHash"/>.
         /// </param>
         /// <returns></returns>
-        public async Task<IEnumerable<DagLink>> LinksAsync(string hash)
+        public async Task<IEnumerable<IMerkleLink>> LinksAsync(string hash)
         {
             var json = await ipfs.DoCommandAsync("object/links", hash);
             return GetDagFromJson(json).Links;
