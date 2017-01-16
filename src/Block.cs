@@ -20,7 +20,7 @@ namespace Ipfs.Api
         {
             get
             {
-                return DataBytes;
+                return dataBytes;
             }
             set
             {
