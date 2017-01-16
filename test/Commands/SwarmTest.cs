@@ -21,7 +21,7 @@ namespace Ipfs.Api
             {
                 Assert.IsNotNull(peer.Id);
                 Assert.IsNotNull(peer.Addresses);
-                Assert.AreNotEqual(0, peer.Addresses.Length);
+                Assert.AreNotEqual(0, peer.Addresses.Count());
             }
         }
 

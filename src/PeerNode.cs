@@ -23,7 +23,7 @@ namespace Ipfs.Api
         /// <summary>
         ///   The multi addresses of the node.
         /// </summary>
-        public string[] Addresses { get; set; }
+        public IEnumerable<MultiAddress> Addresses { get; set; }
 
         /// <summary>
         ///  TODO

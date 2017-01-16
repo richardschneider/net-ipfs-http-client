@@ -42,8 +42,7 @@ namespace Ipfs.Api
                 .Select(p => new PeerNode {
                     Id = p.Name,
                     Addresses = ((JArray)p.Value)
-                        .Select(v => (string)v)
-                        .ToArray()
+                        .Select(v => new MultiAddress((string)v))
                 });
         }
 
@@ -57,23 +56,18 @@ namespace Ipfs.Api
         {
             var json = await ipfs.DoCommandAsync("swarm/peers", null, "verbose=true");
             var result = JObject.Parse(json);
-            var strings = result["Strings"] as JArray;
-            if (strings != null)
-            {
-                return strings
-                    .Select(s =>
+            return ((JArray)JObject.Parse(json)["Strings"])
+                .Select(s =>
+                {
+                    var parts = ((string)s).Split(' ');
+                    var address = new MultiAddress(parts[0]);
+                    return new ConnectedPeer
                     {
-                        var parts = ((string)s).Split(' ');
-                        var address = new MultiAddress(parts[0]);
-                        return new ConnectedPeer
-                        {
-                            Id = address.Protocols.First(p => p.Name == "ipfs").Value,
-                            ConnectedAddress = parts[0],
-                            Latency = ParseLatency(parts[1])
-                        };
-                    });
-            }
-            throw new NotImplementedException();
+                        Id = address.Protocols.First(p => p.Name == "ipfs").Value,
+                        ConnectedAddress = parts[0],
+                        Latency = ParseLatency(parts[1])
+                    };
+                });
         }
 
         TimeSpan ParseLatency(string latency)
