@@ -13,7 +13,7 @@ namespace Ipfs.Api
     /// <remarks>
     ///   Initially an <b>MerkleNode</b> is just constructed with its MultiHash.  Its other properties are lazily loaded.
     /// </remarks>
-    public class MerkleNode : IEquatable<MerkleNode>
+    public class MerkleNode : IMerkleNode<DagLink>, IEquatable<MerkleNode>
     {
         bool hasObjectStats;
         bool hasBlockStats;
@@ -77,9 +77,8 @@ namespace Ipfs.Api
                 ipfsClient = value;
             }
         }
-        /// <summary>
-        ///   The multihash (Base58 hash) for the node.
-        /// </summary>
+
+        /// <inheritdoc />
         public string Hash { get; private set; }
 
         /// <summary>
@@ -127,9 +126,7 @@ namespace Ipfs.Api
             }
         }
 
-        /// <summary>
-        ///  TODO
-        /// </summary>
+        /// <inheritdoc />
         public IEnumerable<DagLink> Links
         {
             get
@@ -168,29 +165,33 @@ namespace Ipfs.Api
             }
         }
 
-        /// <summary>
-        ///   Gets the raw encoded data of the node.
-        /// </summary>
-        /// <returns>
-        ///   A <see cref="Stream"/> contain the raw encode data of the node.  This <b>Stream</b>
-        ///   must be closed.
-        /// </returns>
-        /// <remarks>
-        ///   Equivalent to <c>ipfs block get <see cref="Hash"/></c>.
-        /// </remarks>
-        public Stream GetRawData()
+        /// <inheritdoc />
+        public byte[] DataBytes
         {
-            return IpfsClient.Download("block/get", Hash);
+            get
+            {
+                using (var stream = DataStream)
+                using (var data = new MemoryStream())
+                {
+                    stream.CopyTo(data);
+                    return data.ToArray();
+                }
+            }
         }
-        /// <summary>
-        ///   Returns a <see cref="DagLink"/> to the node.
-        /// </summary>
-        /// <returns>
-        ///   A new <see cref="DagLink"/> to node.
-        /// </returns>
-        public DagLink ToLink()
+
+        /// <inheritdoc />
+        public Stream DataStream
         {
-            return new DagLink(Name, Hash, BlockSize);
+            get
+            {
+                return IpfsClient.Download("block/get", Hash);
+            }
+        }
+
+        /// <inheritdoc />
+        public DagLink ToLink(string name = null)
+        {
+            return new DagLink(name != null ? name : Name, Hash, BlockSize);
         }
 
         /// <summary>

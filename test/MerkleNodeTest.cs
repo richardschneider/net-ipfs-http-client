@@ -130,13 +130,9 @@ namespace Ipfs.Api
         public void RawData()
         {
             var node = new MerkleNode(IpfsInfo);
-            byte[] data;
-            using (var raw = node.GetRawData())
-            using (var s = new MemoryStream())
-            {
-                raw.CopyTo(s);
-                data = s.ToArray();
-            }
+            byte[] data = node.DataBytes;
+            Assert.AreNotEqual(0, data.Length);
+            Assert.AreEqual(node.BlockSize, data.Length);
 
             // TODO: verify GetRawData() hash equal node's hash.
         }
