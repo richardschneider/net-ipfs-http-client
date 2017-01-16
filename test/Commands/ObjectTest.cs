@@ -41,7 +41,7 @@ namespace Ipfs.Api
             var beta = new DagNode(bdata, new DagLink[] { alpha.ToLink() });
             var x = await ipfs.Object.PutAsync(beta);
             var node = await ipfs.Object.GetAsync(x.Hash);
-            CollectionAssert.AreEqual(beta.Data, node.Data);
+            CollectionAssert.AreEqual(beta.DataBytes, node.DataBytes);
             Assert.AreEqual(beta.Links.Count(), node.Links.Count());
             Assert.AreEqual(beta.Links.First().Hash, node.Links.First().Hash);
             Assert.AreEqual(beta.Links.First().Name, node.Links.First().Name);
@@ -56,7 +56,7 @@ namespace Ipfs.Api
             var alpha = new DagNode(adata);
             var beta = await ipfs.Object.PutAsync(bdata, new DagLink[] { alpha.ToLink() });
             var node = await ipfs.Object.GetAsync(beta.Hash);
-            CollectionAssert.AreEqual(beta.Data, node.Data);
+            CollectionAssert.AreEqual(beta.DataBytes, node.DataBytes);
             Assert.AreEqual(beta.Links.Count(), node.Links.Count());
             Assert.AreEqual(beta.Links.First().Hash, node.Links.First().Hash);
             Assert.AreEqual(beta.Links.First().Name, node.Links.First().Name);

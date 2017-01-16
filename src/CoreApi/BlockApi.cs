@@ -7,21 +7,6 @@ using System.Threading.Tasks;
 
 namespace Ipfs.Api
 {
-    /// <summary>
-    ///   
-    /// </summary>
-    public class Block
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        public string Hash { get; set; }
-
-        /// <summary>
-        ///  TODO
-        /// </summary>
-        public byte[] Data { get; set; }
-    }
 
     /// <summary>
     /// 
@@ -78,7 +63,7 @@ namespace Ipfs.Api
             var data = await ipfs.DownloadBytesAsync("block/get", hash);
             return new Block
             {
-                Data = data,
+                DataBytes = data,
                 Hash = hash
             };
         }
@@ -95,7 +80,7 @@ namespace Ipfs.Api
             var info = JsonConvert.DeserializeObject<BlockInfo>(json);
             return new Block
             {
-                Data = data,
+                DataBytes = data,
                 Hash = info.Key
             };
         }
@@ -108,7 +93,7 @@ namespace Ipfs.Api
         /// </param>
         public Task<Block> PutAsync(Block block)
         {
-            return PutAsync(block.Data);
+            return PutAsync(block.DataBytes);
         }
 
         /// <summary>

@@ -18,16 +18,16 @@ namespace Ipfs.Api
         {
             var block = ipfs.Block.PutAsync(blob).Result;
             Assert.AreEqual(hash, block.Hash);
-            CollectionAssert.AreEqual(blob, block.Data);
+            CollectionAssert.AreEqual(blob, block.DataBytes);
         }
 
         [TestMethod]
         public void Put_Block()
         {
-            var block1 = new Block { Data = blob };
+            var block1 = new Block { DataBytes = blob };
             var block2 = ipfs.Block.PutAsync(block1).Result;
             Assert.AreEqual(hash, block2.Hash);
-            CollectionAssert.AreEqual(blob, block2.Data);
+            CollectionAssert.AreEqual(blob, block2.DataBytes);
         }
 
         [TestMethod]
@@ -35,7 +35,7 @@ namespace Ipfs.Api
         {
             var block = ipfs.Block.GetAsync(hash).Result;
             Assert.AreEqual(hash, block.Hash);
-            CollectionAssert.AreEqual(blob, block.Data);
+            CollectionAssert.AreEqual(blob, block.DataBytes);
         }
 
         [TestMethod]
