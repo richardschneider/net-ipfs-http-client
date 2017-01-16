@@ -58,9 +58,17 @@ namespace Ipfs.Api
         {
             var ipfs = new IpfsClient();
             var peers = await ipfs.Swarm.PeersAsync();
-            var peer = peers.First();
-            await ipfs.Swarm.DisconnectAsync(peer.ConnectedAddress);
-            await ipfs.Swarm.ConnectAsync(peer.ConnectedAddress);
+
+            // Sometimes we cannot connect to a specific peer.  This
+            // tests that a connection can be made to at least one peer.
+            foreach (var peer in peers)
+            {
+                await ipfs.Swarm.DisconnectAsync(peer.ConnectedAddress);
+                await ipfs.Swarm.ConnectAsync(peer.ConnectedAddress);
+                return;
+            }
+
+            Assert.Fail("Cannot connect to any peer");
         }
     }
 }
