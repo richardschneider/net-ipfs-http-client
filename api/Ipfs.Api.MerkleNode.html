@@ -79,7 +79,7 @@
 </div>
               
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public class MerkleNode : IEquatable&lt;MerkleNode&gt;</code></pre>
+                <pre><code class="lang-csharp hljs">public class MerkleNode : IMerkleNode&lt;DagLink&gt;, IDataBlock, IEquatable&lt;MerkleNode&gt;</code></pre>
               </div>
 
               <div class="inheritance">
@@ -175,7 +175,7 @@
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_BlockSize.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.BlockSize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L97">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L96">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_BlockSize_" data-uid="Ipfs.Api.MerkleNode.BlockSize*"></a>
               <h4 id="Ipfs_Api_MerkleNode_BlockSize" data-uid="Ipfs.Api.MerkleNode.BlockSize">BlockSize</h4>
@@ -206,7 +206,7 @@
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_CumulativeSize.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.CumulativeSize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L162">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L159">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_CumulativeSize_" data-uid="Ipfs.Api.MerkleNode.CumulativeSize*"></a>
               <h4 id="Ipfs_Api_MerkleNode_CumulativeSize" data-uid="Ipfs.Api.MerkleNode.CumulativeSize">CumulativeSize</h4>
@@ -234,10 +234,42 @@
               
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_DataBytes.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.DataBytes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L169">View Source</a>
+              </span>
+              <a id="Ipfs_Api_MerkleNode_DataBytes_" data-uid="Ipfs.Api.MerkleNode.DataBytes*"></a>
+              <h4 id="Ipfs_Api_MerkleNode_DataBytes" data-uid="Ipfs.Api.MerkleNode.DataBytes">DataBytes</h4>
+              
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <div class="markdown level1 remarks"></div>
+
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public byte[] DataBytes { get; }</code></pre>
+              </div>
+
+              
+              
+              
+              <h5 class="propertyValue">Property Value</h5>
+              <div>
+                <span class="xref">System.Byte</span>[]
+                
+              </div>
+              
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IDataBlock.html">IDataBlock.DataBytes</a></div>
+              
+              
+              
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_DataSize.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.DataSize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L149">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L146">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_DataSize_" data-uid="Ipfs.Api.MerkleNode.DataSize*"></a>
               <h4 id="Ipfs_Api_MerkleNode_DataSize" data-uid="Ipfs.Api.MerkleNode.DataSize">DataSize</h4>
@@ -265,16 +297,47 @@
               
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_DataStream.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.DataStream%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L183">View Source</a>
+              </span>
+              <a id="Ipfs_Api_MerkleNode_DataStream_" data-uid="Ipfs.Api.MerkleNode.DataStream*"></a>
+              <h4 id="Ipfs_Api_MerkleNode_DataStream" data-uid="Ipfs.Api.MerkleNode.DataStream">DataStream</h4>
+              
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <div class="markdown level1 remarks"></div>
+
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Stream DataStream { get; }</code></pre>
+              </div>
+
+              
+              
+              
+              <h5 class="propertyValue">Property Value</h5>
+              <div>
+                <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">Stream</a>
+                
+              </div>
+              
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IDataBlock.html">IDataBlock.DataStream</a></div>
+              
+              
+              
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_Hash.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.Hash%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L83">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L82">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_Hash_" data-uid="Ipfs.Api.MerkleNode.Hash*"></a>
               <h4 id="Ipfs_Api_MerkleNode_Hash" data-uid="Ipfs.Api.MerkleNode.Hash">Hash</h4>
               
-              <div class="markdown level1 summary"><p>The multihash (Base58 hash) for the node.</p>
-</div>
+              <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
 
@@ -291,6 +354,8 @@
                 
               </div>
               
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IDataBlock.html">IDataBlock.Hash</a></div>
               
               
               
@@ -299,13 +364,12 @@
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_Links.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.Links%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L133">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L130">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_Links_" data-uid="Ipfs.Api.MerkleNode.Links*"></a>
               <h4 id="Ipfs_Api_MerkleNode_Links" data-uid="Ipfs.Api.MerkleNode.Links">Links</h4>
               
-              <div class="markdown level1 summary"><p>TODO</p>
-</div>
+              <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
 
@@ -322,6 +386,8 @@
                 
               </div>
               
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IMerkleNode-1.html">IMerkleNode&lt;Link&gt;.Links</a></div>
               
               
               
@@ -330,7 +396,7 @@
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_LinksCount.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.LinksCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L121">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L120">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_LinksCount_" data-uid="Ipfs.Api.MerkleNode.LinksCount*"></a>
               <h4 id="Ipfs_Api_MerkleNode_LinksCount" data-uid="Ipfs.Api.MerkleNode.LinksCount">LinksCount</h4>
@@ -361,7 +427,7 @@
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_LinksSize.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.LinksSize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L109">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L108">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_LinksSize_" data-uid="Ipfs.Api.MerkleNode.LinksSize*"></a>
               <h4 id="Ipfs_Api_MerkleNode_LinksSize" data-uid="Ipfs.Api.MerkleNode.LinksSize">LinksSize</h4>
@@ -392,7 +458,7 @@
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_Name.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L88">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L87">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_Name_" data-uid="Ipfs.Api.MerkleNode.Name*"></a>
               <h4 id="Ipfs_Api_MerkleNode_Name" data-uid="Ipfs.Api.MerkleNode.Name">Name</h4>
@@ -425,7 +491,7 @@
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_Equals_Ipfs_Api_MerkleNode_.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.Equals(Ipfs.Api.MerkleNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L251">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L252">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_Equals_" data-uid="Ipfs.Api.MerkleNode.Equals*"></a>
               <h4 id="Ipfs_Api_MerkleNode_Equals_Ipfs_Api_MerkleNode_" data-uid="Ipfs.Api.MerkleNode.Equals(Ipfs.Api.MerkleNode)">Equals(MerkleNode)</h4>
@@ -463,7 +529,7 @@
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L244">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L245">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_Equals_" data-uid="Ipfs.Api.MerkleNode.Equals*"></a>
               <h4 id="Ipfs_Api_MerkleNode_Equals_System_Object_" data-uid="Ipfs.Api.MerkleNode.Equals(System.Object)">Equals(Object)</h4>
@@ -501,7 +567,7 @@
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_GetHashCode.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L238">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L239">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_GetHashCode_" data-uid="Ipfs.Api.MerkleNode.GetHashCode*"></a>
               <h4 id="Ipfs_Api_MerkleNode_GetHashCode" data-uid="Ipfs.Api.MerkleNode.GetHashCode">GetHashCode()</h4>
@@ -530,67 +596,39 @@
               
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_GetRawData.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.GetRawData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_ToLink_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.ToLink(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L181">View Source</a>
-              </span>
-              <a id="Ipfs_Api_MerkleNode_GetRawData_" data-uid="Ipfs.Api.MerkleNode.GetRawData*"></a>
-              <h4 id="Ipfs_Api_MerkleNode_GetRawData" data-uid="Ipfs.Api.MerkleNode.GetRawData">GetRawData()</h4>
-              
-              <div class="markdown level1 summary"><p>Gets the raw encoded data of the node.</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs block get <a class="xref" href="Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_Hash">Hash</a></code>.</p>
-</div>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Stream GetRawData()</code></pre>
-              </div>
-
-              
-              <h5 class="returns">Returns</h5>
-              <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">Stream</a>
-                  <p>A <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">Stream</a> contain the raw encode data of the node.  This <strong>Stream</strong>
-must be closed.</p>
-
-              </div>
-              
-              
-              
-              
-              
-              
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_ToLink.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.ToLink%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L191">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L192">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_ToLink_" data-uid="Ipfs.Api.MerkleNode.ToLink*"></a>
-              <h4 id="Ipfs_Api_MerkleNode_ToLink" data-uid="Ipfs.Api.MerkleNode.ToLink">ToLink()</h4>
+              <h4 id="Ipfs_Api_MerkleNode_ToLink_System_String_" data-uid="Ipfs.Api.MerkleNode.ToLink(System.String)">ToLink(String)</h4>
               
-              <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.DagLink.html">DagLink</a> to the node.</p>
-</div>
+              <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <div class="markdown level1 remarks"></div>
 
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public DagLink ToLink()</code></pre>
+                <pre><code class="lang-csharp hljs">public DagLink ToLink(string name = null)</code></pre>
               </div>
 
+              <h5 class="parameters">Parameters</h5>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
+                  <span class="parametername">name</span>
+                  
+              </div>
               
               <h5 class="returns">Returns</h5>
               <div>
                   <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.DagLink.html">DagLink</a>
-                  <p>A new <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.DagLink.html">DagLink</a> to node.</p>
-
+                  
               </div>
               
               
               
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IMerkleNode-1.html">IMerkleNode&lt;Link&gt;.ToLink(String)</a></div>
               
               
               
@@ -599,7 +637,7 @@ must be closed.</p>
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_ToString.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L281">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L282">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_ToString_" data-uid="Ipfs.Api.MerkleNode.ToString*"></a>
               <h4 id="Ipfs_Api_MerkleNode_ToString" data-uid="Ipfs.Api.MerkleNode.ToString">ToString()</h4>
@@ -633,7 +671,7 @@ must be closed.</p>
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_op_Equality_Ipfs_Api_MerkleNode_Ipfs_Api_MerkleNode_.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.op_Equality(Ipfs.Api.MerkleNode%2CIpfs.Api.MerkleNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L259">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L260">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_op_Equality_" data-uid="Ipfs.Api.MerkleNode.op_Equality*"></a>
               <h4 id="Ipfs_Api_MerkleNode_op_Equality_Ipfs_Api_MerkleNode_Ipfs_Api_MerkleNode_" data-uid="Ipfs.Api.MerkleNode.op_Equality(Ipfs.Api.MerkleNode,Ipfs.Api.MerkleNode)">Equality(MerkleNode, MerkleNode)</h4>
@@ -675,7 +713,7 @@ must be closed.</p>
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_op_Implicit_System_String__Ipfs_Api_MerkleNode.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.op_Implicit(System.String)~Ipfs.Api.MerkleNode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L289">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L290">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_op_Implicit_" data-uid="Ipfs.Api.MerkleNode.op_Implicit*"></a>
               <h4 id="Ipfs_Api_MerkleNode_op_Implicit_System_String__Ipfs_Api_MerkleNode" data-uid="Ipfs.Api.MerkleNode.op_Implicit(System.String)~Ipfs.Api.MerkleNode">Implicit(String to MerkleNode)</h4>
@@ -712,7 +750,7 @@ must be closed.</p>
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_MerkleNode_op_Inequality_Ipfs_Api_MerkleNode_Ipfs_Api_MerkleNode_.md&amp;value=---%0Auid%3A%20Ipfs.Api.MerkleNode.op_Inequality(Ipfs.Api.MerkleNode%2CIpfs.Api.MerkleNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L271">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/MerkleNode.cs/#L272">View Source</a>
               </span>
               <a id="Ipfs_Api_MerkleNode_op_Inequality_" data-uid="Ipfs.Api.MerkleNode.op_Inequality*"></a>
               <h4 id="Ipfs_Api_MerkleNode_op_Inequality_Ipfs_Api_MerkleNode_Ipfs_Api_MerkleNode_" data-uid="Ipfs.Api.MerkleNode.op_Inequality(Ipfs.Api.MerkleNode,Ipfs.Api.MerkleNode)">Inequality(MerkleNode, MerkleNode)</h4>

@@ -13,18 +13,30 @@ references:
   commentId: T:Ipfs.Api.Block
   fullName: Ipfs.Api.Block
   nameWithType: Block
-- uid: Ipfs.Api.Block.Data
-  name: Data
-  href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_Data
-  commentId: P:Ipfs.Api.Block.Data
-  fullName: Ipfs.Api.Block.Data
-  nameWithType: Block.Data
-- uid: Ipfs.Api.Block.Data*
-  name: Data
-  href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_Data_
-  commentId: Overload:Ipfs.Api.Block.Data
-  fullName: Ipfs.Api.Block.Data
-  nameWithType: Block.Data
+- uid: Ipfs.Api.Block.DataBytes
+  name: DataBytes
+  href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_DataBytes
+  commentId: P:Ipfs.Api.Block.DataBytes
+  fullName: Ipfs.Api.Block.DataBytes
+  nameWithType: Block.DataBytes
+- uid: Ipfs.Api.Block.DataBytes*
+  name: DataBytes
+  href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_DataBytes_
+  commentId: Overload:Ipfs.Api.Block.DataBytes
+  fullName: Ipfs.Api.Block.DataBytes
+  nameWithType: Block.DataBytes
+- uid: Ipfs.Api.Block.DataStream
+  name: DataStream
+  href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_DataStream
+  commentId: P:Ipfs.Api.Block.DataStream
+  fullName: Ipfs.Api.Block.DataStream
+  nameWithType: Block.DataStream
+- uid: Ipfs.Api.Block.DataStream*
+  name: DataStream
+  href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_DataStream_
+  commentId: Overload:Ipfs.Api.Block.DataStream
+  fullName: Ipfs.Api.Block.DataStream
+  nameWithType: Block.DataStream
 - uid: Ipfs.Api.Block.Hash
   name: Hash
   href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_Hash
@@ -766,6 +778,18 @@ references:
   commentId: Overload:Ipfs.Api.MerkleNode.CumulativeSize
   fullName: Ipfs.Api.MerkleNode.CumulativeSize
   nameWithType: MerkleNode.CumulativeSize
+- uid: Ipfs.Api.MerkleNode.DataBytes
+  name: DataBytes
+  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_DataBytes
+  commentId: P:Ipfs.Api.MerkleNode.DataBytes
+  fullName: Ipfs.Api.MerkleNode.DataBytes
+  nameWithType: MerkleNode.DataBytes
+- uid: Ipfs.Api.MerkleNode.DataBytes*
+  name: DataBytes
+  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_DataBytes_
+  commentId: Overload:Ipfs.Api.MerkleNode.DataBytes
+  fullName: Ipfs.Api.MerkleNode.DataBytes
+  nameWithType: MerkleNode.DataBytes
 - uid: Ipfs.Api.MerkleNode.DataSize
   name: DataSize
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_DataSize
@@ -778,6 +802,18 @@ references:
   commentId: Overload:Ipfs.Api.MerkleNode.DataSize
   fullName: Ipfs.Api.MerkleNode.DataSize
   nameWithType: MerkleNode.DataSize
+- uid: Ipfs.Api.MerkleNode.DataStream
+  name: DataStream
+  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_DataStream
+  commentId: P:Ipfs.Api.MerkleNode.DataStream
+  fullName: Ipfs.Api.MerkleNode.DataStream
+  nameWithType: MerkleNode.DataStream
+- uid: Ipfs.Api.MerkleNode.DataStream*
+  name: DataStream
+  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_DataStream_
+  commentId: Overload:Ipfs.Api.MerkleNode.DataStream
+  fullName: Ipfs.Api.MerkleNode.DataStream
+  nameWithType: MerkleNode.DataStream
 - uid: Ipfs.Api.MerkleNode.Equals(Ipfs.Api.MerkleNode)
   name: Equals(MerkleNode)
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_Equals_Ipfs_Api_MerkleNode_
@@ -808,18 +844,6 @@ references:
   commentId: Overload:Ipfs.Api.MerkleNode.GetHashCode
   fullName: Ipfs.Api.MerkleNode.GetHashCode
   nameWithType: MerkleNode.GetHashCode
-- uid: Ipfs.Api.MerkleNode.GetRawData
-  name: GetRawData()
-  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_GetRawData
-  commentId: M:Ipfs.Api.MerkleNode.GetRawData
-  fullName: Ipfs.Api.MerkleNode.GetRawData()
-  nameWithType: MerkleNode.GetRawData()
-- uid: Ipfs.Api.MerkleNode.GetRawData*
-  name: GetRawData
-  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_GetRawData_
-  commentId: Overload:Ipfs.Api.MerkleNode.GetRawData
-  fullName: Ipfs.Api.MerkleNode.GetRawData
-  nameWithType: MerkleNode.GetRawData
 - uid: Ipfs.Api.MerkleNode.Hash
   name: Hash
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_Hash
@@ -922,12 +946,12 @@ references:
   commentId: Overload:Ipfs.Api.MerkleNode.op_Inequality
   fullName: Ipfs.Api.MerkleNode.Inequality
   nameWithType: MerkleNode.Inequality
-- uid: Ipfs.Api.MerkleNode.ToLink
-  name: ToLink()
-  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_ToLink
-  commentId: M:Ipfs.Api.MerkleNode.ToLink
-  fullName: Ipfs.Api.MerkleNode.ToLink()
-  nameWithType: MerkleNode.ToLink()
+- uid: Ipfs.Api.MerkleNode.ToLink(System.String)
+  name: ToLink(String)
+  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_ToLink_System_String_
+  commentId: M:Ipfs.Api.MerkleNode.ToLink(System.String)
+  fullName: Ipfs.Api.MerkleNode.ToLink(System.String)
+  nameWithType: MerkleNode.ToLink(String)
 - uid: Ipfs.Api.MerkleNode.ToLink*
   name: ToLink
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_ToLink_
