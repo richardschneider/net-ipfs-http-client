@@ -13,7 +13,7 @@ namespace Ipfs.Api
     /// <remarks>
     ///   Initially an <b>MerkleNode</b> is just constructed with its MultiHash.  Its other properties are lazily loaded.
     /// </remarks>
-    public class MerkleNode
+    public class MerkleNode : IEquatable<MerkleNode>
     {
         bool hasObjectStats;
         bool hasBlockStats;
@@ -244,9 +244,7 @@ namespace Ipfs.Api
         public override bool Equals(object obj)
         {
             var that = obj as MerkleNode;
-            return (that == null)
-                ? false
-                : this.Hash == that.Hash;
+            return that != null && this.Hash == that.Hash;
         }
 
         /// <inheritdoc />

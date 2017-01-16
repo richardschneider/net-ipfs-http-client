@@ -87,6 +87,7 @@ namespace Ipfs.Api
             var a0 = new MerkleNode("QmStfpa7ppKPSsdnazBy3Q5QH4zNzGLcpWV88otjVSV7SY");
             var a1 = new MerkleNode("QmStfpa7ppKPSsdnazBy3Q5QH4zNzGLcpWV88otjVSV7SY");
             var b = new MerkleNode("QmagNHT6twJRBZcGeviiGzHVTMbNnJZameLyL6T14GUHCS");
+            MerkleNode nullNode = null;
 
             #pragma warning disable 1718
             Assert.IsTrue(a0 == a0);
@@ -118,6 +119,11 @@ namespace Ipfs.Api
             Assert.AreEqual(a0.GetHashCode(), a0.GetHashCode());
             Assert.AreEqual(a0.GetHashCode(), a1.GetHashCode());
             Assert.AreNotEqual(a0.GetHashCode(), b.GetHashCode());
+
+            Assert.IsTrue(nullNode == null);
+            Assert.IsFalse(null == a0);
+            Assert.IsFalse(nullNode != null);
+            Assert.IsTrue(null != a0);
         }
 
         [TestMethod]
