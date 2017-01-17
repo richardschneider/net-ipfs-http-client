@@ -274,6 +274,162 @@ references:
   commentId: Overload:Ipfs.Api.DhtApi.FindProvidersAsync
   fullName: Ipfs.Api.DhtApi.FindProvidersAsync
   nameWithType: DhtApi.FindProvidersAsync
+- uid: Ipfs.Api.FileSystemLink
+  name: FileSystemLink
+  href: api/Ipfs.Api.FileSystemLink.html
+  commentId: T:Ipfs.Api.FileSystemLink
+  fullName: Ipfs.Api.FileSystemLink
+  nameWithType: FileSystemLink
+- uid: Ipfs.Api.FileSystemLink.Hash
+  name: Hash
+  href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_Hash
+  commentId: P:Ipfs.Api.FileSystemLink.Hash
+  fullName: Ipfs.Api.FileSystemLink.Hash
+  nameWithType: FileSystemLink.Hash
+- uid: Ipfs.Api.FileSystemLink.Hash*
+  name: Hash
+  href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_Hash_
+  commentId: Overload:Ipfs.Api.FileSystemLink.Hash
+  fullName: Ipfs.Api.FileSystemLink.Hash
+  nameWithType: FileSystemLink.Hash
+- uid: Ipfs.Api.FileSystemLink.IsDirectory
+  name: IsDirectory
+  href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_IsDirectory
+  commentId: P:Ipfs.Api.FileSystemLink.IsDirectory
+  fullName: Ipfs.Api.FileSystemLink.IsDirectory
+  nameWithType: FileSystemLink.IsDirectory
+- uid: Ipfs.Api.FileSystemLink.IsDirectory*
+  name: IsDirectory
+  href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_IsDirectory_
+  commentId: Overload:Ipfs.Api.FileSystemLink.IsDirectory
+  fullName: Ipfs.Api.FileSystemLink.IsDirectory
+  nameWithType: FileSystemLink.IsDirectory
+- uid: Ipfs.Api.FileSystemLink.Name
+  name: Name
+  href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_Name
+  commentId: P:Ipfs.Api.FileSystemLink.Name
+  fullName: Ipfs.Api.FileSystemLink.Name
+  nameWithType: FileSystemLink.Name
+- uid: Ipfs.Api.FileSystemLink.Name*
+  name: Name
+  href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_Name_
+  commentId: Overload:Ipfs.Api.FileSystemLink.Name
+  fullName: Ipfs.Api.FileSystemLink.Name
+  nameWithType: FileSystemLink.Name
+- uid: Ipfs.Api.FileSystemLink.Size
+  name: Size
+  href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_Size
+  commentId: P:Ipfs.Api.FileSystemLink.Size
+  fullName: Ipfs.Api.FileSystemLink.Size
+  nameWithType: FileSystemLink.Size
+- uid: Ipfs.Api.FileSystemLink.Size*
+  name: Size
+  href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_Size_
+  commentId: Overload:Ipfs.Api.FileSystemLink.Size
+  fullName: Ipfs.Api.FileSystemLink.Size
+  nameWithType: FileSystemLink.Size
+- uid: Ipfs.Api.FileSystemNode
+  name: FileSystemNode
+  href: api/Ipfs.Api.FileSystemNode.html
+  commentId: T:Ipfs.Api.FileSystemNode
+  fullName: Ipfs.Api.FileSystemNode
+  nameWithType: FileSystemNode
+- uid: Ipfs.Api.FileSystemNode.DataBytes
+  name: DataBytes
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_DataBytes
+  commentId: P:Ipfs.Api.FileSystemNode.DataBytes
+  fullName: Ipfs.Api.FileSystemNode.DataBytes
+  nameWithType: FileSystemNode.DataBytes
+- uid: Ipfs.Api.FileSystemNode.DataBytes*
+  name: DataBytes
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_DataBytes_
+  commentId: Overload:Ipfs.Api.FileSystemNode.DataBytes
+  fullName: Ipfs.Api.FileSystemNode.DataBytes
+  nameWithType: FileSystemNode.DataBytes
+- uid: Ipfs.Api.FileSystemNode.DataStream
+  name: DataStream
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_DataStream
+  commentId: P:Ipfs.Api.FileSystemNode.DataStream
+  fullName: Ipfs.Api.FileSystemNode.DataStream
+  nameWithType: FileSystemNode.DataStream
+- uid: Ipfs.Api.FileSystemNode.DataStream*
+  name: DataStream
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_DataStream_
+  commentId: Overload:Ipfs.Api.FileSystemNode.DataStream
+  fullName: Ipfs.Api.FileSystemNode.DataStream
+  nameWithType: FileSystemNode.DataStream
+- uid: Ipfs.Api.FileSystemNode.Hash
+  name: Hash
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Hash
+  commentId: P:Ipfs.Api.FileSystemNode.Hash
+  fullName: Ipfs.Api.FileSystemNode.Hash
+  nameWithType: FileSystemNode.Hash
+- uid: Ipfs.Api.FileSystemNode.Hash*
+  name: Hash
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Hash_
+  commentId: Overload:Ipfs.Api.FileSystemNode.Hash
+  fullName: Ipfs.Api.FileSystemNode.Hash
+  nameWithType: FileSystemNode.Hash
+- uid: Ipfs.Api.FileSystemNode.IsDirectory
+  name: IsDirectory
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_IsDirectory
+  commentId: P:Ipfs.Api.FileSystemNode.IsDirectory
+  fullName: Ipfs.Api.FileSystemNode.IsDirectory
+  nameWithType: FileSystemNode.IsDirectory
+- uid: Ipfs.Api.FileSystemNode.IsDirectory*
+  name: IsDirectory
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_IsDirectory_
+  commentId: Overload:Ipfs.Api.FileSystemNode.IsDirectory
+  fullName: Ipfs.Api.FileSystemNode.IsDirectory
+  nameWithType: FileSystemNode.IsDirectory
+- uid: Ipfs.Api.FileSystemNode.Links
+  name: Links
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Links
+  commentId: P:Ipfs.Api.FileSystemNode.Links
+  fullName: Ipfs.Api.FileSystemNode.Links
+  nameWithType: FileSystemNode.Links
+- uid: Ipfs.Api.FileSystemNode.Links*
+  name: Links
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Links_
+  commentId: Overload:Ipfs.Api.FileSystemNode.Links
+  fullName: Ipfs.Api.FileSystemNode.Links
+  nameWithType: FileSystemNode.Links
+- uid: Ipfs.Api.FileSystemNode.Name
+  name: Name
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Name
+  commentId: P:Ipfs.Api.FileSystemNode.Name
+  fullName: Ipfs.Api.FileSystemNode.Name
+  nameWithType: FileSystemNode.Name
+- uid: Ipfs.Api.FileSystemNode.Name*
+  name: Name
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Name_
+  commentId: Overload:Ipfs.Api.FileSystemNode.Name
+  fullName: Ipfs.Api.FileSystemNode.Name
+  nameWithType: FileSystemNode.Name
+- uid: Ipfs.Api.FileSystemNode.Size
+  name: Size
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Size
+  commentId: P:Ipfs.Api.FileSystemNode.Size
+  fullName: Ipfs.Api.FileSystemNode.Size
+  nameWithType: FileSystemNode.Size
+- uid: Ipfs.Api.FileSystemNode.Size*
+  name: Size
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Size_
+  commentId: Overload:Ipfs.Api.FileSystemNode.Size
+  fullName: Ipfs.Api.FileSystemNode.Size
+  nameWithType: FileSystemNode.Size
+- uid: Ipfs.Api.FileSystemNode.ToLink(System.String)
+  name: ToLink(String)
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_ToLink_System_String_
+  commentId: M:Ipfs.Api.FileSystemNode.ToLink(System.String)
+  fullName: Ipfs.Api.FileSystemNode.ToLink(System.String)
+  nameWithType: FileSystemNode.ToLink(String)
+- uid: Ipfs.Api.FileSystemNode.ToLink*
+  name: ToLink
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_ToLink_
+  commentId: Overload:Ipfs.Api.FileSystemNode.ToLink
+  fullName: Ipfs.Api.FileSystemNode.ToLink
+  nameWithType: FileSystemNode.ToLink
 - uid: Ipfs.Api.IpfsClient
   name: IpfsClient
   href: api/Ipfs.Api.IpfsClient.html
@@ -517,6 +673,18 @@ references:
   commentId: Overload:Ipfs.Api.IpfsClient.IdAsync
   fullName: Ipfs.Api.IpfsClient.IdAsync
   nameWithType: IpfsClient.IdAsync
+- uid: Ipfs.Api.IpfsClient.ListFileAsync(System.String)
+  name: ListFileAsync(String)
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ListFileAsync_System_String_
+  commentId: M:Ipfs.Api.IpfsClient.ListFileAsync(System.String)
+  fullName: Ipfs.Api.IpfsClient.ListFileAsync(System.String)
+  nameWithType: IpfsClient.ListFileAsync(String)
+- uid: Ipfs.Api.IpfsClient.ListFileAsync*
+  name: ListFileAsync
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ListFileAsync_
+  commentId: Overload:Ipfs.Api.IpfsClient.ListFileAsync
+  fullName: Ipfs.Api.IpfsClient.ListFileAsync
+  nameWithType: IpfsClient.ListFileAsync
 - uid: Ipfs.Api.IpfsClient.Object
   name: Object
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Object
@@ -736,12 +904,12 @@ references:
   commentId: T:Ipfs.Api.MerkleNode
   fullName: Ipfs.Api.MerkleNode
   nameWithType: MerkleNode
-- uid: Ipfs.Api.MerkleNode.#ctor(Ipfs.DagLink)
-  name: MerkleNode(DagLink)
-  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode__ctor_Ipfs_DagLink_
-  commentId: M:Ipfs.Api.MerkleNode.#ctor(Ipfs.DagLink)
-  fullName: Ipfs.Api.MerkleNode.MerkleNode(Ipfs.DagLink)
-  nameWithType: MerkleNode.MerkleNode(DagLink)
+- uid: Ipfs.Api.MerkleNode.#ctor(Ipfs.IMerkleLink)
+  name: MerkleNode(IMerkleLink)
+  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode__ctor_Ipfs_IMerkleLink_
+  commentId: M:Ipfs.Api.MerkleNode.#ctor(Ipfs.IMerkleLink)
+  fullName: Ipfs.Api.MerkleNode.MerkleNode(Ipfs.IMerkleLink)
+  nameWithType: MerkleNode.MerkleNode(IMerkleLink)
 - uid: Ipfs.Api.MerkleNode.#ctor(System.String,System.String)
   name: MerkleNode(String, String)
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode__ctor_System_String_System_String_
@@ -1120,15 +1288,15 @@ references:
   commentId: M:Ipfs.Api.ObjectApi.PutAsync(Ipfs.DagNode)
   fullName: Ipfs.Api.ObjectApi.PutAsync(Ipfs.DagNode)
   nameWithType: ObjectApi.PutAsync(DagNode)
-- uid: Ipfs.Api.ObjectApi.PutAsync(System.Byte[],System.Collections.Generic.IEnumerable{Ipfs.DagLink})
-  name: PutAsync(Byte[], IEnumerable<DagLink>)
-  href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_PutAsync_System_Byte___System_Collections_Generic_IEnumerable_Ipfs_DagLink__
-  commentId: M:Ipfs.Api.ObjectApi.PutAsync(System.Byte[],System.Collections.Generic.IEnumerable{Ipfs.DagLink})
-  name.vb: PutAsync(Byte(), IEnumerable(Of DagLink))
-  fullName: Ipfs.Api.ObjectApi.PutAsync(System.Byte[], System.Collections.Generic.IEnumerable<Ipfs.DagLink>)
-  fullName.vb: Ipfs.Api.ObjectApi.PutAsync(System.Byte(), System.Collections.Generic.IEnumerable(Of Ipfs.DagLink))
-  nameWithType: ObjectApi.PutAsync(Byte[], IEnumerable<DagLink>)
-  nameWithType.vb: PutAsync(Byte(), IEnumerable(Of DagLink))
+- uid: Ipfs.Api.ObjectApi.PutAsync(System.Byte[],System.Collections.Generic.IEnumerable{Ipfs.IMerkleLink})
+  name: PutAsync(Byte[], IEnumerable<IMerkleLink>)
+  href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_PutAsync_System_Byte___System_Collections_Generic_IEnumerable_Ipfs_IMerkleLink__
+  commentId: M:Ipfs.Api.ObjectApi.PutAsync(System.Byte[],System.Collections.Generic.IEnumerable{Ipfs.IMerkleLink})
+  name.vb: PutAsync(Byte(), IEnumerable(Of IMerkleLink))
+  fullName: Ipfs.Api.ObjectApi.PutAsync(System.Byte[], System.Collections.Generic.IEnumerable<Ipfs.IMerkleLink>)
+  fullName.vb: Ipfs.Api.ObjectApi.PutAsync(System.Byte(), System.Collections.Generic.IEnumerable(Of Ipfs.IMerkleLink))
+  nameWithType: ObjectApi.PutAsync(Byte[], IEnumerable<IMerkleLink>)
+  nameWithType.vb: PutAsync(Byte(), IEnumerable(Of IMerkleLink))
 - uid: Ipfs.Api.ObjectApi.PutAsync*
   name: PutAsync
   href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_PutAsync_

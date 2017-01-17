@@ -555,7 +555,7 @@ numbers of the assembly.</p>
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_AddAsync_System_IO_Stream_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Add.cs/#L75">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Add.cs/#L78">View Source</a>
               </span>
               <a id="Ipfs_Api_IpfsClient_AddAsync_" data-uid="Ipfs.Api.IpfsClient.AddAsync*"></a>
               <h4 id="Ipfs_Api_IpfsClient_AddAsync_System_IO_Stream_System_String_" data-uid="Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream,System.String)">AddAsync(Stream, String)</h4>
@@ -566,7 +566,7 @@ numbers of the assembly.</p>
               <div class="markdown level1 remarks"></div>
 
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;MerkleNode&gt; AddAsync(Stream stream, string name = &quot;&quot;)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;FileSystemNode&gt; AddAsync(Stream stream, string name = &quot;&quot;)</code></pre>
               </div>
 
               <h5 class="parameters">Parameters</h5>
@@ -583,7 +583,7 @@ numbers of the assembly.</p>
               
               <h5 class="returns">Returns</h5>
               <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.MerkleNode.html">MerkleNode</a>&gt;
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.FileSystemNode.html">FileSystemNode</a>&gt;
                   
               </div>
               
@@ -608,7 +608,7 @@ numbers of the assembly.</p>
               <div class="markdown level1 remarks"></div>
 
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;MerkleNode&gt; AddDirectoryAsync(string path, bool recursive = true)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;FileSystemNode&gt; AddDirectoryAsync(string path, bool recursive = true)</code></pre>
               </div>
 
               <h5 class="parameters">Parameters</h5>
@@ -625,7 +625,7 @@ numbers of the assembly.</p>
               
               <h5 class="returns">Returns</h5>
               <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.MerkleNode.html">MerkleNode</a>&gt;
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.FileSystemNode.html">FileSystemNode</a>&gt;
                   
               </div>
               
@@ -650,7 +650,7 @@ numbers of the assembly.</p>
               <div class="markdown level1 remarks"></div>
 
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;MerkleNode&gt; AddFileAsync(string path)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;FileSystemNode&gt; AddFileAsync(string path)</code></pre>
               </div>
 
               <h5 class="parameters">Parameters</h5>
@@ -662,7 +662,7 @@ numbers of the assembly.</p>
               
               <h5 class="returns">Returns</h5>
               <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.MerkleNode.html">MerkleNode</a>&gt;
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.FileSystemNode.html">FileSystemNode</a>&gt;
                   
               </div>
               
@@ -676,7 +676,7 @@ numbers of the assembly.</p>
                 <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_AddTextAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.AddTextAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Add.cs/#L65">View Source</a>
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Add.cs/#L68">View Source</a>
               </span>
               <a id="Ipfs_Api_IpfsClient_AddTextAsync_" data-uid="Ipfs.Api.IpfsClient.AddTextAsync*"></a>
               <h4 id="Ipfs_Api_IpfsClient_AddTextAsync_System_String_" data-uid="Ipfs.Api.IpfsClient.AddTextAsync(System.String)">AddTextAsync(String)</h4>
@@ -687,7 +687,7 @@ numbers of the assembly.</p>
               <div class="markdown level1 remarks"></div>
 
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;MerkleNode&gt; AddTextAsync(string text)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;FileSystemNode&gt; AddTextAsync(string text)</code></pre>
               </div>
 
               <h5 class="parameters">Parameters</h5>
@@ -699,7 +699,7 @@ numbers of the assembly.</p>
               
               <h5 class="returns">Returns</h5>
               <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.MerkleNode.html">MerkleNode</a>&gt;
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.FileSystemNode.html">FileSystemNode</a>&gt;
                   
               </div>
               
@@ -1146,6 +1146,45 @@ peer is used.</p>
               <h5 class="returns">Returns</h5>
               <div>
                   <a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.PeerNode.html">PeerNode</a>&gt;
+                  
+              </div>
+              
+              
+              
+              
+              
+              
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
+                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_ListFileAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.ListFileAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Read.cs/#L55">View Source</a>
+              </span>
+              <a id="Ipfs_Api_IpfsClient_ListFileAsync_" data-uid="Ipfs.Api.IpfsClient.ListFileAsync*"></a>
+              <h4 id="Ipfs_Api_IpfsClient_ListFileAsync_System_String_" data-uid="Ipfs.Api.IpfsClient.ListFileAsync(System.String)">ListFileAsync(String)</h4>
+              
+              <div class="markdown level1 summary"><p>Get information about the file or directory.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <div class="markdown level1 remarks"></div>
+
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task&lt;FileSystemNode&gt; ListFileAsync(string path)</code></pre>
+              </div>
+
+              <h5 class="parameters">Parameters</h5>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
+                  <span class="parametername">path</span>
+                  <p>A path to an existing file or directory, such as &quot;QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about&quot;
+or &quot;QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V&quot;</p>
+
+              </div>
+              
+              <h5 class="returns">Returns</h5>
+              <div>
+                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.FileSystemNode.html">FileSystemNode</a>&gt;
                   
               </div>
               
