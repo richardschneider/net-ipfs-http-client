@@ -35,12 +35,11 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
-        public void Do_Command_Throws_IpfsException_On_Invalid_Command()
+        public void Do_Command_Throws_Exception_On_Invalid_Command()
         {
             IpfsClient target = new IpfsClient();
             object unknown;
-            ExceptionAssert.Throws<IpfsException>(() => unknown = target.DoCommandAsync("foobar").Result, "Invalid command");
-
+            ExceptionAssert.Throws<Exception>(() => unknown = target.DoCommandAsync("foobar").Result, "Invalid IPFS command");
         }
 
     }

@@ -45,7 +45,7 @@ namespace Ipfs.Api
             var api = ipfs.Config.GetAsync("Addresses.API").Result;
             Assert.AreEqual(apiAddress, api);
 
-            ExceptionAssert.Throws<IpfsException>(() => { var x = ipfs.Config.GetAsync("Addresses.api").Result; });
+            ExceptionAssert.Throws<Exception>(() => { var x = ipfs.Config.GetAsync("Addresses.api").Result; });
         }
 
         [TestMethod]

@@ -50,7 +50,7 @@ namespace Ipfs.Api
         /// <returns>
         ///   The value of the <paramref name="key"/> as <see cref="JToken"/>.
         /// </returns>
-        /// <exception cref="IpfsException">
+        /// <exception cref="Exception">
         ///   When the <paramref name="key"/> does not exist.
         /// </exception>
         /// <remarks>

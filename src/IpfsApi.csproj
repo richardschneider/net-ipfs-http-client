@@ -93,7 +93,6 @@
     <Compile Include="CoreApi\ConfigApi.cs" />
     <Compile Include="CoreApi\BlockApi.cs" />
     <Compile Include="ConnectedPeer.cs" />
-    <Compile Include="IpfsException.cs" />
     <Compile Include="MerkleNode.cs" />
     <Compile Include="PinMode.cs" />
     <Compile Include="PinnedObject.cs" />
