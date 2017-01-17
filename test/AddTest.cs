@@ -14,7 +14,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void AddText()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var result = ipfs.AddTextAsync("hello world").Result;
             Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", result.Hash);
         }
@@ -26,7 +26,7 @@ namespace Ipfs.Api
             File.WriteAllText(path, "hello world");
             try
             {
-                var ipfs = new IpfsClient();
+                var ipfs = TestFixture.Ipfs;
                 var result = ipfs.AddFileAsync(path).Result;
                 Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", result.Hash);
                 Assert.AreEqual(0, result.Links.Count());
@@ -40,7 +40,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void AddDirectory()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var temp = MakeTemp();
             try
             {
@@ -69,7 +69,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void AddDirectoryRecursive()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var temp = MakeTemp();
             try
             {

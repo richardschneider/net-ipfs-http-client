@@ -15,7 +15,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void List()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var pins = ipfs.Pin.ListAsync().Result;
             Assert.IsNotNull(pins);
             Assert.IsTrue(pins.Length > 0);
@@ -24,7 +24,7 @@ namespace Ipfs.Api
         [TestMethod]
         public async Task List_Filtered()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var all = await ipfs.Pin.ListAsync();
             var some = await ipfs.Pin.ListAsync(PinMode.Direct);
             Assert.AreNotEqual(all.Length, some.Length);
@@ -33,7 +33,7 @@ namespace Ipfs.Api
         [TestMethod]
         public async Task Add_Remove()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var result = await ipfs.AddTextAsync("I am pinned");
             var id = result.Hash;
 

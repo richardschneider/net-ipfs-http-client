@@ -15,7 +15,7 @@ namespace Ipfs.Api
         [TestMethod]
         public async Task Addresses()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var swarm = await ipfs.Swarm.AddressesAsync();
             foreach (var peer in swarm)
             {
@@ -28,7 +28,7 @@ namespace Ipfs.Api
         [TestMethod]
         public async Task Peers()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var peers = await ipfs.Swarm.PeersAsync();
             Assert.AreNotEqual(0, peers.Count());
             foreach (var peer in peers)
@@ -42,7 +42,7 @@ namespace Ipfs.Api
         [TestMethod]
         public async Task Peers_Info()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var peers = await ipfs.Swarm.PeersAsync();
             await Task.WhenAll(peers
                 .Take(10)
@@ -56,7 +56,7 @@ namespace Ipfs.Api
         [TestMethod]
         public async Task Connection()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var peers = await ipfs.Swarm.PeersAsync();
 
             // Sometimes we cannot connect to a specific peer.  This

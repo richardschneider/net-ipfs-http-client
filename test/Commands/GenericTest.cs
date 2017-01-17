@@ -13,7 +13,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void Local_Node_Info()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var node = ipfs.IdAsync().Result;
             Assert.IsInstanceOfType(node, typeof(PeerNode));
         }
@@ -21,7 +21,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void Mars_Node_Info()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var node = ipfs.IdAsync(marsId).Result;
             Assert.IsInstanceOfType(node, typeof(PeerNode));
         }
@@ -29,7 +29,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void Version_Info()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var versions = ipfs.VersionAsync().Result;
             Assert.IsNotNull(versions);
             Assert.IsTrue(versions.ContainsKey("Version"));

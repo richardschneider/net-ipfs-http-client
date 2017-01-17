@@ -9,7 +9,7 @@ namespace Ipfs.Api
     [TestClass]
     public class BlockTest
     {
-        IpfsClient ipfs = new IpfsClient();
+        IpfsClient ipfs = TestFixture.Ipfs;
         string hash = "QmPv52ekjS75L4JmHpXVeuJ5uX2ecSfSZo88NSyxwA3rAQ";
         byte[] blob = Encoding.UTF8.GetBytes("blorb");
 

@@ -12,7 +12,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void Pin_List()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             Assert.IsNotNull(ipfs.PinnedObjects);
             Assert.IsTrue(ipfs.PinnedObjects.Count > 0);
         }
@@ -20,7 +20,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void Pin_Add_Remove()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var result = ipfs.AddTextAsync("I am pinned").Result;
             var id = result.Hash;
 

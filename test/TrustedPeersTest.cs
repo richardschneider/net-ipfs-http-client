@@ -13,7 +13,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void Trusted_Peers_List()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             Assert.IsNotNull(ipfs.TrustedPeers);
             Assert.IsTrue(ipfs.TrustedPeers.Count > 0);
         }
@@ -21,7 +21,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void Trusted_Peers_Add_Remove()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             Assert.IsFalse(ipfs.TrustedPeers.Contains(newTrustedPeer));
 
             ipfs.TrustedPeers.Add(newTrustedPeer);
@@ -35,14 +35,14 @@ namespace Ipfs.Api
         public void Trusted_Peers_Add_Missing_Peer_ID()
         {
             var missingPeerId = new MultiAddress("/ip4/25.196.147.100/tcp/4001");
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             ExceptionAssert.Throws<Exception>(() => ipfs.TrustedPeers.Add(missingPeerId), "invalid ipfs address");
         }
 
         [TestMethod]
         public void Trusted_Peers_Clear()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var original = ipfs.TrustedPeers.ToArray();
 
             ipfs.TrustedPeers.Clear();
@@ -55,7 +55,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void Trusted_Peers_Add_Default_Nodes()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var original = ipfs.TrustedPeers.ToArray();
 
             ipfs.TrustedPeers.Clear();

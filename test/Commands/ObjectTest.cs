@@ -12,7 +12,7 @@ namespace Ipfs.Api
     [TestClass]
     public class ObjectTest
     {
-        IpfsClient ipfs = new IpfsClient();
+        IpfsClient ipfs = TestFixture.Ipfs;
 
         [TestMethod]
         public async Task New_Template_Null()

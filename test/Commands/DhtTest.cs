@@ -18,7 +18,7 @@ namespace Ipfs.Api
         [TestMethod]
         public async Task FindPeer()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var mars = await ipfs.Dht.FindPeerAsync(marsId);
             Assert.AreEqual(marsId, mars.Id);
 
@@ -30,7 +30,7 @@ namespace Ipfs.Api
         [TestMethod]
         public async Task FindProviders()
         {
-            var ipfs = new IpfsClient();
+            var ipfs = TestFixture.Ipfs;
             var providers = await ipfs.Dht.FindProvidersAsync(helloWorldID);
             Assert.IsFalse(providers.Take(3).Contains(""));
         }

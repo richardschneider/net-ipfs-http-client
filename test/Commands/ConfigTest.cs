@@ -16,7 +16,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void Get_Entire_Config()
         {
-            IpfsClient ipfs = new IpfsClient();
+            IpfsClient ipfs = TestFixture.Ipfs;
             var config = ipfs.Config.GetAsync().Result;
             Assert.AreEqual(apiAddress, config["Addresses"]["API"]);
         }
@@ -24,7 +24,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void Get_Scalar_Key_Value()
         {
-            IpfsClient ipfs = new IpfsClient();
+            IpfsClient ipfs = TestFixture.Ipfs;
             var api = ipfs.Config.GetAsync("Addresses.API").Result;
             Assert.AreEqual(apiAddress, api);
         }
@@ -32,7 +32,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void Get_Object_Key_Value()
         {
-            IpfsClient ipfs = new IpfsClient();
+            IpfsClient ipfs = TestFixture.Ipfs;
             var addresses = ipfs.Config.GetAsync("Addresses").Result;
             Assert.AreEqual(apiAddress, addresses["API"]);
             Assert.AreEqual(gatewayAddress, addresses["Gateway"]);
@@ -41,7 +41,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void Keys_are_Case_Sensitive()
         {
-            IpfsClient ipfs = new IpfsClient();
+            IpfsClient ipfs = TestFixture.Ipfs;
             var api = ipfs.Config.GetAsync("Addresses.API").Result;
             Assert.AreEqual(apiAddress, api);
 
@@ -53,7 +53,7 @@ namespace Ipfs.Api
         {
             const string key = "foo";
             const string value = "foobar";
-            IpfsClient ipfs = new IpfsClient();
+            IpfsClient ipfs = TestFixture.Ipfs;
             ipfs.Config.SetAsync(key, value).Wait();
             Assert.AreEqual(value, ipfs.Config.GetAsync(key).Result);
         }
@@ -63,7 +63,7 @@ namespace Ipfs.Api
         {
             const string key = "API.HTTPHeaders.Access-Control-Allow-Origin";
             JToken value = JToken.Parse("['http://example.io']");
-            IpfsClient ipfs = new IpfsClient();
+            IpfsClient ipfs = TestFixture.Ipfs;
             ipfs.Config.SetAsync(key, value).Wait();
             Assert.AreEqual("http://example.io", ipfs.Config.GetAsync(key).Result[0]);
         }

@@ -5,7 +5,6 @@ using System;
 namespace Ipfs.Api
 {
     
-    
     /// <summary>
     ///This is a test class for IpfsClientTest and is intended
     ///to contain all IpfsClientTest Unit Tests
@@ -14,30 +13,19 @@ namespace Ipfs.Api
     public partial class IpfsClientTest
     {
         /// <summary>
-        ///   Fiddler cannot see localhost traffic because .Net bypasses the network stack for localhost/127.0.0.1. 
-        ///   By using "127.0.0.1." (note trailing dot) fiddler will receive the traffic and if its not running
-        ///   the localhost will get it!
-        /// </summary>
-        [AssemblyInitialize]
-        public static void AssemblyInit(TestContext context)
-        {
-            //IpfsClient.DefaultApiUri = new Uri("http://127.0.0.1.:5001");
-        }
-
-        /// <summary>
         ///   A test for IpfsClient Constructor
         ///</summary>
         [TestMethod]
         public void Can_Create()
         {
-            IpfsClient target = new IpfsClient();
+            IpfsClient target = TestFixture.Ipfs;
             Assert.IsNotNull(target);
         }
 
         [TestMethod]
         public void Do_Command_Throws_Exception_On_Invalid_Command()
         {
-            IpfsClient target = new IpfsClient();
+            IpfsClient target = TestFixture.Ipfs;
             object unknown;
             ExceptionAssert.Throws<Exception>(() => unknown = target.DoCommandAsync("foobar").Result, "Invalid IPFS command");
         }
