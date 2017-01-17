@@ -856,48 +856,6 @@ references:
   commentId: Overload:Ipfs.Api.IpfsClient.VersionAsync
   fullName: Ipfs.Api.IpfsClient.VersionAsync
   nameWithType: IpfsClient.VersionAsync
-- uid: Ipfs.Api.IpfsException
-  name: IpfsException
-  href: api/Ipfs.Api.IpfsException.html
-  commentId: T:Ipfs.Api.IpfsException
-  fullName: Ipfs.Api.IpfsException
-  nameWithType: IpfsException
-- uid: Ipfs.Api.IpfsException.#ctor
-  name: IpfsException()
-  href: api/Ipfs.Api.IpfsException.html#Ipfs_Api_IpfsException__ctor
-  commentId: M:Ipfs.Api.IpfsException.#ctor
-  fullName: Ipfs.Api.IpfsException.IpfsException()
-  nameWithType: IpfsException.IpfsException()
-- uid: Ipfs.Api.IpfsException.#ctor(System.Exception)
-  name: IpfsException(Exception)
-  href: api/Ipfs.Api.IpfsException.html#Ipfs_Api_IpfsException__ctor_System_Exception_
-  commentId: M:Ipfs.Api.IpfsException.#ctor(System.Exception)
-  fullName: Ipfs.Api.IpfsException.IpfsException(System.Exception)
-  nameWithType: IpfsException.IpfsException(Exception)
-- uid: Ipfs.Api.IpfsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  name: IpfsException(SerializationInfo, StreamingContext)
-  href: api/Ipfs.Api.IpfsException.html#Ipfs_Api_IpfsException__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
-  commentId: M:Ipfs.Api.IpfsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  fullName: Ipfs.Api.IpfsException.IpfsException(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
-  nameWithType: IpfsException.IpfsException(SerializationInfo, StreamingContext)
-- uid: Ipfs.Api.IpfsException.#ctor(System.String)
-  name: IpfsException(String)
-  href: api/Ipfs.Api.IpfsException.html#Ipfs_Api_IpfsException__ctor_System_String_
-  commentId: M:Ipfs.Api.IpfsException.#ctor(System.String)
-  fullName: Ipfs.Api.IpfsException.IpfsException(System.String)
-  nameWithType: IpfsException.IpfsException(String)
-- uid: Ipfs.Api.IpfsException.#ctor(System.String,System.Exception)
-  name: IpfsException(String, Exception)
-  href: api/Ipfs.Api.IpfsException.html#Ipfs_Api_IpfsException__ctor_System_String_System_Exception_
-  commentId: M:Ipfs.Api.IpfsException.#ctor(System.String,System.Exception)
-  fullName: Ipfs.Api.IpfsException.IpfsException(System.String, System.Exception)
-  nameWithType: IpfsException.IpfsException(String, Exception)
-- uid: Ipfs.Api.IpfsException.#ctor*
-  name: IpfsException
-  href: api/Ipfs.Api.IpfsException.html#Ipfs_Api_IpfsException__ctor_
-  commentId: Overload:Ipfs.Api.IpfsException.#ctor
-  fullName: Ipfs.Api.IpfsException.IpfsException
-  nameWithType: IpfsException.IpfsException
 - uid: Ipfs.Api.MerkleNode
   name: MerkleNode
   href: api/Ipfs.Api.MerkleNode.html
