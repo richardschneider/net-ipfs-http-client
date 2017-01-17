@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace Ipfs.Api
 {
@@ -28,7 +29,6 @@ namespace Ipfs.Api
                 var ipfs = new IpfsClient();
                 var result = ipfs.AddFileAsync(path).Result;
                 Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", result.Hash);
-                Assert.AreEqual(0, result.LinksCount);
                 Assert.AreEqual(0, result.Links.Count());
             }
             finally
@@ -45,10 +45,14 @@ namespace Ipfs.Api
             try
             {
                 var dir = ipfs.AddDirectoryAsync(temp, false).Result;
+                Assert.IsTrue(dir.IsDirectory);
+
                 var files = dir.Links.ToArray();
                 Assert.AreEqual(2, files.Length);
                 Assert.AreEqual("alpha.txt", files[0].Name);
                 Assert.AreEqual("beta.txt", files[1].Name);
+                Assert.IsFalse(files[0].IsDirectory);
+                Assert.IsFalse(files[1].IsDirectory);
 
                 Assert.AreEqual("alpha", ipfs.ReadAllTextAsync(files[0].Hash).Result);
                 Assert.AreEqual("beta", ipfs.ReadAllTextAsync(files[1].Hash).Result);
@@ -70,21 +74,35 @@ namespace Ipfs.Api
             try
             {
                 var dir = ipfs.AddDirectoryAsync(temp, true).Result;
+                Assert.IsTrue(dir.IsDirectory);
+                Assert.AreEqual(0, dir.Size);
+
                 var files = dir.Links.ToArray();
                 Assert.AreEqual(3, files.Length);
                 Assert.AreEqual("alpha.txt", files[0].Name);
                 Assert.AreEqual("beta.txt", files[1].Name);
                 Assert.AreEqual("x", files[2].Name);
+                Assert.IsFalse(files[0].IsDirectory);
+                Assert.IsFalse(files[1].IsDirectory);
+                Assert.IsTrue(files[2].IsDirectory);
+                Assert.AreEqual(5, files[0].Size);
+                Assert.AreEqual(4, files[1].Size);
+                Assert.AreEqual(0, files[2].Size);
 
-                files = new MerkleNode(files[2]).Links.ToArray();
-                Assert.AreEqual(2, files.Length);
-                Assert.AreEqual("x.txt", files[0].Name);
-                Assert.AreEqual("y", files[1].Name);
+                var xfiles = new FileSystemNode { Hash = files[2].Hash }.Links.ToArray();
+                Assert.AreEqual(2, xfiles.Length);
+                Assert.AreEqual("x.txt", xfiles[0].Name);
+                Assert.AreEqual("y", xfiles[1].Name);
+                Assert.IsFalse(xfiles[0].IsDirectory);
+                Assert.IsTrue(xfiles[1].IsDirectory);
 
-                files = new MerkleNode(files[1]).Links.ToArray();
-                Assert.AreEqual(1, files.Length);
-                Assert.AreEqual("y.txt", files[0].Name);
+                var yfiles = new FileSystemNode { Hash = xfiles[1].Hash }.Links.ToArray();
+                Assert.AreEqual(1, yfiles.Length);
+                Assert.AreEqual("y.txt", yfiles[0].Name);
+                Assert.IsFalse(yfiles[0].IsDirectory);
 
+                var y = new FileSystemNode { Hash = yfiles[0].Hash };
+                Assert.AreEqual("y", Encoding.UTF8.GetString(y.DataBytes));
                 Assert.AreEqual("y", ipfs.ReadAllTextAsync(dir.Hash + "/x/y/y.txt").Result);
             }
             finally

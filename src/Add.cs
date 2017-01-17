@@ -17,7 +17,7 @@ namespace Ipfs.Api
         ///   Add a file to the interplanetary file system.
         /// </summary>
         /// <param name="path"></param>
-        public Task<MerkleNode> AddFileAsync(string path)
+        public Task<FileSystemNode> AddFileAsync(string path)
         {
             return AddAsync(
                 new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read),
@@ -29,7 +29,7 @@ namespace Ipfs.Api
         /// </summary>
         /// <param name="path"></param>
         /// <param name="recursive"></param>
-        public async Task<MerkleNode> AddDirectoryAsync(string path, bool recursive = true)
+        public async Task<FileSystemNode> AddDirectoryAsync(string path, bool recursive = true)
         {
             // Add the files and sub-directories.
             path = Path.GetFullPath(path);
@@ -50,9 +50,12 @@ namespace Ipfs.Api
             var folder = emptyFolder.Value.AddLinks(links);
             var directory = await Object.PutAsync(folder);
 
-            return new MerkleNode(directory.Hash)
+            return new FileSystemNode
             {
+                Hash = directory.Hash,
                 Name = Path.GetFileName(path),
+                Links = links,
+                IsDirectory = true,
                 IpfsClient = this
             };
 
@@ -62,7 +65,7 @@ namespace Ipfs.Api
         ///   Add some text to the interplanetary file system.
         /// </summary>
         /// <param name="text"></param>
-        public Task<MerkleNode> AddTextAsync(string text)
+        public Task<FileSystemNode> AddTextAsync(string text)
         {
             return AddAsync(new MemoryStream(Encoding.UTF8.GetBytes(text)));
         }
@@ -72,12 +75,13 @@ namespace Ipfs.Api
         /// </summary>
         /// <param name="stream"></param>
         /// <param name="name"></param>
-        public async Task<MerkleNode> AddAsync(Stream stream, string name = "")
+        public async Task<FileSystemNode> AddAsync(Stream stream, string name = "")
         {
             var json = await UploadAsync("add", stream);
             var r = JObject.Parse(json);
-            return new MerkleNode((string)r["Hash"])
+            return new FileSystemNode
             {
+                Hash = (string)r["Hash"],
                 Name = name,
                 IpfsClient = this
             };
