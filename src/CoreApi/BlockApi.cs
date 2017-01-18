@@ -9,23 +9,27 @@ namespace Ipfs.Api
 {
 
     /// <summary>
-    /// 
+    ///   Information about a raw IPFS Block.
     /// </summary>
+    /// <seealso cref="BlockApi.StatAsync"/>
     public class BlockInfo
     {
         /// <summary>
-        ///  TODO
+        ///   The unique ID of the block.
         /// </summary>
+        /// <value>
+        ///   Typically, the string representation of a <see cref="MultiHash"/>.
+        /// </value>
         public string Key { get; set; }
 
         /// <summary>
-        ///  TODO
+        ///   The serialised size (in bytes) of the block.
         /// </summary>
         public long Size { get; set; }
     }
 
     /// <summary>
-    ///   Manages raw <see cref="Block">IPFS blocks</see>.
+    ///   Manages the raw <see cref="Block">IPFS blocks</see>.
     /// </summary>
     /// <remarks>
     ///   An IPFS Block is a byte sequence that represents an IPFS Object 
