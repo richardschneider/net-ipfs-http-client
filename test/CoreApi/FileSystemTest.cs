@@ -7,15 +7,15 @@ using System.Text;
 
 namespace Ipfs.Api
 {
-
-    public partial class IpfsClientTest
+    [TestClass]
+    public class FileSystemTest
     {
 
         [TestMethod]
         public void AddText()
         {
             var ipfs = TestFixture.Ipfs;
-            var result = ipfs.AddTextAsync("hello world").Result;
+            var result = ipfs.FileSystem.AddTextAsync("hello world").Result;
             Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", result.Hash);
         }
 
@@ -27,7 +27,7 @@ namespace Ipfs.Api
             try
             {
                 var ipfs = TestFixture.Ipfs;
-                var result = ipfs.AddFileAsync(path).Result;
+                var result = ipfs.FileSystem.AddFileAsync(path).Result;
                 Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", result.Hash);
                 Assert.AreEqual(0, result.Links.Count());
             }
@@ -44,7 +44,7 @@ namespace Ipfs.Api
             var temp = MakeTemp();
             try
             {
-                var dir = ipfs.AddDirectoryAsync(temp, false).Result;
+                var dir = ipfs.FileSystem.AddDirectoryAsync(temp, false).Result;
                 Assert.IsTrue(dir.IsDirectory);
 
                 var files = dir.Links.ToArray();
@@ -54,11 +54,11 @@ namespace Ipfs.Api
                 Assert.IsFalse(files[0].IsDirectory);
                 Assert.IsFalse(files[1].IsDirectory);
 
-                Assert.AreEqual("alpha", ipfs.ReadAllTextAsync(files[0].Hash).Result);
-                Assert.AreEqual("beta", ipfs.ReadAllTextAsync(files[1].Hash).Result);
+                Assert.AreEqual("alpha", ipfs.FileSystem.ReadAllTextAsync(files[0].Hash).Result);
+                Assert.AreEqual("beta", ipfs.FileSystem.ReadAllTextAsync(files[1].Hash).Result);
 
-                Assert.AreEqual("alpha", ipfs.ReadAllTextAsync(dir.Hash + "/alpha.txt").Result);
-                Assert.AreEqual("beta", ipfs.ReadAllTextAsync(dir.Hash + "/beta.txt").Result);
+                Assert.AreEqual("alpha", ipfs.FileSystem.ReadAllTextAsync(dir.Hash + "/alpha.txt").Result);
+                Assert.AreEqual("beta", ipfs.FileSystem.ReadAllTextAsync(dir.Hash + "/beta.txt").Result);
             }
             finally
             {
@@ -73,7 +73,7 @@ namespace Ipfs.Api
             var temp = MakeTemp();
             try
             {
-                var dir = ipfs.AddDirectoryAsync(temp, true).Result;
+                var dir = ipfs.FileSystem.AddDirectoryAsync(temp, true).Result;
                 Assert.IsTrue(dir.IsDirectory);
                 Assert.AreEqual(0, dir.Size);
 
@@ -103,7 +103,7 @@ namespace Ipfs.Api
 
                 var y = new FileSystemNode { Hash = yfiles[0].Hash };
                 Assert.AreEqual("y", Encoding.UTF8.GetString(y.DataBytes));
-                Assert.AreEqual("y", ipfs.ReadAllTextAsync(dir.Hash + "/x/y/y.txt").Result);
+                Assert.AreEqual("y", ipfs.FileSystem.ReadAllTextAsync(dir.Hash + "/x/y/y.txt").Result);
             }
             finally
             {

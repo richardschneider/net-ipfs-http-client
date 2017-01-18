@@ -21,7 +21,7 @@ namespace Ipfs.Api
         public void Pin_Add_Remove()
         {
             var ipfs = TestFixture.Ipfs;
-            var result = ipfs.AddTextAsync("I am pinned").Result;
+            var result = ipfs.FileSystem.AddTextAsync("I am pinned").Result;
             var id = result.Hash;
 
             ipfs.PinnedObjects.Add(id);

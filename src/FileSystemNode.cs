@@ -34,7 +34,7 @@ namespace Ipfs.Api
         {
             get
             {
-                return IpfsClient.ReadFileAsync(Hash).Result;
+                return IpfsClient.FileSystem.ReadFileAsync(Hash).Result;
             }
         }
         /// <inheritdoc />
@@ -131,7 +131,7 @@ namespace Ipfs.Api
 
         void GetInfo()
         {
-            var node = IpfsClient.ListFileAsync(Hash).Result;
+            var node = IpfsClient.FileSystem.ListFileAsync(Hash).Result;
             this.IsDirectory = node.IsDirectory;
             this.Links = node.Links;
             this.Size = node.Size;

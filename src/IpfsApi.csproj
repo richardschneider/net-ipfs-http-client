@@ -81,10 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Block.cs" />
+    <Compile Include="CoreApi\FileSystemApi.cs" />
     <Compile Include="FileSystemLink.cs" />
     <Compile Include="FileSystemNode.cs" />
-    <Compile Include="Read.cs" />
-    <Compile Include="Add.cs" />
     <Compile Include="CoreApi\ObjectApi.cs" />
     <Compile Include="CoreApi\DagApi.cs" />
     <Compile Include="CoreApi\SwarmApi.cs" />

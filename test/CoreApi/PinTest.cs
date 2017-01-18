@@ -34,7 +34,7 @@ namespace Ipfs.Api
         public async Task Add_Remove()
         {
             var ipfs = TestFixture.Ipfs;
-            var result = await ipfs.AddTextAsync("I am pinned");
+            var result = await ipfs.FileSystem.AddTextAsync("I am pinned");
             var id = result.Hash;
 
             var pins = await ipfs.Pin.AddAsync(id);
