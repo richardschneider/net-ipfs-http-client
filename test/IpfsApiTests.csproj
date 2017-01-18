@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreApi\FileSystemApiTest.cs" />
+    <Compile Include="CoreApi\DagApiTest.cs" />
     <Compile Include="CoreApi\ObjectApiTest.cs" />
     <Compile Include="CoreApi\SwarmApiTest.cs" />
     <Compile Include="CoreApi\DhtApiTest.cs" />
