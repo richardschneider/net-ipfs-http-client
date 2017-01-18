@@ -610,30 +610,6 @@ references:
   commentId: Overload:Ipfs.Api.IpfsClient.Dht
   fullName: Ipfs.Api.IpfsClient.Dht
   nameWithType: IpfsClient.Dht
-- uid: Ipfs.Api.IpfsClient.DoCommand(System.String,System.String,System.String[])
-  name: DoCommand(String, String, String[])
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_DoCommand_System_String_System_String_System_String___
-  commentId: M:Ipfs.Api.IpfsClient.DoCommand(System.String,System.String,System.String[])
-  name.vb: DoCommand(String, String, String())
-  fullName: Ipfs.Api.IpfsClient.DoCommand(System.String, System.String, System.String[])
-  fullName.vb: Ipfs.Api.IpfsClient.DoCommand(System.String, System.String, System.String())
-  nameWithType: IpfsClient.DoCommand(String, String, String[])
-  nameWithType.vb: DoCommand(String, String, String())
-- uid: Ipfs.Api.IpfsClient.DoCommand*
-  name: DoCommand
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_DoCommand_
-  commentId: Overload:Ipfs.Api.IpfsClient.DoCommand
-  fullName: Ipfs.Api.IpfsClient.DoCommand
-  nameWithType: IpfsClient.DoCommand
-- uid: Ipfs.Api.IpfsClient.DoCommand``1(System.String,System.String,System.String[])
-  name: DoCommand<T>(String, String, String[])
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_DoCommand__1_System_String_System_String_System_String___
-  commentId: M:Ipfs.Api.IpfsClient.DoCommand``1(System.String,System.String,System.String[])
-  name.vb: DoCommand(Of T)(String, String, String())
-  fullName: Ipfs.Api.IpfsClient.DoCommand<T>(System.String, System.String, System.String[])
-  fullName.vb: Ipfs.Api.IpfsClient.DoCommand(Of T)(System.String, System.String, System.String())
-  nameWithType: IpfsClient.DoCommand<T>(String, String, String[])
-  nameWithType.vb: DoCommand(Of T)(String, String, String())
 - uid: Ipfs.Api.IpfsClient.DoCommandAsync(System.String,System.String,System.String[])
   name: DoCommandAsync(String, String, String[])
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_DoCommandAsync_System_String_System_String_System_String___
@@ -658,21 +634,6 @@ references:
   fullName.vb: Ipfs.Api.IpfsClient.DoCommandAsync(Of T)(System.String, System.String, System.String())
   nameWithType: IpfsClient.DoCommandAsync<T>(String, String, String[])
   nameWithType.vb: DoCommandAsync(Of T)(String, String, String())
-- uid: Ipfs.Api.IpfsClient.Download(System.String,System.String,System.String[])
-  name: Download(String, String, String[])
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Download_System_String_System_String_System_String___
-  commentId: M:Ipfs.Api.IpfsClient.Download(System.String,System.String,System.String[])
-  name.vb: Download(String, String, String())
-  fullName: Ipfs.Api.IpfsClient.Download(System.String, System.String, System.String[])
-  fullName.vb: Ipfs.Api.IpfsClient.Download(System.String, System.String, System.String())
-  nameWithType: IpfsClient.Download(String, String, String[])
-  nameWithType.vb: Download(String, String, String())
-- uid: Ipfs.Api.IpfsClient.Download*
-  name: Download
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Download_
-  commentId: Overload:Ipfs.Api.IpfsClient.Download
-  fullName: Ipfs.Api.IpfsClient.Download
-  nameWithType: IpfsClient.Download
 - uid: Ipfs.Api.IpfsClient.DownloadAsync(System.String,System.String,System.String[])
   name: DownloadAsync(String, String, String[])
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_DownloadAsync_System_String_System_String_System_String___
