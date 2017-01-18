@@ -10,7 +10,7 @@ namespace Ipfs.Api
 {
 
     [TestClass]
-    public class ObjectTest
+    public class ObjectApiTest
     {
         IpfsClient ipfs = TestFixture.Ipfs;
 

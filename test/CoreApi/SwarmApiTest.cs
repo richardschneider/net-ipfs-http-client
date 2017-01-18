@@ -9,7 +9,7 @@ namespace Ipfs.Api
 {
  
     [TestClass]
-    public class SwarmTest
+    public class SwarmApiTest
     {
 
         [TestMethod]

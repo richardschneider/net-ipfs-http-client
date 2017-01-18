@@ -85,14 +85,14 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoreApi\FileSystemTest.cs" />
-    <Compile Include="CoreApi\ObjectTest.cs" />
-    <Compile Include="CoreApi\SwarmTest.cs" />
-    <Compile Include="CoreApi\DhtTest.cs" />
-    <Compile Include="CoreApi\PinTest.cs" />
-    <Compile Include="CoreApi\GenericTest.cs" />
-    <Compile Include="CoreApi\ConfigTest.cs" />
-    <Compile Include="CoreApi\BlockTest.cs" />
+    <Compile Include="CoreApi\FileSystemApiTest.cs" />
+    <Compile Include="CoreApi\ObjectApiTest.cs" />
+    <Compile Include="CoreApi\SwarmApiTest.cs" />
+    <Compile Include="CoreApi\DhtApiTest.cs" />
+    <Compile Include="CoreApi\PinApiTest.cs" />
+    <Compile Include="CoreApi\GenericApiTest.cs" />
+    <Compile Include="CoreApi\ConfigApiTest.cs" />
+    <Compile Include="CoreApi\BlockApiTest.cs" />
     <Compile Include="MerkleNodeTest.cs" />
     <Compile Include="ExceptionAssert.cs" />
     <Compile Include="PinnedObjectsTest.cs" />

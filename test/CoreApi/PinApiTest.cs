@@ -10,7 +10,7 @@ namespace Ipfs.Api
 {
 
     [TestClass]
-    public class PinTest
+    public class PinApiTest
     {
         [TestMethod]
         public void List()

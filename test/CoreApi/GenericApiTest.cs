@@ -6,7 +6,7 @@ using System.Text;
 namespace Ipfs.Api
 {
     [TestClass]
-    public class GenericTest
+    public class GenericApiTest
     {
         const string marsId = "QmSoLMeWqB7YGVLJN3pNLQpmmEk35v6wYtsMGLzSr5QBU3";
 

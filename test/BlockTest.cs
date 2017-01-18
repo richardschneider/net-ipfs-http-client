@@ -7,7 +7,7 @@ namespace Ipfs.Api
 {
 
     [TestClass]
-    public class DataBlockTest
+    public class BlockTest
     {
         byte[] someBytes = new byte[] { 1, 2, 3 };
 

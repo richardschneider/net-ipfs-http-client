@@ -8,7 +8,7 @@ namespace Ipfs.Api
 {
 
     [TestClass]
-    public class ConfigTest
+    public class ConfigApiTest
     {
         const string apiAddress = "/ip4/127.0.0.1/tcp/5001";
         const string gatewayAddress = "/ip4/127.0.0.1/tcp/8080";

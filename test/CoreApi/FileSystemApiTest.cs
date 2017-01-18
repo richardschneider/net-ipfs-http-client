@@ -8,7 +8,7 @@ using System.Text;
 namespace Ipfs.Api
 {
     [TestClass]
-    public class FileSystemTest
+    public class FileSystemApiTest
     {
 
         [TestMethod]

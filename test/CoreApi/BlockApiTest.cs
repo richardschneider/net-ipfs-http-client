@@ -7,7 +7,7 @@ namespace Ipfs.Api
 {
 
     [TestClass]
-    public class BlockTest
+    public class BlockApiTest
     {
         IpfsClient ipfs = TestFixture.Ipfs;
         string hash = "QmPv52ekjS75L4JmHpXVeuJ5uX2ecSfSZo88NSyxwA3rAQ";
