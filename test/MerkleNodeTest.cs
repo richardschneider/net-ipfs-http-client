@@ -127,16 +127,22 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
-        public void RawData()
+        public void DataBytes()
         {
             var node = new MerkleNode(IpfsInfo);
             byte[] data = node.DataBytes;
-            Assert.AreNotEqual(0, data.Length);
             Assert.AreEqual(node.BlockSize, data.Length);
-
-            // TODO: verify GetRawData() hash equal node's hash.
         }
 
-    
+        [TestMethod]
+        public void DataStream()
+        {
+            var node = new MerkleNode(IpfsInfo);
+            byte[] data = node.DataBytes;
+            var streamData = new MemoryStream();
+            node.DataStream.CopyTo(streamData);
+            CollectionAssert.AreEqual(data, streamData.ToArray());
+        }
+
     }
 }
