@@ -41,7 +41,7 @@ namespace Ipfs.Api
             if (peer == null)
                 throw new ArgumentNullException();
 
-            ipfs.DoCommand("bootstrap/add", peer.ToString());
+            ipfs.DoCommandAsync("bootstrap/add", peer.ToString()).Wait();
             peers = null;
         }
 
@@ -53,7 +53,7 @@ namespace Ipfs.Api
         /// </remarks>
         public void AddDefaultNodes()
         {
-            ipfs.DoCommand("bootstrap/add", null, "default=true");
+            ipfs.DoCommandAsync("bootstrap/add", null, "default=true").Wait();
             peers = null;
         }
 
@@ -65,7 +65,7 @@ namespace Ipfs.Api
         /// </remarks>
         public void Clear()
         {
-            ipfs.DoCommand("bootstrap/rm", null, "all=true");
+            ipfs.DoCommandAsync("bootstrap/rm", null, "all=true").Wait();
             peers = null;
         }
 
@@ -111,7 +111,7 @@ namespace Ipfs.Api
             if (peer == null)
                 throw new ArgumentNullException();
 
-            ipfs.DoCommand("bootstrap/rm", peer.ToString());
+            ipfs.DoCommandAsync("bootstrap/rm", peer.ToString()).Wait();
             peers = null;
             return true;
         }
@@ -132,7 +132,7 @@ namespace Ipfs.Api
 
         void Fetch()
         {
-            peers = ipfs.DoCommand<BootstrapListResponse>("bootstrap/list").Peers;
+            peers = ipfs.DoCommandAsync<BootstrapListResponse>("bootstrap/list").Result.Peers;
         }
     }
 }

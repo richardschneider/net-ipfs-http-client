@@ -169,12 +169,7 @@ namespace Ipfs.Api
         {
             get
             {
-                using (var stream = DataStream)
-                using (var data = new MemoryStream())
-                {
-                    stream.CopyTo(data);
-                    return data.ToArray();
-                }
+                return IpfsClient.Block.GetAsync(Hash).Result.DataBytes;
             }
         }
 
@@ -183,7 +178,7 @@ namespace Ipfs.Api
         {
             get
             {
-                return IpfsClient.Download("block/get", Hash);
+                return IpfsClient.Block.GetAsync(Hash).Result.DataStream;
             }
         }
 

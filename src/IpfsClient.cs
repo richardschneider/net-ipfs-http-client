@@ -458,77 +458,7 @@ namespace Ipfs.Api
             }
         }
 
-        /// <summary>
-        ///  Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a string.
-        /// </summary>
-        /// <param name="command">
-        ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
-        ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
-        /// </param>
-        /// <param name="arg">
-        ///   The optional argument to the command.
-        /// </param>
-        /// <param name="options">
-        ///   The optional flags to the command.
-        /// </param>
-        /// <returns>
-        ///   A string representation of the command's result.
-        /// </returns>
-        public string DoCommand(string command, string arg = null, params string[] options)
-        {
-            return DoCommandAsync(command, arg, options).Result;
-        }
 
-        /// <summary>
-        ///   Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning 
-        ///   a specific <see cref="Type"/>.
-        /// </summary>
-        /// <typeparam name="T">
-        ///   The <see cref="Type"/> of object to return.
-        /// </typeparam>
-        /// <param name="command">
-        ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
-        ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
-        /// </param>
-        /// <param name="arg">
-        ///   The optional argument to the command.
-        /// </param>
-        /// <param name="options">
-        ///   The optional flags to the command.
-        /// </param>
-        /// <returns>
-        ///   A <typeparamref name="T"/>.
-        /// </returns>
-        /// <remarks>
-        ///   The command's response is converted to <typeparamref name="T"/> using
-        ///   <c>JsonConvert</c>.
-        /// </remarks>
-        public T DoCommand<T>(string command, string arg = null, params string[] options)
-        {
-            return DoCommandAsync<T>(command, arg, options).Result;
-        }
-
-        /// <summary>
-        ///  Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a
-        ///  <see cref="Stream"/>.
-        /// </summary>
-        /// <param name="command">
-        ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
-        ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
-        /// </param>
-        /// <param name="arg">
-        ///   The optional argument to the command.
-        /// </param>
-        /// <param name="options">
-        ///   The optional flags to the command.
-        /// </param>
-        /// <returns>
-        ///   A <see cref="Stream"/> containing the command's result.
-        /// </returns>
-        public Stream Download(string command, string arg = null, params string[] options)
-        {
-            return DownloadAsync(command, arg, options).Result;
-        }
 
         /// <summary>
         /// 
