@@ -274,6 +274,96 @@ references:
   commentId: Overload:Ipfs.Api.DhtApi.FindProvidersAsync
   fullName: Ipfs.Api.DhtApi.FindProvidersAsync
   nameWithType: DhtApi.FindProvidersAsync
+- uid: Ipfs.Api.FileSystemApi
+  name: FileSystemApi
+  href: api/Ipfs.Api.FileSystemApi.html
+  commentId: T:Ipfs.Api.FileSystemApi
+  fullName: Ipfs.Api.FileSystemApi
+  nameWithType: FileSystemApi
+- uid: Ipfs.Api.FileSystemApi.AddAsync(System.IO.Stream,System.String)
+  name: AddAsync(Stream, String)
+  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_AddAsync_System_IO_Stream_System_String_
+  commentId: M:Ipfs.Api.FileSystemApi.AddAsync(System.IO.Stream,System.String)
+  fullName: Ipfs.Api.FileSystemApi.AddAsync(System.IO.Stream, System.String)
+  nameWithType: FileSystemApi.AddAsync(Stream, String)
+- uid: Ipfs.Api.FileSystemApi.AddAsync*
+  name: AddAsync
+  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_AddAsync_
+  commentId: Overload:Ipfs.Api.FileSystemApi.AddAsync
+  fullName: Ipfs.Api.FileSystemApi.AddAsync
+  nameWithType: FileSystemApi.AddAsync
+- uid: Ipfs.Api.FileSystemApi.AddDirectoryAsync(System.String,System.Boolean)
+  name: AddDirectoryAsync(String, Boolean)
+  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_AddDirectoryAsync_System_String_System_Boolean_
+  commentId: M:Ipfs.Api.FileSystemApi.AddDirectoryAsync(System.String,System.Boolean)
+  fullName: Ipfs.Api.FileSystemApi.AddDirectoryAsync(System.String, System.Boolean)
+  nameWithType: FileSystemApi.AddDirectoryAsync(String, Boolean)
+- uid: Ipfs.Api.FileSystemApi.AddDirectoryAsync*
+  name: AddDirectoryAsync
+  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_AddDirectoryAsync_
+  commentId: Overload:Ipfs.Api.FileSystemApi.AddDirectoryAsync
+  fullName: Ipfs.Api.FileSystemApi.AddDirectoryAsync
+  nameWithType: FileSystemApi.AddDirectoryAsync
+- uid: Ipfs.Api.FileSystemApi.AddFileAsync(System.String)
+  name: AddFileAsync(String)
+  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_AddFileAsync_System_String_
+  commentId: M:Ipfs.Api.FileSystemApi.AddFileAsync(System.String)
+  fullName: Ipfs.Api.FileSystemApi.AddFileAsync(System.String)
+  nameWithType: FileSystemApi.AddFileAsync(String)
+- uid: Ipfs.Api.FileSystemApi.AddFileAsync*
+  name: AddFileAsync
+  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_AddFileAsync_
+  commentId: Overload:Ipfs.Api.FileSystemApi.AddFileAsync
+  fullName: Ipfs.Api.FileSystemApi.AddFileAsync
+  nameWithType: FileSystemApi.AddFileAsync
+- uid: Ipfs.Api.FileSystemApi.AddTextAsync(System.String)
+  name: AddTextAsync(String)
+  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_AddTextAsync_System_String_
+  commentId: M:Ipfs.Api.FileSystemApi.AddTextAsync(System.String)
+  fullName: Ipfs.Api.FileSystemApi.AddTextAsync(System.String)
+  nameWithType: FileSystemApi.AddTextAsync(String)
+- uid: Ipfs.Api.FileSystemApi.AddTextAsync*
+  name: AddTextAsync
+  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_AddTextAsync_
+  commentId: Overload:Ipfs.Api.FileSystemApi.AddTextAsync
+  fullName: Ipfs.Api.FileSystemApi.AddTextAsync
+  nameWithType: FileSystemApi.AddTextAsync
+- uid: Ipfs.Api.FileSystemApi.ListFileAsync(System.String)
+  name: ListFileAsync(String)
+  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_ListFileAsync_System_String_
+  commentId: M:Ipfs.Api.FileSystemApi.ListFileAsync(System.String)
+  fullName: Ipfs.Api.FileSystemApi.ListFileAsync(System.String)
+  nameWithType: FileSystemApi.ListFileAsync(String)
+- uid: Ipfs.Api.FileSystemApi.ListFileAsync*
+  name: ListFileAsync
+  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_ListFileAsync_
+  commentId: Overload:Ipfs.Api.FileSystemApi.ListFileAsync
+  fullName: Ipfs.Api.FileSystemApi.ListFileAsync
+  nameWithType: FileSystemApi.ListFileAsync
+- uid: Ipfs.Api.FileSystemApi.ReadAllTextAsync(System.String)
+  name: ReadAllTextAsync(String)
+  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_ReadAllTextAsync_System_String_
+  commentId: M:Ipfs.Api.FileSystemApi.ReadAllTextAsync(System.String)
+  fullName: Ipfs.Api.FileSystemApi.ReadAllTextAsync(System.String)
+  nameWithType: FileSystemApi.ReadAllTextAsync(String)
+- uid: Ipfs.Api.FileSystemApi.ReadAllTextAsync*
+  name: ReadAllTextAsync
+  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_ReadAllTextAsync_
+  commentId: Overload:Ipfs.Api.FileSystemApi.ReadAllTextAsync
+  fullName: Ipfs.Api.FileSystemApi.ReadAllTextAsync
+  nameWithType: FileSystemApi.ReadAllTextAsync
+- uid: Ipfs.Api.FileSystemApi.ReadFileAsync(System.String)
+  name: ReadFileAsync(String)
+  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_ReadFileAsync_System_String_
+  commentId: M:Ipfs.Api.FileSystemApi.ReadFileAsync(System.String)
+  fullName: Ipfs.Api.FileSystemApi.ReadFileAsync(System.String)
+  nameWithType: FileSystemApi.ReadFileAsync(String)
+- uid: Ipfs.Api.FileSystemApi.ReadFileAsync*
+  name: ReadFileAsync
+  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_ReadFileAsync_
+  commentId: Overload:Ipfs.Api.FileSystemApi.ReadFileAsync
+  fullName: Ipfs.Api.FileSystemApi.ReadFileAsync
+  nameWithType: FileSystemApi.ReadFileAsync
 - uid: Ipfs.Api.FileSystemLink
   name: FileSystemLink
   href: api/Ipfs.Api.FileSystemLink.html
@@ -454,54 +544,6 @@ references:
   commentId: Overload:Ipfs.Api.IpfsClient.#ctor
   fullName: Ipfs.Api.IpfsClient.IpfsClient
   nameWithType: IpfsClient.IpfsClient
-- uid: Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream,System.String)
-  name: AddAsync(Stream, String)
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_AddAsync_System_IO_Stream_System_String_
-  commentId: M:Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream,System.String)
-  fullName: Ipfs.Api.IpfsClient.AddAsync(System.IO.Stream, System.String)
-  nameWithType: IpfsClient.AddAsync(Stream, String)
-- uid: Ipfs.Api.IpfsClient.AddAsync*
-  name: AddAsync
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_AddAsync_
-  commentId: Overload:Ipfs.Api.IpfsClient.AddAsync
-  fullName: Ipfs.Api.IpfsClient.AddAsync
-  nameWithType: IpfsClient.AddAsync
-- uid: Ipfs.Api.IpfsClient.AddDirectoryAsync(System.String,System.Boolean)
-  name: AddDirectoryAsync(String, Boolean)
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_AddDirectoryAsync_System_String_System_Boolean_
-  commentId: M:Ipfs.Api.IpfsClient.AddDirectoryAsync(System.String,System.Boolean)
-  fullName: Ipfs.Api.IpfsClient.AddDirectoryAsync(System.String, System.Boolean)
-  nameWithType: IpfsClient.AddDirectoryAsync(String, Boolean)
-- uid: Ipfs.Api.IpfsClient.AddDirectoryAsync*
-  name: AddDirectoryAsync
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_AddDirectoryAsync_
-  commentId: Overload:Ipfs.Api.IpfsClient.AddDirectoryAsync
-  fullName: Ipfs.Api.IpfsClient.AddDirectoryAsync
-  nameWithType: IpfsClient.AddDirectoryAsync
-- uid: Ipfs.Api.IpfsClient.AddFileAsync(System.String)
-  name: AddFileAsync(String)
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_AddFileAsync_System_String_
-  commentId: M:Ipfs.Api.IpfsClient.AddFileAsync(System.String)
-  fullName: Ipfs.Api.IpfsClient.AddFileAsync(System.String)
-  nameWithType: IpfsClient.AddFileAsync(String)
-- uid: Ipfs.Api.IpfsClient.AddFileAsync*
-  name: AddFileAsync
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_AddFileAsync_
-  commentId: Overload:Ipfs.Api.IpfsClient.AddFileAsync
-  fullName: Ipfs.Api.IpfsClient.AddFileAsync
-  nameWithType: IpfsClient.AddFileAsync
-- uid: Ipfs.Api.IpfsClient.AddTextAsync(System.String)
-  name: AddTextAsync(String)
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_AddTextAsync_System_String_
-  commentId: M:Ipfs.Api.IpfsClient.AddTextAsync(System.String)
-  fullName: Ipfs.Api.IpfsClient.AddTextAsync(System.String)
-  nameWithType: IpfsClient.AddTextAsync(String)
-- uid: Ipfs.Api.IpfsClient.AddTextAsync*
-  name: AddTextAsync
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_AddTextAsync_
-  commentId: Overload:Ipfs.Api.IpfsClient.AddTextAsync
-  fullName: Ipfs.Api.IpfsClient.AddTextAsync
-  nameWithType: IpfsClient.AddTextAsync
 - uid: Ipfs.Api.IpfsClient.ApiUri
   name: ApiUri
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ApiUri
@@ -661,6 +703,18 @@ references:
   commentId: Overload:Ipfs.Api.IpfsClient.DownloadBytesAsync
   fullName: Ipfs.Api.IpfsClient.DownloadBytesAsync
   nameWithType: IpfsClient.DownloadBytesAsync
+- uid: Ipfs.Api.IpfsClient.FileSystem
+  name: FileSystem
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_FileSystem
+  commentId: P:Ipfs.Api.IpfsClient.FileSystem
+  fullName: Ipfs.Api.IpfsClient.FileSystem
+  nameWithType: IpfsClient.FileSystem
+- uid: Ipfs.Api.IpfsClient.FileSystem*
+  name: FileSystem
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_FileSystem_
+  commentId: Overload:Ipfs.Api.IpfsClient.FileSystem
+  fullName: Ipfs.Api.IpfsClient.FileSystem
+  nameWithType: IpfsClient.FileSystem
 - uid: Ipfs.Api.IpfsClient.IdAsync(System.String)
   name: IdAsync(String)
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_IdAsync_System_String_
@@ -673,18 +727,6 @@ references:
   commentId: Overload:Ipfs.Api.IpfsClient.IdAsync
   fullName: Ipfs.Api.IpfsClient.IdAsync
   nameWithType: IpfsClient.IdAsync
-- uid: Ipfs.Api.IpfsClient.ListFileAsync(System.String)
-  name: ListFileAsync(String)
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ListFileAsync_System_String_
-  commentId: M:Ipfs.Api.IpfsClient.ListFileAsync(System.String)
-  fullName: Ipfs.Api.IpfsClient.ListFileAsync(System.String)
-  nameWithType: IpfsClient.ListFileAsync(String)
-- uid: Ipfs.Api.IpfsClient.ListFileAsync*
-  name: ListFileAsync
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ListFileAsync_
-  commentId: Overload:Ipfs.Api.IpfsClient.ListFileAsync
-  fullName: Ipfs.Api.IpfsClient.ListFileAsync
-  nameWithType: IpfsClient.ListFileAsync
 - uid: Ipfs.Api.IpfsClient.Object
   name: Object
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Object
@@ -760,30 +802,6 @@ references:
   commentId: Overload:Ipfs.Api.IpfsClient.PostDownloadAsync
   fullName: Ipfs.Api.IpfsClient.PostDownloadAsync
   nameWithType: IpfsClient.PostDownloadAsync
-- uid: Ipfs.Api.IpfsClient.ReadAllTextAsync(System.String)
-  name: ReadAllTextAsync(String)
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ReadAllTextAsync_System_String_
-  commentId: M:Ipfs.Api.IpfsClient.ReadAllTextAsync(System.String)
-  fullName: Ipfs.Api.IpfsClient.ReadAllTextAsync(System.String)
-  nameWithType: IpfsClient.ReadAllTextAsync(String)
-- uid: Ipfs.Api.IpfsClient.ReadAllTextAsync*
-  name: ReadAllTextAsync
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ReadAllTextAsync_
-  commentId: Overload:Ipfs.Api.IpfsClient.ReadAllTextAsync
-  fullName: Ipfs.Api.IpfsClient.ReadAllTextAsync
-  nameWithType: IpfsClient.ReadAllTextAsync
-- uid: Ipfs.Api.IpfsClient.ReadFileAsync(System.String)
-  name: ReadFileAsync(String)
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ReadFileAsync_System_String_
-  commentId: M:Ipfs.Api.IpfsClient.ReadFileAsync(System.String)
-  fullName: Ipfs.Api.IpfsClient.ReadFileAsync(System.String)
-  nameWithType: IpfsClient.ReadFileAsync(String)
-- uid: Ipfs.Api.IpfsClient.ReadFileAsync*
-  name: ReadFileAsync
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ReadFileAsync_
-  commentId: Overload:Ipfs.Api.IpfsClient.ReadFileAsync
-  fullName: Ipfs.Api.IpfsClient.ReadFileAsync
-  nameWithType: IpfsClient.ReadFileAsync
 - uid: Ipfs.Api.IpfsClient.Swarm
   name: Swarm
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Swarm
