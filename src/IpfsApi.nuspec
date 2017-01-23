@@ -18,7 +18,7 @@
     <tags>ipfs peer-to-peer distributed file-system api</tags>
     <dependencies>
       <dependency id="Common.Logging" version="3.3.1" />
-      <dependency id="Ipfs.Core" version="0.6.0" />
+      <dependency id="Ipfs.Core" version="0.6.3" />
       <dependency id="Newtonsoft.Json" version="9.0.1" />
     </dependencies>
   </metadata>
