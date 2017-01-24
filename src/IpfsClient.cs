@@ -227,7 +227,7 @@ namespace Ipfs.Api
             var url = BuildCommand(command, arg, options);
             if (log.IsDebugEnabled)
                 log.Debug("GET " + url.ToString());
-            using (var response = await Api().GetAsync(url))
+            using (var response = await Api().GetAsync(url, HttpCompletionOption.ResponseHeadersRead))
             {
                 await ThrowOnErrorAsync(response);
                 var body = await response.Content.ReadAsStringAsync();
@@ -376,7 +376,7 @@ namespace Ipfs.Api
             var url = BuildCommand(command, arg, options);
             if (log.IsDebugEnabled)
                 log.Debug("GET " + url.ToString());
-            var response = await Api().GetAsync(url);
+            var response = await Api().GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
             await ThrowOnErrorAsync(response);
             return await response.Content.ReadAsStreamAsync();
         }
@@ -403,7 +403,7 @@ namespace Ipfs.Api
             var url = BuildCommand(command, arg, options);
             if (log.IsDebugEnabled)
                 log.Debug("GET " + url.ToString());
-            var response = await Api().GetAsync(url);
+            var response = await Api().GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
             await ThrowOnErrorAsync(response);
             return await response.Content.ReadAsByteArrayAsync();
         }
