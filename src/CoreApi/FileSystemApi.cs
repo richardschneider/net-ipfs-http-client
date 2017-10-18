@@ -34,11 +34,13 @@ namespace Ipfs.Api
         ///   Add a file to the interplanetary file system.
         /// </summary>
         /// <param name="path"></param>
-        public Task<FileSystemNode> AddFileAsync(string path)
+        public async Task<FileSystemNode> AddFileAsync(string path)
         {
-            return AddAsync(
-                new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read),
-                Path.GetFileName(path));
+            using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                var node = await AddAsync(stream, Path.GetFileName(path));
+                return node;
+            }
         }
 
         /// <summary>

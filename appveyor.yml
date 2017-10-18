@@ -1,8 +1,14 @@
 # gitversion will change the version number
 version: x-{build}
 
+# branches to build
+branches:
+  # blacklist
+  except:
+    - gh-pages
+
 configuration: Release
-os: Visual Studio 2015
+os: Visual Studio 2017
 
 init:
   - git config --global core.autocrlf input
@@ -25,7 +31,8 @@ environment:
 # tools we need for bulding/testing/deploying
 install:
   - choco install gitversion.portable -pre -y
-  - npm install gh-pages -g
+  - nuget update -self
+  #- npm install gh-pages -g
 
 #  - nuget install secure-file -ExcludeVersion
 #  - if defined snk_secret secure-file\tools\secure-file -decrypt src\ipfs.ci.snk.enc -secret %snk_secret% -out src\ipfs.dev.snk
@@ -36,30 +43,37 @@ install:
 # gitversion will change the assembly info
 pull_requests:
   do_not_increment_build_number: true
-assembly_info:
-  patch: false
 
 before_build:
   - nuget restore
   - ps: gitversion /output buildserver /updateAssemblyInfo >gitversion.log
 
-build:
-  project: IpfsApi.sln
-  publish_nuget: false
-  verbosity: minimal
+build_script:
+  - dotnet build -c %CONFIGURATION% -p:Version=%GitVersion_MajorMinorPatch% -p:AssemblyVersion=%GitVersion_MajorMinorPatch%
+  - dotnet pack -c %CONFIGURATION% --no-build --no-restore -p:Version=%GitVersion_MajorMinorPatch% -p:AssemblyVersion=%GitVersion_MajorMinorPatch%
 
 after_build:
+  - cmd: appveyor PushArtifact "src\bin\%CONFIGURATION%\Ipfs.Api.%GitVersion_MajorMinorPatch%.nupkg"
 # Build documentation in doc\_site
-  - tools\docfx\docfx doc\docfx.json
-  - if defined git_token gh-pages -d doc\_site -m "new docs %GitVersion_FullSemVer%"
-# Build the nuget package
-  - nuget pack src\IpfsApi.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
-  - appveyor PushArtifact "Ipfs.Api.%GitVersion_NuGetVersion%.nupkg"
+#  - tools\docfx\docfx doc\docfx.json
+#  - if defined git_token gh-pages -d doc\_site -m "new docs %GitVersion_FullSemVer%"
+
+test_script:
+  - dotnet test -c %CONFIGURATION% --no-build --no-restore test
 
 after_test: 
 # Generate coverage report
-    - packages\OpenCover.4.6.210-rc\tools\OpenCover.Console.exe -register:user -filter:"+[Ipfs.Api*]* -[*Tests]*" -target:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\MSTest.exe" -targetargs:"/testcontainer:test//bin/Release/Ipfs.Api.Tests.dll" -output:coverage.xml
-    - if defined COVERALLS_REPO_TOKEN packages\coveralls.net.0.6.0\tools\csmacnz.coveralls.exe --opencover -i ./coverage.xml --serviceName appveyor --jobId %APPVEYOR_BUILD_NUMBER%
+    - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe 
+        -register:user -filter:"+[Ipfs.Api*]* -[*Tests]*" 
+        -target:"c:\Program Files\dotnet\dotnet.exe" 
+        -targetargs:"test -c Release --no-build --no-restore test" 
+        -output:coverage.xml  
+        -mergeoutput 
+        -hideskipped:File 
+        -oldStyle 
+    - if defined COVERALLS_REPO_TOKEN 
+        packages\coveralls.net.0.6.0\tools\csmacnz.coveralls.exe 
+        --opencover -i ./coverage.xml --useRelativePaths --serviceName appveyor --jobId %APPVEYOR_BUILD_NUMBER%
 
 # publish NuGet package on tag build
 nuget:
