@@ -56,18 +56,39 @@ namespace Ipfs.Api
         {
             var json = await ipfs.DoCommandAsync("swarm/peers", null, "verbose=true");
             var result = JObject.Parse(json);
-            return ((JArray)JObject.Parse(json)["Strings"])
-                .Select(s =>
+
+            // Older servers return an array of strings
+            var strings = (JArray)result["Strings"];
+            if (strings != null)
+            {
+                return strings
+                   .Select(s =>
+                   {
+                       var parts = ((string)s).Split(' ');
+                       var address = new MultiAddress(parts[0]);
+                       return new ConnectedPeer
+                       {
+                           Id = address.Protocols.First(p => p.Name == "ipfs").Value,
+                           ConnectedAddress = parts[0],
+                           Latency = ParseLatency(parts[1])
+                       };
+                   });
+            }
+
+            // Current servers return JSON
+            var peers = (JArray)result["Peers"];
+            if (peers != null)
+            {
+                return peers.Select(p => new ConnectedPeer
                 {
-                    var parts = ((string)s).Split(' ');
-                    var address = new MultiAddress(parts[0]);
-                    return new ConnectedPeer
-                    {
-                        Id = address.Protocols.First(p => p.Name == "ipfs").Value,
-                        ConnectedAddress = parts[0],
-                        Latency = ParseLatency(parts[1])
-                    };
+                    Id = (string)p["Peer"],
+                    ConnectedAddress = new MultiAddress((string)p["Addr"]),
+                    Latency = ParseLatency((string)p["Latency"])
                 });
+            }
+            
+            // Hmmm. Another change we can handle
+            throw new FormatException("Unknown response from 'swarm/peers");
         }
 
         TimeSpan ParseLatency(string latency)
