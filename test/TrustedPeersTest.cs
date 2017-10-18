@@ -36,7 +36,7 @@ namespace Ipfs.Api
         {
             var missingPeerId = new MultiAddress("/ip4/25.196.147.100/tcp/4001");
             var ipfs = TestFixture.Ipfs;
-            ExceptionAssert.Throws<Exception>(() => ipfs.TrustedPeers.Add(missingPeerId), "invalid ipfs address");
+            ExceptionAssert.Throws<Exception>(() => ipfs.TrustedPeers.Add(missingPeerId), "invalid IPFS address");
         }
 
         [TestMethod]
