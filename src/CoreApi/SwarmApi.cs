@@ -82,7 +82,7 @@ namespace Ipfs.Api
                 return peers.Select(p => new ConnectedPeer
                 {
                     Id = (string)p["Peer"],
-                    ConnectedAddress = new MultiAddress((string)p["Addr"]),
+                    ConnectedAddress = new MultiAddress((string)p["Addr"] + "/ipfs/" + (string)p["Peer"]),
                     Latency = ParseLatency((string)p["Latency"])
                 });
             }
