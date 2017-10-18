@@ -93,6 +93,10 @@ namespace Ipfs.Api
 
         TimeSpan ParseLatency(string latency)
         {
+            if (latency == "n/a")
+            {
+                return TimeSpan.Zero;
+            }
             if (latency.EndsWith("ms"))
             {
                 var ms = Double.Parse(latency.Substring(0, latency.Length - 2));
