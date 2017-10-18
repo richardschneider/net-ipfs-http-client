@@ -5,7 +5,11 @@
 [![Version](https://img.shields.io/nuget/v/Ipfs.Api.svg)](https://www.nuget.org/packages/Ipfs.Api)
 [![docs](https://cdn.rawgit.com/richardschneider/net-ipfs-core/master/doc/images/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-api)
 
-Provides access to the [Inter Planetary File System API](https://ipfs.io/docs/api/) for .Net (C#, VB, F# ...)
+Provides access to the [Inter Planetary File System API](https://ipfs.io/docs/api/) for .Net (C#, VB, F# ...). It supports the following runtimes
+
+- .NET Framework 4.5
+- .NET Standard 2.0
+
 
 A .Net client library for the IPFS HTTP API, implemented in C#. This client library implements the [interface-ipfs-core](https://github.com/ipfs/interface-ipfs-core). 
 More information, including the Class Reference, is on the [Project](https://richardschneider.github.io/net-ipfs-api/) web site.
@@ -22,6 +26,6 @@ Published releases of IPFS API are available on [NuGet](https://www.nuget.org/pa
 For the latest build or older non-released builds see [Continuous Integration](https://github.com/richardschneider/net-ipfs-core/wiki/Continuous-Integration).
 
 # License
-Copyright © 2015-2016 Richard Schneider (makaretu@gmail.com)
+Copyright © 2015-2017 Richard Schneider (makaretu@gmail.com)
 
 The IPFS API library is licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php "Read more about the MIT license form") license. Refere to the [LICENSE](https://github.com/richardschneider/net-ipfs-api/blob/master/LICENSE) file for more information.
