@@ -5,7 +5,9 @@
 [![Version](https://img.shields.io/nuget/v/Ipfs.Api.svg)](https://www.nuget.org/packages/Ipfs.Api)
 [![docs](https://cdn.rawgit.com/richardschneider/net-ipfs-core/master/doc/images/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-api)
 
-Provides access to the [Inter Planetary File System API](https://ipfs.io/docs/api/) for .Net (C#, VB, F# ...)
+![](https://ipfs.io/ipfs/QmQJ68PFMDdAsgCZvA1UVzzn18asVcf7HVvCDgpjiSCAse)
+
+> Provides access to the [Inter Planetary File System API](https://ipfs.io/docs/api/) for .Net (C#, VB, F# ...)
 
 A .Net client library for the IPFS HTTP API, implemented in C#. This client library implements the [interface-ipfs-core](https://github.com/ipfs/interface-ipfs-core). 
 More information, including the Class Reference, is on the [Project](https://richardschneider.github.io/net-ipfs-api/) web site.
