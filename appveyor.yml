@@ -66,7 +66,7 @@ after_test:
     - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe 
         -register:user -filter:"+[Ipfs.Api*]* -[*Tests]*" 
         -target:"c:\Program Files\dotnet\dotnet.exe" 
-        -targetargs:"test -c Release --no-build --no-restore test" 
+        -targetargs:"test -c Release --no-build --no-restore --framework netcoreapp2.0 test" 
         -output:coverage.xml  
         -mergeoutput 
         -hideskipped:File 

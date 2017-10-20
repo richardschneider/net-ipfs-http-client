@@ -47,7 +47,7 @@ namespace Ipfs.Api
         public IpfsClient()
         {
             ApiUri = DefaultApiUri;
-            var version = Assembly.GetExecutingAssembly().GetName().Version;
+            var version = typeof(IpfsClient).GetTypeInfo().Assembly.GetName().Version;
             UserAgent = string.Format("net-ipfs/{0}.{1}", version.Major, version.Minor);
             TrustedPeers = new TrustedPeerCollection(this);
             PinnedObjects = new PinnedCollection(this);

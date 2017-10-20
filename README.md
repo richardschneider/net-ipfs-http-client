@@ -8,6 +8,7 @@
 Provides access to the [Inter Planetary File System API](https://ipfs.io/docs/api/) for .Net (C#, VB, F# ...). It supports the following runtimes
 
 - .NET Framework 4.5
+- .NET Standard 1.6
 - .NET Standard 2.0
 
 
