@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard16;netstandard2;net45</TargetFrameworks>
+    <TargetFrameworks>netstandard14;netstandard2;net45</TargetFrameworks>
     <AssemblyName>Ipfs.Api</AssemblyName>
     <RootNamespace>Ipfs.Api</RootNamespace>
     <DocumentationFile>Ipfs.Api.xml</DocumentationFile>
@@ -28,7 +28,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ipfs.Core" Version="0.8.0" />
+    <PackageReference Include="Ipfs.Core" Version="0.8.1" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.Net.Http" Version="4.3.3" />
   </ItemGroup>
