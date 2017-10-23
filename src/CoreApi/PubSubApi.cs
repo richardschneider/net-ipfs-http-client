@@ -43,7 +43,7 @@ namespace Ipfs.Api
         {
             var json = await ipfs.DoCommandAsync("pubsub/ls");
             var result = JObject.Parse(json);
-            var strings = (JArray)result["Strings"];
+            var strings = result["Strings"] as JArray;
             if (strings == null) return new string[0];
             return strings.Select(s => (string)s);
         }
@@ -58,7 +58,7 @@ namespace Ipfs.Api
         {
             var json = await ipfs.DoCommandAsync("pubsub/peers");
             var result = JObject.Parse(json);
-            var strings = (JArray)result["Strings"];
+            var strings = result["Strings"] as JArray;
             if (strings == null) return new string[0];
             return strings.Select(s => (string)s);
         }
