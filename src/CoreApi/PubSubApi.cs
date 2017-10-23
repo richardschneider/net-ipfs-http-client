@@ -33,6 +33,34 @@ namespace Ipfs.Api
             this.ipfs = ipfs;
         }
 
+        /// <summary>
+        ///   Get the subscribed topics.
+        /// </summary>
+        /// <returns>
+        ///   A sequence of <see cref="string"/> for each topic.
+        /// </returns>
+        public async Task<IEnumerable<string>> SubscribedTopicsAsync()
+        {
+            var json = await ipfs.DoCommandAsync("pubsub/ls");
+            var result = JObject.Parse(json);
+            var strings = (JArray)result["Strings"];
+            return strings.Select(s => (string)s);
+        }
+
+        /// <summary>
+        ///   Get the peers that are pubsubing with us.
+        /// </summary>
+        /// <returns>
+        ///   A sequence of <see cref="string"/> for each peer ID.
+        /// </returns>
+        public async Task<IEnumerable<string>> PeersAsync()
+        {
+            var json = await ipfs.DoCommandAsync("pubsub/peers");
+            var result = JObject.Parse(json);
+            var strings = (JArray)result["Strings"];
+            return strings.Select(s => (string)s);
+        }
+
     }
 
 }
