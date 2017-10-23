@@ -294,7 +294,9 @@ namespace Ipfs.Api
             var url = BuildCommand(command, arg, options);
             if (log.IsDebugEnabled)
                 log.Debug("POST " + url.ToString());
-            using (var response = await Api().PostAsync(url, null))
+            var request = new HttpRequestMessage(HttpMethod.Post, url);
+
+            using (var response = await Api().SendAsync(request, HttpCompletionOption.ResponseHeadersRead))
             {
                 await ThrowOnErrorAsync(response);
                 var body = await response.Content.ReadAsStringAsync();
@@ -355,7 +357,9 @@ namespace Ipfs.Api
             var url = BuildCommand(command, arg, options);
             if (log.IsDebugEnabled)
                 log.Debug("POST " + url.ToString());
-            var response = await Api().PostAsync(url, null);
+            var request = new HttpRequestMessage(HttpMethod.Post, url);
+
+            var response = await Api().SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
             await ThrowOnErrorAsync(response);
             return await response.Content.ReadAsStreamAsync();
         }
