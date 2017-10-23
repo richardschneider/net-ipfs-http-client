@@ -59,6 +59,7 @@ namespace Ipfs.Api
             Dag = new DagApi(this);
             Object = new ObjectApi(this);
             FileSystem = new FileSystemApi(this);
+            PubSub = new PubSubApi(this);
         }
 
         /// <summary>
@@ -144,6 +145,11 @@ namespace Ipfs.Api
         ///   Provides access to the <see cref="FileSystemApi">File System API</see>.
         /// </summary>
         public FileSystemApi FileSystem { get; private set; }
+
+        /// <summary>
+        ///   Provides access to the <see cref="PubSubApi">PubSub API</see>.
+        /// </summary>
+        public PubSubApi PubSub { get; private set; }
 
         Uri BuildCommand(string command, string arg = null, params string[] options)
         {
