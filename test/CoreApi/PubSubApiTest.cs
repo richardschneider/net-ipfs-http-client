@@ -35,5 +35,13 @@ namespace Ipfs.Api
             // TODO: Assert.IsTrue(peers.Length > 0);
         }
 
+        [TestMethod]
+        public void Publish()
+        {
+            var ipfs = TestFixture.Ipfs;
+            ipfs.PubSub.Publish("foo", "hello world test").Wait();
+            // TODO: test if published
+        }
+
     }
 }

@@ -44,6 +44,7 @@ namespace Ipfs.Api
             var json = await ipfs.DoCommandAsync("pubsub/ls");
             var result = JObject.Parse(json);
             var strings = (JArray)result["Strings"];
+            if (strings == null) return new string[0];
             return strings.Select(s => (string)s);
         }
 
@@ -58,9 +59,24 @@ namespace Ipfs.Api
             var json = await ipfs.DoCommandAsync("pubsub/peers");
             var result = JObject.Parse(json);
             var strings = (JArray)result["Strings"];
+            if (strings == null) return new string[0];
             return strings.Select(s => (string)s);
         }
 
+        /// <summary>
+        ///   Publish a message to a given topic.
+        /// </summary>
+        /// <param name="topic">
+        ///   The topic name.
+        /// </param>
+        /// <param name="message">
+        ///   The message to publish.
+        /// </param>
+        public async Task Publish(string topic, string message)
+        {
+            var _ = await ipfs.PostCommandAsync("pubsub/pub", topic, "arg=" + message);
+            return;
+        }
     }
 
 }
