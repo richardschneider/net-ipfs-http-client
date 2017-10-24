@@ -37,10 +37,12 @@ namespace Ipfs.Api
             // TODO: Assert.IsTrue(peers.Length > 0);
         }
 
+        volatile int messageCount = 0;
+
         [TestMethod]
         public async Task Subscribe()
         {
-            int messageCount = 0;
+            messageCount = 0;
             var ipfs = TestFixture.Ipfs;
             var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
             await ipfs.PubSub.Subscribe(topic, msg =>
@@ -49,30 +51,37 @@ namespace Ipfs.Api
             });
             await ipfs.PubSub.Publish(topic, "hello world!");
             await ipfs.PubSub.Publish(topic, "hello world!!");
-            await Task.Delay(1000);
-            Assert.AreEqual(2, messageCount);
+
+            while (messageCount != 2)
+            {
+                await Task.Delay(1000);
+            }
         }
+
+        volatile int messageCount1 = 0;
 
         [TestMethod]
         public async Task Unsubscribe()
         {
-            int messageCount = 0;
+            messageCount1 = 0;
             var ipfs = TestFixture.Ipfs;
             var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
             var cs = new CancellationTokenSource();
             await ipfs.PubSub.Subscribe(topic, msg =>
             {
-                Interlocked.Increment(ref messageCount);
+                Interlocked.Increment(ref messageCount1);
             }, cs.Token);
             await ipfs.PubSub.Publish(topic, "hello world!");
             await ipfs.PubSub.Publish(topic, "hello world!!");
-            await Task.Delay(1000);
-            Assert.AreEqual(2, messageCount);
+            while (messageCount1 != 2)
+            {
+                await Task.Delay(1000);
+            }
 
             cs.Cancel();
             await ipfs.PubSub.Publish(topic, "hello world!!!");
-            await Task.Delay(1000);
-            Assert.AreEqual(2, messageCount);
+            await Task.Delay(5000);
+            Assert.AreEqual(2, messageCount1);
         }
     }
 }
