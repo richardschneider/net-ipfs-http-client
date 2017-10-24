@@ -57,7 +57,7 @@ namespace Ipfs.Api
             });
             await ipfs.PubSub.Publish(topic, "hello world");
             await ipfs.PubSub.Publish(topic, "hello world");
-            await Task.Delay(1000);
+            await Task.Delay(5000);
             Assert.AreEqual(2, messageCount);
         }
 
