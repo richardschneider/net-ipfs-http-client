@@ -45,6 +45,8 @@ namespace Ipfs.Api
             var ipfs = TestFixture.Ipfs;
             var peers = await ipfs.Swarm.PeersAsync();
             await Task.WhenAll(peers
+                .Where(p => p.Latency != TimeSpan.Zero)
+                .OrderBy(p => p.Latency)
                 .Take(10)
                 .Select(async p =>
                 {

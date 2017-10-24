@@ -27,6 +27,7 @@ environment:
     secure: NeX5NCOUXsCLc1UjTJjqB9F02FZ8Wq0VsxqTXC8kBdyK6zjxjebrf/9Da2sY1Kql
   snk_secret:
     secure: 5QzEIgiDqTIrZruPaIQIvTlNMl5BZ7TGEps7ALyBfHE=
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
 
 # tools we need for bulding/testing/deploying
 install:
@@ -38,7 +39,7 @@ install:
 #  - if defined snk_secret secure-file\tools\secure-file -decrypt src\ipfs.ci.snk.enc -secret %snk_secret% -out src\ipfs.dev.snk
   - choco install ipfs
   - ipfs init
-  - ps: Start-Process -FilePath "ipfs.exe" -ArgumentList "daemon"
+  - ps: Start-Process -FilePath "ipfs.exe" -ArgumentList "daemon --enable-pubsub-experiment"
 
 # gitversion will change the assembly info
 pull_requests:

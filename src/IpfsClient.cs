@@ -59,6 +59,7 @@ namespace Ipfs.Api
             Dag = new DagApi(this);
             Object = new ObjectApi(this);
             FileSystem = new FileSystemApi(this);
+            PubSub = new PubSubApi(this);
         }
 
         /// <summary>
@@ -144,6 +145,11 @@ namespace Ipfs.Api
         ///   Provides access to the <see cref="FileSystemApi">File System API</see>.
         /// </summary>
         public FileSystemApi FileSystem { get; private set; }
+
+        /// <summary>
+        ///   Provides access to the <see cref="PubSubApi">PubSub API</see>.
+        /// </summary>
+        public PubSubApi PubSub { get; private set; }
 
         Uri BuildCommand(string command, string arg = null, params string[] options)
         {
@@ -288,7 +294,9 @@ namespace Ipfs.Api
             var url = BuildCommand(command, arg, options);
             if (log.IsDebugEnabled)
                 log.Debug("POST " + url.ToString());
-            using (var response = await Api().PostAsync(url, null))
+            var request = new HttpRequestMessage(HttpMethod.Post, url);
+
+            using (var response = await Api().SendAsync(request, HttpCompletionOption.ResponseHeadersRead))
             {
                 await ThrowOnErrorAsync(response);
                 var body = await response.Content.ReadAsStringAsync();
@@ -329,7 +337,7 @@ namespace Ipfs.Api
         }
 
         /// <summary>
-        ///  Post an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a string.
+        ///  Post an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a stream.
         /// </summary>
         /// <param name="command">
         ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
@@ -349,7 +357,9 @@ namespace Ipfs.Api
             var url = BuildCommand(command, arg, options);
             if (log.IsDebugEnabled)
                 log.Debug("POST " + url.ToString());
-            var response = await Api().PostAsync(url, null);
+            var request = new HttpRequestMessage(HttpMethod.Post, url);
+
+            var response = await Api().SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
             await ThrowOnErrorAsync(response);
             return await response.Content.ReadAsStreamAsync();
         }
