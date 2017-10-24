@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ipfs.Api
@@ -91,32 +92,35 @@ namespace Ipfs.Api
         /// <param name="handler">
         ///   The action to perform when a <see cref="PublishedMessage"/> is received.
         /// </param>
+        /// <param name="cancellationToken">
+        ///   Is used to stop the topic listener.
+        /// </param>
         /// <returns>
         ///   After the topic listener is register with the IPFS server.
         /// </returns>
         /// <remarks>
         ///   The <paramref name="handler"/> is invoked on a different thread.
         /// </remarks>
-        public async Task Subscribe(string topic, Action<PublishedMessage> handler)
+        public async Task Subscribe(string topic, Action<PublishedMessage> handler, CancellationToken cancellationToken = default(CancellationToken))
         {
             var messageStream = await ipfs.PostDownloadAsync("pubsub/sub", topic);
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            Task.Run(() => ProcessMessages(topic, handler, messageStream));
+            Task.Run(() => ProcessMessages(topic, handler, messageStream, cancellationToken));
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             return;
         }
 
-        void ProcessMessages(string topic, Action<PublishedMessage> handler, Stream stream)
+        void ProcessMessages(string topic, Action<PublishedMessage> handler, Stream stream, CancellationToken ct)
         {
             log.DebugFormat("Start listening for '{0}' messages", topic);
             using (var sr = new StreamReader(stream))
             {
-                while (!sr.EndOfStream)
+                while (!sr.EndOfStream && !ct.IsCancellationRequested)
                 {
                     var json = sr.ReadLine();
                     if (log.IsDebugEnabled)
                         log.DebugFormat("PubSub message {0}", json);
-                    if (json != "{}")
+                    if (json != "{}" && !ct.IsCancellationRequested)
                     {
                         handler(new PublishedMessage(json));
                     }

@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ipfs.Api
@@ -61,5 +62,27 @@ namespace Ipfs.Api
             Assert.AreEqual(2, messageCount);
         }
 
+        [TestMethod]
+        public async Task Unsubscribe()
+        {
+            int messageCount = 0;
+            var ipfs = TestFixture.Ipfs;
+            var topic = "net-ipfs-api-test";
+            var cs = new CancellationTokenSource();
+            await ipfs.PubSub.Subscribe(topic, msg =>
+            {
+                Console.WriteLine("got msg");
+                ++messageCount;
+            }, cs.Token);
+            await ipfs.PubSub.Publish(topic, "hello world");
+            await ipfs.PubSub.Publish(topic, "hello world");
+            await Task.Delay(5000);
+            Assert.AreEqual(2, messageCount);
+
+            cs.Cancel();
+            await ipfs.PubSub.Publish(topic, "hello world");
+            await Task.Delay(2000);
+            Assert.AreEqual(2, messageCount);
+        }
     }
 }
