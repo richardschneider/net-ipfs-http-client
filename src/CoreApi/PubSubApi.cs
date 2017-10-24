@@ -1,7 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using Common.Logging;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +28,8 @@ namespace Ipfs.Api
     /// <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/PUBSUB.md">PUBSUB API</seealso>
     public class PubSubApi
     {
+        static ILog log = LogManager.GetLogger<PubSubApi>();
+
         IpfsClient ipfs;
 
         internal PubSubApi(IpfsClient ipfs)
@@ -77,6 +81,50 @@ namespace Ipfs.Api
             var _ = await ipfs.PostCommandAsync("pubsub/pub", topic, "arg=" + message);
             return;
         }
+
+        /// <summary>
+        ///   Subscribe to messages on a given topic.
+        /// </summary>
+        /// <param name="topic">
+        ///   The topic name.
+        /// </param>
+        /// <param name="handler">
+        ///   The action to perform when a <see cref="PublishedMessage"/> is received.
+        /// </param>
+        /// <returns>
+        ///   After the topic listener is register with the IPFS server.
+        /// </returns>
+        /// <remarks>
+        ///   The <paramref name="handler"/> is invoked on a different thread.
+        /// </remarks>
+        public async Task Subscribe(string topic, Action<PublishedMessage> handler)
+        {
+            var messageStream = await ipfs.PostDownloadAsync("pubsub/sub", topic);
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            Task.Run(() => ProcessMessages(topic, handler, messageStream));
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            return;
+        }
+
+        void ProcessMessages(string topic, Action<PublishedMessage> handler, Stream stream)
+        {
+            log.DebugFormat("Start listening for '{0}' messages", topic);
+            using (var sr = new StreamReader(stream))
+            {
+                while (!sr.EndOfStream)
+                {
+                    var json = sr.ReadLine();
+                    if (log.IsDebugEnabled)
+                        log.DebugFormat("PubSub message {0}", json);
+                    if (json != "{}")
+                    {
+                        handler(new PublishedMessage(json));
+                    }
+                }
+            }
+            log.DebugFormat("Stop listening for '{0}' messages", topic);
+        }
+
     }
 
 }

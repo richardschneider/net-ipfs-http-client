@@ -337,7 +337,7 @@ namespace Ipfs.Api
         }
 
         /// <summary>
-        ///  Post an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a string.
+        ///  Post an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a stream.
         /// </summary>
         /// <param name="command">
         ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
