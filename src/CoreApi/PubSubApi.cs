@@ -93,13 +93,14 @@ namespace Ipfs.Api
         ///   The action to perform when a <see cref="PublishedMessage"/> is received.
         /// </param>
         /// <param name="cancellationToken">
-        ///   Is used to stop the topic listener.
+        ///   Is used to stop the topic listener.  When cancelled, the <see cref="OperationCanceledException"/>
+        ///   is <b>NOT</b> raised.
         /// </param>
         /// <returns>
         ///   After the topic listener is register with the IPFS server.
         /// </returns>
         /// <remarks>
-        ///   The <paramref name="handler"/> is invoked on a different thread.
+        ///   The <paramref name="handler"/> is invoked on the topic listener thread.
         /// </remarks>
         public async Task Subscribe(string topic, Action<PublishedMessage> handler, CancellationToken cancellationToken = default(CancellationToken))
         {

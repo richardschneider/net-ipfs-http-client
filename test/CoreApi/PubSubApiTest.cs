@@ -53,8 +53,7 @@ namespace Ipfs.Api
             var topic = "net-ipfs-api-test";
             await ipfs.PubSub.Subscribe(topic, msg =>
             {
-                Console.WriteLine("got msg");
-                ++messageCount;
+                Interlocked.Increment(ref messageCount);
             });
             await ipfs.PubSub.Publish(topic, "hello world");
             await ipfs.PubSub.Publish(topic, "hello world");
@@ -71,8 +70,7 @@ namespace Ipfs.Api
             var cs = new CancellationTokenSource();
             await ipfs.PubSub.Subscribe(topic, msg =>
             {
-                Console.WriteLine("got msg");
-                ++messageCount;
+                Interlocked.Increment(ref messageCount);
             }, cs.Token);
             await ipfs.PubSub.Publish(topic, "hello world");
             await ipfs.PubSub.Publish(topic, "hello world");
