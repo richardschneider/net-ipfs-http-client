@@ -50,13 +50,10 @@ namespace Ipfs.Api
                 Interlocked.Increment(ref messageCount);
             });
             await ipfs.PubSub.Publish(topic, "hello world!");
-            await ipfs.PubSub.Publish(topic, "hello world!!");
 
-            while (messageCount != 2)
-            {
-                await Task.Delay(1000);
-            }
-        }
+            await Task.Delay(1000);
+            Assert.AreEqual(1, messageCount);
+         }
 
         volatile int messageCount1 = 0;
 
@@ -72,16 +69,13 @@ namespace Ipfs.Api
                 Interlocked.Increment(ref messageCount1);
             }, cs.Token);
             await ipfs.PubSub.Publish(topic, "hello world!");
-            await ipfs.PubSub.Publish(topic, "hello world!!");
-            while (messageCount1 != 2)
-            {
-                await Task.Delay(1000);
-            }
+            await Task.Delay(1000);
+            Assert.AreEqual(1, messageCount1);
 
             cs.Cancel();
             await ipfs.PubSub.Publish(topic, "hello world!!!");
-            await Task.Delay(5000);
-            Assert.AreEqual(2, messageCount1);
+            await Task.Delay(1000);
+            Assert.AreEqual(1, messageCount1);
         }
     }
 }
