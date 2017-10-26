@@ -28,7 +28,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ipfs.Core" Version="0.8.1" />
+    <PackageReference Include="Ipfs.Core" Version="0.8.3" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.Net.Http" Version="4.3.3" />
   </ItemGroup>
