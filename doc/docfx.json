@@ -11,9 +11,13 @@
             "**/bin/**",
             "_site/**"
           ],
-		  "src": ".."
+          "src": ".."
         }
       ],
+      "properties": {
+        "TargetFramework": "net45"
+      },
+
       "dest": "api"
     }
   ],
@@ -74,8 +78,7 @@
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
-      "default",
-      "template"
+      "default"
     ],
     "postProcessors": [],
     "noLangKeyword": false
