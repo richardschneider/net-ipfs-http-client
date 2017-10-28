@@ -81,7 +81,7 @@ references:
   fullName: Ipfs.Api.BlockApi.PutAsync(System.Byte[])
   fullName.vb: Ipfs.Api.BlockApi.PutAsync(System.Byte())
   nameWithType: BlockApi.PutAsync(Byte[])
-  nameWithType.vb: PutAsync(Byte())
+  nameWithType.vb: BlockApi.PutAsync(Byte())
 - uid: Ipfs.Api.BlockApi.PutAsync*
   name: PutAsync
   href: api/Ipfs.Api.BlockApi.html#Ipfs_Api_BlockApi_PutAsync_
@@ -618,7 +618,7 @@ references:
   fullName: Ipfs.Api.IpfsClient.DoCommandAsync(System.String, System.String, System.String[])
   fullName.vb: Ipfs.Api.IpfsClient.DoCommandAsync(System.String, System.String, System.String())
   nameWithType: IpfsClient.DoCommandAsync(String, String, String[])
-  nameWithType.vb: DoCommandAsync(String, String, String())
+  nameWithType.vb: IpfsClient.DoCommandAsync(String, String, String())
 - uid: Ipfs.Api.IpfsClient.DoCommandAsync*
   name: DoCommandAsync
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_DoCommandAsync_
@@ -633,7 +633,7 @@ references:
   fullName: Ipfs.Api.IpfsClient.DoCommandAsync<T>(System.String, System.String, System.String[])
   fullName.vb: Ipfs.Api.IpfsClient.DoCommandAsync(Of T)(System.String, System.String, System.String())
   nameWithType: IpfsClient.DoCommandAsync<T>(String, String, String[])
-  nameWithType.vb: DoCommandAsync(Of T)(String, String, String())
+  nameWithType.vb: IpfsClient.DoCommandAsync(Of T)(String, String, String())
 - uid: Ipfs.Api.IpfsClient.DownloadAsync(System.String,System.String,System.String[])
   name: DownloadAsync(String, String, String[])
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_DownloadAsync_System_String_System_String_System_String___
@@ -642,7 +642,7 @@ references:
   fullName: Ipfs.Api.IpfsClient.DownloadAsync(System.String, System.String, System.String[])
   fullName.vb: Ipfs.Api.IpfsClient.DownloadAsync(System.String, System.String, System.String())
   nameWithType: IpfsClient.DownloadAsync(String, String, String[])
-  nameWithType.vb: DownloadAsync(String, String, String())
+  nameWithType.vb: IpfsClient.DownloadAsync(String, String, String())
 - uid: Ipfs.Api.IpfsClient.DownloadAsync*
   name: DownloadAsync
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_DownloadAsync_
@@ -657,7 +657,7 @@ references:
   fullName: Ipfs.Api.IpfsClient.DownloadBytesAsync(System.String, System.String, System.String[])
   fullName.vb: Ipfs.Api.IpfsClient.DownloadBytesAsync(System.String, System.String, System.String())
   nameWithType: IpfsClient.DownloadBytesAsync(String, String, String[])
-  nameWithType.vb: DownloadBytesAsync(String, String, String())
+  nameWithType.vb: IpfsClient.DownloadBytesAsync(String, String, String())
 - uid: Ipfs.Api.IpfsClient.DownloadBytesAsync*
   name: DownloadBytesAsync
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_DownloadBytesAsync_
@@ -732,7 +732,7 @@ references:
   fullName: Ipfs.Api.IpfsClient.PostCommandAsync(System.String, System.String, System.String[])
   fullName.vb: Ipfs.Api.IpfsClient.PostCommandAsync(System.String, System.String, System.String())
   nameWithType: IpfsClient.PostCommandAsync(String, String, String[])
-  nameWithType.vb: PostCommandAsync(String, String, String())
+  nameWithType.vb: IpfsClient.PostCommandAsync(String, String, String())
 - uid: Ipfs.Api.IpfsClient.PostCommandAsync*
   name: PostCommandAsync
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_PostCommandAsync_
@@ -747,7 +747,7 @@ references:
   fullName: Ipfs.Api.IpfsClient.PostCommandAsync<T>(System.String, System.String, System.String[])
   fullName.vb: Ipfs.Api.IpfsClient.PostCommandAsync(Of T)(System.String, System.String, System.String())
   nameWithType: IpfsClient.PostCommandAsync<T>(String, String, String[])
-  nameWithType.vb: PostCommandAsync(Of T)(String, String, String())
+  nameWithType.vb: IpfsClient.PostCommandAsync(Of T)(String, String, String())
 - uid: Ipfs.Api.IpfsClient.PostDownloadAsync(System.String,System.String,System.String[])
   name: PostDownloadAsync(String, String, String[])
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_PostDownloadAsync_System_String_System_String_System_String___
@@ -756,13 +756,25 @@ references:
   fullName: Ipfs.Api.IpfsClient.PostDownloadAsync(System.String, System.String, System.String[])
   fullName.vb: Ipfs.Api.IpfsClient.PostDownloadAsync(System.String, System.String, System.String())
   nameWithType: IpfsClient.PostDownloadAsync(String, String, String[])
-  nameWithType.vb: PostDownloadAsync(String, String, String())
+  nameWithType.vb: IpfsClient.PostDownloadAsync(String, String, String())
 - uid: Ipfs.Api.IpfsClient.PostDownloadAsync*
   name: PostDownloadAsync
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_PostDownloadAsync_
   commentId: Overload:Ipfs.Api.IpfsClient.PostDownloadAsync
   fullName: Ipfs.Api.IpfsClient.PostDownloadAsync
   nameWithType: IpfsClient.PostDownloadAsync
+- uid: Ipfs.Api.IpfsClient.PubSub
+  name: PubSub
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_PubSub
+  commentId: P:Ipfs.Api.IpfsClient.PubSub
+  fullName: Ipfs.Api.IpfsClient.PubSub
+  nameWithType: IpfsClient.PubSub
+- uid: Ipfs.Api.IpfsClient.PubSub*
+  name: PubSub
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_PubSub_
+  commentId: Overload:Ipfs.Api.IpfsClient.PubSub
+  fullName: Ipfs.Api.IpfsClient.PubSub
+  nameWithType: IpfsClient.PubSub
 - uid: Ipfs.Api.IpfsClient.Swarm
   name: Swarm
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Swarm
@@ -795,7 +807,7 @@ references:
   fullName: Ipfs.Api.IpfsClient.UploadAsync(System.String, System.Byte[], System.String[])
   fullName.vb: Ipfs.Api.IpfsClient.UploadAsync(System.String, System.Byte(), System.String())
   nameWithType: IpfsClient.UploadAsync(String, Byte[], String[])
-  nameWithType.vb: UploadAsync(String, Byte(), String())
+  nameWithType.vb: IpfsClient.UploadAsync(String, Byte(), String())
 - uid: Ipfs.Api.IpfsClient.UploadAsync(System.String,System.IO.Stream,System.String[])
   name: UploadAsync(String, Stream, String[])
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_UploadAsync_System_String_System_IO_Stream_System_String___
@@ -804,7 +816,7 @@ references:
   fullName: Ipfs.Api.IpfsClient.UploadAsync(System.String, System.IO.Stream, System.String[])
   fullName.vb: Ipfs.Api.IpfsClient.UploadAsync(System.String, System.IO.Stream, System.String())
   nameWithType: IpfsClient.UploadAsync(String, Stream, String[])
-  nameWithType.vb: UploadAsync(String, Stream, String())
+  nameWithType.vb: IpfsClient.UploadAsync(String, Stream, String())
 - uid: Ipfs.Api.IpfsClient.UploadAsync*
   name: UploadAsync
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_UploadAsync_
@@ -1029,7 +1041,7 @@ references:
   fullName: Ipfs.Api.MerkleNode.Implicit(System.String to Ipfs.Api.MerkleNode)
   fullName.vb: Ipfs.Api.MerkleNode.Widening(System.String to Ipfs.Api.MerkleNode)
   nameWithType: MerkleNode.Implicit(String to MerkleNode)
-  nameWithType.vb: Widening(String to MerkleNode)
+  nameWithType.vb: MerkleNode.Widening(String to MerkleNode)
 - uid: Ipfs.Api.MerkleNode.op_Implicit*
   name: Implicit
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_op_Implicit_
@@ -1233,7 +1245,7 @@ references:
   fullName: Ipfs.Api.ObjectApi.PutAsync(System.Byte[], System.Collections.Generic.IEnumerable<Ipfs.IMerkleLink>)
   fullName.vb: Ipfs.Api.ObjectApi.PutAsync(System.Byte(), System.Collections.Generic.IEnumerable(Of Ipfs.IMerkleLink))
   nameWithType: ObjectApi.PutAsync(Byte[], IEnumerable<IMerkleLink>)
-  nameWithType.vb: PutAsync(Byte(), IEnumerable(Of IMerkleLink))
+  nameWithType.vb: ObjectApi.PutAsync(Byte(), IEnumerable(Of IMerkleLink))
 - uid: Ipfs.Api.ObjectApi.PutAsync*
   name: PutAsync
   href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_PutAsync_
@@ -1452,7 +1464,7 @@ references:
   fullName: Ipfs.Api.PinnedCollection.CopyTo(Ipfs.Api.PinnedObject[], System.Int32)
   fullName.vb: Ipfs.Api.PinnedCollection.CopyTo(Ipfs.Api.PinnedObject(), System.Int32)
   nameWithType: PinnedCollection.CopyTo(PinnedObject[], Int32)
-  nameWithType.vb: CopyTo(PinnedObject(), Int32)
+  nameWithType.vb: PinnedCollection.CopyTo(PinnedObject(), Int32)
 - uid: Ipfs.Api.PinnedCollection.CopyTo*
   name: CopyTo
   href: api/Ipfs.Api.PinnedCollection.html#Ipfs_Api_PinnedCollection_CopyTo_
@@ -1532,7 +1544,7 @@ references:
   name.vb: System.Collections.IEnumerable.GetEnumerator()
   fullName: Ipfs.Api.PinnedCollection.System.Collections.IEnumerable.GetEnumerator()
   nameWithType: PinnedCollection.IEnumerable.GetEnumerator()
-  nameWithType.vb: System.Collections.IEnumerable.GetEnumerator()
+  nameWithType.vb: PinnedCollection.System.Collections.IEnumerable.GetEnumerator()
 - uid: Ipfs.Api.PinnedCollection.System#Collections#IEnumerable#GetEnumerator*
   name: IEnumerable.GetEnumerator
   href: api/Ipfs.Api.PinnedCollection.html#Ipfs_Api_PinnedCollection_System_Collections_IEnumerable_GetEnumerator_
@@ -1583,6 +1595,153 @@ references:
   commentId: Overload:Ipfs.Api.PinnedObject.ToString
   fullName: Ipfs.Api.PinnedObject.ToString
   nameWithType: PinnedObject.ToString
+- uid: Ipfs.Api.PublishedMessage
+  name: PublishedMessage
+  href: api/Ipfs.Api.PublishedMessage.html
+  commentId: T:Ipfs.Api.PublishedMessage
+  fullName: Ipfs.Api.PublishedMessage
+  nameWithType: PublishedMessage
+- uid: Ipfs.Api.PublishedMessage.#ctor(System.String)
+  name: PublishedMessage(String)
+  href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage__ctor_System_String_
+  commentId: M:Ipfs.Api.PublishedMessage.#ctor(System.String)
+  fullName: Ipfs.Api.PublishedMessage.PublishedMessage(System.String)
+  nameWithType: PublishedMessage.PublishedMessage(String)
+- uid: Ipfs.Api.PublishedMessage.#ctor*
+  name: PublishedMessage
+  href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage__ctor_
+  commentId: Overload:Ipfs.Api.PublishedMessage.#ctor
+  fullName: Ipfs.Api.PublishedMessage.PublishedMessage
+  nameWithType: PublishedMessage.PublishedMessage
+- uid: Ipfs.Api.PublishedMessage.DataBytes
+  name: DataBytes
+  href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_DataBytes
+  commentId: P:Ipfs.Api.PublishedMessage.DataBytes
+  fullName: Ipfs.Api.PublishedMessage.DataBytes
+  nameWithType: PublishedMessage.DataBytes
+- uid: Ipfs.Api.PublishedMessage.DataBytes*
+  name: DataBytes
+  href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_DataBytes_
+  commentId: Overload:Ipfs.Api.PublishedMessage.DataBytes
+  fullName: Ipfs.Api.PublishedMessage.DataBytes
+  nameWithType: PublishedMessage.DataBytes
+- uid: Ipfs.Api.PublishedMessage.DataStream
+  name: DataStream
+  href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_DataStream
+  commentId: P:Ipfs.Api.PublishedMessage.DataStream
+  fullName: Ipfs.Api.PublishedMessage.DataStream
+  nameWithType: PublishedMessage.DataStream
+- uid: Ipfs.Api.PublishedMessage.DataStream*
+  name: DataStream
+  href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_DataStream_
+  commentId: Overload:Ipfs.Api.PublishedMessage.DataStream
+  fullName: Ipfs.Api.PublishedMessage.DataStream
+  nameWithType: PublishedMessage.DataStream
+- uid: Ipfs.Api.PublishedMessage.DataString
+  name: DataString
+  href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_DataString
+  commentId: P:Ipfs.Api.PublishedMessage.DataString
+  fullName: Ipfs.Api.PublishedMessage.DataString
+  nameWithType: PublishedMessage.DataString
+- uid: Ipfs.Api.PublishedMessage.DataString*
+  name: DataString
+  href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_DataString_
+  commentId: Overload:Ipfs.Api.PublishedMessage.DataString
+  fullName: Ipfs.Api.PublishedMessage.DataString
+  nameWithType: PublishedMessage.DataString
+- uid: Ipfs.Api.PublishedMessage.Sender
+  name: Sender
+  href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_Sender
+  commentId: P:Ipfs.Api.PublishedMessage.Sender
+  fullName: Ipfs.Api.PublishedMessage.Sender
+  nameWithType: PublishedMessage.Sender
+- uid: Ipfs.Api.PublishedMessage.Sender*
+  name: Sender
+  href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_Sender_
+  commentId: Overload:Ipfs.Api.PublishedMessage.Sender
+  fullName: Ipfs.Api.PublishedMessage.Sender
+  nameWithType: PublishedMessage.Sender
+- uid: Ipfs.Api.PublishedMessage.SequenceNumber
+  name: SequenceNumber
+  href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_SequenceNumber
+  commentId: P:Ipfs.Api.PublishedMessage.SequenceNumber
+  fullName: Ipfs.Api.PublishedMessage.SequenceNumber
+  nameWithType: PublishedMessage.SequenceNumber
+- uid: Ipfs.Api.PublishedMessage.SequenceNumber*
+  name: SequenceNumber
+  href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_SequenceNumber_
+  commentId: Overload:Ipfs.Api.PublishedMessage.SequenceNumber
+  fullName: Ipfs.Api.PublishedMessage.SequenceNumber
+  nameWithType: PublishedMessage.SequenceNumber
+- uid: Ipfs.Api.PublishedMessage.Topics
+  name: Topics
+  href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_Topics
+  commentId: P:Ipfs.Api.PublishedMessage.Topics
+  fullName: Ipfs.Api.PublishedMessage.Topics
+  nameWithType: PublishedMessage.Topics
+- uid: Ipfs.Api.PublishedMessage.Topics*
+  name: Topics
+  href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_Topics_
+  commentId: Overload:Ipfs.Api.PublishedMessage.Topics
+  fullName: Ipfs.Api.PublishedMessage.Topics
+  nameWithType: PublishedMessage.Topics
+- uid: Ipfs.Api.PubSubApi
+  name: PubSubApi
+  href: api/Ipfs.Api.PubSubApi.html
+  commentId: T:Ipfs.Api.PubSubApi
+  fullName: Ipfs.Api.PubSubApi
+  nameWithType: PubSubApi
+- uid: Ipfs.Api.PubSubApi.PeersAsync
+  name: PeersAsync()
+  href: api/Ipfs.Api.PubSubApi.html#Ipfs_Api_PubSubApi_PeersAsync
+  commentId: M:Ipfs.Api.PubSubApi.PeersAsync
+  fullName: Ipfs.Api.PubSubApi.PeersAsync()
+  nameWithType: PubSubApi.PeersAsync()
+- uid: Ipfs.Api.PubSubApi.PeersAsync*
+  name: PeersAsync
+  href: api/Ipfs.Api.PubSubApi.html#Ipfs_Api_PubSubApi_PeersAsync_
+  commentId: Overload:Ipfs.Api.PubSubApi.PeersAsync
+  fullName: Ipfs.Api.PubSubApi.PeersAsync
+  nameWithType: PubSubApi.PeersAsync
+- uid: Ipfs.Api.PubSubApi.Publish(System.String,System.String)
+  name: Publish(String, String)
+  href: api/Ipfs.Api.PubSubApi.html#Ipfs_Api_PubSubApi_Publish_System_String_System_String_
+  commentId: M:Ipfs.Api.PubSubApi.Publish(System.String,System.String)
+  fullName: Ipfs.Api.PubSubApi.Publish(System.String, System.String)
+  nameWithType: PubSubApi.Publish(String, String)
+- uid: Ipfs.Api.PubSubApi.Publish*
+  name: Publish
+  href: api/Ipfs.Api.PubSubApi.html#Ipfs_Api_PubSubApi_Publish_
+  commentId: Overload:Ipfs.Api.PubSubApi.Publish
+  fullName: Ipfs.Api.PubSubApi.Publish
+  nameWithType: PubSubApi.Publish
+- uid: Ipfs.Api.PubSubApi.Subscribe(System.String,System.Action{Ipfs.Api.PublishedMessage},System.Threading.CancellationToken)
+  name: Subscribe(String, Action<PublishedMessage>, CancellationToken)
+  href: api/Ipfs.Api.PubSubApi.html#Ipfs_Api_PubSubApi_Subscribe_System_String_System_Action_Ipfs_Api_PublishedMessage__System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.PubSubApi.Subscribe(System.String,System.Action{Ipfs.Api.PublishedMessage},System.Threading.CancellationToken)
+  name.vb: Subscribe(String, Action(Of PublishedMessage), CancellationToken)
+  fullName: Ipfs.Api.PubSubApi.Subscribe(System.String, System.Action<Ipfs.Api.PublishedMessage>, System.Threading.CancellationToken)
+  fullName.vb: Ipfs.Api.PubSubApi.Subscribe(System.String, System.Action(Of Ipfs.Api.PublishedMessage), System.Threading.CancellationToken)
+  nameWithType: PubSubApi.Subscribe(String, Action<PublishedMessage>, CancellationToken)
+  nameWithType.vb: PubSubApi.Subscribe(String, Action(Of PublishedMessage), CancellationToken)
+- uid: Ipfs.Api.PubSubApi.Subscribe*
+  name: Subscribe
+  href: api/Ipfs.Api.PubSubApi.html#Ipfs_Api_PubSubApi_Subscribe_
+  commentId: Overload:Ipfs.Api.PubSubApi.Subscribe
+  fullName: Ipfs.Api.PubSubApi.Subscribe
+  nameWithType: PubSubApi.Subscribe
+- uid: Ipfs.Api.PubSubApi.SubscribedTopicsAsync
+  name: SubscribedTopicsAsync()
+  href: api/Ipfs.Api.PubSubApi.html#Ipfs_Api_PubSubApi_SubscribedTopicsAsync
+  commentId: M:Ipfs.Api.PubSubApi.SubscribedTopicsAsync
+  fullName: Ipfs.Api.PubSubApi.SubscribedTopicsAsync()
+  nameWithType: PubSubApi.SubscribedTopicsAsync()
+- uid: Ipfs.Api.PubSubApi.SubscribedTopicsAsync*
+  name: SubscribedTopicsAsync
+  href: api/Ipfs.Api.PubSubApi.html#Ipfs_Api_PubSubApi_SubscribedTopicsAsync_
+  commentId: Overload:Ipfs.Api.PubSubApi.SubscribedTopicsAsync
+  fullName: Ipfs.Api.PubSubApi.SubscribedTopicsAsync
+  nameWithType: PubSubApi.SubscribedTopicsAsync
 - uid: Ipfs.Api.SwarmApi
   name: SwarmApi
   href: api/Ipfs.Api.SwarmApi.html
@@ -1699,7 +1858,7 @@ references:
   fullName: Ipfs.Api.TrustedPeerCollection.CopyTo(Ipfs.MultiAddress[], System.Int32)
   fullName.vb: Ipfs.Api.TrustedPeerCollection.CopyTo(Ipfs.MultiAddress(), System.Int32)
   nameWithType: TrustedPeerCollection.CopyTo(MultiAddress[], Int32)
-  nameWithType.vb: CopyTo(MultiAddress(), Int32)
+  nameWithType.vb: TrustedPeerCollection.CopyTo(MultiAddress(), Int32)
 - uid: Ipfs.Api.TrustedPeerCollection.CopyTo*
   name: CopyTo
   href: api/Ipfs.Api.TrustedPeerCollection.html#Ipfs_Api_TrustedPeerCollection_CopyTo_
@@ -1761,7 +1920,7 @@ references:
   name.vb: System.Collections.IEnumerable.GetEnumerator()
   fullName: Ipfs.Api.TrustedPeerCollection.System.Collections.IEnumerable.GetEnumerator()
   nameWithType: TrustedPeerCollection.IEnumerable.GetEnumerator()
-  nameWithType.vb: System.Collections.IEnumerable.GetEnumerator()
+  nameWithType.vb: TrustedPeerCollection.System.Collections.IEnumerable.GetEnumerator()
 - uid: Ipfs.Api.TrustedPeerCollection.System#Collections#IEnumerable#GetEnumerator*
   name: IEnumerable.GetEnumerator
   href: api/Ipfs.Api.TrustedPeerCollection.html#Ipfs_Api_TrustedPeerCollection_System_Collections_IEnumerable_GetEnumerator_

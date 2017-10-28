@@ -37,9 +37,9 @@ h4:before {
     margin-top: -100px;
 }
 
-h1, h2, h3, h4, h5, h6, span.xref {
+h1, h2, h3, h4, h5, h6, .text-break {
     word-wrap: break-word;
-    word-break: break-all;
+    word-break: break-word;
 }
 
 h1 mark,
@@ -120,6 +120,12 @@ table p {
 table a {
   display: inline-block;
 }
+
+/* Make hidden attribute compatible with old browser.*/
+[hidden] {
+  display: none !important;
+}
+
 h1,
 .h1,
 h2,
@@ -421,6 +427,10 @@ article section {
   z-index: 1;
 }
 
+.sidetoc.shiftup {
+  bottom: 70px;
+}
+
 body .toc{
   background-color: #f1f1f1;
   overflow-x: hidden;
@@ -459,12 +469,9 @@ body .toc{
 }
 .toc .nav > li > a {
   color: #666666;
-  display: inline;
-  padding: 0;
-}
-.toc .nav > li > .expand-stub + a {
   margin-left: 5px;
   display: block;
+  padding: 0;
 }
 .toc .nav > li > a:hover,
 .toc .nav > li > a:focus {
@@ -505,19 +512,21 @@ body .toc{
   display: none;
 }
 
+.toc ul{
+  font-size: 12px;
+  margin: 0 0 0 3px;
+}
+
 .toc .level1 > li {
   font-weight: bold;
   margin-top: 10px;
   position: relative;
+  font-size: 16px;
 }
 .toc .level2 {
   font-weight: normal;
-  margin-top: 5px;
-  margin-left: 15px;
+  margin: 5px 0 0 15px;
   font-size: 14px;
-}
-.toc .level3 {
-  font-size: 12px;
 }
 .toc-toggle {
   display: none;
@@ -583,6 +592,9 @@ body .toc{
   top: 100px;
   bottom: 10px;
   position: fixed;
+}
+.sideaffix.shiftup {
+  bottom: 70px;
 }
 .affix {
   position: relative;
@@ -755,14 +767,21 @@ footer {
     padding-bottom: 0px;
     border: none;
   }
-  .toc .level2 > li {
+  .toc .nav > li, .toc .nav > li >a {
     display: inline-block;
   }
-  .toc .level2 > li:after {
+  .toc li:after {
     margin-left: -3px;
     margin-right: 5px;
     content: ", ";
     color: #666666;
+  }
+  .toc .level1 > li {
+    display: block;
+  }
+  
+  .toc .level1 > li:after {
+    display: none;
   }
   .article.grid-right {
     margin-left: 0;
@@ -880,3 +899,51 @@ div.embeddedvideo iframe {
     display: none;
   }
 }
+
+/* For tabbed content */
+
+.tabGroup {
+  margin-top: 1rem; }
+  .tabGroup ul[role="tablist"] {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .tabGroup ul[role="tablist"] > li {
+      list-style: none;
+      display: inline-block; }
+  .tabGroup a[role="tab"] {
+    color: #6e6e6e;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 5px 7.5px;
+    text-decoration: none;
+    border-bottom: 2px solid #fff; }
+    .tabGroup a[role="tab"]:hover, .tabGroup a[role="tab"]:focus, .tabGroup a[role="tab"][aria-selected="true"] {
+      border-bottom: 2px solid #0050C5; }
+    .tabGroup a[role="tab"][aria-selected="true"] {
+      color: #222; }
+    .tabGroup a[role="tab"]:hover, .tabGroup a[role="tab"]:focus {
+      color: #0050C5; }
+    .tabGroup a[role="tab"]:focus {
+      outline: 1px solid #0050C5;
+      outline-offset: -1px; }
+  @media (min-width: 768px) {
+    .tabGroup a[role="tab"] {
+      padding: 5px 15px; } }
+  .tabGroup section[role="tabpanel"] {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    margin: 0;
+    overflow: hidden; }
+    .tabGroup section[role="tabpanel"] > .codeHeader,
+    .tabGroup section[role="tabpanel"] > pre {
+      margin-left: -16px;
+      margin-right: -16px; }
+    .tabGroup section[role="tabpanel"] > :first-child {
+      margin-top: 0; }
+    .tabGroup section[role="tabpanel"] > pre:last-child {
+      display: block;
+      margin-bottom: -16px; }
+
+.mainContainer[dir='rtl'] main ul[role="tablist"] {
+  margin: 0; }

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class BlockApi
    | IPFS API documentation ">
-    <meta name="generator" content="docfx 1.0.0.0">
+    <meta name="generator" content="docfx 2.26.3.0">
     
     <link rel="shortcut icon" href="../images/ipfs-favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
+    
     
   </head>
   <body data-spy="scroll" data-target="#affix">
@@ -66,204 +68,267 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              
-              
-              <h1 id="Ipfs_Api_BlockApi" data-uid="Ipfs.Api.BlockApi">Class BlockApi
-              </h1>
-              <div class="markdown level0 summary"><p>Manages the raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
+            <article class="content wrap" id="_content" data-uid="Ipfs.Api.BlockApi">
+  
+  
+  <h1 id="Ipfs_Api_BlockApi" data-uid="Ipfs.Api.BlockApi" class="text-break">Class BlockApi
+  </h1>
+  <div class="markdown level0 summary"><p>Manages the raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
 </div>
-              <div class="markdown level0 conceptual"></div>
-
-              <div class="markdown level0 remarks"><p>An IPFS Block is a byte sequence that represents an IPFS Object 
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></div>
+    <div class="level1"><span class="xref">BlockApi</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://msdn.microsoft.com/en-us/library/7bxwbwt2(v=vs.110).aspx">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://msdn.microsoft.com/en-us/library/bsc2ak47(v=vs.110).aspx">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://msdn.microsoft.com/en-us/library/w4hkze5k(v=vs.110).aspx">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://msdn.microsoft.com/en-us/library/hz2a0b8x(v=vs.110).aspx">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://msdn.microsoft.com/en-us/library/zdee4b3y(v=vs.110).aspx">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://msdn.microsoft.com/en-us/library/dfwy45w9(v=vs.110).aspx">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://msdn.microsoft.com/en-us/library/57ctke0a(v=vs.110).aspx">Object.MemberwiseClone()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Ipfs.Api.html">Ipfs.Api</a></h6>
+  <h6><strong>Assembly</strong>: Ipfs.Api.dll</h6>
+  <h5 id="Ipfs_Api_BlockApi_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class BlockApi</code></pre>
+  </div>
+  <h5 id="Ipfs_Api_BlockApi_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>An IPFS Block is a byte sequence that represents an IPFS Object 
 (i.e. serialized byte buffers). It is useful to talk about them as &quot;blocks&quot; in Bitswap 
-and other things that do not care about what is being stored. </p>
+and other things that do not care about what is being stored. 
 <p>
 It is also possible to store arbitrary stuff using ipfs block put/get as the API 
 does not check for proper IPFS Object formatting.
 </p>
-<note>
-This may be very good or bad, we haven&#39;t decided yet Ø3DÞ04
-</note>
+<div class="NOTE"><h5>note</h5><p>
+This may be very good or bad, we haven&apos;t decided yet 😄
+</p></div>
 <p>
 This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Block">Block</a> property.
-</p>
+</p></p>
 </div>
-              
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public class BlockApi</code></pre>
-              </div>
-
-              <div class="inheritance">
-                <h5>Inheritance</h5>
-                  <div class="level0"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></div>
-                  <div class="level1"><span class="xref">BlockApi</span></div>
-              </div>
-              
-              <h6><strong>Namespace</strong>: Ipfs.Api</h6>
-              <h6><strong>Assembly</strong>: Ipfs.Api.dll</h6>
-              
-
-              
-              <h3 id="methods">Methods
-              </h3>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_GetAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.GetAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L65">View Source</a>
-              </span>
-              <a id="Ipfs_Api_BlockApi_GetAsync_" data-uid="Ipfs.Api.BlockApi.GetAsync*"></a>
-              <h4 id="Ipfs_Api_BlockApi_GetAsync_System_String_" data-uid="Ipfs.Api.BlockApi.GetAsync(System.String)">GetAsync(String)</h4>
-              
-              <div class="markdown level1 summary"><p>Gets a raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_GetAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.GetAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L65">View Source</a>
+  </span>
+  <a id="Ipfs_Api_BlockApi_GetAsync_" data-uid="Ipfs.Api.BlockApi.GetAsync*"></a>
+  <h4 id="Ipfs_Api_BlockApi_GetAsync_System_String_" data-uid="Ipfs.Api.BlockApi.GetAsync(System.String)">GetAsync(String)</h4>
+  <div class="markdown level1 summary"><p>Gets a raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <div class="markdown level1 remarks"></div>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;Block&gt; GetAsync(string hash)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
-                  <span class="parametername">hash</span>
-                  <p>The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a> representation of a base58 encoded <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a>.</p>
-
-              </div>
-              
-              <h5 class="returns">Returns</h5>
-              <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.Block.html">Block</a>&gt;
-                  
-              </div>
-              
-              
-              
-              
-              
-              
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_PutAsync_Ipfs_Api_Block_.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.PutAsync(Ipfs.Api.Block)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L98">View Source</a>
-              </span>
-              <a id="Ipfs_Api_BlockApi_PutAsync_" data-uid="Ipfs.Api.BlockApi.PutAsync*"></a>
-              <h4 id="Ipfs_Api_BlockApi_PutAsync_Ipfs_Api_Block_" data-uid="Ipfs.Api.BlockApi.PutAsync(Ipfs.Api.Block)">PutAsync(Block)</h4>
-              
-              <div class="markdown level1 summary"><p>Stores a raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Block&gt; GetAsync(string hash)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><span class="parametername">hash</span></td>
+        <td><p>The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a> representation of a base58 encoded <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.Block.html">Block</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_PutAsync_Ipfs_Api_Block_.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.PutAsync(Ipfs.Api.Block)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L98">View Source</a>
+  </span>
+  <a id="Ipfs_Api_BlockApi_PutAsync_" data-uid="Ipfs.Api.BlockApi.PutAsync*"></a>
+  <h4 id="Ipfs_Api_BlockApi_PutAsync_Ipfs_Api_Block_" data-uid="Ipfs.Api.BlockApi.PutAsync(Ipfs.Api.Block)">PutAsync(Block)</h4>
+  <div class="markdown level1 summary"><p>Stores a raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <div class="markdown level1 remarks"></div>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;Block&gt; PutAsync(Block block)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <div>
-                  <a class="xref" href="Ipfs.Api.Block.html">Block</a>
-                  <span class="parametername">block</span>
-                  <p>The <a class="xref" href="Ipfs.Api.Block.html">Block</a> to send to the IPFS network.</p>
-
-              </div>
-              
-              <h5 class="returns">Returns</h5>
-              <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.Block.html">Block</a>&gt;
-                  
-              </div>
-              
-              
-              
-              
-              
-              
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_PutAsync_System_Byte___.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.PutAsync(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L81">View Source</a>
-              </span>
-              <a id="Ipfs_Api_BlockApi_PutAsync_" data-uid="Ipfs.Api.BlockApi.PutAsync*"></a>
-              <h4 id="Ipfs_Api_BlockApi_PutAsync_System_Byte___" data-uid="Ipfs.Api.BlockApi.PutAsync(System.Byte[])">PutAsync(Byte[])</h4>
-              
-              <div class="markdown level1 summary"><p>Stores a byte array as a raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Block&gt; PutAsync(Block block)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Ipfs.Api.Block.html">Block</a></td>
+        <td><span class="parametername">block</span></td>
+        <td><p>The <a class="xref" href="Ipfs.Api.Block.html">Block</a> to send to the IPFS network.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.Block.html">Block</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_PutAsync_System_Byte___.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.PutAsync(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L81">View Source</a>
+  </span>
+  <a id="Ipfs_Api_BlockApi_PutAsync_" data-uid="Ipfs.Api.BlockApi.PutAsync*"></a>
+  <h4 id="Ipfs_Api_BlockApi_PutAsync_System_Byte___" data-uid="Ipfs.Api.BlockApi.PutAsync(System.Byte[])">PutAsync(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Stores a byte array as a raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <div class="markdown level1 remarks"></div>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;Block&gt; PutAsync(byte[] data)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <div>
-                  <span class="xref">System.Byte</span>[]
-                  <span class="parametername">data</span>
-                  <p>The byte array to send to the IPFS network.</p>
-
-              </div>
-              
-              <h5 class="returns">Returns</h5>
-              <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.Block.html">Block</a>&gt;
-                  
-              </div>
-              
-              
-              
-              
-              
-              
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_StatAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.StatAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L109">View Source</a>
-              </span>
-              <a id="Ipfs_Api_BlockApi_StatAsync_" data-uid="Ipfs.Api.BlockApi.StatAsync*"></a>
-              <h4 id="Ipfs_Api_BlockApi_StatAsync_System_String_" data-uid="Ipfs.Api.BlockApi.StatAsync(System.String)">StatAsync(String)</h4>
-              
-              <div class="markdown level1 summary"><p>Information on a raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Block&gt; PutAsync(byte[] data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.byte(v=vs.110).aspx">Byte</a>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>The byte array to send to the IPFS network.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.Block.html">Block</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_StatAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.StatAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L109">View Source</a>
+  </span>
+  <a id="Ipfs_Api_BlockApi_StatAsync_" data-uid="Ipfs.Api.BlockApi.StatAsync*"></a>
+  <h4 id="Ipfs_Api_BlockApi_StatAsync_System_String_" data-uid="Ipfs.Api.BlockApi.StatAsync(System.String)">StatAsync(String)</h4>
+  <div class="markdown level1 summary"><p>Information on a raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <div class="markdown level1 remarks"></div>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;BlockInfo&gt; StatAsync(string hash)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>
-                  <span class="parametername">hash</span>
-                  <p>The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a> representation of a base58 encoded <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a>.</p>
-
-              </div>
-              
-              <h5 class="returns">Returns</h5>
-              <div>
-                  <a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.BlockInfo.html">BlockInfo</a>&gt;
-                  
-              </div>
-              
-              
-              
-              
-              
-              
-              <h3 id="seealso">See Also</h3>
-              <div class="seealso">
-                  <div><span><a href="https://github.com/ipfs/interface-ipfs-core/tree/master/API/block">Block API</a></span></div>
-              </div>
-            </article>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;BlockInfo&gt; StatAsync(string hash)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><span class="parametername">hash</span></td>
+        <td><p>The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a> representation of a base58 encoded <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.BlockInfo.html">BlockInfo</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><span><a href="https://github.com/ipfs/interface-ipfs-core/tree/master/API/block">Block API</a></span></div>
+  </div>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
