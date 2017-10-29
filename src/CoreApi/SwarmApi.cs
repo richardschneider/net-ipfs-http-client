@@ -34,7 +34,10 @@ namespace Ipfs.Api
         /// <summary>
         ///   Get the peers in the current swarm.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        /// <returns>A sequence of peer nodes.</returns>
         public async Task<IEnumerable<PeerNode>> AddressesAsync(CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.DoCommandAsync("swarm/addrs", cancel);
@@ -50,6 +53,9 @@ namespace Ipfs.Api
         /// <summary>
         ///   Get the peers that are connected to this node.
         /// </summary>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <returns>
         ///   A sequence of <see cref="ConnectedPeer">Connected Peers</see>.
         /// </returns>
@@ -119,6 +125,9 @@ namespace Ipfs.Api
         ///   An ipfs <see cref="MultiAddress"/>, such as
         ///  <c>/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ</c>.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         public async Task ConnectAsync(MultiAddress address, CancellationToken cancel = default(CancellationToken))
         {
             await ipfs.DoCommandAsync("swarm/connect", cancel, address.ToString());
@@ -130,6 +139,9 @@ namespace Ipfs.Api
         /// <param name="address">
         ///   An ipfs <see cref="MultiAddress"/>, such as
         ///  <c>/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ</c>.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         public async Task DisconnectAsync(MultiAddress address, CancellationToken cancel = default(CancellationToken))
         {

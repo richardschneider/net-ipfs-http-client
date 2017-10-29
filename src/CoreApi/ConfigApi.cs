@@ -48,6 +48,9 @@ namespace Ipfs.Api
         /// <param name="key">
         ///   The key name, such as "Addresses.API".
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <returns>
         ///   The value of the <paramref name="key"/> as <see cref="JToken"/>.
         /// </returns>
@@ -73,6 +76,9 @@ namespace Ipfs.Api
         /// <param name="value">
         ///   The new <see cref="string"/> value of the <paramref name="key"/>.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         public async Task SetAsync(string key, string value, CancellationToken cancel = default(CancellationToken))
         {
             var _ = await ipfs.PostCommandAsync("config", cancel, key, "arg=" + value);
@@ -87,6 +93,9 @@ namespace Ipfs.Api
         /// </param>
         /// <param name="value">
         ///   The new <see cref="JToken">JSON</see> value of the <paramref name="key"/>.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         public async Task SetAsync(string key, JToken value, CancellationToken cancel = default(CancellationToken))
         {

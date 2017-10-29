@@ -79,6 +79,9 @@ namespace Ipfs.Api
         ///   Create a new MerkleDAG node, using a specific layout.
         /// </summary>
         /// <param name="template"><b>null</b> or "unixfs-dir".</param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <returns></returns>
         /// <remarks>
         ///  Caveat: So far, only UnixFS object layouts are supported.
@@ -96,6 +99,9 @@ namespace Ipfs.Api
         /// <param name="hash">
         ///   The <see cref="string"/> representation of an encoded <see cref="Ipfs.MultiHash"/>.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <returns></returns>
         public async Task<DagNode> GetAsync(string hash, CancellationToken cancel = default(CancellationToken))
         {
@@ -112,6 +118,9 @@ namespace Ipfs.Api
         /// <param name="links">
         ///   The links to other nodes.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         public Task<DagNode> PutAsync(byte[] data, IEnumerable<IMerkleLink> links = null, CancellationToken cancel = default(CancellationToken))
         {
             return PutAsync(new DagNode(data, links), cancel);
@@ -120,6 +129,10 @@ namespace Ipfs.Api
         /// <summary>
         ///   Store a MerkleDAG node.
         /// </summary>
+        /// <param name="node">A merkle dag</param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         public async Task<DagNode> PutAsync(DagNode node, CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.UploadAsync("object/put", cancel, node.ToArray(), "inputenc=protobuf");
@@ -131,6 +144,9 @@ namespace Ipfs.Api
         /// </summary>
         /// <param name="hash">
         ///   The <see cref="string"/> representation of an encoded <see cref="Ipfs.MultiHash"/>.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         /// <returns></returns>
         /// <remarks>
@@ -147,7 +163,10 @@ namespace Ipfs.Api
         /// <param name="hash">
         ///   The <see cref="string"/> representation of an encoded <see cref="Ipfs.MultiHash"/>.
         /// </param>
-        /// <returns></returns>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        /// <returns>A sequence of links</returns>
         public async Task<IEnumerable<IMerkleLink>> LinksAsync(string hash, CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.DoCommandAsync("object/links", cancel, hash);
@@ -159,6 +178,9 @@ namespace Ipfs.Api
         /// </summary>
         /// <param name="hash">
         ///   The <see cref="string"/> representation of an encoded <see cref="Ipfs.MultiHash"/>.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         /// <returns></returns>
         public Task<DagInfo> StatAsync(string hash, CancellationToken cancel = default(CancellationToken))

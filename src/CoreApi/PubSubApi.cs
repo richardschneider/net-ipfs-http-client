@@ -77,6 +77,9 @@ namespace Ipfs.Api
         /// <param name="message">
         ///   The message to publish.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         public async Task Publish(string topic, string message, CancellationToken cancel = default(CancellationToken))
         {
             var _ = await ipfs.PostCommandAsync("pubsub/pub", cancel, topic, "arg=" + message);

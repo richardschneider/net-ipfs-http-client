@@ -40,6 +40,9 @@ namespace Ipfs.Api
         /// <param name="id">
         ///   The <see cref="string"/> ID of the IPFS peer.  
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         public Task<PeerNode> FindPeerAsync(string id, CancellationToken cancel = default(CancellationToken))
         {
             return ipfs.IdAsync(id, cancel);
@@ -50,6 +53,9 @@ namespace Ipfs.Api
         /// </summary>
         /// <param name="hash">
         ///   The <see cref="string"/> representation of a base58 encoded <see cref="Ipfs.MultiHash"/>.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         /// <returns>
         ///   A sequence of IPFS peer IDs.

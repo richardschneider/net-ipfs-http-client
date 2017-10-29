@@ -82,6 +82,9 @@ namespace Ipfs.Api
         /// <param name="data">
         ///   The byte array to send to the IPFS network.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         public async Task<Block> PutAsync(byte[] data, CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.UploadAsync("block/put", cancel, data);
@@ -99,6 +102,9 @@ namespace Ipfs.Api
         /// <param name="block">
         ///   The <seealso cref="Block"/> to send to the IPFS network.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         public Task<Block> PutAsync(Block block, CancellationToken cancel = default(CancellationToken))
         {
             return PutAsync(block.DataBytes, cancel);
@@ -109,6 +115,9 @@ namespace Ipfs.Api
         /// </summary>
         /// <param name="hash">
         ///   The <see cref="string"/> representation of a base58 encoded <see cref="Ipfs.MultiHash"/>.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         public Task<BlockInfo> StatAsync(string hash, CancellationToken cancel = default(CancellationToken))
         {

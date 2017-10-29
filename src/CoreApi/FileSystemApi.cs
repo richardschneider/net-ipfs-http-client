@@ -35,6 +35,9 @@ namespace Ipfs.Api
         ///   Add a file to the interplanetary file system.
         /// </summary>
         /// <param name="path"></param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         public async Task<FileSystemNode> AddFileAsync(string path, CancellationToken cancel = default(CancellationToken))
         {
             using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
@@ -48,6 +51,9 @@ namespace Ipfs.Api
         ///   Add some text to the interplanetary file system.
         /// </summary>
         /// <param name="text"></param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         public Task<FileSystemNode> AddTextAsync(string text, CancellationToken cancel = default(CancellationToken))
         {
             return AddAsync(new MemoryStream(Encoding.UTF8.GetBytes(text), false), "", cancel);
@@ -58,6 +64,9 @@ namespace Ipfs.Api
         /// </summary>
         /// <param name="stream"></param>
         /// <param name="name"></param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         public async Task<FileSystemNode> AddAsync(Stream stream, string name = "", CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.UploadAsync("add", cancel, stream);
@@ -75,6 +84,9 @@ namespace Ipfs.Api
         /// </summary>
         /// <param name="path"></param>
         /// <param name="recursive"></param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         public async Task<FileSystemNode> AddDirectoryAsync(string path, bool recursive = true, CancellationToken cancel = default(CancellationToken))
         {
             // Add the files and sub-directories.
@@ -115,6 +127,9 @@ namespace Ipfs.Api
         ///   A path to an existing file, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
         ///   or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <returns></returns>
         public async Task<String> ReadAllTextAsync(string path, CancellationToken cancel = default(CancellationToken))
         {
@@ -132,6 +147,9 @@ namespace Ipfs.Api
         ///   A path to an existing file, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
         ///   or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <returns>
         ///   A <see cref="Stream"/> to the file contents.
         /// </returns>
@@ -146,6 +164,9 @@ namespace Ipfs.Api
         /// <param name="path">
         ///   A path to an existing file or directory, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
         ///   or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         /// <returns></returns>
         public async Task<FileSystemNode> ListFileAsync(string path, CancellationToken cancel = default(CancellationToken))

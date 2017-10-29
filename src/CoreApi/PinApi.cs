@@ -39,6 +39,9 @@ namespace Ipfs.Api
         ///   <b>true</b> to recursively pin links of object; otherwise, <b>false</b> to only pin
         ///   the specified object.  Default is <b>true</b>.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         public async Task<PinnedObject[]> AddAsync(string hash, bool recursive = true, CancellationToken cancel = default(CancellationToken))
         {
             var opts = "recursive=" + recursive.ToString().ToLowerInvariant();
@@ -54,6 +57,9 @@ namespace Ipfs.Api
         /// <param name="mode">
         ///   The <see cref="PinMode">type</see> of pinned objects to return.
         ///   Defaults to <see cref="PinMode.All"/>.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         public async Task<PinnedObject[]> ListAsync(PinMode mode = PinMode.All, CancellationToken cancel = default(CancellationToken))
         {
@@ -79,6 +85,9 @@ namespace Ipfs.Api
         /// <param name="recursive">
         ///   <b>true</b> to recursively unpin links of object; otherwise, <b>false</b> to only unpin
         ///   the specified object.  Default is <b>true</b>.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         public async Task<PinnedObject[]> RemoveAsync(string hash, bool recursive = true, CancellationToken cancel = default(CancellationToken))
         {
