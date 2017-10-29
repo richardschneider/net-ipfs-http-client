@@ -5,18 +5,26 @@
 [![Version](https://img.shields.io/nuget/v/Ipfs.Api.svg)](https://www.nuget.org/packages/Ipfs.Api)
 [![docs](https://cdn.rawgit.com/richardschneider/net-ipfs-core/master/doc/images/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-api)
 
-Provides access to the [Inter Planetary File System API](https://ipfs.io/docs/api/) for .Net (C#, VB, F# ...). It supports the following runtimes
 
-- .NET Framework 4.5
-- .NET Standard 1.4
-- .NET Standard 2.0
-
-
-A .Net client library for the IPFS HTTP API, implemented in C#. This client library implements the [interface-ipfs-core](https://github.com/ipfs/interface-ipfs-core). 
+A .Net client library for the IPFS HTTP API, implemented in C#. 
 More information, including the Class Reference, is on the [Project](https://richardschneider.github.io/net-ipfs-api/) web site.
 
 [![IPFS Core API](https://github.com/ipfs/interface-ipfs-core/raw/master/img/badge.png)](https://github.com/ipfs/interface-ipfs-core)
 
+## Features
+
+- Targets .NET Framework 4.5, .NET Standard 1.4 and .NET Standard 2.0
+- Asynchronous I/O to an IPFS server
+- C# style access to the [ipfs core interface](https://github.com/ipfs/interface-ipfs-core#api)
+  - [Block API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.BlockApi.html)
+  - [Config API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.ConfigApi.html)
+  - [Dag API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.DagApi.html)
+  - [Dht API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.DhtApi.html)
+  - [FileSystem API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.FileSystemApi.html)
+  - [Object API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.ObjectApi.html)
+  - [Pin API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.PinApi.html)
+  - [PubSub API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.PubSubApi.html)
+  - [Swarm API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.SwarmApi.html)
 
 ## Getting started
 
@@ -25,6 +33,17 @@ Published releases of IPFS API are available on [NuGet](https://www.nuget.org/pa
     PM> Install-Package Ipfs.Api
     
 For the latest build or older non-released builds see [Continuous Integration](https://github.com/richardschneider/net-ipfs-core/wiki/Continuous-Integration).
+
+## IpfsClient
+
+Every IPFS Api is a property of the [IpfsClient](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.IpfsClient.html).  The following example reads a text file
+
+```
+var ipfs = new IpfsClient();
+
+const string filename = "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about";
+string text = await ipfs.FileSystem.ReadAllTextAsync(filename);
+```
 
 # License
 Copyright © 2015-2017 Richard Schneider (makaretu@gmail.com)
