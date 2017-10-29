@@ -13,7 +13,7 @@ async Task<string> AddText()
 }
 ```
 
-If you need to perform a synchronous operation, then this can work
+If a synchronous operation is required, then this can work
 
 ```cs
 string AddText()
