@@ -126,20 +126,37 @@ To use, the daemon must be run with &apos;--enable-pubsub-experiment&apos;.
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PubSubApi_PeersAsync.md&amp;value=---%0Auid%3A%20Ipfs.Api.PubSubApi.PeersAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PubSubApi_PeersAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PubSubApi.PeersAsync(System.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/PubSubApi.cs/#L62">View Source</a>
   </span>
   <a id="Ipfs_Api_PubSubApi_PeersAsync_" data-uid="Ipfs.Api.PubSubApi.PeersAsync*"></a>
-  <h4 id="Ipfs_Api_PubSubApi_PeersAsync" data-uid="Ipfs.Api.PubSubApi.PeersAsync">PeersAsync()</h4>
+  <h4 id="Ipfs_Api_PubSubApi_PeersAsync_System_Threading_CancellationToken_" data-uid="Ipfs.Api.PubSubApi.PeersAsync(System.Threading.CancellationToken)">PeersAsync(CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Get the peers that are pubsubing with us.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;string&gt;&gt; PeersAsync()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;string&gt;&gt; PeersAsync(CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -158,19 +175,19 @@ To use, the daemon must be run with &apos;--enable-pubsub-experiment&apos;.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PubSubApi_Publish_System_String_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PubSubApi.Publish(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PubSubApi_Publish_System_String_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PubSubApi.Publish(System.String%2CSystem.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/PubSubApi.cs/#L80">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/PubSubApi.cs/#L83">View Source</a>
   </span>
   <a id="Ipfs_Api_PubSubApi_Publish_" data-uid="Ipfs.Api.PubSubApi.Publish*"></a>
-  <h4 id="Ipfs_Api_PubSubApi_Publish_System_String_System_String_" data-uid="Ipfs.Api.PubSubApi.Publish(System.String,System.String)">Publish(String, String)</h4>
+  <h4 id="Ipfs_Api_PubSubApi_Publish_System_String_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.PubSubApi.Publish(System.String,System.String,System.Threading.CancellationToken)">Publish(String, String, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Publish a message to a given topic.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Publish(string topic, string message)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task Publish(string topic, string message, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -192,6 +209,12 @@ To use, the daemon must be run with &apos;--enable-pubsub-experiment&apos;.
         <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
         <td><span class="parametername">message</span></td>
         <td><p>The message to publish.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
 </td>
       </tr>
     </tbody>
@@ -216,7 +239,7 @@ To use, the daemon must be run with &apos;--enable-pubsub-experiment&apos;.
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PubSubApi_Subscribe_System_String_System_Action_Ipfs_Api_PublishedMessage__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PubSubApi.Subscribe(System.String%2CSystem.Action%7BIpfs.Api.PublishedMessage%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/PubSubApi.cs/#L105">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/PubSubApi.cs/#L108">View Source</a>
   </span>
   <a id="Ipfs_Api_PubSubApi_Subscribe_" data-uid="Ipfs.Api.PubSubApi.Subscribe*"></a>
   <h4 id="Ipfs_Api_PubSubApi_Subscribe_System_String_System_Action_Ipfs_Api_PublishedMessage__System_Threading_CancellationToken_" data-uid="Ipfs.Api.PubSubApi.Subscribe(System.String,System.Action{Ipfs.Api.PublishedMessage},System.Threading.CancellationToken)">Subscribe(String, Action&lt;PublishedMessage&gt;, CancellationToken)</h4>
@@ -279,20 +302,37 @@ is <strong>NOT</strong> raised.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PubSubApi_SubscribedTopicsAsync.md&amp;value=---%0Auid%3A%20Ipfs.Api.PubSubApi.SubscribedTopicsAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PubSubApi_SubscribedTopicsAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PubSubApi.SubscribedTopicsAsync(System.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/PubSubApi.cs/#L47">View Source</a>
   </span>
   <a id="Ipfs_Api_PubSubApi_SubscribedTopicsAsync_" data-uid="Ipfs.Api.PubSubApi.SubscribedTopicsAsync*"></a>
-  <h4 id="Ipfs_Api_PubSubApi_SubscribedTopicsAsync" data-uid="Ipfs.Api.PubSubApi.SubscribedTopicsAsync">SubscribedTopicsAsync()</h4>
+  <h4 id="Ipfs_Api_PubSubApi_SubscribedTopicsAsync_System_Threading_CancellationToken_" data-uid="Ipfs.Api.PubSubApi.SubscribedTopicsAsync(System.Threading.CancellationToken)">SubscribedTopicsAsync(CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Get the subscribed topics.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;string&gt;&gt; SubscribedTopicsAsync()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;string&gt;&gt; SubscribedTopicsAsync(CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>

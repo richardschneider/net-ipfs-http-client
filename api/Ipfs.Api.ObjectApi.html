@@ -120,19 +120,19 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_DataAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.DataAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_DataAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.DataAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L138">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L155">View Source</a>
   </span>
   <a id="Ipfs_Api_ObjectApi_DataAsync_" data-uid="Ipfs.Api.ObjectApi.DataAsync*"></a>
-  <h4 id="Ipfs_Api_ObjectApi_DataAsync_System_String_" data-uid="Ipfs.Api.ObjectApi.DataAsync(System.String)">DataAsync(String)</h4>
+  <h4 id="Ipfs_Api_ObjectApi_DataAsync_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.ObjectApi.DataAsync(System.String,System.Threading.CancellationToken)">DataAsync(String, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Get the data of a MerkleDAG node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Stream&gt; DataAsync(string hash)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;Stream&gt; DataAsync(string hash, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -148,6 +148,12 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
         <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
         <td><span class="parametername">hash</span></td>
         <td><p>The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a> representation of an encoded <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
 </td>
       </tr>
     </tbody>
@@ -167,24 +173,24 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
       </tr>
     </tbody>
   </table>
-  <h5 id="Ipfs_Api_ObjectApi_DataAsync_System_String__remarks">Remarks</h5>
+  <h5 id="Ipfs_Api_ObjectApi_DataAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The caller must dispose the returned <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">Stream</a>.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_GetAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.GetAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_GetAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.GetAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L99">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L106">View Source</a>
   </span>
   <a id="Ipfs_Api_ObjectApi_GetAsync_" data-uid="Ipfs.Api.ObjectApi.GetAsync*"></a>
-  <h4 id="Ipfs_Api_ObjectApi_GetAsync_System_String_" data-uid="Ipfs.Api.ObjectApi.GetAsync(System.String)">GetAsync(String)</h4>
+  <h4 id="Ipfs_Api_ObjectApi_GetAsync_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.ObjectApi.GetAsync(System.String,System.Threading.CancellationToken)">GetAsync(String, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Fetch a MerkleDAG node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;DagNode&gt; GetAsync(string hash)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;DagNode&gt; GetAsync(string hash, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -200,6 +206,12 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
         <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
         <td><span class="parametername">hash</span></td>
         <td><p>The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a> representation of an encoded <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
 </td>
       </tr>
     </tbody>
@@ -221,19 +233,19 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_LinksAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.LinksAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_LinksAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.LinksAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L150">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L170">View Source</a>
   </span>
   <a id="Ipfs_Api_ObjectApi_LinksAsync_" data-uid="Ipfs.Api.ObjectApi.LinksAsync*"></a>
-  <h4 id="Ipfs_Api_ObjectApi_LinksAsync_System_String_" data-uid="Ipfs.Api.ObjectApi.LinksAsync(System.String)">LinksAsync(String)</h4>
+  <h4 id="Ipfs_Api_ObjectApi_LinksAsync_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.ObjectApi.LinksAsync(System.String,System.Threading.CancellationToken)">LinksAsync(String, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Get the links of a MerkleDAG node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;IMerkleLink&gt;&gt; LinksAsync(string hash)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;IMerkleLink&gt;&gt; LinksAsync(string hash, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -251,6 +263,12 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
         <td><p>The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a> representation of an encoded <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a>.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -264,25 +282,26 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
     <tbody>
       <tr>
         <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/9eekhta0(v=vs.110).aspx">IEnumerable</a>&lt;<a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IMerkleLink.html">IMerkleLink</a>&gt;&gt;</td>
-        <td></td>
+        <td><p>A sequence of links</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_NewAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.NewAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_NewAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.NewAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L85">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L89">View Source</a>
   </span>
   <a id="Ipfs_Api_ObjectApi_NewAsync_" data-uid="Ipfs.Api.ObjectApi.NewAsync*"></a>
-  <h4 id="Ipfs_Api_ObjectApi_NewAsync_System_String_" data-uid="Ipfs.Api.ObjectApi.NewAsync(System.String)">NewAsync(String)</h4>
+  <h4 id="Ipfs_Api_ObjectApi_NewAsync_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.ObjectApi.NewAsync(System.String,System.Threading.CancellationToken)">NewAsync(String, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Create a new MerkleDAG node, using a specific layout.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;DagNode&gt; NewAsync(string template = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;DagNode&gt; NewAsync(string template = null, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -300,6 +319,12 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
         <td><p><strong>null</strong> or &quot;unixfs-dir&quot;.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -317,25 +342,42 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
       </tr>
     </tbody>
   </table>
-  <h5 id="Ipfs_Api_ObjectApi_NewAsync_System_String__remarks">Remarks</h5>
+  <h5 id="Ipfs_Api_ObjectApi_NewAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Caveat: So far, only UnixFS object layouts are supported.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_NewDirectoryAsync.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.NewDirectoryAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_NewDirectoryAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.NewDirectoryAsync(System.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L72">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L73">View Source</a>
   </span>
   <a id="Ipfs_Api_ObjectApi_NewDirectoryAsync_" data-uid="Ipfs.Api.ObjectApi.NewDirectoryAsync*"></a>
-  <h4 id="Ipfs_Api_ObjectApi_NewDirectoryAsync" data-uid="Ipfs.Api.ObjectApi.NewDirectoryAsync">NewDirectoryAsync()</h4>
+  <h4 id="Ipfs_Api_ObjectApi_NewDirectoryAsync_System_Threading_CancellationToken_" data-uid="Ipfs.Api.ObjectApi.NewDirectoryAsync(System.Threading.CancellationToken)">NewDirectoryAsync(CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Creates a new file directory in IPFS.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;DagNode&gt; NewDirectoryAsync()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;DagNode&gt; NewDirectoryAsync(CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -351,24 +393,24 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
       </tr>
     </tbody>
   </table>
-  <h5 id="Ipfs_Api_ObjectApi_NewDirectoryAsync_remarks">Remarks</h5>
+  <h5 id="Ipfs_Api_ObjectApi_NewDirectoryAsync_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Equivalent to <code>NewAsync(&quot;unixfs-dir&quot;)</code>.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_PutAsync_Ipfs_DagNode_.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.PutAsync(Ipfs.DagNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_PutAsync_Ipfs_DagNode_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.PutAsync(Ipfs.DagNode%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L122">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L136">View Source</a>
   </span>
   <a id="Ipfs_Api_ObjectApi_PutAsync_" data-uid="Ipfs.Api.ObjectApi.PutAsync*"></a>
-  <h4 id="Ipfs_Api_ObjectApi_PutAsync_Ipfs_DagNode_" data-uid="Ipfs.Api.ObjectApi.PutAsync(Ipfs.DagNode)">PutAsync(DagNode)</h4>
+  <h4 id="Ipfs_Api_ObjectApi_PutAsync_Ipfs_DagNode_System_Threading_CancellationToken_" data-uid="Ipfs.Api.ObjectApi.PutAsync(Ipfs.DagNode,System.Threading.CancellationToken)">PutAsync(DagNode, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Store a MerkleDAG node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;DagNode&gt; PutAsync(DagNode node)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;DagNode&gt; PutAsync(DagNode node, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -383,7 +425,14 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
       <tr>
         <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.DagNode.html">DagNode</a></td>
         <td><span class="parametername">node</span></td>
-        <td></td>
+        <td><p>A merkle dag</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -404,19 +453,19 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_PutAsync_System_Byte___System_Collections_Generic_IEnumerable_Ipfs_IMerkleLink__.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.PutAsync(System.Byte%5B%5D%2CSystem.Collections.Generic.IEnumerable%7BIpfs.IMerkleLink%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_PutAsync_System_Byte___System_Collections_Generic_IEnumerable_Ipfs_IMerkleLink__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.PutAsync(System.Byte%5B%5D%2CSystem.Collections.Generic.IEnumerable%7BIpfs.IMerkleLink%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L114">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L124">View Source</a>
   </span>
   <a id="Ipfs_Api_ObjectApi_PutAsync_" data-uid="Ipfs.Api.ObjectApi.PutAsync*"></a>
-  <h4 id="Ipfs_Api_ObjectApi_PutAsync_System_Byte___System_Collections_Generic_IEnumerable_Ipfs_IMerkleLink__" data-uid="Ipfs.Api.ObjectApi.PutAsync(System.Byte[],System.Collections.Generic.IEnumerable{Ipfs.IMerkleLink})">PutAsync(Byte[], IEnumerable&lt;IMerkleLink&gt;)</h4>
+  <h4 id="Ipfs_Api_ObjectApi_PutAsync_System_Byte___System_Collections_Generic_IEnumerable_Ipfs_IMerkleLink__System_Threading_CancellationToken_" data-uid="Ipfs.Api.ObjectApi.PutAsync(System.Byte[],System.Collections.Generic.IEnumerable{Ipfs.IMerkleLink},System.Threading.CancellationToken)">PutAsync(Byte[], IEnumerable&lt;IMerkleLink&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Store a MerkleDAG node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;DagNode&gt; PutAsync(byte[] data, IEnumerable&lt;IMerkleLink&gt; links = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;DagNode&gt; PutAsync(byte[] data, IEnumerable&lt;IMerkleLink&gt; links = null, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -440,6 +489,12 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
         <td><p>The links to other nodes.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -459,19 +514,19 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_StatAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.StatAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi_StatAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi.StatAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L163">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L186">View Source</a>
   </span>
   <a id="Ipfs_Api_ObjectApi_StatAsync_" data-uid="Ipfs.Api.ObjectApi.StatAsync*"></a>
-  <h4 id="Ipfs_Api_ObjectApi_StatAsync_System_String_" data-uid="Ipfs.Api.ObjectApi.StatAsync(System.String)">StatAsync(String)</h4>
+  <h4 id="Ipfs_Api_ObjectApi_StatAsync_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.ObjectApi.StatAsync(System.String,System.Threading.CancellationToken)">StatAsync(String, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Get the statistics of a MerkleDAG node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ObjectApi.DagInfo&gt; StatAsync(string hash)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ObjectApi.DagInfo&gt; StatAsync(string hash, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -487,6 +542,12 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
         <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
         <td><span class="parametername">hash</span></td>
         <td><p>The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a> representation of an encoded <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
 </td>
       </tr>
     </tbody>
@@ -521,7 +582,7 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
                     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_ObjectApi.md&amp;value=---%0Auid%3A%20Ipfs.Api.ObjectApi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L23" class="contribution-link">View Source</a>
+                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/ObjectApi.cs/#L24" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

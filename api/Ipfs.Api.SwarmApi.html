@@ -121,20 +121,38 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_SwarmApi_AddressesAsync.md&amp;value=---%0Auid%3A%20Ipfs.Api.SwarmApi.AddressesAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_SwarmApi_AddressesAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.SwarmApi.AddressesAsync(System.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/SwarmApi.cs/#L37">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/SwarmApi.cs/#L41">View Source</a>
   </span>
   <a id="Ipfs_Api_SwarmApi_AddressesAsync_" data-uid="Ipfs.Api.SwarmApi.AddressesAsync*"></a>
-  <h4 id="Ipfs_Api_SwarmApi_AddressesAsync" data-uid="Ipfs.Api.SwarmApi.AddressesAsync">AddressesAsync()</h4>
+  <h4 id="Ipfs_Api_SwarmApi_AddressesAsync_System_Threading_CancellationToken_" data-uid="Ipfs.Api.SwarmApi.AddressesAsync(System.Threading.CancellationToken)">AddressesAsync(CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Get the peers in the current swarm.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;PeerNode&gt;&gt; AddressesAsync()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;PeerNode&gt;&gt; AddressesAsync(CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -146,25 +164,26 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
     <tbody>
       <tr>
         <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/9eekhta0(v=vs.110).aspx">IEnumerable</a>&lt;<a class="xref" href="Ipfs.Api.PeerNode.html">PeerNode</a>&gt;&gt;</td>
-        <td></td>
+        <td><p>A sequence of peer nodes.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_SwarmApi_ConnectAsync_Ipfs_MultiAddress_.md&amp;value=---%0Auid%3A%20Ipfs.Api.SwarmApi.ConnectAsync(Ipfs.MultiAddress)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_SwarmApi_ConnectAsync_Ipfs_MultiAddress_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.SwarmApi.ConnectAsync(Ipfs.MultiAddress%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/SwarmApi.cs/#L121">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/SwarmApi.cs/#L131">View Source</a>
   </span>
   <a id="Ipfs_Api_SwarmApi_ConnectAsync_" data-uid="Ipfs.Api.SwarmApi.ConnectAsync*"></a>
-  <h4 id="Ipfs_Api_SwarmApi_ConnectAsync_Ipfs_MultiAddress_" data-uid="Ipfs.Api.SwarmApi.ConnectAsync(Ipfs.MultiAddress)">ConnectAsync(MultiAddress)</h4>
+  <h4 id="Ipfs_Api_SwarmApi_ConnectAsync_Ipfs_MultiAddress_System_Threading_CancellationToken_" data-uid="Ipfs.Api.SwarmApi.ConnectAsync(Ipfs.MultiAddress,System.Threading.CancellationToken)">ConnectAsync(MultiAddress, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Connect to a peer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task ConnectAsync(MultiAddress address)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task ConnectAsync(MultiAddress address, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -181,6 +200,12 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
         <td><span class="parametername">address</span></td>
         <td><p>An ipfs <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiAddress.html">MultiAddress</a>, such as
 <code>/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
 </td>
       </tr>
     </tbody>
@@ -202,19 +227,19 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_SwarmApi_DisconnectAsync_Ipfs_MultiAddress_.md&amp;value=---%0Auid%3A%20Ipfs.Api.SwarmApi.DisconnectAsync(Ipfs.MultiAddress)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_SwarmApi_DisconnectAsync_Ipfs_MultiAddress_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.SwarmApi.DisconnectAsync(Ipfs.MultiAddress%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/SwarmApi.cs/#L133">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/SwarmApi.cs/#L146">View Source</a>
   </span>
   <a id="Ipfs_Api_SwarmApi_DisconnectAsync_" data-uid="Ipfs.Api.SwarmApi.DisconnectAsync*"></a>
-  <h4 id="Ipfs_Api_SwarmApi_DisconnectAsync_Ipfs_MultiAddress_" data-uid="Ipfs.Api.SwarmApi.DisconnectAsync(Ipfs.MultiAddress)">DisconnectAsync(MultiAddress)</h4>
+  <h4 id="Ipfs_Api_SwarmApi_DisconnectAsync_Ipfs_MultiAddress_System_Threading_CancellationToken_" data-uid="Ipfs.Api.SwarmApi.DisconnectAsync(Ipfs.MultiAddress,System.Threading.CancellationToken)">DisconnectAsync(MultiAddress, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Disconnect from a peer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task DisconnectAsync(MultiAddress address)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task DisconnectAsync(MultiAddress address, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -231,6 +256,12 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
         <td><span class="parametername">address</span></td>
         <td><p>An ipfs <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiAddress.html">MultiAddress</a>, such as
 <code>/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
 </td>
       </tr>
     </tbody>
@@ -252,20 +283,38 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_SwarmApi_PeersAsync.md&amp;value=---%0Auid%3A%20Ipfs.Api.SwarmApi.PeersAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_SwarmApi_PeersAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.SwarmApi.PeersAsync(System.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/SwarmApi.cs/#L55">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/SwarmApi.cs/#L62">View Source</a>
   </span>
   <a id="Ipfs_Api_SwarmApi_PeersAsync_" data-uid="Ipfs.Api.SwarmApi.PeersAsync*"></a>
-  <h4 id="Ipfs_Api_SwarmApi_PeersAsync" data-uid="Ipfs.Api.SwarmApi.PeersAsync">PeersAsync()</h4>
+  <h4 id="Ipfs_Api_SwarmApi_PeersAsync_System_Threading_CancellationToken_" data-uid="Ipfs.Api.SwarmApi.PeersAsync(System.Threading.CancellationToken)">PeersAsync(CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Get the peers that are connected to this node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;ConnectedPeer&gt;&gt; PeersAsync()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;ConnectedPeer&gt;&gt; PeersAsync(CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -297,7 +346,7 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
                     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_SwarmApi.md&amp;value=---%0Auid%3A%20Ipfs.Api.SwarmApi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/SwarmApi.cs/#L24" class="contribution-link">View Source</a>
+                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/SwarmApi.cs/#L25" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

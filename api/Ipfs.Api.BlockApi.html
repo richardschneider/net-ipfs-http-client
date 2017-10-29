@@ -130,19 +130,19 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_GetAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.GetAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_GetAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.GetAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L65">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L69">View Source</a>
   </span>
   <a id="Ipfs_Api_BlockApi_GetAsync_" data-uid="Ipfs.Api.BlockApi.GetAsync*"></a>
-  <h4 id="Ipfs_Api_BlockApi_GetAsync_System_String_" data-uid="Ipfs.Api.BlockApi.GetAsync(System.String)">GetAsync(String)</h4>
+  <h4 id="Ipfs_Api_BlockApi_GetAsync_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.BlockApi.GetAsync(System.String,System.Threading.CancellationToken)">GetAsync(String, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets a raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Block&gt; GetAsync(string hash)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;Block&gt; GetAsync(string hash, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -158,6 +158,12 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
         <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
         <td><span class="parametername">hash</span></td>
         <td><p>The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a> representation of a base58 encoded <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
 </td>
       </tr>
     </tbody>
@@ -179,19 +185,19 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_PutAsync_Ipfs_Api_Block_.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.PutAsync(Ipfs.Api.Block)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_PutAsync_Ipfs_Api_Block_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.PutAsync(Ipfs.Api.Block%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L98">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L108">View Source</a>
   </span>
   <a id="Ipfs_Api_BlockApi_PutAsync_" data-uid="Ipfs.Api.BlockApi.PutAsync*"></a>
-  <h4 id="Ipfs_Api_BlockApi_PutAsync_Ipfs_Api_Block_" data-uid="Ipfs.Api.BlockApi.PutAsync(Ipfs.Api.Block)">PutAsync(Block)</h4>
+  <h4 id="Ipfs_Api_BlockApi_PutAsync_Ipfs_Api_Block_System_Threading_CancellationToken_" data-uid="Ipfs.Api.BlockApi.PutAsync(Ipfs.Api.Block,System.Threading.CancellationToken)">PutAsync(Block, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Stores a raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Block&gt; PutAsync(Block block)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;Block&gt; PutAsync(Block block, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -209,53 +215,10 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
         <td><p>The <a class="xref" href="Ipfs.Api.Block.html">Block</a> to send to the IPFS network.</p>
 </td>
       </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
       <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.Block.html">Block</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_PutAsync_System_Byte___.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.PutAsync(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L81">View Source</a>
-  </span>
-  <a id="Ipfs_Api_BlockApi_PutAsync_" data-uid="Ipfs.Api.BlockApi.PutAsync*"></a>
-  <h4 id="Ipfs_Api_BlockApi_PutAsync_System_Byte___" data-uid="Ipfs.Api.BlockApi.PutAsync(System.Byte[])">PutAsync(Byte[])</h4>
-  <div class="markdown level1 summary"><p>Stores a byte array as a raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Block&gt; PutAsync(byte[] data)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.byte(v=vs.110).aspx">Byte</a>[]</td>
-        <td><span class="parametername">data</span></td>
-        <td><p>The byte array to send to the IPFS network.</p>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
 </td>
       </tr>
     </tbody>
@@ -277,19 +240,74 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_StatAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.StatAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_PutAsync_System_Byte___System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.PutAsync(System.Byte%5B%5D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L109">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L88">View Source</a>
+  </span>
+  <a id="Ipfs_Api_BlockApi_PutAsync_" data-uid="Ipfs.Api.BlockApi.PutAsync*"></a>
+  <h4 id="Ipfs_Api_BlockApi_PutAsync_System_Byte___System_Threading_CancellationToken_" data-uid="Ipfs.Api.BlockApi.PutAsync(System.Byte[],System.Threading.CancellationToken)">PutAsync(Byte[], CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Stores a byte array as a raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Block&gt; PutAsync(byte[] data, CancellationToken cancel = default (CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.byte(v=vs.110).aspx">Byte</a>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>The byte array to send to the IPFS network.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="Ipfs.Api.Block.html">Block</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi_StatAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi.StatAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L122">View Source</a>
   </span>
   <a id="Ipfs_Api_BlockApi_StatAsync_" data-uid="Ipfs.Api.BlockApi.StatAsync*"></a>
-  <h4 id="Ipfs_Api_BlockApi_StatAsync_System_String_" data-uid="Ipfs.Api.BlockApi.StatAsync(System.String)">StatAsync(String)</h4>
+  <h4 id="Ipfs_Api_BlockApi_StatAsync_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.BlockApi.StatAsync(System.String,System.Threading.CancellationToken)">StatAsync(String, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Information on a raw <a class="xref" href="Ipfs.Api.Block.html">Block</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BlockInfo&gt; StatAsync(string hash)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;BlockInfo&gt; StatAsync(string hash, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -305,6 +323,12 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
         <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
         <td><span class="parametername">hash</span></td>
         <td><p>The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a> representation of a base58 encoded <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
 </td>
       </tr>
     </tbody>
@@ -339,7 +363,7 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
                     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_BlockApi.md&amp;value=---%0Auid%3A%20Ipfs.Api.BlockApi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L50" class="contribution-link">View Source</a>
+                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/BlockApi.cs/#L51" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

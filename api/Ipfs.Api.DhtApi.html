@@ -122,19 +122,19 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_DhtApi_FindPeerAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.DhtApi.FindPeerAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_DhtApi_FindPeerAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.DhtApi.FindPeerAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/DhtApi.cs/#L42">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/DhtApi.cs/#L46">View Source</a>
   </span>
   <a id="Ipfs_Api_DhtApi_FindPeerAsync_" data-uid="Ipfs.Api.DhtApi.FindPeerAsync*"></a>
-  <h4 id="Ipfs_Api_DhtApi_FindPeerAsync_System_String_" data-uid="Ipfs.Api.DhtApi.FindPeerAsync(System.String)">FindPeerAsync(String)</h4>
+  <h4 id="Ipfs_Api_DhtApi_FindPeerAsync_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.DhtApi.FindPeerAsync(System.String,System.Threading.CancellationToken)">FindPeerAsync(String, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Information about an IPFS peer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;PeerNode&gt; FindPeerAsync(string id)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;PeerNode&gt; FindPeerAsync(string id, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -150,6 +150,12 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
         <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
         <td><span class="parametername">id</span></td>
         <td><p>The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a> ID of the IPFS peer.  </p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
 </td>
       </tr>
     </tbody>
@@ -171,19 +177,19 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_DhtApi_FindProvidersAsync_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.DhtApi.FindProvidersAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_DhtApi_FindProvidersAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.DhtApi.FindProvidersAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/DhtApi.cs/#L56">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/DhtApi.cs/#L63">View Source</a>
   </span>
   <a id="Ipfs_Api_DhtApi_FindProvidersAsync_" data-uid="Ipfs.Api.DhtApi.FindProvidersAsync*"></a>
-  <h4 id="Ipfs_Api_DhtApi_FindProvidersAsync_System_String_" data-uid="Ipfs.Api.DhtApi.FindProvidersAsync(System.String)">FindProvidersAsync(String)</h4>
+  <h4 id="Ipfs_Api_DhtApi_FindProvidersAsync_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.DhtApi.FindProvidersAsync(System.String,System.Threading.CancellationToken)">FindProvidersAsync(String, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Find the providers for content that is addressed by a hash.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;string&gt;&gt; FindProvidersAsync(string hash)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;string&gt;&gt; FindProvidersAsync(string hash, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -199,6 +205,12 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
         <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
         <td><span class="parametername">hash</span></td>
         <td><p>The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a> representation of a base58 encoded <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
 </td>
       </tr>
     </tbody>
@@ -234,7 +246,7 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
                     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_DhtApi.md&amp;value=---%0Auid%3A%20Ipfs.Api.DhtApi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/DhtApi.cs/#L25" class="contribution-link">View Source</a>
+                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/DhtApi.cs/#L26" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
