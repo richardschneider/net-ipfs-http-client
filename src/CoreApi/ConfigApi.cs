@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ipfs.Api
@@ -35,9 +36,9 @@ namespace Ipfs.Api
         /// <returns>
         ///   A <see cref="JObject"/> containing the configuration.
         /// </returns>
-        public async Task<JObject> GetAsync()
+        public async Task<JObject> GetAsync(CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.DoCommandAsync("config/show");
+            var json = await ipfs.DoCommandAsync("config/show", cancel);
             return JObject.Parse(json);
         }
 
@@ -46,6 +47,9 @@ namespace Ipfs.Api
         /// </summary>
         /// <param name="key">
         ///   The key name, such as "Addresses.API".
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         /// <returns>
         ///   The value of the <paramref name="key"/> as <see cref="JToken"/>.
@@ -56,9 +60,9 @@ namespace Ipfs.Api
         /// <remarks>
         ///   Keys are case sensistive.
         /// </remarks>
-        public async Task<JToken> GetAsync(string key)
+        public async Task<JToken> GetAsync(string key, CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.DoCommandAsync("config", key);
+            var json = await ipfs.DoCommandAsync("config", cancel, key);
             var r = JObject.Parse(json);
             return r["Value"];
         }
@@ -72,9 +76,12 @@ namespace Ipfs.Api
         /// <param name="value">
         ///   The new <see cref="string"/> value of the <paramref name="key"/>.
         /// </param>
-        public async Task SetAsync(string key, string value)
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        public async Task SetAsync(string key, string value, CancellationToken cancel = default(CancellationToken))
         {
-            var _ = await ipfs.PostCommandAsync("config", key, "arg=" + value);
+            var _ = await ipfs.PostCommandAsync("config", cancel, key, "arg=" + value);
             return;
         }
 
@@ -87,9 +94,13 @@ namespace Ipfs.Api
         /// <param name="value">
         ///   The new <see cref="JToken">JSON</see> value of the <paramref name="key"/>.
         /// </param>
-        public async Task SetAsync(string key, JToken value)
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        public async Task SetAsync(string key, JToken value, CancellationToken cancel = default(CancellationToken))
         {
-            var _ = await ipfs.PostCommandAsync("config", key,
+            var _ = await ipfs.PostCommandAsync("config", cancel,
+                key,
                 "arg=" + value.ToString(Formatting.None),
                 "json=true");
             return;

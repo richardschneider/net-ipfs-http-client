@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ipfs.Api
@@ -38,7 +39,7 @@ namespace Ipfs.Api
         /// <summary>
         ///  TODO
         /// </summary>
-        public Task PutAsync(DagNode node, string multicodec, string hashAlgorithm = MultiHash.DefaultAlgorithmName)
+        public Task PutAsync(DagNode node, string multicodec, string hashAlgorithm = MultiHash.DefaultAlgorithmName, CancellationToken cancel = default(CancellationToken))
         {
             throw new NotImplementedException();
         }
@@ -46,7 +47,7 @@ namespace Ipfs.Api
         /// <summary>
         ///  TODO
         /// </summary>
-        public Task<DagNode> GetAsync(string cid)
+        public Task<DagNode> GetAsync(string cid, CancellationToken cancel = default(CancellationToken))
         {
             throw new NotImplementedException();
         }

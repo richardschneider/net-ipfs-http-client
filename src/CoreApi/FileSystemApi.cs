@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ipfs.Api
@@ -34,11 +35,14 @@ namespace Ipfs.Api
         ///   Add a file to the interplanetary file system.
         /// </summary>
         /// <param name="path"></param>
-        public async Task<FileSystemNode> AddFileAsync(string path)
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        public async Task<FileSystemNode> AddFileAsync(string path, CancellationToken cancel = default(CancellationToken))
         {
             using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
-                var node = await AddAsync(stream, Path.GetFileName(path));
+                var node = await AddAsync(stream, Path.GetFileName(path), cancel);
                 return node;
             }
         }
@@ -47,9 +51,12 @@ namespace Ipfs.Api
         ///   Add some text to the interplanetary file system.
         /// </summary>
         /// <param name="text"></param>
-        public Task<FileSystemNode> AddTextAsync(string text)
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        public Task<FileSystemNode> AddTextAsync(string text, CancellationToken cancel = default(CancellationToken))
         {
-            return AddAsync(new MemoryStream(Encoding.UTF8.GetBytes(text), false));
+            return AddAsync(new MemoryStream(Encoding.UTF8.GetBytes(text), false), "", cancel);
         }
 
         /// <summary>
@@ -57,9 +64,12 @@ namespace Ipfs.Api
         /// </summary>
         /// <param name="stream"></param>
         /// <param name="name"></param>
-        public async Task<FileSystemNode> AddAsync(Stream stream, string name = "")
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        public async Task<FileSystemNode> AddAsync(Stream stream, string name = "", CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.UploadAsync("add", stream);
+            var json = await ipfs.UploadAsync("add", cancel, stream);
             var r = JObject.Parse(json);
             return new FileSystemNode
             {
@@ -74,13 +84,16 @@ namespace Ipfs.Api
         /// </summary>
         /// <param name="path"></param>
         /// <param name="recursive"></param>
-        public async Task<FileSystemNode> AddDirectoryAsync(string path, bool recursive = true)
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        public async Task<FileSystemNode> AddDirectoryAsync(string path, bool recursive = true, CancellationToken cancel = default(CancellationToken))
         {
             // Add the files and sub-directories.
             path = Path.GetFullPath(path);
             var files = Directory
                 .EnumerateFiles(path)
-                .Select(AddFileAsync);
+                .Select(p => AddFileAsync(p, cancel));
             if (recursive)
             {
                 var folders = Directory
@@ -114,10 +127,13 @@ namespace Ipfs.Api
         ///   A path to an existing file, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
         ///   or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <returns></returns>
-        public async Task<String> ReadAllTextAsync(string path)
+        public async Task<String> ReadAllTextAsync(string path, CancellationToken cancel = default(CancellationToken))
         {
-            using (var data = await ReadFileAsync(path))
+            using (var data = await ReadFileAsync(path, cancel))
             using (var text = new StreamReader(data))
             {
                 return await text.ReadToEndAsync();
@@ -131,12 +147,15 @@ namespace Ipfs.Api
         ///   A path to an existing file, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
         ///   or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <returns>
         ///   A <see cref="Stream"/> to the file contents.
         /// </returns>
-        public Task<Stream> ReadFileAsync(string path)
+        public Task<Stream> ReadFileAsync(string path, CancellationToken cancel = default(CancellationToken))
         {
-            return ipfs.DownloadAsync("cat", path);
+            return ipfs.DownloadAsync("cat", cancel, path);
         }
 
         /// <summary>
@@ -146,10 +165,13 @@ namespace Ipfs.Api
         ///   A path to an existing file or directory, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
         ///   or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <returns></returns>
-        public async Task<FileSystemNode> ListFileAsync(string path)
+        public async Task<FileSystemNode> ListFileAsync(string path, CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.DoCommandAsync("file/ls", path);
+            var json = await ipfs.DoCommandAsync("file/ls", cancel, path);
             var r = JObject.Parse(json);
             var hash = (string)r["Arguments"][path];
             var o = (JObject)r["Objects"][hash];

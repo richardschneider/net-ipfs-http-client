@@ -87,7 +87,7 @@ namespace Ipfs.Api
         public string Name
         {
             get { return name; }
-            set { name = value == null ? string.Empty : value; }
+            set { name = value ?? string.Empty; }
         }
 
         /// <summary>
@@ -185,7 +185,7 @@ namespace Ipfs.Api
         /// <inheritdoc />
         public IMerkleLink ToLink(string name = null)
         {
-            return new DagLink(name != null ? name : Name, Hash, BlockSize);
+            return new DagLink(name ?? Name, Hash, BlockSize);
         }
 
         /// <summary>

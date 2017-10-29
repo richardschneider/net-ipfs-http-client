@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Threading;
 
 namespace Ipfs.Api
 {
@@ -219,6 +220,9 @@ namespace Ipfs.Api
         ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
         ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <param name="arg">
         ///   The optional argument to the command.
         /// </param>
@@ -228,12 +232,12 @@ namespace Ipfs.Api
         /// <returns>
         ///   A string representation of the command's result.
         /// </returns>
-        public async Task<string> DoCommandAsync(string command, string arg = null, params string[] options)
+        public async Task<string> DoCommandAsync(string command, CancellationToken cancel, string arg = null, params string[] options)
         {
             var url = BuildCommand(command, arg, options);
             if (log.IsDebugEnabled)
                 log.Debug("GET " + url.ToString());
-            using (var response = await Api().GetAsync(url, HttpCompletionOption.ResponseHeadersRead))
+            using (var response = await Api().GetAsync(url, HttpCompletionOption.ResponseHeadersRead, cancel))
             {
                 await ThrowOnErrorAsync(response);
                 var body = await response.Content.ReadAsStringAsync();
@@ -254,6 +258,9 @@ namespace Ipfs.Api
         ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
         ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <param name="arg">
         ///   The optional argument to the command.
         /// </param>
@@ -267,9 +274,9 @@ namespace Ipfs.Api
         ///   The command's response is converted to <typeparamref name="T"/> using
         ///   <c>JsonConvert</c>.
         /// </remarks>
-        public async Task<T> DoCommandAsync<T>(string command, string arg = null, params string[] options)
+        public async Task<T> DoCommandAsync<T>(string command, CancellationToken cancel, string arg = null, params string[] options)
         {
-            var json = await DoCommandAsync(command, arg, options);
+            var json = await DoCommandAsync(command, cancel, arg, options);
             return JsonConvert.DeserializeObject<T>(json);
         }
 
@@ -280,6 +287,9 @@ namespace Ipfs.Api
         ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
         ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <param name="arg">
         ///   The optional argument to the command.
         /// </param>
@@ -289,14 +299,14 @@ namespace Ipfs.Api
         /// <returns>
         ///   A string representation of the command's result.
         /// </returns>
-        public async Task<string> PostCommandAsync(string command, string arg = null, params string[] options)
+        public async Task<string> PostCommandAsync(string command, CancellationToken cancel, string arg = null, params string[] options)
         {
             var url = BuildCommand(command, arg, options);
             if (log.IsDebugEnabled)
                 log.Debug("POST " + url.ToString());
             var request = new HttpRequestMessage(HttpMethod.Post, url);
 
-            using (var response = await Api().SendAsync(request, HttpCompletionOption.ResponseHeadersRead))
+            using (var response = await Api().SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancel))
             {
                 await ThrowOnErrorAsync(response);
                 var body = await response.Content.ReadAsStringAsync();
@@ -317,6 +327,9 @@ namespace Ipfs.Api
         ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
         ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <param name="arg">
         ///   The optional argument to the command.
         /// </param>
@@ -330,9 +343,9 @@ namespace Ipfs.Api
         ///   The command's response is converted to <typeparamref name="T"/> using
         ///   <c>JsonConvert</c>.
         /// </remarks>
-        public async Task<T> PostCommandAsync<T>(string command, string arg = null, params string[] options)
+        public async Task<T> PostCommandAsync<T>(string command, CancellationToken cancel, string arg = null, params string[] options)
         {
-            var json = await PostCommandAsync(command, arg, options);
+            var json = await PostCommandAsync(command, cancel, arg, options);
             return JsonConvert.DeserializeObject<T>(json);
         }
 
@@ -343,6 +356,9 @@ namespace Ipfs.Api
         ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
         ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <param name="arg">
         ///   The optional argument to the command.
         /// </param>
@@ -352,14 +368,14 @@ namespace Ipfs.Api
         /// <returns>
         ///   A <see cref="Stream"/> containing the command's result.
         /// </returns>
-        public async Task<Stream> PostDownloadAsync(string command, string arg = null, params string[] options)
+        public async Task<Stream> PostDownloadAsync(string command, CancellationToken cancel, string arg = null, params string[] options)
         {
             var url = BuildCommand(command, arg, options);
             if (log.IsDebugEnabled)
                 log.Debug("POST " + url.ToString());
             var request = new HttpRequestMessage(HttpMethod.Post, url);
 
-            var response = await Api().SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            var response = await Api().SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancel);
             await ThrowOnErrorAsync(response);
             return await response.Content.ReadAsStreamAsync();
         }
@@ -372,6 +388,9 @@ namespace Ipfs.Api
         ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
         ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <param name="arg">
         ///   The optional argument to the command.
         /// </param>
@@ -381,12 +400,12 @@ namespace Ipfs.Api
         /// <returns>
         ///   A <see cref="Stream"/> containing the command's result.
         /// </returns>
-        public async Task<Stream> DownloadAsync(string command, string arg = null, params string[] options)
+        public async Task<Stream> DownloadAsync(string command, CancellationToken cancel, string arg = null, params string[] options)
         {
             var url = BuildCommand(command, arg, options);
             if (log.IsDebugEnabled)
                 log.Debug("GET " + url.ToString());
-            var response = await Api().GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
+            var response = await Api().GetAsync(url, HttpCompletionOption.ResponseHeadersRead, cancel);
             await ThrowOnErrorAsync(response);
             return await response.Content.ReadAsStreamAsync();
         }
@@ -399,6 +418,9 @@ namespace Ipfs.Api
         ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
         ///   <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <param name="arg">
         ///   The optional argument to the command.
         /// </param>
@@ -408,12 +430,12 @@ namespace Ipfs.Api
         /// <returns>
         ///   A byte array containing the command's result.
         /// </returns>
-        public async Task<byte[]> DownloadBytesAsync(string command, string arg = null, params string[] options)
+        public async Task<byte[]> DownloadBytesAsync(string command, CancellationToken cancel, string arg = null, params string[] options)
         {
             var url = BuildCommand(command, arg, options);
             if (log.IsDebugEnabled)
                 log.Debug("GET " + url.ToString());
-            var response = await Api().GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
+            var response = await Api().GetAsync(url, HttpCompletionOption.ResponseHeadersRead, cancel);
             await ThrowOnErrorAsync(response);
             return await response.Content.ReadAsByteArrayAsync();
         }
@@ -422,10 +444,13 @@ namespace Ipfs.Api
         /// 
         /// </summary>
         /// <param name="command"></param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <param name="data"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<String> UploadAsync(string command, Stream data, params string[] options)
+        public async Task<String> UploadAsync(string command, CancellationToken cancel, Stream data, params string[] options)
         {
             var content = new MultipartFormDataContent();
             var streamContent = new StreamContent(data);
@@ -435,7 +460,7 @@ namespace Ipfs.Api
             var url = BuildCommand(command, null, options);
             if (log.IsDebugEnabled)
                 log.Debug("POST " + url.ToString());
-            using (var response = await Api().PostAsync(url, content))
+            using (var response = await Api().PostAsync(url, content, cancel))
             {
                 await ThrowOnErrorAsync(response);
                 var json = await response.Content.ReadAsStringAsync();
@@ -448,7 +473,7 @@ namespace Ipfs.Api
         /// <summary>
         ///  TODO
         /// </summary>
-        public async Task<String> UploadAsync(string command, byte[] data, params string[] options)
+        public async Task<String> UploadAsync(string command, CancellationToken cancel, byte[] data, params string[] options)
         {
             var content = new MultipartFormDataContent();
             var streamContent = new ByteArrayContent(data);
@@ -458,7 +483,7 @@ namespace Ipfs.Api
             var url = BuildCommand(command, null, options);
             if (log.IsDebugEnabled)
                 log.Debug("POST " + url.ToString());
-            using (var response = await Api().PostAsync(url, content))
+            using (var response = await Api().PostAsync(url, content, cancel))
             {
                 await ThrowOnErrorAsync(response);
                 var json = await response.Content.ReadAsStringAsync();

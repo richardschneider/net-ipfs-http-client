@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ipfs.Api
@@ -59,12 +60,15 @@ namespace Ipfs.Api
         /// <summary>
         ///   Gets a raw <see cref="Block">IPFS block</see>.
         /// </summary>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <param name="hash">
         ///   The <see cref="string"/> representation of a base58 encoded <see cref="Ipfs.MultiHash"/>.
         /// </param>
-        public async Task<Block> GetAsync(string hash) // TODO CID support
+        public async Task<Block> GetAsync(string hash, CancellationToken cancel = default(CancellationToken)) // TODO CID support
         {
-            var data = await ipfs.DownloadBytesAsync("block/get", hash);
+            var data = await ipfs.DownloadBytesAsync("block/get", cancel, hash);
             return new Block
             {
                 DataBytes = data,
@@ -78,9 +82,12 @@ namespace Ipfs.Api
         /// <param name="data">
         ///   The byte array to send to the IPFS network.
         /// </param>
-        public async Task<Block> PutAsync(byte[] data)
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        public async Task<Block> PutAsync(byte[] data, CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.UploadAsync("block/put", data);
+            var json = await ipfs.UploadAsync("block/put", cancel, data);
             var info = JsonConvert.DeserializeObject<BlockInfo>(json);
             return new Block
             {
@@ -95,9 +102,12 @@ namespace Ipfs.Api
         /// <param name="block">
         ///   The <seealso cref="Block"/> to send to the IPFS network.
         /// </param>
-        public Task<Block> PutAsync(Block block)
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        public Task<Block> PutAsync(Block block, CancellationToken cancel = default(CancellationToken))
         {
-            return PutAsync(block.DataBytes);
+            return PutAsync(block.DataBytes, cancel);
         }
 
         /// <summary>
@@ -106,9 +116,12 @@ namespace Ipfs.Api
         /// <param name="hash">
         ///   The <see cref="string"/> representation of a base58 encoded <see cref="Ipfs.MultiHash"/>.
         /// </param>
-        public Task<BlockInfo> StatAsync(string hash)
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        public Task<BlockInfo> StatAsync(string hash, CancellationToken cancel = default(CancellationToken))
         {
-            return ipfs.DoCommandAsync<BlockInfo>("block/stat", hash);
+            return ipfs.DoCommandAsync<BlockInfo>("block/stat", cancel, hash);
         }
     }
 

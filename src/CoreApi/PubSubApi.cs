@@ -44,9 +44,9 @@ namespace Ipfs.Api
         /// <returns>
         ///   A sequence of <see cref="string"/> for each topic.
         /// </returns>
-        public async Task<IEnumerable<string>> SubscribedTopicsAsync()
+        public async Task<IEnumerable<string>> SubscribedTopicsAsync(CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.DoCommandAsync("pubsub/ls");
+            var json = await ipfs.DoCommandAsync("pubsub/ls", cancel);
             var result = JObject.Parse(json);
             var strings = result["Strings"] as JArray;
             if (strings == null) return new string[0];
@@ -59,9 +59,9 @@ namespace Ipfs.Api
         /// <returns>
         ///   A sequence of <see cref="string"/> for each peer ID.
         /// </returns>
-        public async Task<IEnumerable<string>> PeersAsync()
+        public async Task<IEnumerable<string>> PeersAsync(CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.DoCommandAsync("pubsub/peers");
+            var json = await ipfs.DoCommandAsync("pubsub/peers", cancel);
             var result = JObject.Parse(json);
             var strings = result["Strings"] as JArray;
             if (strings == null) return new string[0];
@@ -77,9 +77,12 @@ namespace Ipfs.Api
         /// <param name="message">
         ///   The message to publish.
         /// </param>
-        public async Task Publish(string topic, string message)
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        public async Task Publish(string topic, string message, CancellationToken cancel = default(CancellationToken))
         {
-            var _ = await ipfs.PostCommandAsync("pubsub/pub", topic, "arg=" + message);
+            var _ = await ipfs.PostCommandAsync("pubsub/pub", cancel, topic, "arg=" + message);
             return;
         }
 
@@ -104,7 +107,7 @@ namespace Ipfs.Api
         /// </remarks>
         public async Task Subscribe(string topic, Action<PublishedMessage> handler, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var messageStream = await ipfs.PostDownloadAsync("pubsub/sub", topic);
+            var messageStream = await ipfs.PostDownloadAsync("pubsub/sub", cancellationToken, topic);
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             Task.Run(() => ProcessMessages(topic, handler, messageStream, cancellationToken));
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
