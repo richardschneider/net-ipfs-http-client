@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ipfs.Api
@@ -105,6 +106,24 @@ namespace Ipfs.Api
             Assert.AreEqual(53, info.LinksSize);
             Assert.AreEqual(11, info.DataSize);
             Assert.AreEqual(77, info.CumulativeSize);
+        }
+
+        [TestMethod]
+        public async Task Get_Nonexistent()
+        {
+            var data = Encoding.UTF8.GetBytes("Some data for net-ipfs-api-test that cannot be found");
+            var node = new DagNode(data);
+            var hash = node.Hash;
+            var cs = new CancellationTokenSource(500);
+            try
+            {
+                var _ = await ipfs.Object.GetAsync(hash, cs.Token);
+                Assert.Fail("Did not throw TaskCanceledException");
+            }
+            catch (TaskCanceledException)
+            {
+                return;
+            }
         }
 
     }
