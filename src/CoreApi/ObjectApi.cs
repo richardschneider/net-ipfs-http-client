@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ipfs.Api
@@ -69,9 +70,9 @@ namespace Ipfs.Api
         /// <remarks>
         ///   Equivalent to <c>NewAsync("unixfs-dir")</c>.
         /// </remarks>
-        public Task<DagNode> NewDirectoryAsync()
+        public Task<DagNode> NewDirectoryAsync(CancellationToken cancel = default(CancellationToken))
         {
-            return NewAsync("unixfs-dir");
+            return NewAsync("unixfs-dir", cancel);
         }
 
         /// <summary>
@@ -82,9 +83,9 @@ namespace Ipfs.Api
         /// <remarks>
         ///  Caveat: So far, only UnixFS object layouts are supported.
         /// </remarks>
-        public async Task<DagNode> NewAsync(string template = null)
+        public async Task<DagNode> NewAsync(string template = null, CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.PostCommandAsync("object/new", template);
+            var json = await ipfs.PostCommandAsync("object/new", cancel, template);
             var hash = (string) (JObject.Parse(json)["Hash"]);
             return await GetAsync(hash);
         }
@@ -96,9 +97,9 @@ namespace Ipfs.Api
         ///   The <see cref="string"/> representation of an encoded <see cref="Ipfs.MultiHash"/>.
         /// </param>
         /// <returns></returns>
-        public async Task<DagNode> GetAsync(string hash)
+        public async Task<DagNode> GetAsync(string hash, CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.DoCommandAsync("object/get", hash);
+            var json = await ipfs.DoCommandAsync("object/get", cancel, hash);
             return GetDagFromJson(json);
         }
 
@@ -111,17 +112,17 @@ namespace Ipfs.Api
         /// <param name="links">
         ///   The links to other nodes.
         /// </param>
-        public Task<DagNode> PutAsync(byte[] data, IEnumerable<IMerkleLink> links = null)
+        public Task<DagNode> PutAsync(byte[] data, IEnumerable<IMerkleLink> links = null, CancellationToken cancel = default(CancellationToken))
         {
-            return PutAsync(new DagNode(data, links));
+            return PutAsync(new DagNode(data, links), cancel);
         }
 
         /// <summary>
         ///   Store a MerkleDAG node.
         /// </summary>
-        public async Task<DagNode> PutAsync(DagNode node)
+        public async Task<DagNode> PutAsync(DagNode node, CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.UploadAsync("object/put", node.ToArray(), "inputenc=protobuf");
+            var json = await ipfs.UploadAsync("object/put", cancel, node.ToArray(), "inputenc=protobuf");
             return node;
         }
 
@@ -135,9 +136,9 @@ namespace Ipfs.Api
         /// <remarks>
         ///   The caller must dispose the returned <see cref="Stream"/>.
         /// </remarks>
-        public Task<Stream> DataAsync(string hash)
+        public Task<Stream> DataAsync(string hash, CancellationToken cancel = default(CancellationToken))
         {
-            return ipfs.DownloadAsync("object/data", hash);
+            return ipfs.DownloadAsync("object/data", cancel, hash);
         }
 
         /// <summary>
@@ -147,9 +148,9 @@ namespace Ipfs.Api
         ///   The <see cref="string"/> representation of an encoded <see cref="Ipfs.MultiHash"/>.
         /// </param>
         /// <returns></returns>
-        public async Task<IEnumerable<IMerkleLink>> LinksAsync(string hash)
+        public async Task<IEnumerable<IMerkleLink>> LinksAsync(string hash, CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.DoCommandAsync("object/links", hash);
+            var json = await ipfs.DoCommandAsync("object/links", cancel, hash);
             return GetDagFromJson(json).Links;
         }
 
@@ -160,9 +161,9 @@ namespace Ipfs.Api
         ///   The <see cref="string"/> representation of an encoded <see cref="Ipfs.MultiHash"/>.
         /// </param>
         /// <returns></returns>
-        public Task<DagInfo> StatAsync(string hash)
+        public Task<DagInfo> StatAsync(string hash, CancellationToken cancel = default(CancellationToken))
         {
-            return ipfs.DoCommandAsync<DagInfo>("object/stat", hash);
+            return ipfs.DoCommandAsync<DagInfo>("object/stat", cancel, hash);
         }
 
         // TOOD: patch sub API

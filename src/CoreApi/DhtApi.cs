@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ipfs.Api
@@ -39,9 +40,9 @@ namespace Ipfs.Api
         /// <param name="id">
         ///   The <see cref="string"/> ID of the IPFS peer.  
         /// </param>
-        public Task<PeerNode> FindPeerAsync(string id)
+        public Task<PeerNode> FindPeerAsync(string id, CancellationToken cancel = default(CancellationToken))
         {
-            return ipfs.IdAsync(id);
+            return ipfs.IdAsync(id, cancel);
         }
 
         /// <summary>
@@ -53,10 +54,10 @@ namespace Ipfs.Api
         /// <returns>
         ///   A sequence of IPFS peer IDs.
         /// </returns>
-        public async Task<IEnumerable<string>> FindProvidersAsync(string hash)
+        public async Task<IEnumerable<string>> FindProvidersAsync(string hash, CancellationToken cancel = default(CancellationToken))
         {
             var serializer = new JsonSerializer();
-            var stream = await ipfs.PostDownloadAsync("dht/findprovs", hash);
+            var stream = await ipfs.PostDownloadAsync("dht/findprovs", cancel, hash);
             return ProviderFromStream(stream);
         }
 

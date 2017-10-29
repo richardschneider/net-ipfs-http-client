@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ipfs.Api
@@ -38,10 +39,10 @@ namespace Ipfs.Api
         ///   <b>true</b> to recursively pin links of object; otherwise, <b>false</b> to only pin
         ///   the specified object.  Default is <b>true</b>.
         /// </param>
-        public async Task<PinnedObject[]> AddAsync(string hash, bool recursive = true)
+        public async Task<PinnedObject[]> AddAsync(string hash, bool recursive = true, CancellationToken cancel = default(CancellationToken))
         {
             var opts = "recursive=" + recursive.ToString().ToLowerInvariant();
-            var json = await ipfs.DoCommandAsync("pin/add", hash, opts);
+            var json = await ipfs.DoCommandAsync("pin/add", cancel, hash, opts);
             return ((JArray)JObject.Parse(json)["Pins"])
                 .Select(p => new PinnedObject { Id = (string)p })
                 .ToArray();
@@ -54,10 +55,10 @@ namespace Ipfs.Api
         ///   The <see cref="PinMode">type</see> of pinned objects to return.
         ///   Defaults to <see cref="PinMode.All"/>.
         /// </param>
-        public async Task<PinnedObject[]> ListAsync(PinMode mode = PinMode.All)
+        public async Task<PinnedObject[]> ListAsync(PinMode mode = PinMode.All, CancellationToken cancel = default(CancellationToken))
         {
             var filter = "type=" + mode.ToString().ToLowerInvariant();
-            var json = await ipfs.DoCommandAsync("pin/ls", null, filter);
+            var json = await ipfs.DoCommandAsync("pin/ls", cancel, null, filter);
             var keys = (JObject)(JObject.Parse(json)["Keys"]);
             return keys
                 .Properties()
@@ -79,10 +80,10 @@ namespace Ipfs.Api
         ///   <b>true</b> to recursively unpin links of object; otherwise, <b>false</b> to only unpin
         ///   the specified object.  Default is <b>true</b>.
         /// </param>
-        public async Task<PinnedObject[]> RemoveAsync(string hash, bool recursive = true)
+        public async Task<PinnedObject[]> RemoveAsync(string hash, bool recursive = true, CancellationToken cancel = default(CancellationToken))
         {
             var opts = "recursive=" + recursive.ToString().ToLowerInvariant();
-            var json = await ipfs.DoCommandAsync("pin/rm", hash, opts);
+            var json = await ipfs.DoCommandAsync("pin/rm", cancel, hash, opts);
             return ((JArray)JObject.Parse(json)["Pins"])
                 .Select(p => new PinnedObject { Id = (string)p })
                 .ToArray();

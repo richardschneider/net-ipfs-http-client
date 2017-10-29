@@ -6,6 +6,7 @@ using System.Text;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Ipfs.Api
 {
@@ -18,19 +19,23 @@ namespace Ipfs.Api
         ///   The id of the IPFS peer.  If not specified (e.g. null), then the local
         ///   peer is used.
         /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <returns>
+        ///   Information on the peer node.
         /// </returns>
-        public Task<PeerNode> IdAsync(string peer = null)
+        public Task<PeerNode> IdAsync(string peer = null, CancellationToken cancel = default(CancellationToken))
         {
-            return DoCommandAsync<PeerNode>("id", peer);
+            return DoCommandAsync<PeerNode>("id", cancel, peer);
         }
 
         /// <summary>
         ///   Get the version information of the API server.
         /// </summary>
-        public Task<Dictionary<string, string>> VersionAsync()
+        public Task<Dictionary<string, string>> VersionAsync(CancellationToken cancel = default(CancellationToken))
         {
-            return DoCommandAsync<Dictionary<string, string>>("version");
+            return DoCommandAsync<Dictionary<string, string>>("version", cancel);
         }
 
     }
