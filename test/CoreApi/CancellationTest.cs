@@ -19,7 +19,7 @@ namespace Ipfs.Api
             try
             {
                 await Task.Delay(1000);
-                var peer = await ipfs.IdAsync(cancel: cs.Token);
+                var result = await ipfs.IdAsync(cancel: cs.Token);
                 Assert.Fail("Did not throw TaskCanceledException");
             }
             catch (TaskCanceledException)
