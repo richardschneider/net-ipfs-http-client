@@ -77,7 +77,7 @@ which does not block current thread.</p>
     var result = await ipfs.FileSystem.AddTextAsync(&quot;I am pinned&quot;);
     return result.Hash;
 }
-</code></pre><p>If you need to perform a synchronous operation, then this can work</p>
+</code></pre><p>If a synchronous operation is required, then this can work</p>
 <pre><code class="lang-cs">string AddText()
 {
     var result = ipfs.FileSystem.AddTextAsync(&quot;I am pinned&quot;).Result;
