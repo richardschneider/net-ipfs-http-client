@@ -89,6 +89,7 @@
     <Content Include="template\fonts\Lato-Regular.woff" />
     <Content Include="template\fonts\Lato-Regular.woff2" />
     <Content Include="articles\cancellation.md" />
+    <Content Include="articles\async.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

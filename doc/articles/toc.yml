@@ -2,3 +2,5 @@
   href: intro.md
 - name: Cancellation
   href: cancellation.md
+- name: Asynchronous I/O
+  href: async.md
