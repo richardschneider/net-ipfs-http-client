@@ -15,7 +15,7 @@ More information, including the Class Reference, is on the [Project](https://ric
 
 - Targets .NET Framework 4.5, .NET Standard 1.4 and .NET Standard 2.0
 - Asynchronous I/O to an IPFS server
-- Supports cancellation of all requests to the IPFS Server
+- Supports [cancellation](https://richardschneider.github.io/net-ipfs-api/articles/cancellation.html) of all requests to the IPFS Server
 - C# style access to the [ipfs core interface](https://github.com/ipfs/interface-ipfs-core#api)
   - [Block API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.BlockApi.html)
   - [Config API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.ConfigApi.html)
