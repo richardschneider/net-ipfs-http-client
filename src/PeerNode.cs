@@ -65,8 +65,8 @@ namespace Ipfs.Api
         /// <remarks>
         ///    Verifies that
         ///    <list type="bullet">
-        ///      <item>The <see cref="Id"/> is a hash of the <see cref="PublicKey"/></item>
-        ///      <item>All <see cref="Addresses"/> point to the node</item>
+        ///      <item><description>The <see cref="Id"/> is a hash of the <see cref="PublicKey"/></description></item>
+        ///      <item><description>All <see cref="Addresses"/> point to the node</description></item>
         ///    </list>
         /// </remarks>
         public bool IsValid()
