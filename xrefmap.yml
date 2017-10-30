@@ -1306,6 +1306,18 @@ references:
   commentId: Overload:Ipfs.Api.PeerNode.Id
   fullName: Ipfs.Api.PeerNode.Id
   nameWithType: PeerNode.Id
+- uid: Ipfs.Api.PeerNode.IsValid
+  name: IsValid()
+  href: api/Ipfs.Api.PeerNode.html#Ipfs_Api_PeerNode_IsValid
+  commentId: M:Ipfs.Api.PeerNode.IsValid
+  fullName: Ipfs.Api.PeerNode.IsValid()
+  nameWithType: PeerNode.IsValid()
+- uid: Ipfs.Api.PeerNode.IsValid*
+  name: IsValid
+  href: api/Ipfs.Api.PeerNode.html#Ipfs_Api_PeerNode_IsValid_
+  commentId: Overload:Ipfs.Api.PeerNode.IsValid
+  fullName: Ipfs.Api.PeerNode.IsValid
+  nameWithType: PeerNode.IsValid
 - uid: Ipfs.Api.PeerNode.ProtocolVersion
   name: ProtocolVersion
   href: api/Ipfs.Api.PeerNode.html#Ipfs_Api_PeerNode_ProtocolVersion
