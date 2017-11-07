@@ -9,7 +9,7 @@
 A .Net client library for the IPFS HTTP API, implemented in C#. 
 More information, including the Class Reference, is on the [Project](https://richardschneider.github.io/net-ipfs-api/) web site.
 
-[![IPFS Core API](https://github.com/ipfs/interface-ipfs-core/raw/master/img/badge.png)](https://github.com/ipfs/interface-ipfs-core)
+![](https://ipfs.io/ipfs/QmQJ68PFMDdAsgCZvA1UVzzn18asVcf7HVvCDgpjiSCAse)
 
 ## Features
 
