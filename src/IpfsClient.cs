@@ -35,7 +35,7 @@ namespace Ipfs.Api
         /// <summary>
         ///   The default URL to the IPFS API server.  The default is "http://localhost:5001".
         /// </summary>
-        public static Uri DefaultApiUri = new Uri("http://localhost:5001");
+        public static Uri DefaultApiUri = new Uri("http://localhost:5002");
 
         /// <summary>
         ///   Creates a new instance of the <see cref="IpfsClient"/> class and sets the
