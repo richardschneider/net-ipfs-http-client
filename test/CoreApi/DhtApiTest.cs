@@ -19,12 +19,11 @@ namespace Ipfs.Api
         public async Task FindPeer()
         {
             var ipfs = TestFixture.Ipfs;
-            var mars = await ipfs.Dht.FindPeerAsync(marsId);
-            Assert.AreEqual(marsId, mars.Id);
+            var peer = await ipfs.Dht.FindPeerAsync(marsId);
 
-            // Sometimes the public key is not returned!
-            if (!string.IsNullOrEmpty(mars.PublicKey))
-                Assert.AreEqual(marsPublicKey, mars.PublicKey);
+            // If DHT can't find a peer, it will return a 'closer' peer.
+            Assert.IsNotNull(peer);
+            Assert.AreNotEqual(0, peer.Addresses.Count());
         }
 
         [TestMethod]
