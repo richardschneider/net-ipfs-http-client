@@ -508,7 +508,12 @@ namespace Ipfs.Api
             if (response.IsSuccessStatusCode)
                 return true;
             if (response.StatusCode == HttpStatusCode.NotFound)
-                throw new HttpRequestException("Invalid IPFS command");
+            {
+                var error = "Invalid IPFS command: " + response.RequestMessage.RequestUri.ToString();
+                if (log.IsDebugEnabled)
+                    log.Debug("ERR " + error);
+                throw new HttpRequestException(error);
+            }
 
             var body = await response.Content.ReadAsStringAsync();
             if (log.IsDebugEnabled)
