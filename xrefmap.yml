@@ -1703,12 +1703,12 @@ references:
   commentId: T:Ipfs.Api.PubSubApi
   fullName: Ipfs.Api.PubSubApi
   nameWithType: PubSubApi
-- uid: Ipfs.Api.PubSubApi.PeersAsync(System.Threading.CancellationToken)
-  name: PeersAsync(CancellationToken)
-  href: api/Ipfs.Api.PubSubApi.html#Ipfs_Api_PubSubApi_PeersAsync_System_Threading_CancellationToken_
-  commentId: M:Ipfs.Api.PubSubApi.PeersAsync(System.Threading.CancellationToken)
-  fullName: Ipfs.Api.PubSubApi.PeersAsync(System.Threading.CancellationToken)
-  nameWithType: PubSubApi.PeersAsync(CancellationToken)
+- uid: Ipfs.Api.PubSubApi.PeersAsync(System.String,System.Threading.CancellationToken)
+  name: PeersAsync(String, CancellationToken)
+  href: api/Ipfs.Api.PubSubApi.html#Ipfs_Api_PubSubApi_PeersAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.PubSubApi.PeersAsync(System.String,System.Threading.CancellationToken)
+  fullName: Ipfs.Api.PubSubApi.PeersAsync(System.String, System.Threading.CancellationToken)
+  nameWithType: PubSubApi.PeersAsync(String, CancellationToken)
 - uid: Ipfs.Api.PubSubApi.PeersAsync*
   name: PeersAsync
   href: api/Ipfs.Api.PubSubApi.html#Ipfs_Api_PubSubApi_PeersAsync_
