@@ -22,19 +22,40 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
-        public void Peers()
+        public async Task Peers()
         {
             var ipfs = TestFixture.Ipfs;
-            var peers = ipfs.PubSub.PeersAsync().Result.ToArray();
-            Assert.IsTrue(peers.Length > 0);
+            var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
+            var cs = new CancellationTokenSource();
+            try
+            {
+                await ipfs.PubSub.Subscribe(topic, msg => { }, cs.Token);
+                var peers = ipfs.PubSub.PeersAsync().Result.ToArray();
+                Assert.IsTrue(peers.Length > 0);
+            }
+            finally
+            {
+                cs.Cancel();
+            }
         }
 
         [TestMethod]
-        public void Subscribed_Topics()
+        public async Task Subscribed_Topics()
         {
             var ipfs = TestFixture.Ipfs;
-            var topics = ipfs.PubSub.SubscribedTopicsAsync().Result.ToArray();
-            // TODO: Assert.IsTrue(peers.Length > 0);
+            var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
+            var cs = new CancellationTokenSource();
+            try
+            {
+                await ipfs.PubSub.Subscribe(topic, msg => { }, cs.Token);
+                var topics = ipfs.PubSub.SubscribedTopicsAsync().Result.ToArray();
+                Assert.IsTrue(topics.Length > 0);
+                CollectionAssert.Contains(topics, topic);
+            }
+            finally
+            {
+                cs.Cancel();
+            }
         }
 
         volatile int messageCount = 0;
