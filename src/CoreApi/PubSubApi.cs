@@ -59,15 +59,18 @@ namespace Ipfs.Api
         /// <summary>
         ///   Get the peers that are pubsubing with us.
         /// </summary>
+        /// <param name="topic">
+        ///   When specified, only peers pubsubing on the topic are returned.
+        /// </param>
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         /// <returns>
         ///   A sequence of <see cref="string"/> for each peer ID.
         /// </returns>
-        public async Task<IEnumerable<string>> PeersAsync(CancellationToken cancel = default(CancellationToken))
+        public async Task<IEnumerable<string>> PeersAsync(string topic = null, CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.DoCommandAsync("pubsub/peers", cancel);
+            var json = await ipfs.DoCommandAsync("pubsub/peers", cancel, topic);
             var result = JObject.Parse(json);
             var strings = result["Strings"] as JArray;
             if (strings == null) return new string[0];
