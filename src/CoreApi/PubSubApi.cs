@@ -119,15 +119,22 @@ namespace Ipfs.Api
             log.DebugFormat("Start listening for '{0}' messages", topic);
             using (var sr = new StreamReader(stream))
             {
-                while (!sr.EndOfStream && !ct.IsCancellationRequested)
+                try
                 {
-                    var json = sr.ReadLine();
-                    if (log.IsDebugEnabled)
-                        log.DebugFormat("PubSub message {0}", json);
-                    if (json != "{}" && !ct.IsCancellationRequested)
+                    while (!sr.EndOfStream && !ct.IsCancellationRequested)
                     {
-                        handler(new PublishedMessage(json));
+                        var json = sr.ReadLine();
+                        if (log.IsDebugEnabled)
+                            log.DebugFormat("PubSub message {0}", json);
+                        if (json != "{}" && !ct.IsCancellationRequested)
+                        {
+                            handler(new PublishedMessage(json));
+                        }
                     }
+                }
+                catch (Exception e)
+                {
+                    log.Error(e);
                 }
             }
             log.DebugFormat("Stop listening for '{0}' messages", topic);
