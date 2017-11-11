@@ -25,10 +25,18 @@ namespace Ipfs.Api
         public PublishedMessage(string json)
         {
             var o = JObject.Parse(json);
-            this.Sender = Convert.FromBase64String((string)o["from"]).ToBase58();
+            try
+            {
+                this.Sender = Convert.FromBase64String((string)o["from"]).ToBase58();
+            }
+            catch 
+            {
+                this.Sender = (string)o["from"];
+            }
             this.SequenceNumber = Convert.FromBase64String((string)o["seqno"]);
             this.DataBytes = Convert.FromBase64String((string)o["data"]);
-            this.Topics = ((JArray)o["topicIDs"]).Select(t => (string)t);
+            var topics = (JArray) (o["topicIDs"] ?? o["topicCIDs"]);
+            this.Topics = topics.Select(t => (string)t);
         }
 
         /// <summary>
