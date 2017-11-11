@@ -31,6 +31,10 @@ namespace Ipfs.Api
             Assert.IsFalse(ipfs.TrustedPeers.Contains(newTrustedPeer));
         }
 
+        // js-ipfs does NOT check IPFS addresses.
+        // And this bad addr eventually breaks the server.
+        // https://github.com/ipfs/js-ipfs/issues/1066
+#if false
         [TestMethod]
         public void Trusted_Peers_Add_Missing_Peer_ID()
         {
@@ -38,6 +42,7 @@ namespace Ipfs.Api
             var ipfs = TestFixture.Ipfs;
             ExceptionAssert.Throws<Exception>(() => ipfs.TrustedPeers.Add(missingPeerId), "invalid IPFS address");
         }
+#endif
 
         [TestMethod]
         public void Trusted_Peers_Clear()
