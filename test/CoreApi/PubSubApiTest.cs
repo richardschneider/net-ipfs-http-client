@@ -40,6 +40,15 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
+        public void Peers_Unknown_Topic()
+        {
+            var ipfs = TestFixture.Ipfs;
+            var topic = "net-ipfs-api-test-unknown" + Guid.NewGuid().ToString();
+            var peers = ipfs.PubSub.PeersAsync(topic).Result.ToArray();
+            Assert.AreEqual(0, peers.Length);
+        }
+
+        [TestMethod]
         public async Task Subscribed_Topics()
         {
             var ipfs = TestFixture.Ipfs;
