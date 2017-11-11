@@ -41,6 +41,9 @@ namespace Ipfs.Api
         /// <summary>
         ///   Get the subscribed topics.
         /// </summary>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <returns>
         ///   A sequence of <see cref="string"/> for each topic.
         /// </returns>
@@ -56,6 +59,9 @@ namespace Ipfs.Api
         /// <summary>
         ///   Get the peers that are pubsubing with us.
         /// </summary>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
         /// <returns>
         ///   A sequence of <see cref="string"/> for each peer ID.
         /// </returns>
