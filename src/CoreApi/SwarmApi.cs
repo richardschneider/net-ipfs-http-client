@@ -100,7 +100,7 @@ namespace Ipfs.Api
 
         TimeSpan ParseLatency(string latency)
         {
-            if (latency == "n/a")
+            if (latency == "n/a" || latency == "unknown")
             {
                 return TimeSpan.Zero;
             }
