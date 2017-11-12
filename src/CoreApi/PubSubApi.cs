@@ -149,7 +149,9 @@ namespace Ipfs.Api
                 }
                 catch (Exception e)
                 {
-                    log.Error(e);
+                    // Do not report errors when cancelled.
+                    if (!ct.IsCancellationRequested)
+                        log.Error(e);
                 }
             }
             log.DebugFormat("Stop listening for '{0}' messages", topic);
