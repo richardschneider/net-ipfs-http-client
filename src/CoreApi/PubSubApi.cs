@@ -126,13 +126,19 @@ namespace Ipfs.Api
         void ProcessMessages(string topic, Action<PublishedMessage> handler, Stream stream, CancellationToken ct)
         {
             log.DebugFormat("Start listening for '{0}' messages", topic);
+                     
             using (var sr = new StreamReader(stream))
             {
+                // .Net needs a ReadLine(CancellationToken)
+                // As a work-around, we register a function to close the stream
+                ct.Register(() => sr.Dispose());
                 try
                 {
                     while (!sr.EndOfStream && !ct.IsCancellationRequested)
                     {
                         var json = sr.ReadLine();
+                        if (json == null)
+                            break;
                         if (log.IsDebugEnabled)
                             log.DebugFormat("PubSub message {0}", json);
                         if (json != "{}" && !ct.IsCancellationRequested)
