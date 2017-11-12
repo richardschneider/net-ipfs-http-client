@@ -23,7 +23,6 @@ namespace Ipfs.Api
 
             // If DHT can't find a peer, it will return a 'closer' peer.
             Assert.IsNotNull(peer);
-            Assert.AreNotEqual(0, peer.Addresses.Count());
         }
 
         [TestMethod]
