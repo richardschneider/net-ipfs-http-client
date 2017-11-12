@@ -33,9 +33,17 @@ namespace Ipfs.Api
         static HttpClient api = null;
 
         /// <summary>
-        ///   The default URL to the IPFS API server.  The default is "http://localhost:5001".
+        ///   The default URL to the IPFS HTTP API server.
         /// </summary>
-        public static Uri DefaultApiUri = new Uri("http://localhost:5002");
+        /// <value>
+        ///   The default is "http://localhost:5001".
+        /// </value>
+        /// <remarks>
+        ///   The environment variable "IpfsHttpApi" overrides this value.
+        /// </remarks>
+        public static Uri DefaultApiUri = new Uri(
+            Environment.GetEnvironmentVariable("IpfsHttpApi") 
+            ?? "http://localhost:5002");
 
         /// <summary>
         ///   Creates a new instance of the <see cref="IpfsClient"/> class and sets the
