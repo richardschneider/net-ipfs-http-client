@@ -10,6 +10,8 @@ namespace Ipfs.Api
     /// </summary>
     public class PeerNode
     {
+        static MultiAddress[] noAddress = new MultiAddress[0];
+
         /// <summary>
         ///   Unique identifier (multihash)
         /// </summary>
@@ -32,7 +34,7 @@ namespace Ipfs.Api
         /// <value>
         ///   Where the peer can be found.
         /// </value>
-        public IEnumerable<MultiAddress> Addresses { get; set; }
+        public IEnumerable<MultiAddress> Addresses { get; set; } = noAddress;
 
         /// <summary>
         ///   The name and version of the IPFS software.
