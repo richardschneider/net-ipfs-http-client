@@ -28,7 +28,7 @@ namespace Ipfs.Api
         {
             IpfsClient target = TestFixture.Ipfs;
             object unknown;
-            ExceptionAssert.Throws<Exception>(() => unknown = target.DoCommandAsync("foobar", default(CancellationToken)).Result, "Invalid IPFS command");
+            ExceptionAssert.Throws<Exception>(() => unknown = target.DoCommandAsync("foobar", default(CancellationToken)).Result);
         }
 
     }

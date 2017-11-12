@@ -10,15 +10,15 @@ namespace Ipfs.Api
     [TestClass]
     public class ConfigApiTest
     {
-        const string apiAddress = "/ip4/127.0.0.1/tcp/5001";
-        const string gatewayAddress = "/ip4/127.0.0.1/tcp/8080";
+        const string apiAddress = "/ip4/127.0.0.1/tcp/";
+        const string gatewayAddress = "/ip4/127.0.0.1/tcp/";
 
         [TestMethod]
         public void Get_Entire_Config()
         {
             IpfsClient ipfs = TestFixture.Ipfs;
             var config = ipfs.Config.GetAsync().Result;
-            Assert.AreEqual(apiAddress, config["Addresses"]["API"]);
+            StringAssert.StartsWith(config["Addresses"]["API"].Value<string>(), apiAddress);
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace Ipfs.Api
         {
             IpfsClient ipfs = TestFixture.Ipfs;
             var api = ipfs.Config.GetAsync("Addresses.API").Result;
-            Assert.AreEqual(apiAddress, api);
+            StringAssert.StartsWith(api.Value<string>(), apiAddress);
         }
 
         [TestMethod]
@@ -34,8 +34,8 @@ namespace Ipfs.Api
         {
             IpfsClient ipfs = TestFixture.Ipfs;
             var addresses = ipfs.Config.GetAsync("Addresses").Result;
-            Assert.AreEqual(apiAddress, addresses["API"]);
-            Assert.AreEqual(gatewayAddress, addresses["Gateway"]);
+            StringAssert.StartsWith(addresses["API"].Value<string>(), apiAddress);
+            StringAssert.StartsWith(addresses["Gateway"].Value<string>(), gatewayAddress);
         }
 
         [TestMethod]
@@ -43,7 +43,7 @@ namespace Ipfs.Api
         {
             IpfsClient ipfs = TestFixture.Ipfs;
             var api = ipfs.Config.GetAsync("Addresses.API").Result;
-            Assert.AreEqual(apiAddress, api);
+            StringAssert.StartsWith(api.Value<string>(), apiAddress);
 
             ExceptionAssert.Throws<Exception>(() => { var x = ipfs.Config.GetAsync("Addresses.api").Result; });
         }

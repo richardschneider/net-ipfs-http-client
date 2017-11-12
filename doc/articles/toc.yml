@@ -5,3 +5,5 @@
   items:
     - name: Cancellation
       href: cancellation.md
+- name: Environment variables
+  href: envvars.md

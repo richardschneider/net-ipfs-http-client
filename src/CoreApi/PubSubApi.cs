@@ -114,7 +114,7 @@ namespace Ipfs.Api
         /// <remarks>
         ///   The <paramref name="handler"/> is invoked on the topic listener thread.
         /// </remarks>
-        public async Task Subscribe(string topic, Action<PublishedMessage> handler, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task Subscribe(string topic, Action<PublishedMessage> handler, CancellationToken cancellationToken)
         {
             var messageStream = await ipfs.PostDownloadAsync("pubsub/sub", cancellationToken, topic);
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
@@ -126,17 +126,32 @@ namespace Ipfs.Api
         void ProcessMessages(string topic, Action<PublishedMessage> handler, Stream stream, CancellationToken ct)
         {
             log.DebugFormat("Start listening for '{0}' messages", topic);
+                     
             using (var sr = new StreamReader(stream))
             {
-                while (!sr.EndOfStream && !ct.IsCancellationRequested)
+                // .Net needs a ReadLine(CancellationToken)
+                // As a work-around, we register a function to close the stream
+                ct.Register(() => sr.Dispose());
+                try
                 {
-                    var json = sr.ReadLine();
-                    if (log.IsDebugEnabled)
-                        log.DebugFormat("PubSub message {0}", json);
-                    if (json != "{}" && !ct.IsCancellationRequested)
+                    while (!sr.EndOfStream && !ct.IsCancellationRequested)
                     {
-                        handler(new PublishedMessage(json));
+                        var json = sr.ReadLine();
+                        if (json == null)
+                            break;
+                        if (log.IsDebugEnabled)
+                            log.DebugFormat("PubSub message {0}", json);
+                        if (json != "{}" && !ct.IsCancellationRequested)
+                        {
+                            handler(new PublishedMessage(json));
+                        }
                     }
+                }
+                catch (Exception e)
+                {
+                    // Do not report errors when cancelled.
+                    if (!ct.IsCancellationRequested)
+                        log.Error(e);
                 }
             }
             log.DebugFormat("Stop listening for '{0}' messages", topic);
