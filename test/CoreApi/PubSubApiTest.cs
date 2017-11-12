@@ -75,14 +75,22 @@ namespace Ipfs.Api
             messageCount = 0;
             var ipfs = TestFixture.Ipfs;
             var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
-            await ipfs.PubSub.Subscribe(topic, msg =>
+            var cs = new CancellationTokenSource();
+            try
             {
-                Interlocked.Increment(ref messageCount);
-            });
-            await ipfs.PubSub.Publish(topic, "hello world!");
+                await ipfs.PubSub.Subscribe(topic, msg =>
+                {
+                    Interlocked.Increment(ref messageCount);
+                }, cs.Token);
+                await ipfs.PubSub.Publish(topic, "hello world!");
 
-            await Task.Delay(1000);
-            Assert.AreEqual(1, messageCount);
+                await Task.Delay(1000);
+                Assert.AreEqual(1, messageCount);
+            }
+            finally
+            {
+                cs.Cancel();
+            }
          }
 
         volatile int messageCount1 = 0;

@@ -114,7 +114,7 @@ namespace Ipfs.Api
         /// <remarks>
         ///   The <paramref name="handler"/> is invoked on the topic listener thread.
         /// </remarks>
-        public async Task Subscribe(string topic, Action<PublishedMessage> handler, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task Subscribe(string topic, Action<PublishedMessage> handler, CancellationToken cancellationToken)
         {
             var messageStream = await ipfs.PostDownloadAsync("pubsub/sub", cancellationToken, topic);
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
