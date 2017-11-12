@@ -43,7 +43,7 @@ namespace Ipfs.Api
         /// </remarks>
         public static Uri DefaultApiUri = new Uri(
             Environment.GetEnvironmentVariable("IpfsHttpApi") 
-            ?? "http://localhost:5002");
+            ?? "http://localhost:5001");
 
         /// <summary>
         ///   Creates a new instance of the <see cref="IpfsClient"/> class and sets the
