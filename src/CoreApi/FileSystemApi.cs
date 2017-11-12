@@ -98,7 +98,7 @@ namespace Ipfs.Api
             {
                 var folders = Directory
                     .EnumerateDirectories(path)
-                    .Select(dir => AddDirectoryAsync(dir, recursive));
+                    .Select(dir => AddDirectoryAsync(dir, recursive, cancel));
                 files = files.Union(folders);
             }
             var nodes = await Task.WhenAll(files);
@@ -106,7 +106,7 @@ namespace Ipfs.Api
             // Create the directory with links to the created files and sub-directories
             var links = nodes.Select(node => node.ToLink());
             var folder = emptyFolder.Value.AddLinks(links);
-            var directory = await ipfs.Object.PutAsync(folder);
+            var directory = await ipfs.Object.PutAsync(folder, cancel);
 
             return new FileSystemNode
             {
