@@ -3,7 +3,7 @@
 [![build status](https://ci.appveyor.com/api/projects/status/github/richardschneider/net-ipfs-api?branch=master&svg=true)](https://ci.appveyor.com/project/richardschneider/net-ipfs-api) 
 [![Coverage Status](https://coveralls.io/repos/richardschneider/net-ipfs-api/badge.svg?branch=master&service=github)](https://coveralls.io/github/richardschneider/net-ipfs-api?branch=master)
 [![Version](https://img.shields.io/nuget/v/Ipfs.Api.svg)](https://www.nuget.org/packages/Ipfs.Api)
-[![docs](https://cdn.rawgit.com/richardschneider/net-ipfs-core/master/doc/images/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-api)
+[![docs](https://cdn.rawgit.com/richardschneider/net-ipfs-api/master/doc/images/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-api)
 
 
 A .Net client library for the IPFS HTTP API, implemented in C#. 
@@ -16,6 +16,7 @@ More information, including the Class Reference, is on the [Project](https://ric
 - Targets .NET Framework 4.5, .NET Standard 1.4 and .NET Standard 2.0
 - [Asynchronous I/O](https://richardschneider.github.io/net-ipfs-api/articles/async.html) to an IPFS server
 - Supports [cancellation](https://richardschneider.github.io/net-ipfs-api/articles/cancellation.html) of all requests to the IPFS Server
+- Comprehensive [documentation](https://richardschneider.github.io/net-ipfs-api)
 - C# style access to the [ipfs core interface](https://github.com/ipfs/interface-ipfs-core#api)
   - [Block API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.BlockApi.html)
   - [Config API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.ConfigApi.html)
