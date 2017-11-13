@@ -213,7 +213,13 @@ namespace Ipfs.Api
                 {
                     if (api == null)
                     {
-                        api = new HttpClient();
+                        var handler = new HttpClientHandler();
+                        if (handler.SupportsAutomaticDecompression)
+                        {
+                            handler.AutomaticDecompression = DecompressionMethods.GZip
+                                | DecompressionMethods.Deflate;
+                        }
+                        api = new HttpClient(handler);
                         api.DefaultRequestHeaders.Add("User-Agent", UserAgent);
                     }
                 }
