@@ -117,43 +117,52 @@ namespace Ipfs.Api
         public async Task Subscribe(string topic, Action<PublishedMessage> handler, CancellationToken cancellationToken)
         {
             var messageStream = await ipfs.PostDownloadAsync("pubsub/sub", cancellationToken, topic);
+            var sr = new StreamReader(messageStream);
+            var response = sr.ReadLine();
+            if (log.IsDebugEnabled)
+                log.Debug("RSP " + response);
+
+            // First line is always an empty JSON object,
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            Task.Run(() => ProcessMessages(topic, handler, messageStream, cancellationToken));
+            Task.Run(() => ProcessMessages(topic, handler, sr, cancellationToken));
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+
             return;
         }
 
-        void ProcessMessages(string topic, Action<PublishedMessage> handler, Stream stream, CancellationToken ct)
+        void ProcessMessages(string topic, Action<PublishedMessage> handler, StreamReader sr, CancellationToken ct)
         {
             log.DebugFormat("Start listening for '{0}' messages", topic);
                      
-            using (var sr = new StreamReader(stream))
+            // .Net needs a ReadLine(CancellationToken)
+            // As a work-around, we register a function to close the stream
+            ct.Register(() => sr.Dispose());
+            try
             {
-                // .Net needs a ReadLine(CancellationToken)
-                // As a work-around, we register a function to close the stream
-                ct.Register(() => sr.Dispose());
-                try
+                while (!sr.EndOfStream && !ct.IsCancellationRequested)
                 {
-                    while (!sr.EndOfStream && !ct.IsCancellationRequested)
+                    var json = sr.ReadLine();
+                    if (json == null)
+                        break;
+                    if (log.IsDebugEnabled)
+                        log.DebugFormat("PubSub message {0}", json);
+                    if (json != "{}" && !ct.IsCancellationRequested)
                     {
-                        var json = sr.ReadLine();
-                        if (json == null)
-                            break;
-                        if (log.IsDebugEnabled)
-                            log.DebugFormat("PubSub message {0}", json);
-                        if (json != "{}" && !ct.IsCancellationRequested)
-                        {
-                            handler(new PublishedMessage(json));
-                        }
+                        handler(new PublishedMessage(json));
                     }
                 }
-                catch (Exception e)
-                {
-                    // Do not report errors when cancelled.
-                    if (!ct.IsCancellationRequested)
-                        log.Error(e);
-                }
             }
+            catch (Exception e)
+            {
+                // Do not report errors when cancelled.
+                if (!ct.IsCancellationRequested)
+                    log.Error(e);
+            }
+            finally
+            {
+                sr.Dispose();
+            }
+
             log.DebugFormat("Stop listening for '{0}' messages", topic);
         }
 
