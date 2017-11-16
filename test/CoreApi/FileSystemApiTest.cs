@@ -75,7 +75,6 @@ namespace Ipfs.Api
             {
                 var dir = ipfs.FileSystem.AddDirectoryAsync(temp, true).Result;
                 Assert.IsTrue(dir.IsDirectory);
-                Assert.AreEqual(0, dir.Size);
 
                 var files = dir.Links.ToArray();
                 Assert.AreEqual(3, files.Length);
@@ -87,7 +86,6 @@ namespace Ipfs.Api
                 Assert.IsTrue(files[2].IsDirectory);
                 Assert.AreEqual(5, files[0].Size);
                 Assert.AreEqual(4, files[1].Size);
-                Assert.AreEqual(0, files[2].Size);
 
                 var xfiles = new FileSystemNode { Hash = files[2].Hash }.Links.ToArray();
                 Assert.AreEqual(2, xfiles.Length);

@@ -114,7 +114,7 @@ namespace Ipfs.Api
                 Name = Path.GetFileName(path),
                 Links = links,
                 IsDirectory = true,
-                Size = 0,
+                Size = directory.Size,
                 IpfsClient = ipfs
             };
 
