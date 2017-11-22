@@ -30,7 +30,7 @@ namespace Ipfs.Api
             try
             {
                 await ipfs.PubSub.Subscribe(topic, msg => { }, cs.Token);
-                var peers = ipfs.PubSub.PeersAsync().Result.ToArray();
+                var peers = ipfs.PubSub.PeersAsync(topic).Result.ToArray();
                 Assert.IsTrue(peers.Length > 0);
             }
             finally
@@ -115,5 +115,36 @@ namespace Ipfs.Api
             await Task.Delay(1000);
             Assert.AreEqual(1, messageCount1);
         }
+
+        volatile int messageCount2 = 0;
+        volatile PublishedMessage message;
+        [TestMethod]
+        public async Task Publish_Binary_Data()
+        {
+            messageCount2 = 0;
+            var ipfs = TestFixture.Ipfs;
+            var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
+            var cs = new CancellationTokenSource();
+            var data = "a36161636179656162830103056164a16466666666f4".ToHexBuffer();
+            try
+            {
+                await ipfs.PubSub.Subscribe(topic, msg =>
+                {
+                    Interlocked.Increment(ref messageCount2);
+                    message = msg;
+                }, cs.Token);
+                await ipfs.PubSub.Publish(topic, data);
+
+                await Task.Delay(1000);
+                Assert.AreEqual(1, messageCount2);
+                Assert.AreEqual(data.ToHexString(), message.DataBytes.ToHexString());
+            }
+            finally
+            {
+                cs.Cancel();
+            }
+        }
+
+
     }
 }

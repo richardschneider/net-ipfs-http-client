@@ -96,6 +96,25 @@ namespace Ipfs.Api
         }
 
         /// <summary>
+        ///   Publish a binary message to a given topic.
+        /// </summary>
+        /// <param name="topic">
+        ///   The topic name.
+        /// </param>
+        /// <param name="message">
+        ///   The message to publish.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        public async Task Publish(string topic, byte[] message, CancellationToken cancel = default(CancellationToken))
+        {
+            var bs = ToBinaryString(message);
+            var _ = await ipfs.PostCommandAsync("pubsub/pub", cancel, topic, "arg=" + bs);
+            return;
+        }
+
+        /// <summary>
         ///   Subscribe to messages on a given topic.
         /// </summary>
         /// <param name="topic">
@@ -166,6 +185,15 @@ namespace Ipfs.Api
             log.DebugFormat("Stop listening for '{0}' messages", topic);
         }
 
+        string ToBinaryString(byte[] buffer)
+        {
+            StringBuilder s = new StringBuilder(buffer.Length * 2);
+            foreach (var v in buffer) {
+                s.Append('%');
+                s.Append(v.ToString("x2"));
+            }
+            return s.ToString();
+        }
     }
 
 }
