@@ -103,11 +103,6 @@ namespace Ipfs.Api
                 });
         }
 
-        public async Task RenameAsync(string name, CancellationToken cancel = default(CancellationToken))
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
         ///   Delete the specified key.
         /// </summary>
