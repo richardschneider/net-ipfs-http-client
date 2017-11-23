@@ -32,5 +32,28 @@ namespace Ipfs.Api
             Assert.AreEqual(me.Id, self.Id);
         }
 
+        [TestMethod]
+        public async Task Create_RSA_Key()
+        {
+            var name = "net-api-test";
+            IpfsClient ipfs = TestFixture.Ipfs;
+            var key = await ipfs.Key.CreateAsync(name, "rsa", 2048);
+            try
+            {
+                Assert.IsNotNull(key);
+                Assert.IsNotNull(key.Id);
+                Assert.AreEqual(name, key.Name);
+
+                var keys = await ipfs.Key.ListAsync();
+                var clone = keys.Single(k => k.Name == name);
+                Assert.AreEqual(key.Name, clone.Name);
+                Assert.AreEqual(key.Id, clone.Id);
+            }
+            finally
+            {
+                await ipfs.Key.RemoveAsync(name);
+            }
+        }
+
     }
 }

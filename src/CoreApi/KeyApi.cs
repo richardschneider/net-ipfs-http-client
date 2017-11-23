@@ -58,9 +58,28 @@ namespace Ipfs.Api
             this.ipfs = ipfs;
         }
 
-        public async Task CreateAsync(CancellationToken cancel = default(CancellationToken))
+        /// <summary>
+        ///   Creates a new key.
+        /// </summary>
+        /// <param name="name">
+        ///   The local name of the key.
+        /// </param>
+        /// <param name="keyType">
+        ///   The type of key to create; "rsa" or "ed25519".
+        /// </param>
+        /// <param name="size">
+        ///   The size, in bits, of the key.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        /// <returns>
+        ///   The information on the newly created key.
+        /// </returns>
+        public async Task<KeyInfo> CreateAsync(string name, string keyType, int size, CancellationToken cancel = default(CancellationToken))
         {
-            throw new NotImplementedException();
+            return await ipfs.DoCommandAsync<KeyInfo>("key/gen", cancel, name, 
+                $"type={keyType}", $"size={size}");
         }
 
         /// <summary>
@@ -84,13 +103,13 @@ namespace Ipfs.Api
                 });
         }
 
-        public async Task RenameAsync(CancellationToken cancel = default(CancellationToken))
+        public async Task RenameAsync(string name, CancellationToken cancel = default(CancellationToken))
         {
             throw new NotImplementedException();
         }
-        public async Task RemoveAsync(CancellationToken cancel = default(CancellationToken))
+        public async Task<KeyInfo> RemoveAsync(string name, CancellationToken cancel = default(CancellationToken))
         {
-            throw new NotImplementedException();
+            return await ipfs.DoCommandAsync<KeyInfo>("key/rm", cancel, name);
         }
     }
 }
