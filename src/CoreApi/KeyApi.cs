@@ -17,8 +17,8 @@ namespace Ipfs.Api
     /// </summary>
     /// <remarks>
     ///   <note>
-    ///   </note>
     ///   The Key API is work in progress! There be dragons here.
+    ///   </note>
     ///   <para>
     ///   This API is accessed via the <see cref="IpfsClient.Key"/> property.
     ///   </para>
@@ -44,10 +44,10 @@ namespace Ipfs.Api
             /// <summary>
             ///   The locally assigned name to the key.
             /// </summary>
-            /// <remarks>
+            /// <value>
             ///   The name is only unique within the local peer node. The
             ///   <see cref="Id"/> is universally unique.
-            /// </remarks>
+            /// </value>
             public string Name { get; set; }
 
         }
