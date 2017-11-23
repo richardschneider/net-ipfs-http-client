@@ -35,7 +35,7 @@ namespace Ipfs.Api
         [TestMethod]
         public async Task Create_RSA_Key()
         {
-            var name = "net-api-test";
+            var name = "net-api-test-create";
             IpfsClient ipfs = TestFixture.Ipfs;
             var key = await ipfs.Key.CreateAsync(name, "rsa", 2048);
             try
@@ -53,6 +53,26 @@ namespace Ipfs.Api
             {
                 await ipfs.Key.RemoveAsync(name);
             }
+        }
+
+        [TestMethod]
+        public async Task Remove_Key()
+        {
+            var name = "net-api-test-remove";
+            IpfsClient ipfs = TestFixture.Ipfs;
+            var key = await ipfs.Key.CreateAsync(name, "rsa", 2048);
+            var keys = await ipfs.Key.ListAsync();
+            var clone = keys.Single(k => k.Name == name);
+            Assert.IsNotNull(clone);
+
+            var removedKeys = await ipfs.Key.RemoveAsync(name);
+            var removed = removedKeys.Single(k => k.Name == name);
+            Assert.IsNotNull(removed);
+            Assert.AreEqual(key.Name, removed.Name);
+            Assert.AreEqual(key.Id, removed.Id);
+
+            keys = await ipfs.Key.ListAsync();
+            Assert.IsFalse(keys.Any(k => k.Name == name));
         }
 
     }

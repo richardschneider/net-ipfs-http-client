@@ -107,9 +107,29 @@ namespace Ipfs.Api
         {
             throw new NotImplementedException();
         }
-        public async Task<KeyInfo> RemoveAsync(string name, CancellationToken cancel = default(CancellationToken))
+
+        /// <summary>
+        ///   Delete the specified key.
+        /// </summary>
+        /// <param name="name">
+        ///   The local name of the key.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        /// <returns>
+        ///   A sequence of IPFS keys that were deleted.
+        /// </returns>
+        public async Task<IEnumerable<KeyInfo>> RemoveAsync(string name, CancellationToken cancel = default(CancellationToken))
         {
-            return await ipfs.DoCommandAsync<KeyInfo>("key/rm", cancel, name);
+            var json = await ipfs.DoCommandAsync("key/rm", cancel, name);
+            var keys = (JArray)(JObject.Parse(json)["Keys"]);
+            return keys
+                .Select(k => new KeyInfo
+                {
+                    Id = (string)k["Id"],
+                    Name = (string)k["Name"]
+                });
         }
     }
 }
