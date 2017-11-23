@@ -1,0 +1,96 @@
+﻿using Common.Logging;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Ipfs.Api
+{
+
+    /// <summary>
+    ///   Manages asymmetric keys.
+    /// </summary>
+    /// <remarks>
+    ///   <note>
+    ///   </note>
+    ///   The Key API is work in progress! There be dragons here.
+    ///   <para>
+    ///   This API is accessed via the <see cref="IpfsClient.Key"/> property.
+    ///   </para>
+    /// </remarks>
+    /// <seealso href="https://github.com/ipfs/specs/tree/master/keystore">Key API</seealso>
+    public class KeyApi
+    {
+        static ILog log = LogManager.GetLogger<KeyApi>();
+
+        /// <summary>
+        ///   Information about a local key.
+        /// </summary>
+        public class KeyInfo
+        {
+            /// <summary>
+            ///   Unique identifier (multihash)
+            /// </summary>
+            /// <value>
+            ///   This is the <see cref="MultiHash"/> of the key's public key.
+            /// </value>
+            public string Id { get; set; }
+
+            /// <summary>
+            ///   The locally assigned name to the key.
+            /// </summary>
+            /// <remarks>
+            ///   The name is only unique within the local peer node. The
+            ///   <see cref="Id"/> is universally unique.
+            /// </remarks>
+            public string Name { get; set; }
+
+        }
+        IpfsClient ipfs;
+
+        internal KeyApi(IpfsClient ipfs)
+        {
+            this.ipfs = ipfs;
+        }
+
+        public async Task CreateAsync(CancellationToken cancel = default(CancellationToken))
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        ///   List all the keys.
+        /// </summary>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        /// <returns>
+        ///   A sequence of IPFS keys.
+        /// </returns>
+        public async Task<IEnumerable<KeyInfo>> ListAsync(CancellationToken cancel = default(CancellationToken))
+        {
+            var json = await ipfs.DoCommandAsync("key/list", cancel, null, "l=true");
+            var keys = (JArray)(JObject.Parse(json)["Keys"]);
+            return keys
+                .Select(k => new KeyInfo
+                {
+                    Id = (string)k["Id"],
+                    Name = (string)k["Name"]
+                });
+        }
+
+        public async Task RenameAsync(CancellationToken cancel = default(CancellationToken))
+        {
+            throw new NotImplementedException();
+        }
+        public async Task RemoveAsync(CancellationToken cancel = default(CancellationToken))
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
