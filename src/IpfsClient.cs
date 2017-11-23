@@ -69,6 +69,7 @@ namespace Ipfs.Api
             Object = new ObjectApi(this);
             FileSystem = new FileSystemApi(this);
             PubSub = new PubSubApi(this);
+            Key = new KeyApi(this);
         }
 
         /// <summary>
@@ -159,6 +160,11 @@ namespace Ipfs.Api
         ///   Provides access to the <see cref="PubSubApi">PubSub API</see>.
         /// </summary>
         public PubSubApi PubSub { get; private set; }
+
+        /// <summary>
+        ///   Provides access to the <see cref="KeyApi">Key API</see>.
+        /// </summary>
+        public KeyApi Key { get; private set; }
 
         Uri BuildCommand(string command, string arg = null, params string[] options)
         {
