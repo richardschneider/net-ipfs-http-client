@@ -129,7 +129,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Ipfs.Api.IpfsClient.html",
-          "hash": "t1hTwYKJ6amMLpNR0YQvQA=="
+          "hash": "e8PFXCpkoN4jCCnavSRooQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ipfs.Api.KeyApi.KeyInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ipfs.Api.KeyApi.KeyInfo.html",
+          "hash": "/xWmo3M41yLsq7I9xTejTA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ipfs.Api.KeyApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ipfs.Api.KeyApi.html",
+          "hash": "j7s8FRlZwG+OOjiGkiQT4A=="
         }
       },
       "is_incremental": false,
@@ -285,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ipfs.Api.html",
-          "hash": "KJSoXEgxbbGM4ncElqs54A=="
+          "hash": "XWbT440MVEQzR1+0VQgJzA=="
         }
       },
       "is_incremental": false,
@@ -297,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "UfQ+Pe2TyJaJ9YiCY5v/Zw=="
+          "hash": "D6nnLFW2MCunoj5Pn5Ovmw=="
         }
       },
       "is_incremental": false,
@@ -429,9 +453,12 @@
         "incrementalPhase": "build"
       },
       "processors": {
-        "TocDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
           "incrementalPhase": "build"
         },
         "ResourceDocumentProcessor": {
@@ -439,12 +466,9 @@
           "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
+        "TocDocumentProcessor": {
           "can_incremental": false,
-          "incrementalPhase": "build"
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }

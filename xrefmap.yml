@@ -688,6 +688,18 @@ references:
   commentId: Overload:Ipfs.Api.IpfsClient.IdAsync
   fullName: Ipfs.Api.IpfsClient.IdAsync
   nameWithType: IpfsClient.IdAsync
+- uid: Ipfs.Api.IpfsClient.Key
+  name: Key
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Key
+  commentId: P:Ipfs.Api.IpfsClient.Key
+  fullName: Ipfs.Api.IpfsClient.Key
+  nameWithType: IpfsClient.Key
+- uid: Ipfs.Api.IpfsClient.Key*
+  name: Key
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Key_
+  commentId: Overload:Ipfs.Api.IpfsClient.Key
+  fullName: Ipfs.Api.IpfsClient.Key
+  nameWithType: IpfsClient.Key
 - uid: Ipfs.Api.IpfsClient.Object
   name: Object
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Object
@@ -847,6 +859,78 @@ references:
   commentId: Overload:Ipfs.Api.IpfsClient.VersionAsync
   fullName: Ipfs.Api.IpfsClient.VersionAsync
   nameWithType: IpfsClient.VersionAsync
+- uid: Ipfs.Api.KeyApi
+  name: KeyApi
+  href: api/Ipfs.Api.KeyApi.html
+  commentId: T:Ipfs.Api.KeyApi
+  fullName: Ipfs.Api.KeyApi
+  nameWithType: KeyApi
+- uid: Ipfs.Api.KeyApi.CreateAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)
+  name: CreateAsync(String, String, Int32, CancellationToken)
+  href: api/Ipfs.Api.KeyApi.html#Ipfs_Api_KeyApi_CreateAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.KeyApi.CreateAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)
+  fullName: Ipfs.Api.KeyApi.CreateAsync(System.String, System.String, System.Int32, System.Threading.CancellationToken)
+  nameWithType: KeyApi.CreateAsync(String, String, Int32, CancellationToken)
+- uid: Ipfs.Api.KeyApi.CreateAsync*
+  name: CreateAsync
+  href: api/Ipfs.Api.KeyApi.html#Ipfs_Api_KeyApi_CreateAsync_
+  commentId: Overload:Ipfs.Api.KeyApi.CreateAsync
+  fullName: Ipfs.Api.KeyApi.CreateAsync
+  nameWithType: KeyApi.CreateAsync
+- uid: Ipfs.Api.KeyApi.KeyInfo
+  name: KeyApi.KeyInfo
+  href: api/Ipfs.Api.KeyApi.KeyInfo.html
+  commentId: T:Ipfs.Api.KeyApi.KeyInfo
+  fullName: Ipfs.Api.KeyApi.KeyInfo
+  nameWithType: KeyApi.KeyInfo
+- uid: Ipfs.Api.KeyApi.KeyInfo.Id
+  name: Id
+  href: api/Ipfs.Api.KeyApi.KeyInfo.html#Ipfs_Api_KeyApi_KeyInfo_Id
+  commentId: P:Ipfs.Api.KeyApi.KeyInfo.Id
+  fullName: Ipfs.Api.KeyApi.KeyInfo.Id
+  nameWithType: KeyApi.KeyInfo.Id
+- uid: Ipfs.Api.KeyApi.KeyInfo.Id*
+  name: Id
+  href: api/Ipfs.Api.KeyApi.KeyInfo.html#Ipfs_Api_KeyApi_KeyInfo_Id_
+  commentId: Overload:Ipfs.Api.KeyApi.KeyInfo.Id
+  fullName: Ipfs.Api.KeyApi.KeyInfo.Id
+  nameWithType: KeyApi.KeyInfo.Id
+- uid: Ipfs.Api.KeyApi.KeyInfo.Name
+  name: Name
+  href: api/Ipfs.Api.KeyApi.KeyInfo.html#Ipfs_Api_KeyApi_KeyInfo_Name
+  commentId: P:Ipfs.Api.KeyApi.KeyInfo.Name
+  fullName: Ipfs.Api.KeyApi.KeyInfo.Name
+  nameWithType: KeyApi.KeyInfo.Name
+- uid: Ipfs.Api.KeyApi.KeyInfo.Name*
+  name: Name
+  href: api/Ipfs.Api.KeyApi.KeyInfo.html#Ipfs_Api_KeyApi_KeyInfo_Name_
+  commentId: Overload:Ipfs.Api.KeyApi.KeyInfo.Name
+  fullName: Ipfs.Api.KeyApi.KeyInfo.Name
+  nameWithType: KeyApi.KeyInfo.Name
+- uid: Ipfs.Api.KeyApi.ListAsync(System.Threading.CancellationToken)
+  name: ListAsync(CancellationToken)
+  href: api/Ipfs.Api.KeyApi.html#Ipfs_Api_KeyApi_ListAsync_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.KeyApi.ListAsync(System.Threading.CancellationToken)
+  fullName: Ipfs.Api.KeyApi.ListAsync(System.Threading.CancellationToken)
+  nameWithType: KeyApi.ListAsync(CancellationToken)
+- uid: Ipfs.Api.KeyApi.ListAsync*
+  name: ListAsync
+  href: api/Ipfs.Api.KeyApi.html#Ipfs_Api_KeyApi_ListAsync_
+  commentId: Overload:Ipfs.Api.KeyApi.ListAsync
+  fullName: Ipfs.Api.KeyApi.ListAsync
+  nameWithType: KeyApi.ListAsync
+- uid: Ipfs.Api.KeyApi.RemoveAsync(System.String,System.Threading.CancellationToken)
+  name: RemoveAsync(String, CancellationToken)
+  href: api/Ipfs.Api.KeyApi.html#Ipfs_Api_KeyApi_RemoveAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.KeyApi.RemoveAsync(System.String,System.Threading.CancellationToken)
+  fullName: Ipfs.Api.KeyApi.RemoveAsync(System.String, System.Threading.CancellationToken)
+  nameWithType: KeyApi.RemoveAsync(String, CancellationToken)
+- uid: Ipfs.Api.KeyApi.RemoveAsync*
+  name: RemoveAsync
+  href: api/Ipfs.Api.KeyApi.html#Ipfs_Api_KeyApi_RemoveAsync_
+  commentId: Overload:Ipfs.Api.KeyApi.RemoveAsync
+  fullName: Ipfs.Api.KeyApi.RemoveAsync
+  nameWithType: KeyApi.RemoveAsync
 - uid: Ipfs.Api.MerkleNode
   name: MerkleNode
   href: api/Ipfs.Api.MerkleNode.html
