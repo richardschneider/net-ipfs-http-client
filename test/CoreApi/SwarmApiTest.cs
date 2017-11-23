@@ -47,7 +47,7 @@ namespace Ipfs.Api
             await Task.WhenAll(peers
                 .Where(p => p.Latency != TimeSpan.Zero)
                 .OrderBy(p => p.Latency)
-                .Take(10)
+                .Take(1)
                 .Select(async p =>
                 {
                     var peer = await ipfs.IdAsync(p.Id);
