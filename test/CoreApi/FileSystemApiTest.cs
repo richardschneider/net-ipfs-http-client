@@ -84,8 +84,8 @@ namespace Ipfs.Api
                 Assert.IsFalse(files[0].IsDirectory);
                 Assert.IsFalse(files[1].IsDirectory);
                 Assert.IsTrue(files[2].IsDirectory);
-                Assert.AreEqual(5, files[0].Size);
-                Assert.AreEqual(4, files[1].Size);
+                Assert.AreNotEqual(0, files[0].Size);
+                Assert.AreNotEqual(0, files[1].Size);
 
                 var xfiles = new FileSystemNode { Hash = files[2].Hash }.Links.ToArray();
                 Assert.AreEqual(2, xfiles.Length);
