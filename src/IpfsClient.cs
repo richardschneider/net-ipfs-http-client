@@ -252,6 +252,9 @@ namespace Ipfs.Api
         /// <returns>
         ///   A string representation of the command's result.
         /// </returns>
+        /// <exception cref="HttpRequestException">
+        ///   When the IPFS server indicates an error.
+        /// </exception>
         public async Task<string> DoCommandAsync(string command, CancellationToken cancel, string arg = null, params string[] options)
         {
             var url = BuildCommand(command, arg, options);
@@ -294,6 +297,9 @@ namespace Ipfs.Api
         ///   The command's response is converted to <typeparamref name="T"/> using
         ///   <c>JsonConvert</c>.
         /// </remarks>
+        /// <exception cref="HttpRequestException">
+        ///   When the IPFS server indicates an error.
+        /// </exception>
         public async Task<T> DoCommandAsync<T>(string command, CancellationToken cancel, string arg = null, params string[] options)
         {
             var json = await DoCommandAsync(command, cancel, arg, options);
@@ -319,6 +325,9 @@ namespace Ipfs.Api
         /// <returns>
         ///   A string representation of the command's result.
         /// </returns>
+        /// <exception cref="HttpRequestException">
+        ///   When the IPFS server indicates an error.
+        /// </exception>
         public async Task<string> PostCommandAsync(string command, CancellationToken cancel, string arg = null, params string[] options)
         {
             var url = BuildCommand(command, arg, options);
@@ -363,6 +372,9 @@ namespace Ipfs.Api
         ///   The command's response is converted to <typeparamref name="T"/> using
         ///   <c>JsonConvert</c>.
         /// </remarks>
+        /// <exception cref="HttpRequestException">
+        ///   When the IPFS server indicates an error.
+        /// </exception>
         public async Task<T> PostCommandAsync<T>(string command, CancellationToken cancel, string arg = null, params string[] options)
         {
             var json = await PostCommandAsync(command, cancel, arg, options);
@@ -388,6 +400,9 @@ namespace Ipfs.Api
         /// <returns>
         ///   A <see cref="Stream"/> containing the command's result.
         /// </returns>
+        /// <exception cref="HttpRequestException">
+        ///   When the IPFS server indicates an error.
+        /// </exception>
         public async Task<Stream> PostDownloadAsync(string command, CancellationToken cancel, string arg = null, params string[] options)
         {
             var url = BuildCommand(command, arg, options);
@@ -420,6 +435,9 @@ namespace Ipfs.Api
         /// <returns>
         ///   A <see cref="Stream"/> containing the command's result.
         /// </returns>
+        /// <exception cref="HttpRequestException">
+        ///   When the IPFS server indicates an error.
+        /// </exception>
         public async Task<Stream> DownloadAsync(string command, CancellationToken cancel, string arg = null, params string[] options)
         {
             var url = BuildCommand(command, arg, options);
@@ -450,6 +468,9 @@ namespace Ipfs.Api
         /// <returns>
         ///   A byte array containing the command's result.
         /// </returns>
+        /// <exception cref="HttpRequestException">
+        ///   When the IPFS server indicates an error.
+        /// </exception>
         public async Task<byte[]> DownloadBytesAsync(string command, CancellationToken cancel, string arg = null, params string[] options)
         {
             var url = BuildCommand(command, arg, options);
@@ -470,6 +491,9 @@ namespace Ipfs.Api
         /// <param name="data"></param>
         /// <param name="options"></param>
         /// <returns></returns>
+        /// <exception cref="HttpRequestException">
+        ///   When the IPFS server indicates an error.
+        /// </exception>
         public async Task<String> UploadAsync(string command, CancellationToken cancel, Stream data, params string[] options)
         {
             var content = new MultipartFormDataContent();
@@ -513,13 +537,14 @@ namespace Ipfs.Api
             }
         }
 
-
-
         /// <summary>
-        /// 
+        ///   Throws an <see cref="HttpRequestException"/> if the response
+        ///   does not indicate success.
         /// </summary>
         /// <param name="response"></param>
-        /// <returns></returns>
+        /// <returns>
+        ///    <b>true</b>
+        /// </returns>
         /// <remarks>
         ///   The API server returns an JSON error in the form <c>{ "Message": "...", "Code": ... }</c>.
         /// </remarks>
@@ -538,7 +563,12 @@ namespace Ipfs.Api
             var body = await response.Content.ReadAsStringAsync();
             if (log.IsDebugEnabled)
                 log.Debug("ERR " + body);
-            var message = (string)JsonConvert.DeserializeObject<dynamic>(body).Message;
+            string message = body;
+            try
+            {
+                message = (string)JsonConvert.DeserializeObject<dynamic>(body).Message;
+            }
+            catch { }
             throw new HttpRequestException(message);
         }
 

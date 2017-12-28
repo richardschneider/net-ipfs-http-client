@@ -1,6 +1,7 @@
 ﻿using Ipfs.Api;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Net.Http;
 using System.Threading;
 
 namespace Ipfs.Api
@@ -28,8 +29,15 @@ namespace Ipfs.Api
         {
             IpfsClient target = TestFixture.Ipfs;
             object unknown;
-            ExceptionAssert.Throws<Exception>(() => unknown = target.DoCommandAsync("foobar", default(CancellationToken)).Result);
+            ExceptionAssert.Throws<HttpRequestException>(() => unknown = target.DoCommandAsync("foobar", default(CancellationToken)).Result);
         }
 
+        [TestMethod]
+        public void Do_Command_Throws_Exception_On_Missing_Argument()
+        {
+            IpfsClient target = TestFixture.Ipfs;
+            object unknown;
+            ExceptionAssert.Throws<HttpRequestException>(() => unknown = target.DoCommandAsync("key/gen", default(CancellationToken)).Result);
+        }
     }
 }
