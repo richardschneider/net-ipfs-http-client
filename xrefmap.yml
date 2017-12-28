@@ -736,30 +736,6 @@ references:
   commentId: Overload:Ipfs.Api.IpfsClient.PinnedObjects
   fullName: Ipfs.Api.IpfsClient.PinnedObjects
   nameWithType: IpfsClient.PinnedObjects
-- uid: Ipfs.Api.IpfsClient.PostCommandAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])
-  name: PostCommandAsync(String, CancellationToken, String, String[])
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_PostCommandAsync_System_String_System_Threading_CancellationToken_System_String_System_String___
-  commentId: M:Ipfs.Api.IpfsClient.PostCommandAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])
-  name.vb: PostCommandAsync(String, CancellationToken, String, String())
-  fullName: Ipfs.Api.IpfsClient.PostCommandAsync(System.String, System.Threading.CancellationToken, System.String, System.String[])
-  fullName.vb: Ipfs.Api.IpfsClient.PostCommandAsync(System.String, System.Threading.CancellationToken, System.String, System.String())
-  nameWithType: IpfsClient.PostCommandAsync(String, CancellationToken, String, String[])
-  nameWithType.vb: IpfsClient.PostCommandAsync(String, CancellationToken, String, String())
-- uid: Ipfs.Api.IpfsClient.PostCommandAsync*
-  name: PostCommandAsync
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_PostCommandAsync_
-  commentId: Overload:Ipfs.Api.IpfsClient.PostCommandAsync
-  fullName: Ipfs.Api.IpfsClient.PostCommandAsync
-  nameWithType: IpfsClient.PostCommandAsync
-- uid: Ipfs.Api.IpfsClient.PostCommandAsync``1(System.String,System.Threading.CancellationToken,System.String,System.String[])
-  name: PostCommandAsync<T>(String, CancellationToken, String, String[])
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_PostCommandAsync__1_System_String_System_Threading_CancellationToken_System_String_System_String___
-  commentId: M:Ipfs.Api.IpfsClient.PostCommandAsync``1(System.String,System.Threading.CancellationToken,System.String,System.String[])
-  name.vb: PostCommandAsync(Of T)(String, CancellationToken, String, String())
-  fullName: Ipfs.Api.IpfsClient.PostCommandAsync<T>(System.String, System.Threading.CancellationToken, System.String, System.String[])
-  fullName.vb: Ipfs.Api.IpfsClient.PostCommandAsync(Of T)(System.String, System.Threading.CancellationToken, System.String, System.String())
-  nameWithType: IpfsClient.PostCommandAsync<T>(String, CancellationToken, String, String[])
-  nameWithType.vb: IpfsClient.PostCommandAsync(Of T)(String, CancellationToken, String, String())
 - uid: Ipfs.Api.IpfsClient.PostDownloadAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])
   name: PostDownloadAsync(String, CancellationToken, String, String[])
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_PostDownloadAsync_System_String_System_Threading_CancellationToken_System_String_System_String___
