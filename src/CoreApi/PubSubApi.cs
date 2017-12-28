@@ -91,7 +91,7 @@ namespace Ipfs.Api
         /// </param>
         public async Task Publish(string topic, string message, CancellationToken cancel = default(CancellationToken))
         {
-            var _ = await ipfs.PostCommandAsync("pubsub/pub", cancel, topic, "arg=" + message);
+            var _ = await ipfs.DoCommandAsync("pubsub/pub", cancel, topic, "arg=" + message);
             return;
         }
 

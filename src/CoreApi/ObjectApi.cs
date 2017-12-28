@@ -88,7 +88,7 @@ namespace Ipfs.Api
         /// </remarks>
         public async Task<DagNode> NewAsync(string template = null, CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.PostCommandAsync("object/new", cancel, template);
+            var json = await ipfs.DoCommandAsync("object/new", cancel, template);
             var hash = (string) (JObject.Parse(json)["Hash"]);
             return await GetAsync(hash);
         }

@@ -81,7 +81,7 @@ namespace Ipfs.Api
         /// </param>
         public async Task SetAsync(string key, string value, CancellationToken cancel = default(CancellationToken))
         {
-            var _ = await ipfs.PostCommandAsync("config", cancel, key, "arg=" + value);
+            var _ = await ipfs.DoCommandAsync("config", cancel, key, "arg=" + value);
             return;
         }
 
@@ -99,7 +99,7 @@ namespace Ipfs.Api
         /// </param>
         public async Task SetAsync(string key, JToken value, CancellationToken cancel = default(CancellationToken))
         {
-            var _ = await ipfs.PostCommandAsync("config", cancel,
+            var _ = await ipfs.DoCommandAsync("config", cancel,
                 key,
                 "arg=" + value.ToString(Formatting.None),
                 "json=true");
