@@ -57,7 +57,7 @@ namespace Ipfs.Api
         ///   Size of the file contents.
         /// </summary>
         /// <value>
-        ///   This is the size of the file not the raw enoded contents
+        ///   This is the size of the file not the raw encoded contents
         ///   of the block.
         /// </value>
         public long Size

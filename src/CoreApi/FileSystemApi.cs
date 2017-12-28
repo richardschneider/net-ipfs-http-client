@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Common.Logging;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ namespace Ipfs.Api
     /// <seealso href="https://github.com/ipfs/interface-ipfs-core/tree/master/API/files">Files API</seealso>
     public class FileSystemApi
     {
+        static ILog log = LogManager.GetLogger<FileSystemApi>();
+
         IpfsClient ipfs;
         Lazy<DagNode> emptyFolder;
 
@@ -71,19 +74,28 @@ namespace Ipfs.Api
         {
             var json = await ipfs.UploadAsync("add", cancel, stream);
             var r = JObject.Parse(json);
-            return new FileSystemNode
+            var fsn = new FileSystemNode
             {
                 Hash = (string)r["Hash"],
+                Size = long.Parse((string)r["Size"]),
+                IsDirectory = false,
                 Name = name,
                 IpfsClient = ipfs
             };
+            if (log.IsDebugEnabled)
+                log.Debug("added " + fsn.Hash + " " + fsn.Name);
+             return fsn;
         }
 
         /// <summary>
         ///   Add a directory and its files to the interplanetary file system.
         /// </summary>
-        /// <param name="path"></param>
-        /// <param name="recursive"></param>
+        /// <param name="path">
+        ///   The path to directory.
+        /// </param>
+        /// <param name="recursive">
+        ///   <b>true</b> to add sub-folders.
+        /// </param>
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
@@ -108,6 +120,8 @@ namespace Ipfs.Api
             var folder = emptyFolder.Value.AddLinks(links);
             var directory = await ipfs.Object.PutAsync(folder, cancel);
 
+            if (log.IsDebugEnabled)
+                log.Debug("added " + directory.Hash + " " + Path.GetFileName(path));
             return new FileSystemNode
             {
                 Hash = directory.Hash,
