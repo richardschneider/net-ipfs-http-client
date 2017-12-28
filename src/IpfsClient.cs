@@ -259,8 +259,8 @@ namespace Ipfs.Api
         {
             var url = BuildCommand(command, arg, options);
             if (log.IsDebugEnabled)
-                log.Debug("GET " + url.ToString());
-            using (var response = await Api().GetAsync(url, HttpCompletionOption.ResponseHeadersRead, cancel))
+                log.Debug("POST " + url.ToString());
+            using (var response = await Api().PostAsync(url, null, cancel))
             {
                 await ThrowOnErrorAsync(response);
                 var body = await response.Content.ReadAsStringAsync();
