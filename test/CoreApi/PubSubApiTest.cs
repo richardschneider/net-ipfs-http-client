@@ -121,6 +121,36 @@ namespace Ipfs.Api
             }
         }
 
+        [TestMethod]
+        public async Task Multiple_Subscribe_Mutiple_Messages()
+        {
+            messageCount = 0;
+            var messages = "hello world this is pubsub".Split();
+            var ipfs = TestFixture.Ipfs;
+            var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
+            var cs = new CancellationTokenSource();
+            Action<PublishedMessage> processMessage = (msg) => 
+            {
+                Interlocked.Increment(ref messageCount);
+            };
+            try
+            {
+                await ipfs.PubSub.Subscribe(topic, processMessage, cs.Token);
+                await ipfs.PubSub.Subscribe(topic, processMessage, cs.Token);
+                foreach (var msg in messages)
+                {
+                    await ipfs.PubSub.Publish(topic, msg);
+                }
+
+                await Task.Delay(1000);
+                Assert.AreEqual(messages.Length * 2, messageCount);
+            }
+            finally
+            {
+                cs.Cancel();
+            }
+        }
+
         volatile int messageCount1 = 0;
 
         [TestMethod]
