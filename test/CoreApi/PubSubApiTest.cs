@@ -109,9 +109,9 @@ namespace Ipfs.Api
                 }, cs.Token);
                 foreach (var msg in messages)
                 {
-                    await ipfs.PubSub.Publish(topic, msg);
                     // Avoid seqno bug in go-floodsub
-                    await Task.Delay(1);
+                    await Task.Delay(10);
+                    await ipfs.PubSub.Publish(topic, msg);
                 }
 
                 await Task.Delay(1000);
@@ -141,9 +141,9 @@ namespace Ipfs.Api
                 await ipfs.PubSub.Subscribe(topic, processMessage, cs.Token);
                 foreach (var msg in messages)
                 {
-                    await ipfs.PubSub.Publish(topic, msg);
                     // Avoid seqno bug in go-floodsub
-                    await Task.Delay(1);
+                    await Task.Delay(10);
+                    await ipfs.PubSub.Publish(topic, msg);
                 }
 
                 await Task.Delay(1000);

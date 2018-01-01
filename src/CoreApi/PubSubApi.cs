@@ -118,11 +118,12 @@ namespace Ipfs.Api
         {
             var messageStream = await ipfs.PostDownloadAsync("pubsub/sub", cancellationToken, topic);
             var sr = new StreamReader(messageStream);
+
+            // First line is always an empty JSON object
             var response = sr.ReadLine();
             if (log.IsDebugEnabled)
                 log.Debug("RSP " + response);
 
-            // First line is always an empty JSON object,
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             Task.Run(() => ProcessMessages(topic, handler, sr, cancellationToken));
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
@@ -146,7 +147,7 @@ namespace Ipfs.Api
                         break;
                     if (log.IsDebugEnabled)
                         log.DebugFormat("PubSub message {0}", json);
-                    if (json != "{}" && !ct.IsCancellationRequested)
+                    if (!ct.IsCancellationRequested)
                     {
                         handler(new PublishedMessage(json));
                     }
@@ -157,6 +158,8 @@ namespace Ipfs.Api
                 // Do not report errors when cancelled.
                 if (!ct.IsCancellationRequested)
                     log.Error(e);
+                else
+                    log.Debug(e);
             }
             finally
             {
