@@ -158,8 +158,6 @@ namespace Ipfs.Api
                 // Do not report errors when cancelled.
                 if (!ct.IsCancellationRequested)
                     log.Error(e);
-                else
-                    log.Debug(e);
             }
             finally
             {

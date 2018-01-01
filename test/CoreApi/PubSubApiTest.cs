@@ -110,7 +110,7 @@ namespace Ipfs.Api
                 foreach (var msg in messages)
                 {
                     // Avoid seqno bug in go-floodsub
-                    await Task.Delay(10);
+                    await Task.Delay(30);
                     await ipfs.PubSub.Publish(topic, msg);
                 }
 
@@ -142,7 +142,7 @@ namespace Ipfs.Api
                 foreach (var msg in messages)
                 {
                     // Avoid seqno bug in go-floodsub
-                    await Task.Delay(10);
+                    await Task.Delay(30);
                     await ipfs.PubSub.Publish(topic, msg);
                 }
 
