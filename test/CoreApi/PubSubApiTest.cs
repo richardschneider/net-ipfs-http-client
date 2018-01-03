@@ -109,8 +109,6 @@ namespace Ipfs.Api
                 }, cs.Token);
                 foreach (var msg in messages)
                 {
-                    // Avoid seqno bug in go-floodsub
-                    await Task.Delay(30);
                     await ipfs.PubSub.Publish(topic, msg);
                 }
 
@@ -124,6 +122,7 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
+        [Ignore("go-ipfs doesn't allow multiple subscribe to the same topic")]
         public async Task Multiple_Subscribe_Mutiple_Messages()
         {
             messageCount = 0;
@@ -141,8 +140,6 @@ namespace Ipfs.Api
                 await ipfs.PubSub.Subscribe(topic, processMessage, cs.Token);
                 foreach (var msg in messages)
                 {
-                    // Avoid seqno bug in go-floodsub
-                    await Task.Delay(30);
                     await ipfs.PubSub.Publish(topic, msg);
                 }
 
