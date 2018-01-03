@@ -88,6 +88,18 @@ references:
   commentId: Overload:Ipfs.Api.BlockApi.PutAsync
   fullName: Ipfs.Api.BlockApi.PutAsync
   nameWithType: BlockApi.PutAsync
+- uid: Ipfs.Api.BlockApi.RemoveAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  name: RemoveAsync(String, Boolean, CancellationToken)
+  href: api/Ipfs.Api.BlockApi.html#Ipfs_Api_BlockApi_RemoveAsync_System_String_System_Boolean_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.BlockApi.RemoveAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  fullName: Ipfs.Api.BlockApi.RemoveAsync(System.String, System.Boolean, System.Threading.CancellationToken)
+  nameWithType: BlockApi.RemoveAsync(String, Boolean, CancellationToken)
+- uid: Ipfs.Api.BlockApi.RemoveAsync*
+  name: RemoveAsync
+  href: api/Ipfs.Api.BlockApi.html#Ipfs_Api_BlockApi_RemoveAsync_
+  commentId: Overload:Ipfs.Api.BlockApi.RemoveAsync
+  fullName: Ipfs.Api.BlockApi.RemoveAsync
+  nameWithType: BlockApi.RemoveAsync
 - uid: Ipfs.Api.BlockApi.StatAsync(System.String,System.Threading.CancellationToken)
   name: StatAsync(String, CancellationToken)
   href: api/Ipfs.Api.BlockApi.html#Ipfs_Api_BlockApi_StatAsync_System_String_System_Threading_CancellationToken_
