@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Ipfs.Api
 {
@@ -44,6 +45,26 @@ namespace Ipfs.Api
             var info = ipfs.Block.StatAsync(hash).Result;
             Assert.AreEqual(hash, info.Key);
             Assert.AreEqual(5, info.Size);
+        }
+
+        [TestMethod]
+        public async Task Remove()
+        {
+            var removed = await ipfs.Block.RemoveAsync(hash);
+            Assert.AreEqual(hash, removed);
+        }
+
+        [TestMethod]
+        public void Remove_Unknown()
+        {
+            ExceptionAssert.Throws<Exception>(() => { var _ = ipfs.Block.RemoveAsync("QmPv52ekjS75L4JmHpXVeuJ5uX2ecSfSZo88NSyxwA3rFF").Result; });
+        }
+
+        [TestMethod]
+        public async Task Remove_Unknown_OK()
+        {
+            var removed = await ipfs.Block.RemoveAsync("QmPv52ekjS75L4JmHpXVeuJ5uX2ecSfSZo88NSyxwA3rFF", true);
+            Assert.AreEqual("", removed);
         }
 
     }

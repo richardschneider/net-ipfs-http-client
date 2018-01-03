@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -122,6 +124,36 @@ namespace Ipfs.Api
         public Task<BlockInfo> StatAsync(string hash, CancellationToken cancel = default(CancellationToken))
         {
             return ipfs.DoCommandAsync<BlockInfo>("block/stat", cancel, hash);
+        }
+
+        /// <summary>
+        ///   Remove a raw <see cref="Block">IPFS block</see>.
+        /// </summary>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        /// <param name="hash">
+        ///   The <see cref="string"/> representation of a base58 encoded <see cref="Ipfs.MultiHash"/>.
+        /// </param>
+        /// <param name="ignoreNonexistent">
+        ///   If <b>true</b> do not raise exception when <paramref name="hash"/> does not
+        ///   exist.  Default value is <b>false</b>.
+        /// </param>
+        /// <returns>
+        ///   The awaited Task will return the deleted <paramref name="hash"/> or
+        ///   <see cref="string.Empty"/> if the hash does not exist and <paramref name="ignoreNonexistent"/>
+        ///   is <b>true</b>.
+        /// </returns>
+        public async Task<string> RemoveAsync(string hash, bool ignoreNonexistent = false, CancellationToken cancel = default(CancellationToken)) // TODO CID support
+        {
+            var json = await ipfs.DoCommandAsync("block/rm", cancel, hash, "force=" + ignoreNonexistent.ToString().ToLowerInvariant());
+            if (json.Length == 0)
+                return "";
+            var result = JObject.Parse(json);
+            var error = (string)result["Error"];
+            if (error != null)
+                throw new HttpRequestException(error);
+            return (string)result["Hash"];
         }
     }
 
