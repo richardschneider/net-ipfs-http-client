@@ -50,7 +50,7 @@ namespace Ipfs.Api
                 .Take(1)
                 .Select(async p =>
                 {
-                    var peer = await ipfs.IdAsync(p.Id);
+                    var peer = await ipfs.IdAsync(p.Id.ToString()); // TODO: IdAsync should accept multihash
                     Assert.AreNotEqual("", peer.PublicKey);
                 }));
         }

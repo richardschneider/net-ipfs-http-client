@@ -38,12 +38,12 @@ namespace Ipfs.Api
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         /// <returns>A sequence of peer nodes.</returns>
-        public async Task<IEnumerable<PeerNode>> AddressesAsync(CancellationToken cancel = default(CancellationToken))
+        public async Task<IEnumerable<Peer>> AddressesAsync(CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.DoCommandAsync("swarm/addrs", cancel);
             return ((JObject)JObject.Parse(json)["Addrs"])
                 .Properties()
-                .Select(p => new PeerNode {
+                .Select(p => new Peer {
                     Id = p.Name,
                     Addresses = ((JArray)p.Value)
                         .Select(v => new MultiAddress((string)v))

@@ -15,7 +15,7 @@ namespace Ipfs.Api
         {
             var ipfs = TestFixture.Ipfs;
             var node = ipfs.IdAsync().Result;
-            Assert.IsInstanceOfType(node, typeof(PeerNode));
+            Assert.IsInstanceOfType(node, typeof(Peer));
         }
 
         [TestMethod]
@@ -23,7 +23,7 @@ namespace Ipfs.Api
         {
             var ipfs = TestFixture.Ipfs;
             var node = ipfs.IdAsync(marsId).Result;
-            Assert.IsInstanceOfType(node, typeof(PeerNode));
+            Assert.IsInstanceOfType(node, typeof(Peer));
         }
 
         [TestMethod]

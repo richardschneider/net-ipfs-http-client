@@ -25,9 +25,9 @@ namespace Ipfs.Api
         /// <returns>
         ///   Information on the peer node.
         /// </returns>
-        public Task<PeerNode> IdAsync(string peer = null, CancellationToken cancel = default(CancellationToken))
+        public Task<Peer> IdAsync(string peer = null, CancellationToken cancel = default(CancellationToken))
         {
-            return DoCommandAsync<PeerNode>("id", cancel, peer);
+            return DoCommandAsync<Peer>("id", cancel, peer);
         }
 
         /// <summary>

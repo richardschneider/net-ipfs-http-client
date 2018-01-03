@@ -43,7 +43,7 @@ namespace Ipfs.Api
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
-        public Task<PeerNode> FindPeerAsync(string id, CancellationToken cancel = default(CancellationToken))
+        public Task<Peer> FindPeerAsync(string id, CancellationToken cancel = default(CancellationToken))
         {
             return ipfs.IdAsync(id, cancel);
         }
