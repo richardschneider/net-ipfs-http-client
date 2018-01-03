@@ -261,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ipfs.Api.PubSubApi.html",
-          "hash": "N9NKiU941SxNTbGT42w7Jw=="
+          "hash": "eBqvGBsjY1tBW3x2KZIw5Q=="
         }
       },
       "is_incremental": false,
@@ -453,11 +453,11 @@
         "incrementalPhase": "build"
       },
       "processors": {
-        "ManagedReferenceDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
+        "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
