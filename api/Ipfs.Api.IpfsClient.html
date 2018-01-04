@@ -1020,19 +1020,19 @@ a byte array.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_IdAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.IdAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_IdAsync_Ipfs_MultiHash_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.IdAsync(Ipfs.MultiHash%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/GenericApi.cs/#L28">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_IdAsync_" data-uid="Ipfs.Api.IpfsClient.IdAsync*"></a>
-  <h4 id="Ipfs_Api_IpfsClient_IdAsync_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.IpfsClient.IdAsync(System.String,System.Threading.CancellationToken)">IdAsync(String, CancellationToken)</h4>
+  <h4 id="Ipfs_Api_IpfsClient_IdAsync_Ipfs_MultiHash_System_Threading_CancellationToken_" data-uid="Ipfs.Api.IpfsClient.IdAsync(Ipfs.MultiHash,System.Threading.CancellationToken)">IdAsync(MultiHash, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Information about an IPFS peer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;PeerNode&gt; IdAsync(string peer = null, CancellationToken cancel = default (CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;Peer&gt; IdAsync(MultiHash peer = null, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1045,7 +1045,7 @@ a byte array.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a></td>
         <td><span class="parametername">peer</span></td>
         <td><p>The id of the IPFS peer.  If not specified (e.g. null), then the local
 peer is used.</p>
@@ -1069,7 +1069,7 @@ peer is used.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Ipfs.Api.PeerNode.html">PeerNode</a>&gt;</td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Peer.html">Peer</a>&gt;</td>
         <td><p>Information on the peer node.</p>
 </td>
       </tr>

@@ -351,7 +351,7 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_FileSystemApi_ListFileAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.FileSystemApi.ListFileAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/FileSystemApi.cs/#L186">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/FileSystemApi.cs/#L222">View Source</a>
   </span>
   <a id="Ipfs_Api_FileSystemApi_ListFileAsync_" data-uid="Ipfs.Api.FileSystemApi.ListFileAsync*"></a>
   <h4 id="Ipfs_Api_FileSystemApi_ListFileAsync_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.FileSystemApi.ListFileAsync(System.String,System.Threading.CancellationToken)">ListFileAsync(String, CancellationToken)</h4>
@@ -404,10 +404,66 @@ or &quot;QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V&quot;</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_FileSystemApi_ReadAllTextAsync_Ipfs_MultiHash_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.FileSystemApi.ReadAllTextAsync(Ipfs.MultiHash%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/FileSystemApi.cs/#L171">View Source</a>
+  </span>
+  <a id="Ipfs_Api_FileSystemApi_ReadAllTextAsync_" data-uid="Ipfs.Api.FileSystemApi.ReadAllTextAsync*"></a>
+  <h4 id="Ipfs_Api_FileSystemApi_ReadAllTextAsync_Ipfs_MultiHash_System_Threading_CancellationToken_" data-uid="Ipfs.Api.FileSystemApi.ReadAllTextAsync(Ipfs.MultiHash,System.Threading.CancellationToken)">ReadAllTextAsync(MultiHash, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Reads the content of an existing IPFS file as text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;string&gt; ReadAllTextAsync(MultiHash hash, CancellationToken cancel = default (CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a></td>
+        <td><span class="parametername">hash</span></td>
+        <td><p>The <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a> id of the file.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
+        <td><p>The contents of the <code data-dev-comment-type="paramref" class="paramref">hash</code> as a <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_FileSystemApi_ReadAllTextAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.FileSystemApi.ReadAllTextAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/FileSystemApi.cs/#L148">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/FileSystemApi.cs/#L150">View Source</a>
   </span>
   <a id="Ipfs_Api_FileSystemApi_ReadAllTextAsync_" data-uid="Ipfs.Api.FileSystemApi.ReadAllTextAsync*"></a>
   <h4 id="Ipfs_Api_FileSystemApi_ReadAllTextAsync_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.FileSystemApi.ReadAllTextAsync(System.String,System.Threading.CancellationToken)">ReadAllTextAsync(String, CancellationToken)</h4>
@@ -454,7 +510,64 @@ or &quot;QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V&quot;</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
-        <td></td>
+        <td><p>The contents of the <code data-dev-comment-type="paramref" class="paramref">path</code> as a <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_FileSystemApi_ReadFileAsync_Ipfs_MultiHash_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.FileSystemApi.ReadFileAsync(Ipfs.MultiHash%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/FileSystemApi.cs/#L206">View Source</a>
+  </span>
+  <a id="Ipfs_Api_FileSystemApi_ReadFileAsync_" data-uid="Ipfs.Api.FileSystemApi.ReadFileAsync*"></a>
+  <h4 id="Ipfs_Api_FileSystemApi_ReadFileAsync_Ipfs_MultiHash_System_Threading_CancellationToken_" data-uid="Ipfs.Api.FileSystemApi.ReadFileAsync(Ipfs.MultiHash,System.Threading.CancellationToken)">ReadFileAsync(MultiHash, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Opens an existing IPFS file for reading.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Stream&gt; ReadFileAsync(MultiHash hash, CancellationToken cancel = default (CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a></td>
+        <td><span class="parametername">hash</span></td>
+        <td><p>The <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a> id of the file.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">Stream</a>&gt;</td>
+        <td><p>A <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">Stream</a> to the file contents.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -463,7 +576,7 @@ or &quot;QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V&quot;</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_FileSystemApi_ReadFileAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.FileSystemApi.ReadFileAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/FileSystemApi.cs/#L170">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/FileSystemApi.cs/#L189">View Source</a>
   </span>
   <a id="Ipfs_Api_FileSystemApi_ReadFileAsync_" data-uid="Ipfs.Api.FileSystemApi.ReadFileAsync*"></a>
   <h4 id="Ipfs_Api_FileSystemApi_ReadFileAsync_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.FileSystemApi.ReadFileAsync(System.String,System.Threading.CancellationToken)">ReadFileAsync(String, CancellationToken)</h4>

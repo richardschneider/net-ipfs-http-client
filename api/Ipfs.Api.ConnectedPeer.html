@@ -73,49 +73,56 @@
   
   <h1 id="Ipfs_Api_ConnectedPeer" data-uid="Ipfs.Api.ConnectedPeer" class="text-break">Class ConnectedPeer
   </h1>
-  <div class="markdown level0 summary"><p>A <a class="xref" href="Ipfs.Api.PeerNode.html">PeerNode</a> that is connected to the local peer node.</p>
+  <div class="markdown level0 summary"><p>A <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Peer.html">Peer</a> that is connected to the local peer node.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></div>
-    <div class="level1"><a class="xref" href="Ipfs.Api.PeerNode.html">PeerNode</a></div>
+    <div class="level1"><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Peer.html">Peer</a></div>
     <div class="level2"><span class="xref">ConnectedPeer</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Peer.html">Peer</a>&gt;</div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="Ipfs.Api.PeerNode.html#Ipfs_Api_PeerNode_Id">PeerNode.Id</a>
+      <span class="xref">Ipfs.Peer.IsValid()</span>
     </div>
     <div>
-      <a class="xref" href="Ipfs.Api.PeerNode.html#Ipfs_Api_PeerNode_PublicKey">PeerNode.PublicKey</a>
+      <span class="xref">Ipfs.Peer.GetHashCode()</span>
     </div>
     <div>
-      <a class="xref" href="Ipfs.Api.PeerNode.html#Ipfs_Api_PeerNode_Addresses">PeerNode.Addresses</a>
+      <span class="xref">Ipfs.Peer.Equals(System.Object)</span>
     </div>
     <div>
-      <a class="xref" href="Ipfs.Api.PeerNode.html#Ipfs_Api_PeerNode_AgentVersion">PeerNode.AgentVersion</a>
+      <span class="xref">Ipfs.Peer.Equals(Ipfs.Peer)</span>
     </div>
     <div>
-      <a class="xref" href="Ipfs.Api.PeerNode.html#Ipfs_Api_PeerNode_ProtocolVersion">PeerNode.ProtocolVersion</a>
+      <span class="xref">Ipfs.Peer.ToString()</span>
     </div>
     <div>
-      <a class="xref" href="Ipfs.Api.PeerNode.html#Ipfs_Api_PeerNode_IsValid">PeerNode.IsValid()</a>
+      <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Peer.html#Ipfs_Peer_Id">Peer.Id</a>
     </div>
     <div>
-      <span class="xref">System.Object.ToString()</span>
+      <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Peer.html#Ipfs_Peer_PublicKey">Peer.PublicKey</a>
     </div>
     <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
+      <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Peer.html#Ipfs_Peer_Addresses">Peer.Addresses</a>
+    </div>
+    <div>
+      <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Peer.html#Ipfs_Peer_AgentVersion">Peer.AgentVersion</a>
+    </div>
+    <div>
+      <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Peer.html#Ipfs_Peer_ProtocolVersion">Peer.ProtocolVersion</a>
     </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
     </div>
     <div>
       <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
     </div>
     <div>
       <span class="xref">System.Object.GetType()</span>
@@ -128,7 +135,7 @@
   <h6><strong>Assembly</strong>: Ipfs.Api.dll</h6>
   <h5 id="Ipfs_Api_ConnectedPeer_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ConnectedPeer : PeerNode</code></pre>
+    <pre><code class="lang-csharp hljs">public class ConnectedPeer : Peer, IEquatable&lt;Peer&gt;</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -164,7 +171,7 @@
     </tbody>
   </table>
   <h5 id="Ipfs_Api_ConnectedPeer_ConnectedAddress_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The <strong>MultiAddress</strong> contains the IPFS <a class="xref" href="Ipfs.Api.PeerNode.html#Ipfs_Api_PeerNode_Id">Id</a>, such as
+  <div class="markdown level1 remarks"><p>The <strong>MultiAddress</strong> contains the IPFS <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Peer.html#Ipfs_Peer_Id">Id</a>, such as
 <code>/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ</code>.</p>
 </div>
   <span class="small pull-right mobile-hide">
@@ -198,6 +205,10 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
 </article>
           </div>
           
