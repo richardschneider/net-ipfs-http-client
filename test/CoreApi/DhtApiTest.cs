@@ -30,7 +30,7 @@ namespace Ipfs.Api
         {
             var ipfs = TestFixture.Ipfs;
             var providers = await ipfs.Dht.FindProvidersAsync(helloWorldID);
-            Assert.IsFalse(providers.Take(3).Contains(""));
+            Assert.AreNotEqual(0, providers.Count());
         }
 
     }

@@ -34,12 +34,12 @@ namespace Ipfs.Api
         public class KeyInfo
         {
             /// <summary>
-            ///   Unique identifier (multihash)
+            ///   Unique identifier.
             /// </summary>
             /// <value>
-            ///   This is the <see cref="MultiHash"/> of the key's public key.
+            ///   The <see cref="MultiHash"/> of the key's public key.
             /// </value>
-            public string Id { get; set; }
+            public MultiHash Id { get; set; }
 
             /// <summary>
             ///   The locally assigned name to the key.
@@ -49,6 +49,12 @@ namespace Ipfs.Api
             ///   <see cref="Id"/> is universally unique.
             /// </value>
             public string Name { get; set; }
+
+            /// <inheritdoc />
+            public override string ToString()
+            {
+                return Name;
+            }
 
         }
         IpfsClient ipfs;
@@ -78,8 +84,10 @@ namespace Ipfs.Api
         /// </returns>
         public async Task<KeyInfo> CreateAsync(string name, string keyType, int size, CancellationToken cancel = default(CancellationToken))
         {
-            return await ipfs.DoCommandAsync<KeyInfo>("key/gen", cancel, name, 
-                $"type={keyType}", $"size={size}");
+            return await ipfs.DoCommandAsync<KeyInfo>("key/gen", cancel, 
+                name, 
+                $"type={keyType}", 
+                $"size={size}");
         }
 
         /// <summary>

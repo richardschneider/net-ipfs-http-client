@@ -34,6 +34,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void Get()
         {
+            var _ = ipfs.Block.PutAsync(blob).Result;
             var block = ipfs.Block.GetAsync(hash).Result;
             Assert.AreEqual(hash, block.Hash);
             CollectionAssert.AreEqual(blob, block.DataBytes);
@@ -42,6 +43,7 @@ namespace Ipfs.Api
         [TestMethod]
         public void Stat()
         {
+            var _ = ipfs.Block.PutAsync(blob).Result;
             var info = ipfs.Block.StatAsync(hash).Result;
             Assert.AreEqual(hash, info.Key);
             Assert.AreEqual(5, info.Size);
@@ -50,6 +52,7 @@ namespace Ipfs.Api
         [TestMethod]
         public async Task Remove()
         {
+            var _ = ipfs.Block.PutAsync(blob).Result;
             var removed = await ipfs.Block.RemoveAsync(hash);
             Assert.AreEqual(hash, removed);
         }

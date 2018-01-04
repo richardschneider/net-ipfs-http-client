@@ -18,12 +18,12 @@ namespace Ipfs.Api
     public class BlockInfo
     {
         /// <summary>
-        ///   The unique ID of the block.
+        ///   The <see cref="MultiHash"/> ID of the block.
         /// </summary>
         /// <value>
-        ///   Typically, the string representation of a <see cref="MultiHash"/>.
+        ///   The unique ID of the block.
         /// </value>
-        public string Key { get; set; }
+        public MultiHash Key { get; set; }
 
         /// <summary>
         ///   The serialised size (in bytes) of the block.

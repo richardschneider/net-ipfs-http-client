@@ -38,12 +38,12 @@ namespace Ipfs.Api
         ///   Information about an IPFS peer.
         /// </summary>
         /// <param name="id">
-        ///   The <see cref="string"/> ID of the IPFS peer.  
+        ///   The <see cref="MultiHash"/> ID of the IPFS peer.  
         /// </param>
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
-        public Task<Peer> FindPeerAsync(string id, CancellationToken cancel = default(CancellationToken))
+        public Task<Peer> FindPeerAsync(MultiHash id, CancellationToken cancel = default(CancellationToken))
         {
             return ipfs.IdAsync(id, cancel);
         }
@@ -58,16 +58,15 @@ namespace Ipfs.Api
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         /// <returns>
-        ///   A sequence of IPFS peer IDs.
+        ///   A sequence of IPFS <see cref="Peer"/>.
         /// </returns>
-        public async Task<IEnumerable<string>> FindProvidersAsync(string hash, CancellationToken cancel = default(CancellationToken))
+        public async Task<IEnumerable<Peer>> FindProvidersAsync(string hash, CancellationToken cancel = default(CancellationToken))
         {
-            var serializer = new JsonSerializer();
             var stream = await ipfs.PostDownloadAsync("dht/findprovs", cancel, hash);
             return ProviderFromStream(stream);
         }
 
-        IEnumerable<string> ProviderFromStream(Stream stream)
+        IEnumerable<Peer> ProviderFromStream(Stream stream)
         { 
             using (var sr = new StreamReader(stream))
             {
@@ -80,7 +79,7 @@ namespace Ipfs.Api
                     var r = JObject.Parse(json);
                     var id = (string)r["ID"];
                     if (id != String.Empty)
-                        yield return id;
+                        yield return new Peer { Id = new MultiHash(id) };
                     else
                     {
                         var responses = (JArray)r["Responses"];
@@ -89,7 +88,8 @@ namespace Ipfs.Api
                             foreach (var response in responses)
                             {
                                 var rid = (string)response["ID"];
-                                yield return rid;
+                                if (rid != String.Empty)
+                                    yield return new Peer { Id = new MultiHash(rid) };
                             }
                         }
                     }
