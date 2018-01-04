@@ -97,15 +97,15 @@ namespace Ipfs.Api
         ///   Fetch a MerkleDAG node.
         /// </summary>
         /// <param name="hash">
-        ///   The <see cref="string"/> representation of an encoded <see cref="Ipfs.MultiHash"/>.
+        ///   The <see cref="MultiHash"/> to the node.
         /// </param>
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         /// <returns></returns>
-        public async Task<DagNode> GetAsync(string hash, CancellationToken cancel = default(CancellationToken))
+        public async Task<DagNode> GetAsync(MultiHash hash, CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.DoCommandAsync("object/get", cancel, hash);
+            var json = await ipfs.DoCommandAsync("object/get", cancel, hash.ToBase58());
             return GetDagFromJson(json);
         }
 
@@ -143,7 +143,7 @@ namespace Ipfs.Api
         ///   Get the data of a MerkleDAG node.
         /// </summary>
         /// <param name="hash">
-        ///   The <see cref="string"/> representation of an encoded <see cref="Ipfs.MultiHash"/>.
+        ///   The <see cref="MultiHash"/> id of the node.
         /// </param>
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
@@ -152,24 +152,24 @@ namespace Ipfs.Api
         /// <remarks>
         ///   The caller must dispose the returned <see cref="Stream"/>.
         /// </remarks>
-        public Task<Stream> DataAsync(string hash, CancellationToken cancel = default(CancellationToken))
+        public Task<Stream> DataAsync(MultiHash hash, CancellationToken cancel = default(CancellationToken))
         {
-            return ipfs.DownloadAsync("object/data", cancel, hash);
+            return ipfs.DownloadAsync("object/data", cancel, hash.ToBase58());
         }
 
         /// <summary>
         ///   Get the links of a MerkleDAG node.
         /// </summary>
         /// <param name="hash">
-        ///   The <see cref="string"/> representation of an encoded <see cref="Ipfs.MultiHash"/>.
+        ///   The <see cref="MultiHash"/> id of the node.
         /// </param>
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         /// <returns>A sequence of links</returns>
-        public async Task<IEnumerable<IMerkleLink>> LinksAsync(string hash, CancellationToken cancel = default(CancellationToken))
+        public async Task<IEnumerable<IMerkleLink>> LinksAsync(MultiHash hash, CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.DoCommandAsync("object/links", cancel, hash);
+            var json = await ipfs.DoCommandAsync("object/links", cancel, hash.ToBase58());
             return GetDagFromJson(json).Links;
         }
 
@@ -177,15 +177,15 @@ namespace Ipfs.Api
         ///   Get the statistics of a MerkleDAG node.
         /// </summary>
         /// <param name="hash">
-        ///   The <see cref="string"/> representation of an encoded <see cref="Ipfs.MultiHash"/>.
+        ///   The <see cref="MultiHash"/> of the node.
         /// </param>
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         /// <returns></returns>
-        public Task<DagInfo> StatAsync(string hash, CancellationToken cancel = default(CancellationToken))
+        public Task<DagInfo> StatAsync(MultiHash hash, CancellationToken cancel = default(CancellationToken))
         {
-            return ipfs.DoCommandAsync<DagInfo>("object/stat", cancel, hash);
+            return ipfs.DoCommandAsync<DagInfo>("object/stat", cancel, hash.ToBase58());
         }
 
         // TOOD: patch sub API

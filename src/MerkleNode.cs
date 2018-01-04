@@ -28,12 +28,29 @@ namespace Ipfs.Api
 
         /// <summary>
         ///   Creates a new instance of the <see cref="MerkleNode"/> with the specified
+        ///   <see cref="MultiHash"/> and optional <see cref="Name"/>.
+        /// </summary>
+        /// <param name="hash">
+        ///   The <see cref="MultiHash"/> of the node.
+        /// </param>
+        /// <param name="name">A name for the node.</param>
+        public MerkleNode(MultiHash hash, string name = null)
+        {
+            if (hash == null)
+                throw new ArgumentNullException("hash");
+
+            Hash = hash;
+            Name = name;
+        }
+
+        /// <summary>
+        ///   Creates a new instance of the <see cref="MerkleNode"/> with the specified
         ///   <see cref="Hash">multihash</see> and optional <see cref="Name"/>.
         /// </summary>
         /// <param name="hash">
         ///   The Base58 hash of the node or "/ipfs/hash".
         /// </param>
-        /// <param name="name"></param>
+        /// <param name="name">A name for the node.</param>
         public MerkleNode(string hash, string name = null)
         {
             if (string.IsNullOrWhiteSpace(hash))
@@ -42,7 +59,7 @@ namespace Ipfs.Api
             if (hash.StartsWith("/ipfs/"))
                 hash = hash.Substring(6);
 
-            Hash = hash;
+            Hash = new MultiHash(hash);
             Name = name;
         }
 
@@ -79,7 +96,7 @@ namespace Ipfs.Api
         }
 
         /// <inheritdoc />
-        public string Hash { get; private set; }
+        public MultiHash Hash { get; private set; }
 
         /// <summary>
         ///   The name for the node.  If unknown it is "" (not null).

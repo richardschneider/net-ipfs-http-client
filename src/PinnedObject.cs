@@ -13,7 +13,7 @@ namespace Ipfs.Api
         /// <summary>
         ///   The <see cref="MultiHash"/> of the object.
         /// </summary>
-        public string Id { get; set; }
+        public MultiHash Id { get; set; }
 
         /// <summary>
         ///   The method used to pin the object.

@@ -144,7 +144,9 @@ namespace Ipfs.Api
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
-        /// <returns></returns>
+        /// <returns>
+        ///   The contents of the <paramref name="path"/> as a <see cref="string"/>.
+        /// </returns>
         public async Task<String> ReadAllTextAsync(string path, CancellationToken cancel = default(CancellationToken))
         {
             using (var data = await ReadFileAsync(path, cancel))
@@ -152,6 +154,23 @@ namespace Ipfs.Api
             {
                 return await text.ReadToEndAsync();
             }
+        }
+
+        /// <summary>
+        ///   Reads the content of an existing IPFS file as text.
+        /// </summary>
+        /// <param name="hash">
+        ///   The <see cref="MultiHash"/> id of the file.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        /// <returns>
+        ///   The contents of the <paramref name="hash"/> as a <see cref="string"/>.
+        /// </returns>
+        public Task<String> ReadAllTextAsync(MultiHash hash, CancellationToken cancel = default(CancellationToken))
+        {
+            return ReadAllTextAsync(hash.ToBase58(), cancel);
         }
 
         /// <summary>
@@ -170,6 +189,23 @@ namespace Ipfs.Api
         public Task<Stream> ReadFileAsync(string path, CancellationToken cancel = default(CancellationToken))
         {
             return ipfs.DownloadAsync("cat", cancel, path);
+        }
+
+        /// <summary>
+        ///   Opens an existing IPFS file for reading.
+        /// </summary>
+        /// <param name="hash">
+        ///   The <see cref="MultiHash"/> id of the file.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        /// <returns>
+        ///   A <see cref="Stream"/> to the file contents.
+        /// </returns>
+        public Task<Stream> ReadFileAsync(MultiHash hash, CancellationToken cancel = default(CancellationToken))
+        {
+            return ipfs.DownloadAsync("cat", cancel, hash.ToBase58());
         }
 
         /// <summary>

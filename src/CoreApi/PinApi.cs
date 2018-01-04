@@ -32,8 +32,9 @@ namespace Ipfs.Api
         /// <summary>
         ///   Adds an IPFS object to the pinset and also stores it to the IPFS repo. pinset is the set of hashes currently pinned (not gc'able).
         /// </summary>
-        /// <param name="hash">
-        ///   The <see cref="string"/> representation of a base58 encoded <see cref="Ipfs.MultiHash"/>.
+        /// <param name="path">
+        ///   A path to an existing object, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
+        ///   or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
         /// </param>
         /// <param name="recursive">
         ///   <b>true</b> to recursively pin links of object; otherwise, <b>false</b> to only pin
@@ -42,13 +43,31 @@ namespace Ipfs.Api
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
-        public async Task<PinnedObject[]> AddAsync(string hash, bool recursive = true, CancellationToken cancel = default(CancellationToken))
+        public async Task<PinnedObject[]> AddAsync(string path, bool recursive = true, CancellationToken cancel = default(CancellationToken))
         {
             var opts = "recursive=" + recursive.ToString().ToLowerInvariant();
-            var json = await ipfs.DoCommandAsync("pin/add", cancel, hash, opts);
+            var json = await ipfs.DoCommandAsync("pin/add", cancel, path, opts);
             return ((JArray)JObject.Parse(json)["Pins"])
                 .Select(p => new PinnedObject { Id = (string)p })
                 .ToArray();
+        }
+
+        /// <summary>
+        ///   Adds an IPFS object to the pinset and also stores it to the IPFS repo. pinset is the set of hashes currently pinned (not gc'able).
+        /// </summary>
+        /// <param name="hash">
+        ///   A <see cref="MultiHash"/> id to an existing object.
+        /// </param>
+        /// <param name="recursive">
+        ///   <b>true</b> to recursively pin links of object; otherwise, <b>false</b> to only pin
+        ///   the specified object.  Default is <b>true</b>.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        public Task<PinnedObject[]> AddAsync(MultiHash hash, bool recursive = true, CancellationToken cancel = default(CancellationToken))
+        {
+            return AddAsync(hash.ToBase58(), recursive, cancel);
         }
 
         /// <summary>
@@ -79,8 +98,9 @@ namespace Ipfs.Api
         /// <summary>
         ///   Unpin an object.
         /// </summary>
-        /// <param name="hash">
-        ///   The <see cref="string"/> representation of a base58 encoded <see cref="Ipfs.MultiHash"/>.
+        /// <param name="path">
+        ///   A path to an existing object, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
+        ///   or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
         /// </param>
         /// <param name="recursive">
         ///   <b>true</b> to recursively unpin links of object; otherwise, <b>false</b> to only unpin
@@ -89,13 +109,31 @@ namespace Ipfs.Api
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
-        public async Task<PinnedObject[]> RemoveAsync(string hash, bool recursive = true, CancellationToken cancel = default(CancellationToken))
+        public async Task<PinnedObject[]> RemoveAsync(string path, bool recursive = true, CancellationToken cancel = default(CancellationToken))
         {
             var opts = "recursive=" + recursive.ToString().ToLowerInvariant();
-            var json = await ipfs.DoCommandAsync("pin/rm", cancel, hash, opts);
+            var json = await ipfs.DoCommandAsync("pin/rm", cancel, path, opts);
             return ((JArray)JObject.Parse(json)["Pins"])
                 .Select(p => new PinnedObject { Id = (string)p })
                 .ToArray();
+        }
+
+        /// <summary>
+        ///   Unpin an object.
+        /// </summary>
+        /// <param name="hash">
+        ///   A <see cref="MultiHash"/> id to an existing object.
+        /// </param>
+        /// <param name="recursive">
+        ///   <b>true</b> to recursively unpin links of object; otherwise, <b>false</b> to only unpin
+        ///   the specified object.  Default is <b>true</b>.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        public Task<PinnedObject[]> RemoveAsync(MultiHash hash, bool recursive = true, CancellationToken cancel = default(CancellationToken))
+        {
+            return RemoveAsync(hash.ToBase58(), recursive, cancel);
         }
     }
 
