@@ -262,12 +262,12 @@ references:
   commentId: T:Ipfs.Api.DhtApi
   fullName: Ipfs.Api.DhtApi
   nameWithType: DhtApi
-- uid: Ipfs.Api.DhtApi.FindPeerAsync(System.String,System.Threading.CancellationToken)
-  name: FindPeerAsync(String, CancellationToken)
-  href: api/Ipfs.Api.DhtApi.html#Ipfs_Api_DhtApi_FindPeerAsync_System_String_System_Threading_CancellationToken_
-  commentId: M:Ipfs.Api.DhtApi.FindPeerAsync(System.String,System.Threading.CancellationToken)
-  fullName: Ipfs.Api.DhtApi.FindPeerAsync(System.String, System.Threading.CancellationToken)
-  nameWithType: DhtApi.FindPeerAsync(String, CancellationToken)
+- uid: Ipfs.Api.DhtApi.FindPeerAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
+  name: FindPeerAsync(MultiHash, CancellationToken)
+  href: api/Ipfs.Api.DhtApi.html#Ipfs_Api_DhtApi_FindPeerAsync_Ipfs_MultiHash_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.DhtApi.FindPeerAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
+  fullName: Ipfs.Api.DhtApi.FindPeerAsync(Ipfs.MultiHash, System.Threading.CancellationToken)
+  nameWithType: DhtApi.FindPeerAsync(MultiHash, CancellationToken)
 - uid: Ipfs.Api.DhtApi.FindPeerAsync*
   name: FindPeerAsync
   href: api/Ipfs.Api.DhtApi.html#Ipfs_Api_DhtApi_FindPeerAsync_
@@ -907,6 +907,18 @@ references:
   commentId: Overload:Ipfs.Api.KeyApi.KeyInfo.Name
   fullName: Ipfs.Api.KeyApi.KeyInfo.Name
   nameWithType: KeyApi.KeyInfo.Name
+- uid: Ipfs.Api.KeyApi.KeyInfo.ToString
+  name: ToString()
+  href: api/Ipfs.Api.KeyApi.KeyInfo.html#Ipfs_Api_KeyApi_KeyInfo_ToString
+  commentId: M:Ipfs.Api.KeyApi.KeyInfo.ToString
+  fullName: Ipfs.Api.KeyApi.KeyInfo.ToString()
+  nameWithType: KeyApi.KeyInfo.ToString()
+- uid: Ipfs.Api.KeyApi.KeyInfo.ToString*
+  name: ToString
+  href: api/Ipfs.Api.KeyApi.KeyInfo.html#Ipfs_Api_KeyApi_KeyInfo_ToString_
+  commentId: Overload:Ipfs.Api.KeyApi.KeyInfo.ToString
+  fullName: Ipfs.Api.KeyApi.KeyInfo.ToString
+  nameWithType: KeyApi.KeyInfo.ToString
 - uid: Ipfs.Api.KeyApi.ListAsync(System.Threading.CancellationToken)
   name: ListAsync(CancellationToken)
   href: api/Ipfs.Api.KeyApi.html#Ipfs_Api_KeyApi_ListAsync_System_Threading_CancellationToken_

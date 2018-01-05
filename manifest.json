@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ipfs.Api.BlockInfo.html",
-          "hash": "clrhPuLRf+e9iz8Iz5P+FQ=="
+          "hash": "tDRBQs5v8Iv+bPSxY8t6uQ=="
         }
       },
       "is_incremental": false,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ipfs.Api.DhtApi.html",
-          "hash": "S9k4HzmUiuvFtjG2VFwKcA=="
+          "hash": "nNRjVZ2LPur6WIrLDUVWQQ=="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ipfs.Api.KeyApi.KeyInfo.html",
-          "hash": "Y58EloqBPgodkyvliqbdEw=="
+          "hash": "b9nQwF+uZ2c5OOsC/YeEOQ=="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ipfs.Api.KeyApi.html",
-          "hash": "XQdMK92cbunr0FaC3pyHdg=="
+          "hash": "qQf11S/myRsdrL6kf5LPQQ=="
         }
       },
       "is_incremental": false,
@@ -450,13 +450,13 @@
           "can_incremental": false,
           "incrementalPhase": "build"
         },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
           "incrementalPhase": "build"
         }
       }
