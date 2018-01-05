@@ -39,6 +39,7 @@ namespace Ipfs.Api
         {
             ExceptionAssert.Throws<ArgumentNullException>(() => new MerkleNode((string)null));
             ExceptionAssert.Throws<ArgumentNullException>(() => new MerkleNode(""));
+            ExceptionAssert.Throws<ArgumentNullException>(() => new MerkleNode((MultiHash)null));
         }
 
         [TestMethod]
