@@ -76,14 +76,14 @@ namespace Ipfs.Api
             var r = JObject.Parse(json);
             var fsn = new FileSystemNode
             {
-                Hash = (string)r["Hash"],
+                Id = (string)r["Hash"],
                 Size = long.Parse((string)r["Size"]),
                 IsDirectory = false,
                 Name = name,
                 IpfsClient = ipfs
             };
             if (log.IsDebugEnabled)
-                log.Debug("added " + fsn.Hash + " " + fsn.Name);
+                log.Debug("added " + fsn.Id + " " + fsn.Name);
              return fsn;
         }
 
@@ -121,10 +121,10 @@ namespace Ipfs.Api
             var directory = await ipfs.Object.PutAsync(folder, cancel);
 
             if (log.IsDebugEnabled)
-                log.Debug("added " + directory.Hash + " " + Path.GetFileName(path));
+                log.Debug("added " + directory.Id + " " + Path.GetFileName(path));
             return new FileSystemNode
             {
-                Hash = directory.Hash,
+                Id = directory.Id,
                 Name = Path.GetFileName(path),
                 Links = links,
                 IsDirectory = true,
@@ -156,22 +156,6 @@ namespace Ipfs.Api
             }
         }
 
-        /// <summary>
-        ///   Reads the content of an existing IPFS file as text.
-        /// </summary>
-        /// <param name="hash">
-        ///   The <see cref="MultiHash"/> id of the file.
-        /// </param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        /// <returns>
-        ///   The contents of the <paramref name="hash"/> as a <see cref="string"/>.
-        /// </returns>
-        public Task<String> ReadAllTextAsync(MultiHash hash, CancellationToken cancel = default(CancellationToken))
-        {
-            return ReadAllTextAsync(hash.ToBase58(), cancel);
-        }
 
         /// <summary>
         ///   Opens an existing IPFS file for reading.
@@ -191,22 +175,6 @@ namespace Ipfs.Api
             return ipfs.DownloadAsync("cat", cancel, path);
         }
 
-        /// <summary>
-        ///   Opens an existing IPFS file for reading.
-        /// </summary>
-        /// <param name="hash">
-        ///   The <see cref="MultiHash"/> id of the file.
-        /// </param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        /// <returns>
-        ///   A <see cref="Stream"/> to the file contents.
-        /// </returns>
-        public Task<Stream> ReadFileAsync(MultiHash hash, CancellationToken cancel = default(CancellationToken))
-        {
-            return ipfs.DownloadAsync("cat", cancel, hash.ToBase58());
-        }
 
         /// <summary>
         ///   Get information about the file or directory.
@@ -227,7 +195,7 @@ namespace Ipfs.Api
             var o = (JObject)r["Objects"][hash];
             var node = new FileSystemNode()
             {
-                Hash = (string)o["Hash"],
+                Id = (string)o["Hash"],
                 Size = (long)o["Size"],
                 IsDirectory = (string)o["Type"] == "Directory",
                 Links = new FileSystemLink[0]
@@ -239,7 +207,7 @@ namespace Ipfs.Api
                     .Select(l => new FileSystemLink()
                     {
                         Name = (string)l["Name"],
-                        Hash = (string)l["Hash"],
+                        Id = (string)l["Hash"],
                         Size = (long)l["Size"],
                         IsDirectory = (string)l["Type"] == "Directory",
                     })

@@ -34,11 +34,11 @@ namespace Ipfs.Api
         {
             get
             {
-                return IpfsClient.FileSystem.ReadFileAsync(Hash.ToBase58()).Result;
+                return IpfsClient.FileSystem.ReadFileAsync(Id).Result;
             }
         }
         /// <inheritdoc />
-        public MultiHash Hash { get; set; }
+        public Cid Id { get; set; }
 
         /// <inheritdoc />
         public IEnumerable<FileSystemLink> Links {
@@ -104,7 +104,7 @@ namespace Ipfs.Api
             return new FileSystemLink
             {
                 Name = name ?? Name,
-                Hash = Hash,
+                Id = Id,
                 Size = Size,
                 IsDirectory = IsDirectory
             };
@@ -131,7 +131,7 @@ namespace Ipfs.Api
 
         void GetInfo()
         {
-            var node = IpfsClient.FileSystem.ListFileAsync(Hash.ToBase58()).Result;
+            var node = IpfsClient.FileSystem.ListFileAsync(Id).Result;
             this.IsDirectory = node.IsDirectory;
             this.Links = node.Links;
             this.Size = node.Size;

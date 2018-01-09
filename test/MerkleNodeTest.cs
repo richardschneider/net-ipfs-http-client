@@ -16,7 +16,7 @@ namespace Ipfs.Api
         public void HashWithNamespace()
         {
             var node = new MerkleNode("/ipfs/" + IpfsInfo);
-            Assert.AreEqual(IpfsInfo, node.Hash);
+            Assert.AreEqual(IpfsInfo, (string)node.Id);
         }
 
         [TestMethod]
@@ -39,7 +39,7 @@ namespace Ipfs.Api
         {
             ExceptionAssert.Throws<ArgumentNullException>(() => new MerkleNode((string)null));
             ExceptionAssert.Throws<ArgumentNullException>(() => new MerkleNode(""));
-            ExceptionAssert.Throws<ArgumentNullException>(() => new MerkleNode((MultiHash)null));
+            ExceptionAssert.Throws<ArgumentNullException>(() => new MerkleNode((Cid)null));
         }
 
         [TestMethod]
@@ -66,7 +66,7 @@ namespace Ipfs.Api
         {
             var node = new MerkleNode(IpfsInfo);
             var link = new MerkleNode(node.Links.First());
-            Assert.AreEqual(link.Hash, node.Links.First().Hash);
+            Assert.AreEqual(link.Id, node.Links.First().Id);
             Assert.AreEqual(link.Name, node.Links.First().Name);
             Assert.AreEqual(link.BlockSize, node.Links.First().Size);
         }
@@ -76,7 +76,7 @@ namespace Ipfs.Api
         {
             var node = new MerkleNode(IpfsInfo);
             var link = node.ToLink();
-            Assert.AreEqual(link.Hash, node.Hash);
+            Assert.AreEqual(link.Id, node.Id);
             Assert.AreEqual(link.Name, node.Name);
             Assert.AreEqual(link.Size, node.BlockSize);
 

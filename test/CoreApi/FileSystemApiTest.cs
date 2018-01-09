@@ -16,7 +16,7 @@ namespace Ipfs.Api
         {
             var ipfs = TestFixture.Ipfs;
             var result = ipfs.FileSystem.AddTextAsync("hello world").Result;
-            Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", result.Hash);
+            Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", (string)result.Id);
         }
 
         [TestMethod]
@@ -28,7 +28,7 @@ namespace Ipfs.Api
             {
                 var ipfs = TestFixture.Ipfs;
                 var result = ipfs.FileSystem.AddFileAsync(path).Result;
-                Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", result.Hash);
+                Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", (string)result.Id);
                 Assert.AreEqual(0, result.Links.Count());
             }
             finally
@@ -54,11 +54,11 @@ namespace Ipfs.Api
                 Assert.IsFalse(files[0].IsDirectory);
                 Assert.IsFalse(files[1].IsDirectory);
 
-                Assert.AreEqual("alpha", ipfs.FileSystem.ReadAllTextAsync(files[0].Hash).Result);
-                Assert.AreEqual("beta", ipfs.FileSystem.ReadAllTextAsync(files[1].Hash).Result);
+                Assert.AreEqual("alpha", ipfs.FileSystem.ReadAllTextAsync(files[0].Id).Result);
+                Assert.AreEqual("beta", ipfs.FileSystem.ReadAllTextAsync(files[1].Id).Result);
 
-                Assert.AreEqual("alpha", ipfs.FileSystem.ReadAllTextAsync(dir.Hash + "/alpha.txt").Result);
-                Assert.AreEqual("beta", ipfs.FileSystem.ReadAllTextAsync(dir.Hash + "/beta.txt").Result);
+                Assert.AreEqual("alpha", ipfs.FileSystem.ReadAllTextAsync(dir.Id + "/alpha.txt").Result);
+                Assert.AreEqual("beta", ipfs.FileSystem.ReadAllTextAsync(dir.Id + "/beta.txt").Result);
             }
             finally
             {
@@ -87,21 +87,21 @@ namespace Ipfs.Api
                 Assert.AreNotEqual(0, files[0].Size);
                 Assert.AreNotEqual(0, files[1].Size);
 
-                var xfiles = new FileSystemNode { Hash = files[2].Hash }.Links.ToArray();
+                var xfiles = new FileSystemNode { Id = files[2].Id }.Links.ToArray();
                 Assert.AreEqual(2, xfiles.Length);
                 Assert.AreEqual("x.txt", xfiles[0].Name);
                 Assert.AreEqual("y", xfiles[1].Name);
                 Assert.IsFalse(xfiles[0].IsDirectory);
                 Assert.IsTrue(xfiles[1].IsDirectory);
 
-                var yfiles = new FileSystemNode { Hash = xfiles[1].Hash }.Links.ToArray();
+                var yfiles = new FileSystemNode { Id = xfiles[1].Id }.Links.ToArray();
                 Assert.AreEqual(1, yfiles.Length);
                 Assert.AreEqual("y.txt", yfiles[0].Name);
                 Assert.IsFalse(yfiles[0].IsDirectory);
 
-                var y = new FileSystemNode { Hash = yfiles[0].Hash };
+                var y = new FileSystemNode { Id = yfiles[0].Id };
                 Assert.AreEqual("y", Encoding.UTF8.GetString(y.DataBytes));
-                Assert.AreEqual("y", ipfs.FileSystem.ReadAllTextAsync(dir.Hash + "/x/y/y.txt").Result);
+                Assert.AreEqual("y", ipfs.FileSystem.ReadAllTextAsync(dir.Id + "/x/y/y.txt").Result);
             }
             finally
             {

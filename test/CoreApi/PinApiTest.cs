@@ -35,7 +35,7 @@ namespace Ipfs.Api
         {
             var ipfs = TestFixture.Ipfs;
             var result = await ipfs.FileSystem.AddTextAsync("I am pinned");
-            var id = result.Hash;
+            var id = result.Id;
 
             var pins = await ipfs.Pin.AddAsync(id);
             Assert.IsTrue(pins.Any(pin => pin.Id == id));

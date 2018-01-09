@@ -11,7 +11,7 @@ namespace Ipfs.Api
     ///   The IPFS <see href="https://github.com/ipfs/specs/tree/master/merkledag">MerkleDag</see> is the datastructure at the heart of IPFS. It is an acyclic directed graph whose edges are hashes.
     /// </summary>
     /// <remarks>
-    ///   Initially an <b>MerkleNode</b> is just constructed with its MultiHash.  Its other properties are lazily loaded.
+    ///   Initially an <b>MerkleNode</b> is just constructed with its Cid.  Its other properties are lazily loaded.
     /// </remarks>
     public class MerkleNode : IMerkleNode<IMerkleLink>, IEquatable<MerkleNode>
     {
@@ -28,38 +28,38 @@ namespace Ipfs.Api
 
         /// <summary>
         ///   Creates a new instance of the <see cref="MerkleNode"/> with the specified
-        ///   <see cref="MultiHash"/> and optional <see cref="Name"/>.
+        ///   <see cref="Cid"/> and optional <see cref="Name"/>.
         /// </summary>
-        /// <param name="hash">
-        ///   The <see cref="MultiHash"/> of the node.
+        /// <param name="id">
+        ///   The <see cref="Cid"/> of the node.
         /// </param>
         /// <param name="name">A name for the node.</param>
-        public MerkleNode(MultiHash hash, string name = null)
+        public MerkleNode(Cid id, string name = null)
         {
-            if (hash == null)
-                throw new ArgumentNullException("hash");
+            if (id == null)
+                throw new ArgumentNullException("id");
 
-            Hash = hash;
+            Id = id;
             Name = name;
         }
 
         /// <summary>
         ///   Creates a new instance of the <see cref="MerkleNode"/> with the specified
-        ///   <see cref="Hash">multihash</see> and optional <see cref="Name"/>.
+        ///   <see cref="Id">cid</see> and optional <see cref="Name"/>.
         /// </summary>
-        /// <param name="hash">
-        ///   The Base58 hash of the node or "/ipfs/hash".
+        /// <param name="path">
+        ///   The string representation of a <see cref="Cid"/> of the node or "/ipfs/cid".
         /// </param>
         /// <param name="name">A name for the node.</param>
-        public MerkleNode(string hash, string name = null)
+        public MerkleNode(string path, string name = null)
         {
-            if (string.IsNullOrWhiteSpace(hash))
-                throw new ArgumentNullException("hash");
+            if (string.IsNullOrWhiteSpace(path))
+                throw new ArgumentNullException("payh");
 
-            if (hash.StartsWith("/ipfs/"))
-                hash = hash.Substring(6);
+            if (path.StartsWith("/ipfs/"))
+                path = path.Substring(6);
 
-            Hash = new MultiHash(hash);
+            Id = Cid.Decode(path);
             Name = name;
         }
 
@@ -70,7 +70,7 @@ namespace Ipfs.Api
         /// <param name="link">The link to a node.</param>
         public MerkleNode(IMerkleLink link)
         {
-            Hash = link.Hash;
+            Id = link.Id;
             Name = link.Name;
             blockSize = link.Size;
             hasBlockStats = true;
@@ -96,7 +96,7 @@ namespace Ipfs.Api
         }
 
         /// <inheritdoc />
-        public MultiHash Hash { get; private set; }
+        public Cid Id { get; private set; }
 
         /// <summary>
         ///   The name for the node.  If unknown it is "" (not null).
@@ -150,7 +150,7 @@ namespace Ipfs.Api
             {
                 if (links == null)
                 {
-                    links = IpfsClient.Object.LinksAsync(Hash).Result;
+                    links = IpfsClient.Object.LinksAsync(Id).Result;
                 }
 
                 return links;
@@ -186,7 +186,7 @@ namespace Ipfs.Api
         {
             get
             {
-                return IpfsClient.Block.GetAsync(Hash).Result.DataBytes;
+                return IpfsClient.Block.GetAsync(Id).Result.DataBytes;
             }
         }
 
@@ -195,14 +195,14 @@ namespace Ipfs.Api
         {
             get
             {
-                return IpfsClient.Block.GetAsync(Hash).Result.DataStream;
+                return IpfsClient.Block.GetAsync(Id).Result.DataStream;
             }
         }
 
         /// <inheritdoc />
         public IMerkleLink ToLink(string name = null)
         {
-            return new DagLink(name ?? Name, Hash, BlockSize);
+            return new DagLink(name ?? Name, Id, BlockSize);
         }
 
         /// <summary>
@@ -216,7 +216,7 @@ namespace Ipfs.Api
             if (hasObjectStats)
                 return;
 
-            var stats = IpfsClient.Object.StatAsync(Hash).Result;
+            var stats = IpfsClient.Object.StatAsync(Id).Result;
             blockSize = stats.BlockSize;
             cumulativeSize = stats.CumulativeSize;
             dataSize = stats.DataSize;
@@ -240,7 +240,7 @@ namespace Ipfs.Api
             if (hasBlockStats)
                 return;
 
-            var stats = IpfsClient.Block.StatAsync(Hash).Result;
+            var stats = IpfsClient.Block.StatAsync(Id).Result;
             blockSize = stats.Size;
 
             hasBlockStats = true;
@@ -249,20 +249,20 @@ namespace Ipfs.Api
         /// <inheritdoc />
         public override int GetHashCode()
         {
-            return Hash.GetHashCode();
+            return Id.GetHashCode();
         }
 
         /// <inheritdoc />
         public override bool Equals(object obj)
         {
             var that = obj as MerkleNode;
-            return that != null && this.Hash == that.Hash;
+            return that != null && this.Id == that.Id;
         }
 
         /// <inheritdoc />
         public bool Equals(MerkleNode that)
         {
-            return that != null && this.Hash == that.Hash;
+            return that != null && this.Id == that.Id;
         }
 
         /// <summary>
@@ -292,7 +292,7 @@ namespace Ipfs.Api
         /// <inheritdoc />
         public override string ToString()
         {
-            return "/ipfs/" + Hash;
+            return "/ipfs/" + Id;
         }
 
         /// <summary>

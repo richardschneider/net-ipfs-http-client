@@ -53,24 +53,6 @@ namespace Ipfs.Api
         }
 
         /// <summary>
-        ///   Adds an IPFS object to the pinset and also stores it to the IPFS repo. pinset is the set of hashes currently pinned (not gc'able).
-        /// </summary>
-        /// <param name="hash">
-        ///   A <see cref="MultiHash"/> id to an existing object.
-        /// </param>
-        /// <param name="recursive">
-        ///   <b>true</b> to recursively pin links of object; otherwise, <b>false</b> to only pin
-        ///   the specified object.  Default is <b>true</b>.
-        /// </param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        public Task<PinnedObject[]> AddAsync(MultiHash hash, bool recursive = true, CancellationToken cancel = default(CancellationToken))
-        {
-            return AddAsync(hash.ToBase58(), recursive, cancel);
-        }
-
-        /// <summary>
         ///   List all the objects pinned to local storage.
         /// </summary>
         /// <param name="mode">
@@ -118,23 +100,6 @@ namespace Ipfs.Api
                 .ToArray();
         }
 
-        /// <summary>
-        ///   Unpin an object.
-        /// </summary>
-        /// <param name="hash">
-        ///   A <see cref="MultiHash"/> id to an existing object.
-        /// </param>
-        /// <param name="recursive">
-        ///   <b>true</b> to recursively unpin links of object; otherwise, <b>false</b> to only unpin
-        ///   the specified object.  Default is <b>true</b>.
-        /// </param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        public Task<PinnedObject[]> RemoveAsync(MultiHash hash, bool recursive = true, CancellationToken cancel = default(CancellationToken))
-        {
-            return RemoveAsync(hash.ToBase58(), recursive, cancel);
-        }
     }
 
 }

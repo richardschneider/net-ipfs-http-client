@@ -55,7 +55,7 @@ namespace Ipfs.Api
         ///   Pin an object.
         /// </summary>
         /// <param name="id">
-        ///   The <see cref="MultiHash"/> id of the object.
+        ///   The <see cref="Cid"/> of the object.
         /// </param>
         /// <param name="recursive">
         ///   True to also pin the object's links; False to just pin the object. Defaults to true.  
@@ -63,7 +63,7 @@ namespace Ipfs.Api
         /// <remarks>
         ///    Equivalent to <c>ipfs pin add <i>id</i></c>.
         /// </remarks>
-        public void Add(MultiHash id, bool recursive = true)
+        public void Add(Cid id, bool recursive = true)
         {
             Add(new PinnedObject
             {
@@ -95,7 +95,7 @@ namespace Ipfs.Api
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool Contains(MultiHash id)
+        public bool Contains(Cid id)
         {
             return Pins.Any(pin => pin.Id == id);
         }
@@ -141,7 +141,7 @@ namespace Ipfs.Api
         ///   Unpin an object.
         /// </summary>
         /// <param name="id">
-        ///   The string representation of the object's <see cref="MultiHash"/>.
+        ///   The <see cref="Cid"/> of the object.
         /// </param>
         /// <param name="recursive">
         ///   True to also unpin the object's links; False to just unpin the object. Defaults to true.  
@@ -149,7 +149,7 @@ namespace Ipfs.Api
         /// <remarks>
         ///    Equivalent to <c>ipfs pin rm <i>id</i></c>.
         /// </remarks>
-        public bool Remove(MultiHash id, bool recursive = true)
+        public bool Remove(Cid id, bool recursive = true)
         {
             return Remove(new PinnedObject
             {

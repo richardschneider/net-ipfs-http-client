@@ -63,7 +63,7 @@ namespace Ipfs.Api
 
             // Sometimes we cannot connect to a specific peer.  This
             // tests that a connection can be made to at least one peer.
-            foreach (var peer in peers)
+            foreach (var peer in peers.Take(2))
             {
                 try
                 {

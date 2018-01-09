@@ -13,7 +13,7 @@ namespace Ipfs.Api
         byte[] dataBytes;
 
         /// <inheritdoc />
-        public MultiHash Hash { get; set; }
+        public Cid Id { get; set; }
 
         /// <inheritdoc />
         public byte[] DataBytes

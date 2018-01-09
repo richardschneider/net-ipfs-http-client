@@ -22,7 +22,7 @@ namespace Ipfs.Api
         {
             var ipfs = TestFixture.Ipfs;
             var result = ipfs.FileSystem.AddTextAsync("I am pinned").Result;
-            var id = result.Hash;
+            var id = result.Id;
 
             ipfs.PinnedObjects.Add(id);
             Assert.IsTrue(ipfs.PinnedObjects.Contains(id));

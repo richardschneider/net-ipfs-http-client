@@ -10,7 +10,7 @@ namespace Ipfs.Api
         public string Name { get; set; }
 
         /// <inheritdoc />
-        public MultiHash Hash { get; set; }
+        public Cid Id { get; set; }
 
         /// <inheritdoc />
         public long Size { get; set; }

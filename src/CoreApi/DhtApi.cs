@@ -51,8 +51,8 @@ namespace Ipfs.Api
         /// <summary>
         ///   Find the providers for content that is addressed by a hash.
         /// </summary>
-        /// <param name="hash">
-        ///   The <see cref="string"/> representation of a base58 encoded <see cref="Ipfs.MultiHash"/>.
+        /// <param name="id">
+        ///   The <see cref="Cid"/> of the content.
         /// </param>
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
@@ -60,9 +60,9 @@ namespace Ipfs.Api
         /// <returns>
         ///   A sequence of IPFS <see cref="Peer"/>.
         /// </returns>
-        public async Task<IEnumerable<Peer>> FindProvidersAsync(string hash, CancellationToken cancel = default(CancellationToken))
+        public async Task<IEnumerable<Peer>> FindProvidersAsync(Cid id, CancellationToken cancel = default(CancellationToken))
         {
-            var stream = await ipfs.PostDownloadAsync("dht/findprovs", cancel, hash);
+            var stream = await ipfs.PostDownloadAsync("dht/findprovs", cancel, id);
             return ProviderFromStream(stream);
         }
 

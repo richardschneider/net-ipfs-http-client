@@ -11,9 +11,9 @@ namespace Ipfs.Api
     public class PinnedObject
     {
         /// <summary>
-        ///   The <see cref="MultiHash"/> of the object.
+        ///   The <see cref="Cid"/> of the object.
         /// </summary>
-        public MultiHash Id { get; set; }
+        public Cid Id { get; set; }
 
         /// <summary>
         ///   The method used to pin the object.

@@ -18,12 +18,12 @@ namespace Ipfs.Api
     public class BlockInfo
     {
         /// <summary>
-        ///   The <see cref="MultiHash"/> ID of the block.
+        ///   The <see cref="Cid"/> of the block.
         /// </summary>
         /// <value>
         ///   The unique ID of the block.
         /// </value>
-        public MultiHash Key { get; set; }
+        public Cid Id { get; set; }
 
         /// <summary>
         ///   The serialised size (in bytes) of the block.
@@ -65,16 +65,16 @@ namespace Ipfs.Api
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
-        /// <param name="hash">
-        ///   The <see cref="MultiHash"/> of the block.
+        /// <param name="id">
+        ///   The <see cref="Cid"/> of the block.
         /// </param>
-        public async Task<Block> GetAsync(MultiHash hash, CancellationToken cancel = default(CancellationToken)) // TODO CID support
+        public async Task<Block> GetAsync(Cid id, CancellationToken cancel = default(CancellationToken)) // TODO CID support
         {
-            var data = await ipfs.DownloadBytesAsync("block/get", cancel, hash.ToString());
+            var data = await ipfs.DownloadBytesAsync("block/get", cancel, id);
             return new Block
             {
                 DataBytes = data,
-                Hash = hash
+                Id = id
             };
         }
 
@@ -90,11 +90,11 @@ namespace Ipfs.Api
         public async Task<Block> PutAsync(byte[] data, CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.UploadAsync("block/put", cancel, data);
-            var info = JsonConvert.DeserializeObject<BlockInfo>(json);
+            var info = JObject.Parse(json);
             return new Block
             {
                 DataBytes = data,
-                Hash = info.Key
+                Id = (string)info["Key"]
             };
         }
 
@@ -115,15 +115,21 @@ namespace Ipfs.Api
         /// <summary>
         ///   Information on a raw <see cref="Block">IPFS block</see>.
         /// </summary>
-        /// <param name="hash">
-        ///   The <see cref="MultiHash"/> id of the block.
+        /// <param name="id">
+        ///   The <see cref="Cid"/> of the block.
         /// </param>
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
-        public Task<BlockInfo> StatAsync(MultiHash hash, CancellationToken cancel = default(CancellationToken))
+        public async Task<BlockInfo> StatAsync(Cid id, CancellationToken cancel = default(CancellationToken))
         {
-            return ipfs.DoCommandAsync<BlockInfo>("block/stat", cancel, hash.ToBase58());
+            var json = await ipfs.DoCommandAsync("block/stat", cancel, id);
+            var info = JObject.Parse(json);
+            return new BlockInfo
+            {
+                Size = (long)info["Size"],
+                Id = (string)info["Key"]
+            };
         }
 
         /// <summary>
@@ -132,21 +138,21 @@ namespace Ipfs.Api
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
-        /// <param name="hash">
-        ///   The <see cref="MultiHash"/> id of the block.
+        /// <param name="id">
+        ///   The <see cref="Cid"/> of the block.
         /// </param>
         /// <param name="ignoreNonexistent">
-        ///   If <b>true</b> do not raise exception when <paramref name="hash"/> does not
+        ///   If <b>true</b> do not raise exception when <paramref name="id"/> does not
         ///   exist.  Default value is <b>false</b>.
         /// </param>
         /// <returns>
-        ///   The awaited Task will return the deleted <paramref name="hash"/> or
+        ///   The awaited Task will return the deleted <paramref name="id"/> or
         ///   <see cref="string.Empty"/> if the hash does not exist and <paramref name="ignoreNonexistent"/>
         ///   is <b>true</b>.
         /// </returns>
-        public async Task<string> RemoveAsync(MultiHash hash, bool ignoreNonexistent = false, CancellationToken cancel = default(CancellationToken)) // TODO CID support
+        public async Task<string> RemoveAsync(Cid id, bool ignoreNonexistent = false, CancellationToken cancel = default(CancellationToken)) // TODO CID support
         {
-            var json = await ipfs.DoCommandAsync("block/rm", cancel, hash.ToBase58(), "force=" + ignoreNonexistent.ToString().ToLowerInvariant());
+            var json = await ipfs.DoCommandAsync("block/rm", cancel, id, "force=" + ignoreNonexistent.ToString().ToLowerInvariant());
             if (json.Length == 0)
                 return "";
             var result = JObject.Parse(json);
