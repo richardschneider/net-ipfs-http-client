@@ -37,30 +37,30 @@ references:
   commentId: Overload:Ipfs.Api.Block.DataStream
   fullName: Ipfs.Api.Block.DataStream
   nameWithType: Block.DataStream
-- uid: Ipfs.Api.Block.Hash
-  name: Hash
-  href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_Hash
-  commentId: P:Ipfs.Api.Block.Hash
-  fullName: Ipfs.Api.Block.Hash
-  nameWithType: Block.Hash
-- uid: Ipfs.Api.Block.Hash*
-  name: Hash
-  href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_Hash_
-  commentId: Overload:Ipfs.Api.Block.Hash
-  fullName: Ipfs.Api.Block.Hash
-  nameWithType: Block.Hash
+- uid: Ipfs.Api.Block.Id
+  name: Id
+  href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_Id
+  commentId: P:Ipfs.Api.Block.Id
+  fullName: Ipfs.Api.Block.Id
+  nameWithType: Block.Id
+- uid: Ipfs.Api.Block.Id*
+  name: Id
+  href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_Id_
+  commentId: Overload:Ipfs.Api.Block.Id
+  fullName: Ipfs.Api.Block.Id
+  nameWithType: Block.Id
 - uid: Ipfs.Api.BlockApi
   name: BlockApi
   href: api/Ipfs.Api.BlockApi.html
   commentId: T:Ipfs.Api.BlockApi
   fullName: Ipfs.Api.BlockApi
   nameWithType: BlockApi
-- uid: Ipfs.Api.BlockApi.GetAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  name: GetAsync(MultiHash, CancellationToken)
-  href: api/Ipfs.Api.BlockApi.html#Ipfs_Api_BlockApi_GetAsync_Ipfs_MultiHash_System_Threading_CancellationToken_
-  commentId: M:Ipfs.Api.BlockApi.GetAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  fullName: Ipfs.Api.BlockApi.GetAsync(Ipfs.MultiHash, System.Threading.CancellationToken)
-  nameWithType: BlockApi.GetAsync(MultiHash, CancellationToken)
+- uid: Ipfs.Api.BlockApi.GetAsync(Ipfs.Cid,System.Threading.CancellationToken)
+  name: GetAsync(Cid, CancellationToken)
+  href: api/Ipfs.Api.BlockApi.html#Ipfs_Api_BlockApi_GetAsync_Ipfs_Cid_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.BlockApi.GetAsync(Ipfs.Cid,System.Threading.CancellationToken)
+  fullName: Ipfs.Api.BlockApi.GetAsync(Ipfs.Cid, System.Threading.CancellationToken)
+  nameWithType: BlockApi.GetAsync(Cid, CancellationToken)
 - uid: Ipfs.Api.BlockApi.GetAsync*
   name: GetAsync
   href: api/Ipfs.Api.BlockApi.html#Ipfs_Api_BlockApi_GetAsync_
@@ -88,24 +88,24 @@ references:
   commentId: Overload:Ipfs.Api.BlockApi.PutAsync
   fullName: Ipfs.Api.BlockApi.PutAsync
   nameWithType: BlockApi.PutAsync
-- uid: Ipfs.Api.BlockApi.RemoveAsync(Ipfs.MultiHash,System.Boolean,System.Threading.CancellationToken)
-  name: RemoveAsync(MultiHash, Boolean, CancellationToken)
-  href: api/Ipfs.Api.BlockApi.html#Ipfs_Api_BlockApi_RemoveAsync_Ipfs_MultiHash_System_Boolean_System_Threading_CancellationToken_
-  commentId: M:Ipfs.Api.BlockApi.RemoveAsync(Ipfs.MultiHash,System.Boolean,System.Threading.CancellationToken)
-  fullName: Ipfs.Api.BlockApi.RemoveAsync(Ipfs.MultiHash, System.Boolean, System.Threading.CancellationToken)
-  nameWithType: BlockApi.RemoveAsync(MultiHash, Boolean, CancellationToken)
+- uid: Ipfs.Api.BlockApi.RemoveAsync(Ipfs.Cid,System.Boolean,System.Threading.CancellationToken)
+  name: RemoveAsync(Cid, Boolean, CancellationToken)
+  href: api/Ipfs.Api.BlockApi.html#Ipfs_Api_BlockApi_RemoveAsync_Ipfs_Cid_System_Boolean_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.BlockApi.RemoveAsync(Ipfs.Cid,System.Boolean,System.Threading.CancellationToken)
+  fullName: Ipfs.Api.BlockApi.RemoveAsync(Ipfs.Cid, System.Boolean, System.Threading.CancellationToken)
+  nameWithType: BlockApi.RemoveAsync(Cid, Boolean, CancellationToken)
 - uid: Ipfs.Api.BlockApi.RemoveAsync*
   name: RemoveAsync
   href: api/Ipfs.Api.BlockApi.html#Ipfs_Api_BlockApi_RemoveAsync_
   commentId: Overload:Ipfs.Api.BlockApi.RemoveAsync
   fullName: Ipfs.Api.BlockApi.RemoveAsync
   nameWithType: BlockApi.RemoveAsync
-- uid: Ipfs.Api.BlockApi.StatAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  name: StatAsync(MultiHash, CancellationToken)
-  href: api/Ipfs.Api.BlockApi.html#Ipfs_Api_BlockApi_StatAsync_Ipfs_MultiHash_System_Threading_CancellationToken_
-  commentId: M:Ipfs.Api.BlockApi.StatAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  fullName: Ipfs.Api.BlockApi.StatAsync(Ipfs.MultiHash, System.Threading.CancellationToken)
-  nameWithType: BlockApi.StatAsync(MultiHash, CancellationToken)
+- uid: Ipfs.Api.BlockApi.StatAsync(Ipfs.Cid,System.Threading.CancellationToken)
+  name: StatAsync(Cid, CancellationToken)
+  href: api/Ipfs.Api.BlockApi.html#Ipfs_Api_BlockApi_StatAsync_Ipfs_Cid_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.BlockApi.StatAsync(Ipfs.Cid,System.Threading.CancellationToken)
+  fullName: Ipfs.Api.BlockApi.StatAsync(Ipfs.Cid, System.Threading.CancellationToken)
+  nameWithType: BlockApi.StatAsync(Cid, CancellationToken)
 - uid: Ipfs.Api.BlockApi.StatAsync*
   name: StatAsync
   href: api/Ipfs.Api.BlockApi.html#Ipfs_Api_BlockApi_StatAsync_
@@ -118,18 +118,18 @@ references:
   commentId: T:Ipfs.Api.BlockInfo
   fullName: Ipfs.Api.BlockInfo
   nameWithType: BlockInfo
-- uid: Ipfs.Api.BlockInfo.Key
-  name: Key
-  href: api/Ipfs.Api.BlockInfo.html#Ipfs_Api_BlockInfo_Key
-  commentId: P:Ipfs.Api.BlockInfo.Key
-  fullName: Ipfs.Api.BlockInfo.Key
-  nameWithType: BlockInfo.Key
-- uid: Ipfs.Api.BlockInfo.Key*
-  name: Key
-  href: api/Ipfs.Api.BlockInfo.html#Ipfs_Api_BlockInfo_Key_
-  commentId: Overload:Ipfs.Api.BlockInfo.Key
-  fullName: Ipfs.Api.BlockInfo.Key
-  nameWithType: BlockInfo.Key
+- uid: Ipfs.Api.BlockInfo.Id
+  name: Id
+  href: api/Ipfs.Api.BlockInfo.html#Ipfs_Api_BlockInfo_Id
+  commentId: P:Ipfs.Api.BlockInfo.Id
+  fullName: Ipfs.Api.BlockInfo.Id
+  nameWithType: BlockInfo.Id
+- uid: Ipfs.Api.BlockInfo.Id*
+  name: Id
+  href: api/Ipfs.Api.BlockInfo.html#Ipfs_Api_BlockInfo_Id_
+  commentId: Overload:Ipfs.Api.BlockInfo.Id
+  fullName: Ipfs.Api.BlockInfo.Id
+  nameWithType: BlockInfo.Id
 - uid: Ipfs.Api.BlockInfo.Size
   name: Size
   href: api/Ipfs.Api.BlockInfo.html#Ipfs_Api_BlockInfo_Size
@@ -274,12 +274,12 @@ references:
   commentId: Overload:Ipfs.Api.DhtApi.FindPeerAsync
   fullName: Ipfs.Api.DhtApi.FindPeerAsync
   nameWithType: DhtApi.FindPeerAsync
-- uid: Ipfs.Api.DhtApi.FindProvidersAsync(System.String,System.Threading.CancellationToken)
-  name: FindProvidersAsync(String, CancellationToken)
-  href: api/Ipfs.Api.DhtApi.html#Ipfs_Api_DhtApi_FindProvidersAsync_System_String_System_Threading_CancellationToken_
-  commentId: M:Ipfs.Api.DhtApi.FindProvidersAsync(System.String,System.Threading.CancellationToken)
-  fullName: Ipfs.Api.DhtApi.FindProvidersAsync(System.String, System.Threading.CancellationToken)
-  nameWithType: DhtApi.FindProvidersAsync(String, CancellationToken)
+- uid: Ipfs.Api.DhtApi.FindProvidersAsync(Ipfs.Cid,System.Threading.CancellationToken)
+  name: FindProvidersAsync(Cid, CancellationToken)
+  href: api/Ipfs.Api.DhtApi.html#Ipfs_Api_DhtApi_FindProvidersAsync_Ipfs_Cid_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.DhtApi.FindProvidersAsync(Ipfs.Cid,System.Threading.CancellationToken)
+  fullName: Ipfs.Api.DhtApi.FindProvidersAsync(Ipfs.Cid, System.Threading.CancellationToken)
+  nameWithType: DhtApi.FindProvidersAsync(Cid, CancellationToken)
 - uid: Ipfs.Api.DhtApi.FindProvidersAsync*
   name: FindProvidersAsync
   href: api/Ipfs.Api.DhtApi.html#Ipfs_Api_DhtApi_FindProvidersAsync_
@@ -352,12 +352,6 @@ references:
   commentId: Overload:Ipfs.Api.FileSystemApi.ListFileAsync
   fullName: Ipfs.Api.FileSystemApi.ListFileAsync
   nameWithType: FileSystemApi.ListFileAsync
-- uid: Ipfs.Api.FileSystemApi.ReadAllTextAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  name: ReadAllTextAsync(MultiHash, CancellationToken)
-  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_ReadAllTextAsync_Ipfs_MultiHash_System_Threading_CancellationToken_
-  commentId: M:Ipfs.Api.FileSystemApi.ReadAllTextAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  fullName: Ipfs.Api.FileSystemApi.ReadAllTextAsync(Ipfs.MultiHash, System.Threading.CancellationToken)
-  nameWithType: FileSystemApi.ReadAllTextAsync(MultiHash, CancellationToken)
 - uid: Ipfs.Api.FileSystemApi.ReadAllTextAsync(System.String,System.Threading.CancellationToken)
   name: ReadAllTextAsync(String, CancellationToken)
   href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_ReadAllTextAsync_System_String_System_Threading_CancellationToken_
@@ -370,12 +364,6 @@ references:
   commentId: Overload:Ipfs.Api.FileSystemApi.ReadAllTextAsync
   fullName: Ipfs.Api.FileSystemApi.ReadAllTextAsync
   nameWithType: FileSystemApi.ReadAllTextAsync
-- uid: Ipfs.Api.FileSystemApi.ReadFileAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  name: ReadFileAsync(MultiHash, CancellationToken)
-  href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_ReadFileAsync_Ipfs_MultiHash_System_Threading_CancellationToken_
-  commentId: M:Ipfs.Api.FileSystemApi.ReadFileAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  fullName: Ipfs.Api.FileSystemApi.ReadFileAsync(Ipfs.MultiHash, System.Threading.CancellationToken)
-  nameWithType: FileSystemApi.ReadFileAsync(MultiHash, CancellationToken)
 - uid: Ipfs.Api.FileSystemApi.ReadFileAsync(System.String,System.Threading.CancellationToken)
   name: ReadFileAsync(String, CancellationToken)
   href: api/Ipfs.Api.FileSystemApi.html#Ipfs_Api_FileSystemApi_ReadFileAsync_System_String_System_Threading_CancellationToken_
@@ -394,18 +382,18 @@ references:
   commentId: T:Ipfs.Api.FileSystemLink
   fullName: Ipfs.Api.FileSystemLink
   nameWithType: FileSystemLink
-- uid: Ipfs.Api.FileSystemLink.Hash
-  name: Hash
-  href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_Hash
-  commentId: P:Ipfs.Api.FileSystemLink.Hash
-  fullName: Ipfs.Api.FileSystemLink.Hash
-  nameWithType: FileSystemLink.Hash
-- uid: Ipfs.Api.FileSystemLink.Hash*
-  name: Hash
-  href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_Hash_
-  commentId: Overload:Ipfs.Api.FileSystemLink.Hash
-  fullName: Ipfs.Api.FileSystemLink.Hash
-  nameWithType: FileSystemLink.Hash
+- uid: Ipfs.Api.FileSystemLink.Id
+  name: Id
+  href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_Id
+  commentId: P:Ipfs.Api.FileSystemLink.Id
+  fullName: Ipfs.Api.FileSystemLink.Id
+  nameWithType: FileSystemLink.Id
+- uid: Ipfs.Api.FileSystemLink.Id*
+  name: Id
+  href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_Id_
+  commentId: Overload:Ipfs.Api.FileSystemLink.Id
+  fullName: Ipfs.Api.FileSystemLink.Id
+  nameWithType: FileSystemLink.Id
 - uid: Ipfs.Api.FileSystemLink.IsDirectory
   name: IsDirectory
   href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_IsDirectory
@@ -472,18 +460,18 @@ references:
   commentId: Overload:Ipfs.Api.FileSystemNode.DataStream
   fullName: Ipfs.Api.FileSystemNode.DataStream
   nameWithType: FileSystemNode.DataStream
-- uid: Ipfs.Api.FileSystemNode.Hash
-  name: Hash
-  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Hash
-  commentId: P:Ipfs.Api.FileSystemNode.Hash
-  fullName: Ipfs.Api.FileSystemNode.Hash
-  nameWithType: FileSystemNode.Hash
-- uid: Ipfs.Api.FileSystemNode.Hash*
-  name: Hash
-  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Hash_
-  commentId: Overload:Ipfs.Api.FileSystemNode.Hash
-  fullName: Ipfs.Api.FileSystemNode.Hash
-  nameWithType: FileSystemNode.Hash
+- uid: Ipfs.Api.FileSystemNode.Id
+  name: Id
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Id
+  commentId: P:Ipfs.Api.FileSystemNode.Id
+  fullName: Ipfs.Api.FileSystemNode.Id
+  nameWithType: FileSystemNode.Id
+- uid: Ipfs.Api.FileSystemNode.Id*
+  name: Id
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Id_
+  commentId: Overload:Ipfs.Api.FileSystemNode.Id
+  fullName: Ipfs.Api.FileSystemNode.Id
+  nameWithType: FileSystemNode.Id
 - uid: Ipfs.Api.FileSystemNode.IsDirectory
   name: IsDirectory
   href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_IsDirectory
@@ -949,18 +937,18 @@ references:
   commentId: T:Ipfs.Api.MerkleNode
   fullName: Ipfs.Api.MerkleNode
   nameWithType: MerkleNode
+- uid: Ipfs.Api.MerkleNode.#ctor(Ipfs.Cid,System.String)
+  name: MerkleNode(Cid, String)
+  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode__ctor_Ipfs_Cid_System_String_
+  commentId: M:Ipfs.Api.MerkleNode.#ctor(Ipfs.Cid,System.String)
+  fullName: Ipfs.Api.MerkleNode.MerkleNode(Ipfs.Cid, System.String)
+  nameWithType: MerkleNode.MerkleNode(Cid, String)
 - uid: Ipfs.Api.MerkleNode.#ctor(Ipfs.IMerkleLink)
   name: MerkleNode(IMerkleLink)
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode__ctor_Ipfs_IMerkleLink_
   commentId: M:Ipfs.Api.MerkleNode.#ctor(Ipfs.IMerkleLink)
   fullName: Ipfs.Api.MerkleNode.MerkleNode(Ipfs.IMerkleLink)
   nameWithType: MerkleNode.MerkleNode(IMerkleLink)
-- uid: Ipfs.Api.MerkleNode.#ctor(Ipfs.MultiHash,System.String)
-  name: MerkleNode(MultiHash, String)
-  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode__ctor_Ipfs_MultiHash_System_String_
-  commentId: M:Ipfs.Api.MerkleNode.#ctor(Ipfs.MultiHash,System.String)
-  fullName: Ipfs.Api.MerkleNode.MerkleNode(Ipfs.MultiHash, System.String)
-  nameWithType: MerkleNode.MerkleNode(MultiHash, String)
 - uid: Ipfs.Api.MerkleNode.#ctor(System.String,System.String)
   name: MerkleNode(String, String)
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode__ctor_System_String_System_String_
@@ -1063,18 +1051,18 @@ references:
   commentId: Overload:Ipfs.Api.MerkleNode.GetHashCode
   fullName: Ipfs.Api.MerkleNode.GetHashCode
   nameWithType: MerkleNode.GetHashCode
-- uid: Ipfs.Api.MerkleNode.Hash
-  name: Hash
-  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_Hash
-  commentId: P:Ipfs.Api.MerkleNode.Hash
-  fullName: Ipfs.Api.MerkleNode.Hash
-  nameWithType: MerkleNode.Hash
-- uid: Ipfs.Api.MerkleNode.Hash*
-  name: Hash
-  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_Hash_
-  commentId: Overload:Ipfs.Api.MerkleNode.Hash
-  fullName: Ipfs.Api.MerkleNode.Hash
-  nameWithType: MerkleNode.Hash
+- uid: Ipfs.Api.MerkleNode.Id
+  name: Id
+  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_Id
+  commentId: P:Ipfs.Api.MerkleNode.Id
+  fullName: Ipfs.Api.MerkleNode.Id
+  nameWithType: MerkleNode.Id
+- uid: Ipfs.Api.MerkleNode.Id*
+  name: Id
+  href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_Id_
+  commentId: Overload:Ipfs.Api.MerkleNode.Id
+  fullName: Ipfs.Api.MerkleNode.Id
+  nameWithType: MerkleNode.Id
 - uid: Ipfs.Api.MerkleNode.Links
   name: Links
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_Links
@@ -1273,36 +1261,36 @@ references:
   commentId: Overload:Ipfs.Api.ObjectApi.DagInfo.NumLinks
   fullName: Ipfs.Api.ObjectApi.DagInfo.NumLinks
   nameWithType: ObjectApi.DagInfo.NumLinks
-- uid: Ipfs.Api.ObjectApi.DataAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  name: DataAsync(MultiHash, CancellationToken)
-  href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_DataAsync_Ipfs_MultiHash_System_Threading_CancellationToken_
-  commentId: M:Ipfs.Api.ObjectApi.DataAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  fullName: Ipfs.Api.ObjectApi.DataAsync(Ipfs.MultiHash, System.Threading.CancellationToken)
-  nameWithType: ObjectApi.DataAsync(MultiHash, CancellationToken)
+- uid: Ipfs.Api.ObjectApi.DataAsync(Ipfs.Cid,System.Threading.CancellationToken)
+  name: DataAsync(Cid, CancellationToken)
+  href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_DataAsync_Ipfs_Cid_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.ObjectApi.DataAsync(Ipfs.Cid,System.Threading.CancellationToken)
+  fullName: Ipfs.Api.ObjectApi.DataAsync(Ipfs.Cid, System.Threading.CancellationToken)
+  nameWithType: ObjectApi.DataAsync(Cid, CancellationToken)
 - uid: Ipfs.Api.ObjectApi.DataAsync*
   name: DataAsync
   href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_DataAsync_
   commentId: Overload:Ipfs.Api.ObjectApi.DataAsync
   fullName: Ipfs.Api.ObjectApi.DataAsync
   nameWithType: ObjectApi.DataAsync
-- uid: Ipfs.Api.ObjectApi.GetAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  name: GetAsync(MultiHash, CancellationToken)
-  href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_GetAsync_Ipfs_MultiHash_System_Threading_CancellationToken_
-  commentId: M:Ipfs.Api.ObjectApi.GetAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  fullName: Ipfs.Api.ObjectApi.GetAsync(Ipfs.MultiHash, System.Threading.CancellationToken)
-  nameWithType: ObjectApi.GetAsync(MultiHash, CancellationToken)
+- uid: Ipfs.Api.ObjectApi.GetAsync(Ipfs.Cid,System.Threading.CancellationToken)
+  name: GetAsync(Cid, CancellationToken)
+  href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_GetAsync_Ipfs_Cid_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.ObjectApi.GetAsync(Ipfs.Cid,System.Threading.CancellationToken)
+  fullName: Ipfs.Api.ObjectApi.GetAsync(Ipfs.Cid, System.Threading.CancellationToken)
+  nameWithType: ObjectApi.GetAsync(Cid, CancellationToken)
 - uid: Ipfs.Api.ObjectApi.GetAsync*
   name: GetAsync
   href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_GetAsync_
   commentId: Overload:Ipfs.Api.ObjectApi.GetAsync
   fullName: Ipfs.Api.ObjectApi.GetAsync
   nameWithType: ObjectApi.GetAsync
-- uid: Ipfs.Api.ObjectApi.LinksAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  name: LinksAsync(MultiHash, CancellationToken)
-  href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_LinksAsync_Ipfs_MultiHash_System_Threading_CancellationToken_
-  commentId: M:Ipfs.Api.ObjectApi.LinksAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  fullName: Ipfs.Api.ObjectApi.LinksAsync(Ipfs.MultiHash, System.Threading.CancellationToken)
-  nameWithType: ObjectApi.LinksAsync(MultiHash, CancellationToken)
+- uid: Ipfs.Api.ObjectApi.LinksAsync(Ipfs.Cid,System.Threading.CancellationToken)
+  name: LinksAsync(Cid, CancellationToken)
+  href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_LinksAsync_Ipfs_Cid_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.ObjectApi.LinksAsync(Ipfs.Cid,System.Threading.CancellationToken)
+  fullName: Ipfs.Api.ObjectApi.LinksAsync(Ipfs.Cid, System.Threading.CancellationToken)
+  nameWithType: ObjectApi.LinksAsync(Cid, CancellationToken)
 - uid: Ipfs.Api.ObjectApi.LinksAsync*
   name: LinksAsync
   href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_LinksAsync_
@@ -1354,12 +1342,12 @@ references:
   commentId: Overload:Ipfs.Api.ObjectApi.PutAsync
   fullName: Ipfs.Api.ObjectApi.PutAsync
   nameWithType: ObjectApi.PutAsync
-- uid: Ipfs.Api.ObjectApi.StatAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  name: StatAsync(MultiHash, CancellationToken)
-  href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_StatAsync_Ipfs_MultiHash_System_Threading_CancellationToken_
-  commentId: M:Ipfs.Api.ObjectApi.StatAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
-  fullName: Ipfs.Api.ObjectApi.StatAsync(Ipfs.MultiHash, System.Threading.CancellationToken)
-  nameWithType: ObjectApi.StatAsync(MultiHash, CancellationToken)
+- uid: Ipfs.Api.ObjectApi.StatAsync(Ipfs.Cid,System.Threading.CancellationToken)
+  name: StatAsync(Cid, CancellationToken)
+  href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_StatAsync_Ipfs_Cid_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.ObjectApi.StatAsync(Ipfs.Cid,System.Threading.CancellationToken)
+  fullName: Ipfs.Api.ObjectApi.StatAsync(Ipfs.Cid, System.Threading.CancellationToken)
+  nameWithType: ObjectApi.StatAsync(Cid, CancellationToken)
 - uid: Ipfs.Api.ObjectApi.StatAsync*
   name: StatAsync
   href: api/Ipfs.Api.ObjectApi.html#Ipfs_Api_ObjectApi_StatAsync_
@@ -1372,12 +1360,6 @@ references:
   commentId: T:Ipfs.Api.PinApi
   fullName: Ipfs.Api.PinApi
   nameWithType: PinApi
-- uid: Ipfs.Api.PinApi.AddAsync(Ipfs.MultiHash,System.Boolean,System.Threading.CancellationToken)
-  name: AddAsync(MultiHash, Boolean, CancellationToken)
-  href: api/Ipfs.Api.PinApi.html#Ipfs_Api_PinApi_AddAsync_Ipfs_MultiHash_System_Boolean_System_Threading_CancellationToken_
-  commentId: M:Ipfs.Api.PinApi.AddAsync(Ipfs.MultiHash,System.Boolean,System.Threading.CancellationToken)
-  fullName: Ipfs.Api.PinApi.AddAsync(Ipfs.MultiHash, System.Boolean, System.Threading.CancellationToken)
-  nameWithType: PinApi.AddAsync(MultiHash, Boolean, CancellationToken)
 - uid: Ipfs.Api.PinApi.AddAsync(System.String,System.Boolean,System.Threading.CancellationToken)
   name: AddAsync(String, Boolean, CancellationToken)
   href: api/Ipfs.Api.PinApi.html#Ipfs_Api_PinApi_AddAsync_System_String_System_Boolean_System_Threading_CancellationToken_
@@ -1402,12 +1384,6 @@ references:
   commentId: Overload:Ipfs.Api.PinApi.ListAsync
   fullName: Ipfs.Api.PinApi.ListAsync
   nameWithType: PinApi.ListAsync
-- uid: Ipfs.Api.PinApi.RemoveAsync(Ipfs.MultiHash,System.Boolean,System.Threading.CancellationToken)
-  name: RemoveAsync(MultiHash, Boolean, CancellationToken)
-  href: api/Ipfs.Api.PinApi.html#Ipfs_Api_PinApi_RemoveAsync_Ipfs_MultiHash_System_Boolean_System_Threading_CancellationToken_
-  commentId: M:Ipfs.Api.PinApi.RemoveAsync(Ipfs.MultiHash,System.Boolean,System.Threading.CancellationToken)
-  fullName: Ipfs.Api.PinApi.RemoveAsync(Ipfs.MultiHash, System.Boolean, System.Threading.CancellationToken)
-  nameWithType: PinApi.RemoveAsync(MultiHash, Boolean, CancellationToken)
 - uid: Ipfs.Api.PinApi.RemoveAsync(System.String,System.Boolean,System.Threading.CancellationToken)
   name: RemoveAsync(String, Boolean, CancellationToken)
   href: api/Ipfs.Api.PinApi.html#Ipfs_Api_PinApi_RemoveAsync_System_String_System_Boolean_System_Threading_CancellationToken_
@@ -1462,12 +1438,12 @@ references:
   commentId: M:Ipfs.Api.PinnedCollection.Add(Ipfs.Api.PinnedObject)
   fullName: Ipfs.Api.PinnedCollection.Add(Ipfs.Api.PinnedObject)
   nameWithType: PinnedCollection.Add(PinnedObject)
-- uid: Ipfs.Api.PinnedCollection.Add(Ipfs.MultiHash,System.Boolean)
-  name: Add(MultiHash, Boolean)
-  href: api/Ipfs.Api.PinnedCollection.html#Ipfs_Api_PinnedCollection_Add_Ipfs_MultiHash_System_Boolean_
-  commentId: M:Ipfs.Api.PinnedCollection.Add(Ipfs.MultiHash,System.Boolean)
-  fullName: Ipfs.Api.PinnedCollection.Add(Ipfs.MultiHash, System.Boolean)
-  nameWithType: PinnedCollection.Add(MultiHash, Boolean)
+- uid: Ipfs.Api.PinnedCollection.Add(Ipfs.Cid,System.Boolean)
+  name: Add(Cid, Boolean)
+  href: api/Ipfs.Api.PinnedCollection.html#Ipfs_Api_PinnedCollection_Add_Ipfs_Cid_System_Boolean_
+  commentId: M:Ipfs.Api.PinnedCollection.Add(Ipfs.Cid,System.Boolean)
+  fullName: Ipfs.Api.PinnedCollection.Add(Ipfs.Cid, System.Boolean)
+  nameWithType: PinnedCollection.Add(Cid, Boolean)
 - uid: Ipfs.Api.PinnedCollection.Add*
   name: Add
   href: api/Ipfs.Api.PinnedCollection.html#Ipfs_Api_PinnedCollection_Add_
@@ -1492,12 +1468,12 @@ references:
   commentId: M:Ipfs.Api.PinnedCollection.Contains(Ipfs.Api.PinnedObject)
   fullName: Ipfs.Api.PinnedCollection.Contains(Ipfs.Api.PinnedObject)
   nameWithType: PinnedCollection.Contains(PinnedObject)
-- uid: Ipfs.Api.PinnedCollection.Contains(Ipfs.MultiHash)
-  name: Contains(MultiHash)
-  href: api/Ipfs.Api.PinnedCollection.html#Ipfs_Api_PinnedCollection_Contains_Ipfs_MultiHash_
-  commentId: M:Ipfs.Api.PinnedCollection.Contains(Ipfs.MultiHash)
-  fullName: Ipfs.Api.PinnedCollection.Contains(Ipfs.MultiHash)
-  nameWithType: PinnedCollection.Contains(MultiHash)
+- uid: Ipfs.Api.PinnedCollection.Contains(Ipfs.Cid)
+  name: Contains(Cid)
+  href: api/Ipfs.Api.PinnedCollection.html#Ipfs_Api_PinnedCollection_Contains_Ipfs_Cid_
+  commentId: M:Ipfs.Api.PinnedCollection.Contains(Ipfs.Cid)
+  fullName: Ipfs.Api.PinnedCollection.Contains(Ipfs.Cid)
+  nameWithType: PinnedCollection.Contains(Cid)
 - uid: Ipfs.Api.PinnedCollection.Contains*
   name: Contains
   href: api/Ipfs.Api.PinnedCollection.html#Ipfs_Api_PinnedCollection_Contains_
@@ -1573,12 +1549,12 @@ references:
   commentId: M:Ipfs.Api.PinnedCollection.Remove(Ipfs.Api.PinnedObject)
   fullName: Ipfs.Api.PinnedCollection.Remove(Ipfs.Api.PinnedObject)
   nameWithType: PinnedCollection.Remove(PinnedObject)
-- uid: Ipfs.Api.PinnedCollection.Remove(Ipfs.MultiHash,System.Boolean)
-  name: Remove(MultiHash, Boolean)
-  href: api/Ipfs.Api.PinnedCollection.html#Ipfs_Api_PinnedCollection_Remove_Ipfs_MultiHash_System_Boolean_
-  commentId: M:Ipfs.Api.PinnedCollection.Remove(Ipfs.MultiHash,System.Boolean)
-  fullName: Ipfs.Api.PinnedCollection.Remove(Ipfs.MultiHash, System.Boolean)
-  nameWithType: PinnedCollection.Remove(MultiHash, Boolean)
+- uid: Ipfs.Api.PinnedCollection.Remove(Ipfs.Cid,System.Boolean)
+  name: Remove(Cid, Boolean)
+  href: api/Ipfs.Api.PinnedCollection.html#Ipfs_Api_PinnedCollection_Remove_Ipfs_Cid_System_Boolean_
+  commentId: M:Ipfs.Api.PinnedCollection.Remove(Ipfs.Cid,System.Boolean)
+  fullName: Ipfs.Api.PinnedCollection.Remove(Ipfs.Cid, System.Boolean)
+  nameWithType: PinnedCollection.Remove(Cid, Boolean)
 - uid: Ipfs.Api.PinnedCollection.Remove*
   name: Remove
   href: api/Ipfs.Api.PinnedCollection.html#Ipfs_Api_PinnedCollection_Remove_

@@ -121,68 +121,6 @@ Pinned objects are locally stored and never garbage collected.
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinApi_AddAsync_Ipfs_MultiHash_System_Boolean_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinApi.AddAsync(Ipfs.MultiHash%2CSystem.Boolean%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/PinApi.cs/#L68">View Source</a>
-  </span>
-  <a id="Ipfs_Api_PinApi_AddAsync_" data-uid="Ipfs.Api.PinApi.AddAsync*"></a>
-  <h4 id="Ipfs_Api_PinApi_AddAsync_Ipfs_MultiHash_System_Boolean_System_Threading_CancellationToken_" data-uid="Ipfs.Api.PinApi.AddAsync(Ipfs.MultiHash,System.Boolean,System.Threading.CancellationToken)">AddAsync(MultiHash, Boolean, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Adds an IPFS object to the pinset and also stores it to the IPFS repo. pinset is the set of hashes currently pinned (not gc&apos;able).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;PinnedObject[]&gt; AddAsync(MultiHash hash, bool recursive = true, CancellationToken cancel = default (CancellationToken))</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a></td>
-        <td><span class="parametername">hash</span></td>
-        <td><p>A <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a> id to an existing object.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
-        <td><span class="parametername">recursive</span></td>
-        <td><p><strong>true</strong> to recursively pin links of object; otherwise, <strong>false</strong> to only pin
-the specified object.  Default is <strong>true</strong>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
-        <td><span class="parametername">cancel</span></td>
-        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a>[]&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinApi_AddAsync_System_String_System_Boolean_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinApi.AddAsync(System.String%2CSystem.Boolean%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -249,7 +187,7 @@ the specified object.  Default is <strong>true</strong>.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinApi_ListAsync_Ipfs_Api_PinMode_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinApi.ListAsync(Ipfs.Api.PinMode%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/PinApi.cs/#L83">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/PinApi.cs/#L65">View Source</a>
   </span>
   <a id="Ipfs_Api_PinApi_ListAsync_" data-uid="Ipfs.Api.PinApi.ListAsync*"></a>
   <h4 id="Ipfs_Api_PinApi_ListAsync_Ipfs_Api_PinMode_System_Threading_CancellationToken_" data-uid="Ipfs.Api.PinApi.ListAsync(Ipfs.Api.PinMode,System.Threading.CancellationToken)">ListAsync(PinMode, CancellationToken)</h4>
@@ -302,72 +240,10 @@ Defaults to <a class="xref" href="Ipfs.Api.PinMode.html#Ipfs_Api_PinMode_All">Al
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinApi_RemoveAsync_Ipfs_MultiHash_System_Boolean_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinApi.RemoveAsync(Ipfs.MultiHash%2CSystem.Boolean%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/PinApi.cs/#L134">View Source</a>
-  </span>
-  <a id="Ipfs_Api_PinApi_RemoveAsync_" data-uid="Ipfs.Api.PinApi.RemoveAsync*"></a>
-  <h4 id="Ipfs_Api_PinApi_RemoveAsync_Ipfs_MultiHash_System_Boolean_System_Threading_CancellationToken_" data-uid="Ipfs.Api.PinApi.RemoveAsync(Ipfs.MultiHash,System.Boolean,System.Threading.CancellationToken)">RemoveAsync(MultiHash, Boolean, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Unpin an object.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;PinnedObject[]&gt; RemoveAsync(MultiHash hash, bool recursive = true, CancellationToken cancel = default (CancellationToken))</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a></td>
-        <td><span class="parametername">hash</span></td>
-        <td><p>A <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a> id to an existing object.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
-        <td><span class="parametername">recursive</span></td>
-        <td><p><strong>true</strong> to recursively unpin links of object; otherwise, <strong>false</strong> to only unpin
-the specified object.  Default is <strong>true</strong>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
-        <td><span class="parametername">cancel</span></td>
-        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Ipfs.Api.PinnedObject.html">PinnedObject</a>[]&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PinApi_RemoveAsync_System_String_System_Boolean_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PinApi.RemoveAsync(System.String%2CSystem.Boolean%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/PinApi.cs/#L112">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/PinApi.cs/#L94">View Source</a>
   </span>
   <a id="Ipfs_Api_PinApi_RemoveAsync_" data-uid="Ipfs.Api.PinApi.RemoveAsync*"></a>
   <h4 id="Ipfs_Api_PinApi_RemoveAsync_System_String_System_Boolean_System_Threading_CancellationToken_" data-uid="Ipfs.Api.PinApi.RemoveAsync(System.String,System.Boolean,System.Threading.CancellationToken)">RemoveAsync(String, Boolean, CancellationToken)</h4>

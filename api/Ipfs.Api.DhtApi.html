@@ -177,19 +177,19 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_DhtApi_FindProvidersAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.DhtApi.FindProvidersAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_DhtApi_FindProvidersAsync_Ipfs_Cid_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.DhtApi.FindProvidersAsync(Ipfs.Cid%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/DhtApi.cs/#L63">View Source</a>
   </span>
   <a id="Ipfs_Api_DhtApi_FindProvidersAsync_" data-uid="Ipfs.Api.DhtApi.FindProvidersAsync*"></a>
-  <h4 id="Ipfs_Api_DhtApi_FindProvidersAsync_System_String_System_Threading_CancellationToken_" data-uid="Ipfs.Api.DhtApi.FindProvidersAsync(System.String,System.Threading.CancellationToken)">FindProvidersAsync(String, CancellationToken)</h4>
+  <h4 id="Ipfs_Api_DhtApi_FindProvidersAsync_Ipfs_Cid_System_Threading_CancellationToken_" data-uid="Ipfs.Api.DhtApi.FindProvidersAsync(Ipfs.Cid,System.Threading.CancellationToken)">FindProvidersAsync(Cid, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Find the providers for content that is addressed by a hash.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;Peer&gt;&gt; FindProvidersAsync(string hash, CancellationToken cancel = default (CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;Peer&gt;&gt; FindProvidersAsync(Cid id, CancellationToken cancel = default (CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -202,9 +202,9 @@ This API is accessed via the <a class="xref" href="Ipfs.Api.IpfsClient.html#Ipfs
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
-        <td><span class="parametername">hash</span></td>
-        <td><p>The <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a> representation of a base58 encoded <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a>.</p>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Cid.html">Cid</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Cid.html">Cid</a> of the content.</p>
 </td>
       </tr>
       <tr>
