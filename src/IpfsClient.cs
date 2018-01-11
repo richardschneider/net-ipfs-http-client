@@ -135,7 +135,7 @@ namespace Ipfs.Api
         /// <summary>
         ///   Provides access to the <see cref="DagApi">DAG API</see>.
         /// </summary>
-        public DagApi Dag { get; private set; }
+        public IDagApi Dag { get; private set; }
 
         /// <summary>
         ///   Provides access to the <see cref="DhtApi">Distributed Hash Table API</see>.

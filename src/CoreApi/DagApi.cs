@@ -8,27 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Ipfs.CoreApi;
 
 namespace Ipfs.Api
 {
 
-    /// <summary>
-    ///   Manages the Directed Acrylic Graph.
-    /// </summary>
-    /// <remarks>
-    ///   <note>
-    ///   The Dag API seems to be a work in progress.  There are no tests nor implemtations
-    ///   of it.  All methods throw <see cref="NotImplementedException"/>.
-    ///   </note>
-    ///   <para>
-    ///   This API is accessed via the <see cref="IpfsClient.Dag"/> property.
-    ///   </para>
-    /// </remarks>
-    /// <seealso href="https://github.com/ipfs/interface-ipfs-core/tree/master/API/dag">DAG API</seealso>
-    public class DagApi
+    class DagApi : IDagApi
     {
-        static ILog log = LogManager.GetLogger<DagApi>();
-
         IpfsClient ipfs;
 
         internal DagApi(IpfsClient ipfs)
@@ -36,21 +22,15 @@ namespace Ipfs.Api
             this.ipfs = ipfs;
         }
 
-        /// <summary>
-        ///  TODO
-        /// </summary>
-        public Task PutAsync(DagNode node, string multicodec, string hashAlgorithm = MultiHash.DefaultAlgorithmName, CancellationToken cancel = default(CancellationToken))
+
+        public Task<Cid> PutAsync(ILinkedNode data, string contentType, string multiHash = MultiHash.DefaultAlgorithmName, CancellationToken cancel = default(CancellationToken))
         {
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        ///  TODO
-        /// </summary>
-        public Task<DagNode> GetAsync(string cid, CancellationToken cancel = default(CancellationToken))
+        Task<ILinkedNode> IDagApi.GetAsync(string path, CancellationToken cancel)
         {
             throw new NotImplementedException();
         }
-
     }
 }
