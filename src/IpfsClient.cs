@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Threading;
+using Ipfs.CoreApi;
 
 namespace Ipfs.Api
 {
@@ -119,7 +120,7 @@ namespace Ipfs.Api
         /// <summary>
         ///   Provides access to the <see cref="BlockApi">Block API</see>.
         /// </summary>
-        public BlockApi Block { get; private set; }
+        public IBlockApi Block { get; private set; }
 
         /// <summary>
         ///   Provides access to the <see cref="ConfigApi">Config API</see>.

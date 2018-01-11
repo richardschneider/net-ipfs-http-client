@@ -7,50 +7,14 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Ipfs.CoreApi;
+using System.IO;
 
 namespace Ipfs.Api
 {
 
-    /// <summary>
-    ///   Information about a raw IPFS Block.
-    /// </summary>
-    /// <seealso cref="BlockApi.StatAsync"/>
-    public class BlockInfo
-    {
-        /// <summary>
-        ///   The <see cref="Cid"/> of the block.
-        /// </summary>
-        /// <value>
-        ///   The unique ID of the block.
-        /// </value>
-        public Cid Id { get; set; }
-
-        /// <summary>
-        ///   The serialised size (in bytes) of the block.
-        /// </summary>
-        public long Size { get; set; }
-    }
-
-    /// <summary>
-    ///   Manages the raw <see cref="Block">IPFS blocks</see>.
-    /// </summary>
-    /// <remarks>
-    ///   An IPFS Block is a byte sequence that represents an IPFS Object 
-    ///   (i.e. serialized byte buffers). It is useful to talk about them as "blocks" in Bitswap 
-    ///   and other things that do not care about what is being stored. 
-    ///   <para>
-    ///   It is also possible to store arbitrary stuff using ipfs block put/get as the API 
-    ///   does not check for proper IPFS Object formatting.
-    ///   </para>
-    ///   <note>
-    ///   This may be very good or bad, we haven't decided yet 😄
-    ///   </note>
-    ///   <para>
-    ///   This API is accessed via the <see cref="IpfsClient.Block"/> property.
-    ///   </para>
-    /// </remarks>
-    /// <seealso href="https://github.com/ipfs/interface-ipfs-core/tree/master/API/block">Block API</seealso>
-    public class BlockApi
+    /// <inheritdoc />
+    public class BlockApi : IBlockApi
     {
         IpfsClient ipfs;
 
@@ -59,16 +23,8 @@ namespace Ipfs.Api
             this.ipfs = ipfs;
         }
 
-        /// <summary>
-        ///   Gets a raw <see cref="Block">IPFS block</see>.
-        /// </summary>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        /// <param name="id">
-        ///   The <see cref="Cid"/> of the block.
-        /// </param>
-        public async Task<Block> GetAsync(Cid id, CancellationToken cancel = default(CancellationToken)) // TODO CID support
+        /// <inheritdoc />
+        public async Task<IDataBlock> GetAsync(Cid id, CancellationToken cancel = default(CancellationToken)) // TODO CID support
         {
             var data = await ipfs.DownloadBytesAsync("block/get", cancel, id);
             return new Block
@@ -78,89 +34,67 @@ namespace Ipfs.Api
             };
         }
 
-        /// <summary>
-        ///   Stores a byte array as a raw <see cref="Block">IPFS block</see>.
-        /// </summary>
-        /// <param name="data">
-        ///   The byte array to send to the IPFS network.
-        /// </param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        public async Task<Block> PutAsync(byte[] data, CancellationToken cancel = default(CancellationToken))
+        /// <inheritdoc />
+        public async Task<Cid> PutAsync(
+            byte[] data,
+            string contentType = Cid.DefaultContentType,
+            string multiHash = MultiHash.DefaultAlgorithmName,
+            CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.UploadAsync("block/put", cancel, data);
-            var info = JObject.Parse(json);
-            return new Block
+            var options = new List<string>();
+            if (multiHash != MultiHash.DefaultAlgorithmName || contentType != Cid.DefaultContentType)
             {
-                DataBytes = data,
-                Id = (string)info["Key"]
-            };
+                options.Add($"mhtype={multiHash}");
+                options.Add($"format={contentType}");
+            }
+            var json = await ipfs.UploadAsync("block/put", cancel, data, options.ToArray());
+            var info = JObject.Parse(json);
+            return (string)info["Key"];
         }
 
-        /// <summary>
-        ///   Stores a raw <see cref="Block">IPFS block</see>.
-        /// </summary>
-        /// <param name="block">
-        ///   The <seealso cref="Block"/> to send to the IPFS network.
-        /// </param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        public Task<Block> PutAsync(Block block, CancellationToken cancel = default(CancellationToken))
+        /// <inheritdoc />
+        public async Task<Cid> PutAsync(
+            Stream data,
+            string contentType = Cid.DefaultContentType,
+            string multiHash = MultiHash.DefaultAlgorithmName,
+            CancellationToken cancel = default(CancellationToken))
         {
-            return PutAsync(block.DataBytes, cancel);
+            var options = new List<string>();
+            if (multiHash != MultiHash.DefaultAlgorithmName || contentType != Cid.DefaultContentType)
+            {
+                options.Add($"mhtype={multiHash}");
+                options.Add($"format={contentType}");
+            }
+            var json = await ipfs.UploadAsync("block/put", cancel, data, options.ToArray());
+            var info = JObject.Parse(json);
+            return (string)info["Key"];
         }
 
-        /// <summary>
-        ///   Information on a raw <see cref="Block">IPFS block</see>.
-        /// </summary>
-        /// <param name="id">
-        ///   The <see cref="Cid"/> of the block.
-        /// </param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        public async Task<BlockInfo> StatAsync(Cid id, CancellationToken cancel = default(CancellationToken))
+        /// <inheritdoc />
+        public async Task<IDataBlock> StatAsync(Cid id, CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.DoCommandAsync("block/stat", cancel, id);
             var info = JObject.Parse(json);
-            return new BlockInfo
+            return new Block
             {
                 Size = (long)info["Size"],
                 Id = (string)info["Key"]
             };
         }
 
-        /// <summary>
-        ///   Remove a raw <see cref="Block">IPFS block</see>.
-        /// </summary>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        /// <param name="id">
-        ///   The <see cref="Cid"/> of the block.
-        /// </param>
-        /// <param name="ignoreNonexistent">
-        ///   If <b>true</b> do not raise exception when <paramref name="id"/> does not
-        ///   exist.  Default value is <b>false</b>.
-        /// </param>
-        /// <returns>
-        ///   The awaited Task will return the deleted <paramref name="id"/> or
-        ///   <see cref="string.Empty"/> if the hash does not exist and <paramref name="ignoreNonexistent"/>
-        ///   is <b>true</b>.
-        /// </returns>
-        public async Task<string> RemoveAsync(Cid id, bool ignoreNonexistent = false, CancellationToken cancel = default(CancellationToken)) // TODO CID support
+        /// <inheritdoc />
+        public async Task<Cid> RemoveAsync(Cid id, bool ignoreNonexistent = false, CancellationToken cancel = default(CancellationToken)) // TODO CID support
         {
             var json = await ipfs.DoCommandAsync("block/rm", cancel, id, "force=" + ignoreNonexistent.ToString().ToLowerInvariant());
             if (json.Length == 0)
-                return "";
+                return null;
             var result = JObject.Parse(json);
             var error = (string)result["Error"];
             if (error != null)
                 throw new HttpRequestException(error);
-            return (string)result["Hash"];
+            return (Cid)(string)result["Hash"];
         }
+
     }
 
 }

@@ -10,6 +10,8 @@ namespace Ipfs.Api
     /// <inheritdoc />
     public class Block : IDataBlock
     {
+        long? size;
+
         /// <inheritdoc />
         public Cid Id { get; set; }
 
@@ -30,7 +32,15 @@ namespace Ipfs.Api
         {
             get
             {
+                if (size.HasValue)
+                {
+                    return size.Value;
+                }
                 return DataBytes.Length;
+            }
+            set
+            {
+                size = value;
             }
         }
         
