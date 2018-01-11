@@ -119,6 +119,16 @@ namespace Ipfs.Api
             }
         }
 
+        /// <inheritdoc />
+        /// <seealso cref="BlockSize"/>
+        public long Size
+        {
+            get
+            {
+                return BlockSize;
+            }
+        }
+
         /// <summary>
         ///   Size of the Links segment.
         /// </summary>
