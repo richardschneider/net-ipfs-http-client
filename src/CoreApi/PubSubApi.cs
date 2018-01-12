@@ -8,26 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Ipfs.CoreApi;
 
 namespace Ipfs.Api
 {
 
-    /// <summary>
-    ///   Allows you to publish messages to a given topic, and also to
-    ///   subscribe to new messages on a given topic.
-    /// </summary>
-    /// <remarks>
-    ///   This API is accessed via the <see cref="IpfsClient.PubSub"/> property.
-    ///   <para>
-    ///   This is an experimental feature. It is not intended in its current state
-    ///   to be used in a production environment.
-    ///   </para>
-    ///   <para>
-    ///   To use, the daemon must be run with '--enable-pubsub-experiment'.
-    ///   </para>
-    /// </remarks>
-    /// <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/PUBSUB.md">PUBSUB API</seealso>
-    public class PubSubApi
+    class PubSubApi : IPubSubApi
     {
         static ILog log = LogManager.GetLogger<PubSubApi>();
 
@@ -38,15 +24,6 @@ namespace Ipfs.Api
             this.ipfs = ipfs;
         }
 
-        /// <summary>
-        ///   Get the subscribed topics.
-        /// </summary>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        /// <returns>
-        ///   A sequence of <see cref="string"/> for each topic.
-        /// </returns>
         public async Task<IEnumerable<string>> SubscribedTopicsAsync(CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.DoCommandAsync("pubsub/ls", cancel);
@@ -56,39 +33,15 @@ namespace Ipfs.Api
             return strings.Select(s => (string)s);
         }
 
-        /// <summary>
-        ///   Get the peers that are pubsubing with us.
-        /// </summary>
-        /// <param name="topic">
-        ///   When specified, only peers pubsubing on the topic are returned.
-        /// </param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        /// <returns>
-        ///   A sequence of <see cref="string"/> for each peer ID.
-        /// </returns>
-        public async Task<IEnumerable<string>> PeersAsync(string topic = null, CancellationToken cancel = default(CancellationToken))
+        public async Task<IEnumerable<Peer>> PeersAsync(string topic = null, CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.DoCommandAsync("pubsub/peers", cancel, topic);
             var result = JObject.Parse(json);
             var strings = result["Strings"] as JArray;
-            if (strings == null) return new string[0];
-            return strings.Select(s => (string)s);
+            if (strings == null) return new Peer[0];
+            return strings.Select(s => new Peer { Id = (string)s } );
         }
 
-        /// <summary>
-        ///   Publish a message to a given topic.
-        /// </summary>
-        /// <param name="topic">
-        ///   The topic name.
-        /// </param>
-        /// <param name="message">
-        ///   The message to publish.
-        /// </param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
         public async Task Publish(string topic, string message, CancellationToken cancel = default(CancellationToken))
         {
             // Avoid seqno bug in go-floodsub, see https://github.com/libp2p/go-floodsub/issues/52
@@ -98,26 +51,7 @@ namespace Ipfs.Api
             return;
         }
 
-        /// <summary>
-        ///   Subscribe to messages on a given topic.
-        /// </summary>
-        /// <param name="topic">
-        ///   The topic name.
-        /// </param>
-        /// <param name="handler">
-        ///   The action to perform when a <see cref="PublishedMessage"/> is received.
-        /// </param>
-        /// <param name="cancellationToken">
-        ///   Is used to stop the topic listener.  When cancelled, the <see cref="OperationCanceledException"/>
-        ///   is <b>NOT</b> raised.
-        /// </param>
-        /// <returns>
-        ///   After the topic listener is register with the IPFS server.
-        /// </returns>
-        /// <remarks>
-        ///   The <paramref name="handler"/> is invoked on the topic listener thread.
-        /// </remarks>
-        public async Task Subscribe(string topic, Action<PublishedMessage> handler, CancellationToken cancellationToken)
+        public async Task Subscribe(string topic, Action<IPublishedMessage> handler, CancellationToken cancellationToken)
         {
             var messageStream = await ipfs.PostDownloadAsync("pubsub/sub", cancellationToken, topic);
             var sr = new StreamReader(messageStream);

@@ -13,8 +13,7 @@ using System.IO;
 namespace Ipfs.Api
 {
 
-    /// <inheritdoc />
-    public class BlockApi : IBlockApi
+    class BlockApi : IBlockApi
     {
         IpfsClient ipfs;
 
@@ -23,7 +22,6 @@ namespace Ipfs.Api
             this.ipfs = ipfs;
         }
 
-        /// <inheritdoc />
         public async Task<IDataBlock> GetAsync(Cid id, CancellationToken cancel = default(CancellationToken)) // TODO CID support
         {
             var data = await ipfs.DownloadBytesAsync("block/get", cancel, id);
@@ -34,7 +32,6 @@ namespace Ipfs.Api
             };
         }
 
-        /// <inheritdoc />
         public async Task<Cid> PutAsync(
             byte[] data,
             string contentType = Cid.DefaultContentType,
@@ -52,7 +49,6 @@ namespace Ipfs.Api
             return (string)info["Key"];
         }
 
-        /// <inheritdoc />
         public async Task<Cid> PutAsync(
             Stream data,
             string contentType = Cid.DefaultContentType,
@@ -70,7 +66,6 @@ namespace Ipfs.Api
             return (string)info["Key"];
         }
 
-        /// <inheritdoc />
         public async Task<IDataBlock> StatAsync(Cid id, CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.DoCommandAsync("block/stat", cancel, id);
@@ -82,7 +77,6 @@ namespace Ipfs.Api
             };
         }
 
-        /// <inheritdoc />
         public async Task<Cid> RemoveAsync(Cid id, bool ignoreNonexistent = false, CancellationToken cancel = default(CancellationToken)) // TODO CID support
         {
             var json = await ipfs.DoCommandAsync("block/rm", cancel, id, "force=" + ignoreNonexistent.ToString().ToLowerInvariant());

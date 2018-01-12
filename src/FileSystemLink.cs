@@ -4,7 +4,7 @@ namespace Ipfs.Api
     /// <summary>
     ///     A link to another file system node in IPFS.
     /// </summary>
-    public class FileSystemLink : IMerkleLink
+    public class FileSystemLink : IFileSystemLink
     {
         /// <inheritdoc />
         public string Name { get; set; }
@@ -15,13 +15,7 @@ namespace Ipfs.Api
         /// <inheritdoc />
         public long Size { get; set; }
 
-        /// <summary>
-        ///   Determines if the link is a directory (folder).
-        /// </summary>
-        /// <value>
-        ///   <b>true</b> if the link is a directory; Otherwise <b>false</b>,
-        ///   the link is some type of a file.
-        /// </value>
+        /// <inheritdoc />
         public bool IsDirectory { get; set; }
     }
 }

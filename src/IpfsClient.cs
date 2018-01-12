@@ -27,7 +27,7 @@ namespace Ipfs.Api
     ///   <b>IpfsClient</b> is thread safe, only one instance is required
     ///   by the application.
     /// </remarks>
-    public partial class IpfsClient
+    public partial class IpfsClient : ICoreApi
     {
         static ILog log = LogManager.GetLogger(typeof(IpfsClient));
         static object safe = new object();
@@ -60,7 +60,8 @@ namespace Ipfs.Api
             var version = typeof(IpfsClient).GetTypeInfo().Assembly.GetName().Version;
             UserAgent = string.Format("net-ipfs/{0}.{1}", version.Major, version.Minor);
             TrustedPeers = new TrustedPeerCollection(this);
-            PinnedObjects = new PinnedCollection(this);
+
+            Bitswap = new BitswapApi(this);
             Block = new BlockApi(this);
             Config = new ConfigApi(this);
             Pin = new PinApi(this);
@@ -71,6 +72,8 @@ namespace Ipfs.Api
             FileSystem = new FileSystemApi(this);
             PubSub = new PubSubApi(this);
             Key = new KeyApi(this);
+            Generic = this;
+            Name = new NameApi(this);
         }
 
         /// <summary>
@@ -109,63 +112,45 @@ namespace Ipfs.Api
         /// </remarks>
         public TrustedPeerCollection TrustedPeers { get; private set; }
 
-        /// <summary>
-        ///   The list of objects that are permanently stored on the local host.
-        /// </summary>
-        /// <remarks>
-        ///   This is equilivent to <c>ipfs pin ls</c>.
-        /// </remarks>
-        public PinnedCollection PinnedObjects { get; private set; }
+        /// <inheritdoc />
+        public IBitswapApi Bitswap { get; private set; }
 
-        /// <summary>
-        ///   Provides access to the <see cref="BlockApi">Block API</see>.
-        /// </summary>
+        /// <inheritdoc />
+        public IGenericApi Generic { get; private set; }
+
+        /// <inheritdoc />
+        public INameApi Name { get; private set; }
+
+        /// <inheritdoc />
         public IBlockApi Block { get; private set; }
 
-        /// <summary>
-        ///   Provides access to the <see cref="ConfigApi">Config API</see>.
-        /// </summary>
+        /// <inheritdoc />
         public ConfigApi Config { get; private set; }
+        IConfigApi ICoreApi.Config => Config;
 
-        /// <summary>
-        ///   Provides access to the <see cref="PinApi">Pin API</see>.
-        /// </summary>
-        public PinApi Pin { get; private set; }
+        /// <inheritdoc />
+        public IPinApi Pin { get; private set; }
 
-        /// <summary>
-        ///   Provides access to the <see cref="DagApi">DAG API</see>.
-        /// </summary>
+        /// <inheritdoc />
         public IDagApi Dag { get; private set; }
 
-        /// <summary>
-        ///   Provides access to the <see cref="DhtApi">Distributed Hash Table API</see>.
-        /// </summary>
-        public DhtApi Dht { get; private set; }
+        /// <inheritdoc />
+        public IDhtApi Dht { get; private set; }
 
-        /// <summary>
-        ///   Provides access to the <see cref="SwarmApi">Swarm API</see>.
-        /// </summary>
-        public SwarmApi Swarm { get; private set; }
+        /// <inheritdoc />
+        public ISwarmApi Swarm { get; private set; }
 
-        /// <summary>
-        ///   Provides access to the <see cref="ObjectApi">Object API</see>.
-        /// </summary>
-        public ObjectApi Object { get; private set; }
+        /// <inheritdoc />
+        public IObjectApi Object { get; private set; }
 
-        /// <summary>
-        ///   Provides access to the <see cref="FileSystemApi">File System API</see>.
-        /// </summary>
-        public FileSystemApi FileSystem { get; private set; }
+        /// <inheritdoc />
+        public IFileSystemApi FileSystem { get; private set; }
 
-        /// <summary>
-        ///   Provides access to the <see cref="PubSubApi">PubSub API</see>.
-        /// </summary>
-        public PubSubApi PubSub { get; private set; }
+        /// <inheritdoc />
+        public IPubSubApi PubSub { get; private set; }
 
-        /// <summary>
-        ///   Provides access to the <see cref="KeyApi">Key API</see>.
-        /// </summary>
-        public KeyApi Key { get; private set; }
+        /// <inheritdoc />
+        public IKeyApi Key { get; private set; }
 
         Uri BuildCommand(string command, string arg = null, params string[] options)
         {

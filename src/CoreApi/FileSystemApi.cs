@@ -8,20 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Ipfs.CoreApi;
 
 namespace Ipfs.Api
 {
 
-    /// <summary>
-    ///   Manages the files/directories in IPFS.
-    /// </summary>
-    /// <remarks>
-    ///   <para>
-    ///   This API is accessed via the <see cref="IpfsClient.FileSystem"/> property.
-    ///   </para>
-    /// </remarks>
-    /// <seealso href="https://github.com/ipfs/interface-ipfs-core/tree/master/API/files">Files API</seealso>
-    public class FileSystemApi
+    class FileSystemApi : IFileSystemApi
     {
         static ILog log = LogManager.GetLogger<FileSystemApi>();
 
@@ -34,14 +26,7 @@ namespace Ipfs.Api
             this.emptyFolder = new Lazy<DagNode>(() => ipfs.Object.NewDirectoryAsync().Result);
         }
 
-        /// <summary>
-        ///   Add a file to the interplanetary file system.
-        /// </summary>
-        /// <param name="path"></param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        public async Task<FileSystemNode> AddFileAsync(string path, CancellationToken cancel = default(CancellationToken))
+        public async Task<IFileSystemNode> AddFileAsync(string path, CancellationToken cancel = default(CancellationToken))
         {
             using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
@@ -50,27 +35,12 @@ namespace Ipfs.Api
             }
         }
 
-        /// <summary>
-        ///   Add some text to the interplanetary file system.
-        /// </summary>
-        /// <param name="text"></param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        public Task<FileSystemNode> AddTextAsync(string text, CancellationToken cancel = default(CancellationToken))
+        public Task<IFileSystemNode> AddTextAsync(string text, CancellationToken cancel = default(CancellationToken))
         {
             return AddAsync(new MemoryStream(Encoding.UTF8.GetBytes(text), false), "", cancel);
         }
 
-        /// <summary>
-        ///   Add a <see cref="Stream"/> to interplanetary file system.
-        /// </summary>
-        /// <param name="stream"></param>
-        /// <param name="name"></param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        public async Task<FileSystemNode> AddAsync(Stream stream, string name = "", CancellationToken cancel = default(CancellationToken))
+        public async Task<IFileSystemNode> AddAsync(Stream stream, string name = "", CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.UploadAsync("add", cancel, stream);
             var r = JObject.Parse(json);
@@ -84,22 +54,10 @@ namespace Ipfs.Api
             };
             if (log.IsDebugEnabled)
                 log.Debug("added " + fsn.Id + " " + fsn.Name);
-             return fsn;
+            return fsn;
         }
 
-        /// <summary>
-        ///   Add a directory and its files to the interplanetary file system.
-        /// </summary>
-        /// <param name="path">
-        ///   The path to directory.
-        /// </param>
-        /// <param name="recursive">
-        ///   <b>true</b> to add sub-folders.
-        /// </param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        public async Task<FileSystemNode> AddDirectoryAsync(string path, bool recursive = true, CancellationToken cancel = default(CancellationToken))
+        public async Task<IFileSystemNode> AddDirectoryAsync(string path, bool recursive = true, CancellationToken cancel = default(CancellationToken))
         {
             // Add the files and sub-directories.
             path = Path.GetFullPath(path);
@@ -187,7 +145,7 @@ namespace Ipfs.Api
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
         /// <returns></returns>
-        public async Task<FileSystemNode> ListFileAsync(string path, CancellationToken cancel = default(CancellationToken))
+        public async Task<IFileSystemNode> ListFileAsync(string path, CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.DoCommandAsync("file/ls", cancel, path);
             var r = JObject.Parse(json);

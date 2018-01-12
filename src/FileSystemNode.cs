@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 namespace Ipfs.Api
 {
     /// <inheritdoc />
-    public class FileSystemNode : IMerkleNode<FileSystemLink>
+    public class FileSystemNode : IFileSystemNode
     {
         IpfsClient ipfsClient;
-        IEnumerable<FileSystemLink> links;
+        IEnumerable<IFileSystemLink> links;
         long? size;
         bool? isDirectory;
 
@@ -37,11 +37,12 @@ namespace Ipfs.Api
                 return IpfsClient.FileSystem.ReadFileAsync(Id).Result;
             }
         }
+
         /// <inheritdoc />
         public Cid Id { get; set; }
 
         /// <inheritdoc />
-        public IEnumerable<FileSystemLink> Links {
+        public IEnumerable<IFileSystemLink> Links {
             get
             {
                 if (links == null) GetInfo();
@@ -99,15 +100,18 @@ namespace Ipfs.Api
         public string Name { get; set; }
 
         /// <inheritdoc />
-        public FileSystemLink ToLink(string name = null)
+        public IFileSystemLink ToLink(string name = "")
         {
-            return new FileSystemLink
+            var link =  new FileSystemLink
             {
-                Name = name ?? Name,
+                Name = string.IsNullOrWhiteSpace(name) ? Name : name,
                 Id = Id,
                 Size = Size,
                 IsDirectory = IsDirectory
             };
+            Console.WriteLine("my name " + Name);
+            Console.WriteLine("link name " + link.Name);
+            return link;
         }
 
         internal IpfsClient IpfsClient

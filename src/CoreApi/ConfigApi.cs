@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Ipfs.CoreApi;
 
 namespace Ipfs.Api
 {
@@ -21,7 +22,7 @@ namespace Ipfs.Api
     ///   </para>
     /// </remarks>
     /// <seealso href="https://github.com/ipfs/interface-ipfs-core/tree/master/API/config">Config API</seealso>
-    public class ConfigApi
+    public class ConfigApi : IConfigApi
     {
         IpfsClient ipfs;
 
