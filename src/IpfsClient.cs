@@ -125,8 +125,7 @@ namespace Ipfs.Api
         public IBlockApi Block { get; private set; }
 
         /// <inheritdoc />
-        public ConfigApi Config { get; private set; }
-        IConfigApi ICoreApi.Config => Config;
+        public IConfigApi Config { get; private set; }
 
         /// <inheritdoc />
         public IPinApi Pin { get; private set; }

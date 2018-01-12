@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Ipfs.CoreApi;
+using System.Security;
 
 namespace Ipfs.Api
 {
@@ -59,7 +60,7 @@ namespace Ipfs.Api
                 });
         }
 
-        public async Task<IEnumerable<IKey>> RemoveAsync(string name, CancellationToken cancel = default(CancellationToken))
+        public async Task<IKey> RemoveAsync(string name, CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.DoCommandAsync("key/rm", cancel, name);
             var keys = (JArray)(JObject.Parse(json)["Keys"]);
@@ -68,7 +69,23 @@ namespace Ipfs.Api
                 {
                     Id = (string)k["Id"],
                     Name = (string)k["Name"]
-                });
+                })
+                .First();
+        }
+
+        public Task<IKey> RenameAsync(string oldName, string newName, CancellationToken cancel = default(CancellationToken))
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<string> Export(string name, SecureString password, CancellationToken cancel = default(CancellationToken))
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IKey> Import(string name, string pem, SecureString password = null, CancellationToken cancel = default(CancellationToken))
+        {
+            throw new NotImplementedException();
         }
     }
 }
