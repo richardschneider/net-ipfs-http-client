@@ -65,8 +65,7 @@ namespace Ipfs.Api
             var clone = keys.Single(k => k.Name == name);
             Assert.IsNotNull(clone);
 
-            var removedKeys = await ipfs.Key.RemoveAsync(name);
-            var removed = removedKeys.Single(k => k.Name == name);
+            var removed = await ipfs.Key.RemoveAsync(name);
             Assert.IsNotNull(removed);
             Assert.AreEqual(key.Name, removed.Name);
             Assert.AreEqual(key.Id, removed.Id);

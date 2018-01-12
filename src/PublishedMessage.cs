@@ -13,7 +13,7 @@ namespace Ipfs.Api
     /// <remarks>
     ///   The <see cref="PubSubApi"/> is used to publish and subsribe to a message.
     /// </remarks>
-    public class PublishedMessage
+    public class PublishedMessage : IPublishedMessage
     {
         /// <summary>
         ///   Creates a new instance of <see cref="PublishedMessage"/> from the
@@ -32,38 +32,19 @@ namespace Ipfs.Api
             this.Topics = topics.Select(t => (string)t);
         }
 
-        /// <summary>
-        ///   The sender of the message.
-        /// </summary>
-        /// <remarks>
-        ///   This is the peer ID of the node that sent the message.
-        /// </remarks>
-        public string Sender { get; private set; }
+        /// <inheritdoc />
+        public Peer Sender { get; private set; }
 
-        /// <summary>
-        ///   The topics of the message.
-        /// </summary>
+        /// <inheritdoc />
         public IEnumerable<string> Topics { get; private set; }
 
-        /// <summary>
-        ///   The sequence number of the message.
-        /// </summary>
+        /// <inheritdoc />
         public byte[] SequenceNumber { get; private set; }
 
-        /// <summary>
-        ///   Contents as a byte array.
-        /// </summary>
-        /// <value>
-        ///   The contents as a sequence of bytes.
-        /// </value>
+        /// <inheritdoc />
         public byte[] DataBytes { get; private set; }
 
-        /// <summary>
-        ///   Contents as a stream of bytes.
-        /// </summary>
-        /// <value>
-        ///   The contents as a stream of bytes.
-        /// </value>
+        /// <inheritdoc />
         public Stream DataStream
         {
             get
@@ -72,6 +53,11 @@ namespace Ipfs.Api
             }
         }
 
+        /// <inheritdoc />
+        public long Size
+        {
+            get { return DataBytes.Length;  }
+        }
         /// <summary>
         ///   Contents as a string.
         /// </summary>
@@ -85,5 +71,8 @@ namespace Ipfs.Api
                 return Encoding.UTF8.GetString(DataBytes);
             }
         }
+
+        /// <inheritdoc />
+        public Cid Id => throw new NotImplementedException();
     }
 }

@@ -130,7 +130,7 @@ namespace Ipfs.Api
             var ipfs = TestFixture.Ipfs;
             var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
             var cs = new CancellationTokenSource();
-            Action<PublishedMessage> processMessage = (msg) => 
+            Action<IPublishedMessage> processMessage = (msg) => 
             {
                 Interlocked.Increment(ref messageCount);
             };

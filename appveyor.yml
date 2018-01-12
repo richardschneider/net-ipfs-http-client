@@ -1,22 +1,17 @@
 # gitversion will change the version number
 version: x-{build}
 
-# branches to build
 for:
 -
-   branches:
+  branches:
     only:
       - master
 
-   environment:
+  environment:
     git_token:
-        secure: NeX5NCOUXsCLc1UjTJjqB9F02FZ8Wq0VsxqTXC8kBdyK6zjxjebrf/9Da2sY1Kql
+      secure: NeX5NCOUXsCLc1UjTJjqB9F02FZ8Wq0VsxqTXC8kBdyK6zjxjebrf/9Da2sY1Kql
     snk_secret:
-        secure: 5QzEIgiDqTIrZruPaIQIvTlNMl5BZ7TGEps7ALyBfHE=
-- 
-  branches:
-   except:
-    - gh-pages
+      secure: 5QzEIgiDqTIrZruPaIQIvTlNMl5BZ7TGEps7ALyBfHE=
 
 configuration: Release
 os: Visual Studio 2017

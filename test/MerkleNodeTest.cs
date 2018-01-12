@@ -43,25 +43,6 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
-        public void Stats()
-        {
-            var node = new MerkleNode(IpfsInfo);
-            Assert.AreEqual(309, node.BlockSize);
-            Assert.AreEqual(307, node.LinksSize);
-            Assert.AreEqual(6, node.LinksCount);
-            Assert.AreEqual(2, node.DataSize);
-            Assert.AreEqual(6345, node.CumulativeSize);
-        }
-
-        [TestMethod]
-        public void Links_and_LinksCount()
-        {
-            var node = new MerkleNode(IpfsInfo);
-            Assert.AreEqual(6, node.LinksCount);
-            Assert.AreEqual(6, node.Links.Count());
-        }
-
-        [TestMethod]
         public void FromALink()
         {
             var node = new MerkleNode(IpfsInfo);

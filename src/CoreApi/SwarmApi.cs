@@ -8,21 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Ipfs.CoreApi;
 
 namespace Ipfs.Api
 {
 
-    /// <summary>
-    ///   Manages the swarm of peers.
-    /// </summary>
-    /// <remarks>
-    ///   The swarm is a sequence of peer nodes.
-    ///   <para>
-    ///   This API is accessed via the <see cref="IpfsClient.Swarm"/> property.
-    ///   </para>
-    /// </remarks>
-    /// <seealso href="https://github.com/ipfs/interface-ipfs-core/tree/master/API/swarm">Swarm API</seealso>
-    public class SwarmApi
+    class SwarmApi : ISwarmApi
     {
         IpfsClient ipfs;
 
@@ -31,13 +22,6 @@ namespace Ipfs.Api
             this.ipfs = ipfs;
         }
 
-        /// <summary>
-        ///   Get the peers in the current swarm.
-        /// </summary>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        /// <returns>A sequence of peer nodes.</returns>
         public async Task<IEnumerable<Peer>> AddressesAsync(CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.DoCommandAsync("swarm/addrs", cancel);
@@ -50,16 +34,7 @@ namespace Ipfs.Api
                 });
         }
 
-        /// <summary>
-        ///   Get the peers that are connected to this node.
-        /// </summary>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        /// <returns>
-        ///   A sequence of <see cref="ConnectedPeer">Connected Peers</see>.
-        /// </returns>
-        public async Task<IEnumerable<ConnectedPeer>> PeersAsync(CancellationToken cancel = default(CancellationToken))
+        public async Task<IEnumerable<Peer>> PeersAsync(CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.DoCommandAsync("swarm/peers", cancel, null, "verbose=true");
             var result = JObject.Parse(json);
@@ -73,7 +48,7 @@ namespace Ipfs.Api
                    {
                        var parts = ((string)s).Split(' ');
                        var address = new MultiAddress(parts[0]);
-                       return new ConnectedPeer
+                       return new Peer
                        {
                            Id = address.Protocols.First(p => p.Name == "ipfs").Value,
                            ConnectedAddress = parts[0],
@@ -86,7 +61,7 @@ namespace Ipfs.Api
             var peers = (JArray)result["Peers"];
             if (peers != null)
             {
-                return peers.Select(p => new ConnectedPeer
+                return peers.Select(p => new Peer
                 {
                     Id = (string)p["Peer"],
                     ConnectedAddress = new MultiAddress((string)p["Addr"] + "/ipfs/" + (string)p["Peer"]),
@@ -118,31 +93,11 @@ namespace Ipfs.Api
             throw new FormatException(String.Format("Invalid latency unit '{0}'.", latency));
         }
 
-        /// <summary>
-        ///   Connect to a peer.
-        /// </summary>
-        /// <param name="address">
-        ///   An ipfs <see cref="MultiAddress"/>, such as
-        ///  <c>/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ</c>.
-        /// </param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
         public async Task ConnectAsync(MultiAddress address, CancellationToken cancel = default(CancellationToken))
         {
             await ipfs.DoCommandAsync("swarm/connect", cancel, address.ToString());
         }
 
-        /// <summary>
-        ///   Disconnect from a peer.
-        /// </summary>
-        /// <param name="address">
-        ///   An ipfs <see cref="MultiAddress"/>, such as
-        ///  <c>/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ</c>.
-        /// </param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
         public async Task DisconnectAsync(MultiAddress address, CancellationToken cancel = default(CancellationToken))
         {
             await ipfs.DoCommandAsync("swarm/disconnect", cancel, address.ToString());

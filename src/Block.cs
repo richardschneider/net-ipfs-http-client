@@ -10,23 +10,13 @@ namespace Ipfs.Api
     /// <inheritdoc />
     public class Block : IDataBlock
     {
-        byte[] dataBytes;
+        long? size;
 
         /// <inheritdoc />
         public Cid Id { get; set; }
 
         /// <inheritdoc />
-        public byte[] DataBytes
-        {
-            get
-            {
-                return dataBytes;
-            }
-            set
-            {
-                dataBytes = value;
-            }
-        }
+        public byte[] DataBytes { get; set; }
 
         /// <inheritdoc />
         public Stream DataStream
@@ -36,6 +26,24 @@ namespace Ipfs.Api
                 return new MemoryStream(DataBytes, false);
             }
         }
+
+        /// <inheritdoc />
+        public long Size
+        {
+            get
+            {
+                if (size.HasValue)
+                {
+                    return size.Value;
+                }
+                return DataBytes.Length;
+            }
+            set
+            {
+                size = value;
+            }
+        }
+        
     }
 
 }

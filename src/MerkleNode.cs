@@ -11,17 +11,12 @@ namespace Ipfs.Api
     ///   The IPFS <see href="https://github.com/ipfs/specs/tree/master/merkledag">MerkleDag</see> is the datastructure at the heart of IPFS. It is an acyclic directed graph whose edges are hashes.
     /// </summary>
     /// <remarks>
-    ///   Initially an <b>MerkleNode</b> is just constructed with its Cid.  Its other properties are lazily loaded.
+    ///   Initially an <b>MerkleNode</b> is just constructed with its Cid.
     /// </remarks>
     public class MerkleNode : IMerkleNode<IMerkleLink>, IEquatable<MerkleNode>
     {
-        bool hasObjectStats;
         bool hasBlockStats;
         long blockSize;
-        long cumulativeSize;
-        long dataSize;
-        long linksSize;
-        long linksCount;
         string name;
         IEnumerable<IMerkleLink> links;
         IpfsClient ipfsClient;
@@ -54,7 +49,7 @@ namespace Ipfs.Api
         public MerkleNode(string path, string name = null)
         {
             if (string.IsNullOrWhiteSpace(path))
-                throw new ArgumentNullException("payh");
+                throw new ArgumentNullException("path");
 
             if (path.StartsWith("/ipfs/"))
                 path = path.Substring(6);
@@ -119,29 +114,16 @@ namespace Ipfs.Api
             }
         }
 
-        /// <summary>
-        ///   Size of the Links segment.
-        /// </summary>
-        public long LinksSize
+        /// <inheritdoc />
+        /// <seealso cref="BlockSize"/>
+        public long Size
         {
             get
             {
-                GetObjectStats();
-                return linksSize;
+                return BlockSize;
             }
         }
 
-        /// <summary>
-        ///  TODO
-        /// </summary>
-        public long LinksCount
-        {
-            get
-            {
-                GetObjectStats();
-                return linksCount;
-            }
-        }
 
         /// <inheritdoc />
         public IEnumerable<IMerkleLink> Links
@@ -154,30 +136,6 @@ namespace Ipfs.Api
                 }
 
                 return links;
-            }
-        }
-
-        /// <summary>
-        ///   Size of the Data segment.
-        /// </summary>
-        public long DataSize
-        {
-            get
-            {
-                GetObjectStats();
-                return dataSize;
-            }
-        }
-
-        /// <summary>
-        ///   Cumulative size of object and its references.
-        /// </summary>
-        public long CumulativeSize
-        {
-            get
-            {
-                GetObjectStats();
-                return cumulativeSize;
             }
         }
 
@@ -203,30 +161,6 @@ namespace Ipfs.Api
         public IMerkleLink ToLink(string name = null)
         {
             return new DagLink(name ?? Name, Id, BlockSize);
-        }
-
-        /// <summary>
-        ///   Get object statistics about the node, <c>ipfs object stat <i>hash</i></c>
-        /// </summary>
-        /// <remarks>
-        ///   The object stats include the block stats.
-        /// </remarks>
-        void GetObjectStats()
-        {
-            if (hasObjectStats)
-                return;
-
-            var stats = IpfsClient.Object.StatAsync(Id).Result;
-            blockSize = stats.BlockSize;
-            cumulativeSize = stats.CumulativeSize;
-            dataSize = stats.DataSize;
-            linksSize = stats.LinksSize;
-            linksCount = stats.NumLinks;
-            if (linksCount == 0)
-                links = new DagLink[0];
-
-            hasObjectStats = true;
-            hasBlockStats = true;
         }
 
         /// <summary>
