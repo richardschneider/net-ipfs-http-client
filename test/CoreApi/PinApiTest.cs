@@ -18,16 +18,7 @@ namespace Ipfs.Api
             var ipfs = TestFixture.Ipfs;
             var pins = ipfs.Pin.ListAsync().Result;
             Assert.IsNotNull(pins);
-            Assert.IsTrue(pins.Length > 0);
-        }
-
-        [TestMethod]
-        public async Task List_Filtered()
-        {
-            var ipfs = TestFixture.Ipfs;
-            var all = await ipfs.Pin.ListAsync();
-            var some = await ipfs.Pin.ListAsync(PinMode.Direct);
-            Assert.AreNotEqual(all.Length, some.Length);
+            Assert.IsTrue(pins.Count() > 0);
         }
 
         [TestMethod]
@@ -38,14 +29,14 @@ namespace Ipfs.Api
             var id = result.Id;
 
             var pins = await ipfs.Pin.AddAsync(id);
-            Assert.IsTrue(pins.Any(pin => pin.Id == id));
+            Assert.IsTrue(pins.Any(pin => pin == id));
             var all = await ipfs.Pin.ListAsync();
-            Assert.IsTrue(all.Any(pin => pin.Id == id));
+            Assert.IsTrue(all.Any(pin => pin == id));
 
             pins = await ipfs.Pin.RemoveAsync(id);
-            Assert.IsTrue(pins.Any(pin => pin.Id == id));
+            Assert.IsTrue(pins.Any(pin => pin == id));
             all = await ipfs.Pin.ListAsync();
-            Assert.IsFalse(all.Any(pin => pin.Id == id));
+            Assert.IsFalse(all.Any(pin => pin == id));
         }
 
     }
