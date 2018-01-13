@@ -81,6 +81,11 @@
     <div class="level0"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></div>
     <div class="level1"><span class="xref">IpfsClient</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IGenericApi.html">IGenericApi</a></div>
+    <div><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.ICoreApi.html">ICoreApi</a></div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -109,7 +114,7 @@
   <h6><strong>Assembly</strong>: Ipfs.Api.dll</h6>
   <h5 id="Ipfs_Api_IpfsClient_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class IpfsClient</code></pre>
+    <pre><code class="lang-csharp hljs">public class IpfsClient : IGenericApi, ICoreApi</code></pre>
   </div>
   <h5 id="Ipfs_Api_IpfsClient_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>The API is based on the <a href="https://ipfs.io/docs/commands/">IPFS commands</a>.</p>
@@ -121,7 +126,7 @@
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient__ctor.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L56">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L57">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient__ctor_" data-uid="Ipfs.Api.IpfsClient.#ctor*"></a>
   <h4 id="Ipfs_Api_IpfsClient__ctor" data-uid="Ipfs.Api.IpfsClient.#ctor">IpfsClient()</h4>
@@ -142,7 +147,7 @@ an application.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient__ctor_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L83">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L87">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient__ctor_" data-uid="Ipfs.Api.IpfsClient.#ctor*"></a>
   <h4 id="Ipfs_Api_IpfsClient__ctor_System_String_" data-uid="Ipfs.Api.IpfsClient.#ctor(System.String)">IpfsClient(String)</h4>
@@ -180,7 +185,7 @@ default values</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_DefaultApiUri.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.DefaultApiUri%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L44">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L45">View Source</a>
   </span>
   <h4 id="Ipfs_Api_IpfsClient_DefaultApiUri" data-uid="Ipfs.Api.IpfsClient.DefaultApiUri">DefaultApiUri</h4>
   <div class="markdown level1 summary"><p>The default URL to the IPFS HTTP API server.</p>
@@ -216,7 +221,7 @@ default values</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_ApiUri.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.ApiUri%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L92">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L96">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_ApiUri_" data-uid="Ipfs.Api.IpfsClient.ApiUri*"></a>
   <h4 id="Ipfs_Api_IpfsClient_ApiUri" data-uid="Ipfs.Api.IpfsClient.ApiUri">ApiUri</h4>
@@ -244,19 +249,18 @@ default values</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_Block.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.Block%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_Bitswap.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.Bitswap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L122">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L116">View Source</a>
   </span>
-  <a id="Ipfs_Api_IpfsClient_Block_" data-uid="Ipfs.Api.IpfsClient.Block*"></a>
-  <h4 id="Ipfs_Api_IpfsClient_Block" data-uid="Ipfs.Api.IpfsClient.Block">Block</h4>
-  <div class="markdown level1 summary"><p>Provides access to the <a class="xref" href="Ipfs.Api.BlockApi.html">BlockApi</a>.</p>
-</div>
+  <a id="Ipfs_Api_IpfsClient_Bitswap_" data-uid="Ipfs.Api.IpfsClient.Bitswap*"></a>
+  <h4 id="Ipfs_Api_IpfsClient_Bitswap" data-uid="Ipfs.Api.IpfsClient.Bitswap">Bitswap</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BlockApi Block { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IBitswapApi Bitswap { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -268,7 +272,37 @@ default values</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Ipfs.Api.BlockApi.html">BlockApi</a></td>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBitswapApi.html">IBitswapApi</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_Block.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.Block%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L125">View Source</a>
+  </span>
+  <a id="Ipfs_Api_IpfsClient_Block_" data-uid="Ipfs.Api.IpfsClient.Block*"></a>
+  <h4 id="Ipfs_Api_IpfsClient_Block" data-uid="Ipfs.Api.IpfsClient.Block">Block</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IBlockApi Block { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBlockApi.html">IBlockApi</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -278,16 +312,15 @@ default values</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_Config.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.Config%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L127">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L128">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_Config_" data-uid="Ipfs.Api.IpfsClient.Config*"></a>
   <h4 id="Ipfs_Api_IpfsClient_Config" data-uid="Ipfs.Api.IpfsClient.Config">Config</h4>
-  <div class="markdown level1 summary"><p>Provides access to the <a class="xref" href="Ipfs.Api.ConfigApi.html">ConfigApi</a>.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ConfigApi Config { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IConfigApi Config { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -299,7 +332,7 @@ default values</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Ipfs.Api.ConfigApi.html">ConfigApi</a></td>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IConfigApi.html">IConfigApi</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -309,16 +342,15 @@ default values</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_Dag.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.Dag%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L137">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L134">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_Dag_" data-uid="Ipfs.Api.IpfsClient.Dag*"></a>
   <h4 id="Ipfs_Api_IpfsClient_Dag" data-uid="Ipfs.Api.IpfsClient.Dag">Dag</h4>
-  <div class="markdown level1 summary"><p>Provides access to the <a class="xref" href="Ipfs.Api.DagApi.html">DagApi</a>.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DagApi Dag { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IDagApi Dag { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -330,7 +362,7 @@ default values</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Ipfs.Api.DagApi.html">DagApi</a></td>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IDagApi.html">IDagApi</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -340,16 +372,15 @@ default values</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_Dht.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.Dht%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L142">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L137">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_Dht_" data-uid="Ipfs.Api.IpfsClient.Dht*"></a>
   <h4 id="Ipfs_Api_IpfsClient_Dht" data-uid="Ipfs.Api.IpfsClient.Dht">Dht</h4>
-  <div class="markdown level1 summary"><p>Provides access to the <a class="xref" href="Ipfs.Api.DhtApi.html">DhtApi</a>.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DhtApi Dht { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IDhtApi Dht { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -361,7 +392,7 @@ default values</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Ipfs.Api.DhtApi.html">DhtApi</a></td>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IDhtApi.html">IDhtApi</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -371,16 +402,15 @@ default values</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_FileSystem.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.FileSystem%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L157">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L146">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_FileSystem_" data-uid="Ipfs.Api.IpfsClient.FileSystem*"></a>
   <h4 id="Ipfs_Api_IpfsClient_FileSystem" data-uid="Ipfs.Api.IpfsClient.FileSystem">FileSystem</h4>
-  <div class="markdown level1 summary"><p>Provides access to the <a class="xref" href="Ipfs.Api.FileSystemApi.html">FileSystemApi</a>.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FileSystemApi FileSystem { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IFileSystemApi FileSystem { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -392,7 +422,37 @@ default values</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Ipfs.Api.FileSystemApi.html">FileSystemApi</a></td>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IFileSystemApi.html">IFileSystemApi</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_Generic.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.Generic%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L119">View Source</a>
+  </span>
+  <a id="Ipfs_Api_IpfsClient_Generic_" data-uid="Ipfs.Api.IpfsClient.Generic*"></a>
+  <h4 id="Ipfs_Api_IpfsClient_Generic" data-uid="Ipfs.Api.IpfsClient.Generic">Generic</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGenericApi Generic { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IGenericApi.html">IGenericApi</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -402,16 +462,15 @@ default values</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_Key.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.Key%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L167">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L152">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_Key_" data-uid="Ipfs.Api.IpfsClient.Key*"></a>
   <h4 id="Ipfs_Api_IpfsClient_Key" data-uid="Ipfs.Api.IpfsClient.Key">Key</h4>
-  <div class="markdown level1 summary"><p>Provides access to the <a class="xref" href="Ipfs.Api.KeyApi.html">KeyApi</a>.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public KeyApi Key { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IKeyApi Key { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -423,7 +482,37 @@ default values</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Ipfs.Api.KeyApi.html">KeyApi</a></td>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IKeyApi.html">IKeyApi</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_Name.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L122">View Source</a>
+  </span>
+  <a id="Ipfs_Api_IpfsClient_Name_" data-uid="Ipfs.Api.IpfsClient.Name*"></a>
+  <h4 id="Ipfs_Api_IpfsClient_Name" data-uid="Ipfs.Api.IpfsClient.Name">Name</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public INameApi Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.INameApi.html">INameApi</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -433,16 +522,15 @@ default values</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_Object.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.Object%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L152">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L143">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_Object_" data-uid="Ipfs.Api.IpfsClient.Object*"></a>
   <h4 id="Ipfs_Api_IpfsClient_Object" data-uid="Ipfs.Api.IpfsClient.Object">Object</h4>
-  <div class="markdown level1 summary"><p>Provides access to the <a class="xref" href="Ipfs.Api.ObjectApi.html">ObjectApi</a>.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ObjectApi Object { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IObjectApi Object { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -454,7 +542,7 @@ default values</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Ipfs.Api.ObjectApi.html">ObjectApi</a></td>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IObjectApi.html">IObjectApi</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -464,16 +552,15 @@ default values</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_Pin.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.Pin%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L132">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L131">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_Pin_" data-uid="Ipfs.Api.IpfsClient.Pin*"></a>
   <h4 id="Ipfs_Api_IpfsClient_Pin" data-uid="Ipfs.Api.IpfsClient.Pin">Pin</h4>
-  <div class="markdown level1 summary"><p>Provides access to the <a class="xref" href="Ipfs.Api.PinApi.html">PinApi</a>.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PinApi Pin { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IPinApi Pin { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -485,60 +572,25 @@ default values</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Ipfs.Api.PinApi.html">PinApi</a></td>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IPinApi.html">IPinApi</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_PinnedObjects.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.PinnedObjects%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L117">View Source</a>
-  </span>
-  <a id="Ipfs_Api_IpfsClient_PinnedObjects_" data-uid="Ipfs.Api.IpfsClient.PinnedObjects*"></a>
-  <h4 id="Ipfs_Api_IpfsClient_PinnedObjects" data-uid="Ipfs.Api.IpfsClient.PinnedObjects">PinnedObjects</h4>
-  <div class="markdown level1 summary"><p>The list of objects that are permanently stored on the local host.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PinnedCollection PinnedObjects { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Ipfs.Api.PinnedCollection.html">PinnedCollection</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Ipfs_Api_IpfsClient_PinnedObjects_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This is equilivent to <code>ipfs pin ls</code>.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_PubSub.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.PubSub%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L162">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L149">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_PubSub_" data-uid="Ipfs.Api.IpfsClient.PubSub*"></a>
   <h4 id="Ipfs_Api_IpfsClient_PubSub" data-uid="Ipfs.Api.IpfsClient.PubSub">PubSub</h4>
-  <div class="markdown level1 summary"><p>Provides access to the <a class="xref" href="Ipfs.Api.PubSubApi.html">PubSubApi</a>.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PubSubApi PubSub { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IPubSubApi PubSub { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -550,7 +602,7 @@ default values</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Ipfs.Api.PubSubApi.html">PubSubApi</a></td>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IPubSubApi.html">IPubSubApi</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -560,16 +612,15 @@ default values</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_Swarm.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.Swarm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L147">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L140">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_Swarm_" data-uid="Ipfs.Api.IpfsClient.Swarm*"></a>
   <h4 id="Ipfs_Api_IpfsClient_Swarm" data-uid="Ipfs.Api.IpfsClient.Swarm">Swarm</h4>
-  <div class="markdown level1 summary"><p>Provides access to the <a class="xref" href="Ipfs.Api.SwarmApi.html">SwarmApi</a>.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SwarmApi Swarm { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ISwarmApi Swarm { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -581,7 +632,7 @@ default values</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Ipfs.Api.SwarmApi.html">SwarmApi</a></td>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.ISwarmApi.html">ISwarmApi</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -591,7 +642,7 @@ default values</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_TrustedPeers.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.TrustedPeers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L109">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L113">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_TrustedPeers_" data-uid="Ipfs.Api.IpfsClient.TrustedPeers*"></a>
   <h4 id="Ipfs_Api_IpfsClient_TrustedPeers" data-uid="Ipfs.Api.IpfsClient.TrustedPeers">TrustedPeers</h4>
@@ -625,7 +676,7 @@ default values</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_UserAgent.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.UserAgent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L101">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L105">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_UserAgent_" data-uid="Ipfs.Api.IpfsClient.UserAgent*"></a>
   <h4 id="Ipfs_Api_IpfsClient_UserAgent" data-uid="Ipfs.Api.IpfsClient.UserAgent">UserAgent</h4>
@@ -660,7 +711,7 @@ numbers of the assembly.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_DoCommandAsync_System_String_System_Threading_CancellationToken_System_String_System_String___.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.DoCommandAsync(System.String%2CSystem.Threading.CancellationToken%2CSystem.String%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L258">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L243">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_DoCommandAsync_" data-uid="Ipfs.Api.IpfsClient.DoCommandAsync*"></a>
   <h4 id="Ipfs_Api_IpfsClient_DoCommandAsync_System_String_System_Threading_CancellationToken_System_String_System_String___" data-uid="Ipfs.Api.IpfsClient.DoCommandAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])">DoCommandAsync(String, CancellationToken, String, String[])</h4>
@@ -745,7 +796,7 @@ numbers of the assembly.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_DoCommandAsync__1_System_String_System_Threading_CancellationToken_System_String_System_String___.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.DoCommandAsync%60%601(System.String%2CSystem.Threading.CancellationToken%2CSystem.String%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L303">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L288">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_DoCommandAsync_" data-uid="Ipfs.Api.IpfsClient.DoCommandAsync*"></a>
   <h4 id="Ipfs_Api_IpfsClient_DoCommandAsync__1_System_String_System_Threading_CancellationToken_System_String_System_String___" data-uid="Ipfs.Api.IpfsClient.DoCommandAsync``1(System.String,System.Threading.CancellationToken,System.String,System.String[])">DoCommandAsync&lt;T&gt;(String, CancellationToken, String, String[])</h4>
@@ -851,7 +902,7 @@ a specific <a class="xref" href="https://msdn.microsoft.com/en-us/library/system
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_DownloadAsync_System_String_System_Threading_CancellationToken_System_String_System_String___.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.DownloadAsync(System.String%2CSystem.Threading.CancellationToken%2CSystem.String%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L366">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L351">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_DownloadAsync_" data-uid="Ipfs.Api.IpfsClient.DownloadAsync*"></a>
   <h4 id="Ipfs_Api_IpfsClient_DownloadAsync_System_String_System_Threading_CancellationToken_System_String_System_String___" data-uid="Ipfs.Api.IpfsClient.DownloadAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])">DownloadAsync(String, CancellationToken, String, String[])</h4>
@@ -937,7 +988,7 @@ a specific <a class="xref" href="https://msdn.microsoft.com/en-us/library/system
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_DownloadBytesAsync_System_String_System_Threading_CancellationToken_System_String_System_String___.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.DownloadBytesAsync(System.String%2CSystem.Threading.CancellationToken%2CSystem.String%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L399">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L384">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_DownloadBytesAsync_" data-uid="Ipfs.Api.IpfsClient.DownloadBytesAsync*"></a>
   <h4 id="Ipfs_Api_IpfsClient_DownloadBytesAsync_System_String_System_Threading_CancellationToken_System_String_System_String___" data-uid="Ipfs.Api.IpfsClient.DownloadBytesAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])">DownloadBytesAsync(String, CancellationToken, String, String[])</h4>
@@ -1023,12 +1074,11 @@ a byte array.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_IdAsync_Ipfs_MultiHash_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.IdAsync(Ipfs.MultiHash%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/GenericApi.cs/#L28">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/GenericApi.cs/#L17">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_IdAsync_" data-uid="Ipfs.Api.IpfsClient.IdAsync*"></a>
   <h4 id="Ipfs_Api_IpfsClient_IdAsync_Ipfs_MultiHash_System_Threading_CancellationToken_" data-uid="Ipfs.Api.IpfsClient.IdAsync(Ipfs.MultiHash,System.Threading.CancellationToken)">IdAsync(MultiHash, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Information about an IPFS peer.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1047,15 +1097,12 @@ a byte array.</p>
       <tr>
         <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a></td>
         <td><span class="parametername">peer</span></td>
-        <td><p>The id of the IPFS peer.  If not specified (e.g. null), then the local
-peer is used.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
         <td><span class="parametername">cancel</span></td>
-        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -1070,8 +1117,7 @@ peer is used.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Peer.html">Peer</a>&gt;</td>
-        <td><p>Information on the peer node.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -1080,7 +1126,7 @@ peer is used.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_PostDownloadAsync_System_String_System_Threading_CancellationToken_System_String_System_String___.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.PostDownloadAsync(System.String%2CSystem.Threading.CancellationToken%2CSystem.String%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L331">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L316">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_PostDownloadAsync_" data-uid="Ipfs.Api.IpfsClient.PostDownloadAsync*"></a>
   <h4 id="Ipfs_Api_IpfsClient_PostDownloadAsync_System_String_System_Threading_CancellationToken_System_String_System_String___" data-uid="Ipfs.Api.IpfsClient.PostDownloadAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])">PostDownloadAsync(String, CancellationToken, String, String[])</h4>
@@ -1165,7 +1211,7 @@ peer is used.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_UploadAsync_System_String_System_Threading_CancellationToken_System_Byte___System_String___.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.UploadAsync(System.String%2CSystem.Threading.CancellationToken%2CSystem.Byte%5B%5D%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L445">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L430">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_UploadAsync_" data-uid="Ipfs.Api.IpfsClient.UploadAsync*"></a>
   <h4 id="Ipfs_Api_IpfsClient_UploadAsync_System_String_System_Threading_CancellationToken_System_Byte___System_String___" data-uid="Ipfs.Api.IpfsClient.UploadAsync(System.String,System.Threading.CancellationToken,System.Byte[],System.String[])">UploadAsync(String, CancellationToken, Byte[], String[])</h4>
@@ -1228,7 +1274,7 @@ peer is used.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_UploadAsync_System_String_System_Threading_CancellationToken_System_IO_Stream_System_String___.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.UploadAsync(System.String%2CSystem.Threading.CancellationToken%2CSystem.IO.Stream%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L422">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L407">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_UploadAsync_" data-uid="Ipfs.Api.IpfsClient.UploadAsync*"></a>
   <h4 id="Ipfs_Api_IpfsClient_UploadAsync_System_String_System_Threading_CancellationToken_System_IO_Stream_System_String___" data-uid="Ipfs.Api.IpfsClient.UploadAsync(System.String,System.Threading.CancellationToken,System.IO.Stream,System.String[])">UploadAsync(String, CancellationToken, Stream, String[])</h4>
@@ -1307,12 +1353,11 @@ peer is used.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient_VersionAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient.VersionAsync(System.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/GenericApi.cs/#L36">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/CoreApi/GenericApi.cs/#L23">View Source</a>
   </span>
   <a id="Ipfs_Api_IpfsClient_VersionAsync_" data-uid="Ipfs.Api.IpfsClient.VersionAsync*"></a>
   <h4 id="Ipfs_Api_IpfsClient_VersionAsync_System_Threading_CancellationToken_" data-uid="Ipfs.Api.IpfsClient.VersionAsync(System.Threading.CancellationToken)">VersionAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Get the version information of the API server.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1350,6 +1395,13 @@ peer is used.</p>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IGenericApi.html">IGenericApi</a>
+  </div>
+  <div>
+      <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.ICoreApi.html">ICoreApi</a>
+  </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
       <div><span><a href="https://ipfs.io/docs/api/">IPFS API</a></span></div>
@@ -1366,7 +1418,7 @@ peer is used.</p>
                     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_IpfsClient.md&amp;value=---%0Auid%3A%20Ipfs.Api.IpfsClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L29" class="contribution-link">View Source</a>
+                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/IpfsClient.cs/#L30" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

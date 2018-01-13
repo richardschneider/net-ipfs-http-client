@@ -82,7 +82,8 @@
   </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><span class="xref">Ipfs.IMerkleNode</span>&lt;<a class="xref" href="Ipfs.Api.FileSystemLink.html">FileSystemLink</a>&gt;</div>
+    <div><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IFileSystemNode.html">IFileSystemNode</a></div>
+    <div><span class="xref">Ipfs.IMerkleNode</span>&lt;<a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IFileSystemLink.html">IFileSystemLink</a>&gt;</div>
     <div><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IDataBlock.html">IDataBlock</a></div>
   </div>
   <div class="inheritedMembers">
@@ -113,7 +114,7 @@
   <h6><strong>Assembly</strong>: Ipfs.Api.dll</h6>
   <h5 id="Ipfs_Api_FileSystemNode_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class FileSystemNode : IMerkleNode&lt;FileSystemLink&gt;, IDataBlock</code></pre>
+    <pre><code class="lang-csharp hljs">public class FileSystemNode : IFileSystemNode, IMerkleNode&lt;IFileSystemLink&gt;, IDataBlock</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -182,7 +183,7 @@
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_FileSystemNode_Id.md&amp;value=---%0Auid%3A%20Ipfs.Api.FileSystemNode.Id%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/FileSystemNode.cs/#L41">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/FileSystemNode.cs/#L42">View Source</a>
   </span>
   <a id="Ipfs_Api_FileSystemNode_Id_" data-uid="Ipfs.Api.FileSystemNode.Id*"></a>
   <h4 id="Ipfs_Api_FileSystemNode_Id" data-uid="Ipfs.Api.FileSystemNode.Id">Id</h4>
@@ -212,7 +213,7 @@
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_FileSystemNode_IsDirectory.md&amp;value=---%0Auid%3A%20Ipfs.Api.FileSystemNode.IsDirectory%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/FileSystemNode.cs/#L83">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/FileSystemNode.cs/#L84">View Source</a>
   </span>
   <a id="Ipfs_Api_FileSystemNode_IsDirectory_" data-uid="Ipfs.Api.FileSystemNode.IsDirectory*"></a>
   <h4 id="Ipfs_Api_FileSystemNode_IsDirectory" data-uid="Ipfs.Api.FileSystemNode.IsDirectory">IsDirectory</h4>
@@ -245,7 +246,7 @@ the link is some type of a file.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_FileSystemNode_Links.md&amp;value=---%0Auid%3A%20Ipfs.Api.FileSystemNode.Links%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/FileSystemNode.cs/#L44">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/FileSystemNode.cs/#L45">View Source</a>
   </span>
   <a id="Ipfs_Api_FileSystemNode_Links_" data-uid="Ipfs.Api.FileSystemNode.Links*"></a>
   <h4 id="Ipfs_Api_FileSystemNode_Links" data-uid="Ipfs.Api.FileSystemNode.Links">Links</h4>
@@ -253,7 +254,7 @@ the link is some type of a file.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;FileSystemLink&gt; Links { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IFileSystemLink&gt; Links { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -265,7 +266,7 @@ the link is some type of a file.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Ipfs.Api.FileSystemLink.html">FileSystemLink</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IFileSystemLink.html">IFileSystemLink</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -275,7 +276,7 @@ the link is some type of a file.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_FileSystemNode_Name.md&amp;value=---%0Auid%3A%20Ipfs.Api.FileSystemNode.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/FileSystemNode.cs/#L99">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/FileSystemNode.cs/#L100">View Source</a>
   </span>
   <a id="Ipfs_Api_FileSystemNode_Name_" data-uid="Ipfs.Api.FileSystemNode.Name*"></a>
   <h4 id="Ipfs_Api_FileSystemNode_Name" data-uid="Ipfs.Api.FileSystemNode.Name">Name</h4>
@@ -306,7 +307,7 @@ the link is some type of a file.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_FileSystemNode_Size.md&amp;value=---%0Auid%3A%20Ipfs.Api.FileSystemNode.Size%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/FileSystemNode.cs/#L63">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/FileSystemNode.cs/#L64">View Source</a>
   </span>
   <a id="Ipfs_Api_FileSystemNode_Size_" data-uid="Ipfs.Api.FileSystemNode.Size*"></a>
   <h4 id="Ipfs_Api_FileSystemNode_Size" data-uid="Ipfs.Api.FileSystemNode.Size">Size</h4>
@@ -341,7 +342,7 @@ of the block.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_FileSystemNode_ToLink_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.FileSystemNode.ToLink(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/FileSystemNode.cs/#L102">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/FileSystemNode.cs/#L103">View Source</a>
   </span>
   <a id="Ipfs_Api_FileSystemNode_ToLink_" data-uid="Ipfs.Api.FileSystemNode.ToLink*"></a>
   <h4 id="Ipfs_Api_FileSystemNode_ToLink_System_String_" data-uid="Ipfs.Api.FileSystemNode.ToLink(System.String)">ToLink(String)</h4>
@@ -349,7 +350,7 @@ of the block.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FileSystemLink ToLink(string name = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public IFileSystemLink ToLink(string name = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -378,12 +379,15 @@ of the block.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Ipfs.Api.FileSystemLink.html">FileSystemLink</a></td>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IFileSystemLink.html">IFileSystemLink</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IFileSystemNode.html">IFileSystemNode</a>
+  </div>
   <div>
       <span class="xref">Ipfs.IMerkleNode&lt;Link&gt;</span>
   </div>

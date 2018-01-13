@@ -83,6 +83,7 @@
   </div>
   <div classs="implements">
     <h5>Implements</h5>
+    <div><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IFileSystemLink.html">IFileSystemLink</a></div>
     <div><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IMerkleLink.html">IMerkleLink</a></div>
   </div>
   <div class="inheritedMembers">
@@ -113,7 +114,7 @@
   <h6><strong>Assembly</strong>: Ipfs.Api.dll</h6>
   <h5 id="Ipfs_Api_FileSystemLink_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class FileSystemLink : IMerkleLink</code></pre>
+    <pre><code class="lang-csharp hljs">public class FileSystemLink : IFileSystemLink, IMerkleLink</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -152,12 +153,11 @@
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_FileSystemLink_IsDirectory.md&amp;value=---%0Auid%3A%20Ipfs.Api.FileSystemLink.IsDirectory%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/FileSystemLink.cs/#L25">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/FileSystemLink.cs/#L19">View Source</a>
   </span>
   <a id="Ipfs_Api_FileSystemLink_IsDirectory_" data-uid="Ipfs.Api.FileSystemLink.IsDirectory*"></a>
   <h4 id="Ipfs_Api_FileSystemLink_IsDirectory" data-uid="Ipfs.Api.FileSystemLink.IsDirectory">IsDirectory</h4>
-  <div class="markdown level1 summary"><p>Determines if the link is a directory (folder).</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -174,9 +174,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
-        <td><p><strong>true</strong> if the link is a directory; Otherwise <strong>false</strong>,
-the link is some type of a file.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -241,6 +239,9 @@ the link is some type of a file.</p>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IFileSystemLink.html">IFileSystemLink</a>
+  </div>
   <div>
       <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IMerkleLink.html">IMerkleLink</a>
   </div>
