@@ -17,16 +17,20 @@ More information, including the Class Reference, is on the [Project](https://ric
 - [Asynchronous I/O](https://richardschneider.github.io/net-ipfs-api/articles/async.html) to an IPFS server
 - Supports [cancellation](https://richardschneider.github.io/net-ipfs-api/articles/cancellation.html) of all requests to the IPFS Server
 - Comprehensive [documentation](https://richardschneider.github.io/net-ipfs-api)
-- C# style access to the [ipfs core interface](https://github.com/ipfs/interface-ipfs-core#api)
-  - [Block API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.BlockApi.html)
-  - [Config API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.ConfigApi.html)
-  - [Dag API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.DagApi.html)
-  - [Dht API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.DhtApi.html)
-  - [FileSystem API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.FileSystemApi.html)
-  - [Object API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.ObjectApi.html)
-  - [Pin API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.PinApi.html)
-  - [PubSub API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.PubSubApi.html)
-  - [Swarm API](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.SwarmApi.html)
+- C# style access to the [ipfs core interface](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.html)
+  - [Bitswap API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBitswapApi.html) **NYI**
+  - [Block API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBlockApi.html)
+  - [Config API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IConfigApi.html)
+  - [Dag API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IDagApi.html) **NYI**
+  - [Dht API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IDhtApi.html)
+  - [Misc API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IGenericApi.html)
+  - [FileSystem API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IFileSystemApi.html)
+  - [Key API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IKeyApi.html)
+  - [Name API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.INameApi.html) **NYI**
+  - [Object API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IObjectApi.html)
+  - [Pin API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IPinApi.html)
+  - [PubSub API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IPubSubApi.html)
+  - [Swarm API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.ISwarmApi.html)
 
 ## Getting started
 
