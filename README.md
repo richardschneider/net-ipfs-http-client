@@ -40,12 +40,14 @@ Published releases of IPFS API are available on [NuGet](https://www.nuget.org/pa
     
 For the latest build or older non-released builds see [Continuous Integration](https://github.com/richardschneider/net-ipfs-core/wiki/Continuous-Integration).
 
+If you don't have an IPFS Gateway, [IPFS GUI](https://github.com/marcin212/ipfs-gui) is an easy way to set one up on Windows.
+
 ## IpfsClient
 
 Every IPFS Api is a property of the [IpfsClient](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.IpfsClient.html).  The following example reads a text file
 
 ```
-var ipfs = new IpfsClient();
+var ipfs = new IpfsClient("http://127.0.0.1:8080"); // your local gateway.
 
 const string filename = "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about";
 string text = await ipfs.FileSystem.ReadAllTextAsync(filename);
