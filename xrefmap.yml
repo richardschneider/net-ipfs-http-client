@@ -277,6 +277,18 @@ references:
   commentId: Overload:Ipfs.Api.IpfsClient.Block
   fullName: Ipfs.Api.IpfsClient.Block
   nameWithType: IpfsClient.Block
+- uid: Ipfs.Api.IpfsClient.Bootstrap
+  name: Bootstrap
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Bootstrap
+  commentId: P:Ipfs.Api.IpfsClient.Bootstrap
+  fullName: Ipfs.Api.IpfsClient.Bootstrap
+  nameWithType: IpfsClient.Bootstrap
+- uid: Ipfs.Api.IpfsClient.Bootstrap*
+  name: Bootstrap
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Bootstrap_
+  commentId: Overload:Ipfs.Api.IpfsClient.Bootstrap
+  fullName: Ipfs.Api.IpfsClient.Bootstrap
+  nameWithType: IpfsClient.Bootstrap
 - uid: Ipfs.Api.IpfsClient.Config
   name: Config
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Config
