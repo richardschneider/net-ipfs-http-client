@@ -61,6 +61,7 @@ namespace Ipfs.Api
             UserAgent = string.Format("net-ipfs/{0}.{1}", version.Major, version.Minor);
             TrustedPeers = new TrustedPeerCollection(this);
 
+            Bootstrap = new BootstrapApi(this);
             Bitswap = new BitswapApi(this);
             Block = new BlockApi(this);
             Config = new ConfigApi(this);
@@ -114,6 +115,9 @@ namespace Ipfs.Api
 
         /// <inheritdoc />
         public IBitswapApi Bitswap { get; private set; }
+
+        /// <inheritdoc />
+        public IBootstrapApi Bootstrap { get; private set; }
 
         /// <inheritdoc />
         public IGenericApi Generic { get; private set; }
