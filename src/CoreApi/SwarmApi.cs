@@ -105,6 +105,7 @@ namespace Ipfs.Api
 
         public async Task<MultiAddress> AddAddressFilterAsync(MultiAddress address, bool persist = false, CancellationToken cancel = default(CancellationToken))
         {
+            // go-ipfs always does persist, https://github.com/ipfs/go-ipfs/issues/4605
             var json = await ipfs.DoCommandAsync("swarm/filters/add", cancel, address.ToString());
             var addrs = (JArray)(JObject.Parse(json)["Strings"]);
             var a = addrs.FirstOrDefault();
@@ -115,8 +116,17 @@ namespace Ipfs.Api
 
         public async Task<IEnumerable<MultiAddress>> ListAddressFiltersAsync(bool persist = false, CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.DoCommandAsync("swarm/filters", cancel);
-            var addrs = (JObject.Parse(json)["Strings"]) as JArray;
+            JArray addrs;
+            if (persist)
+            {
+                addrs = await ipfs.Config.GetAsync("Swarm.AddrFilters", cancel) as JArray;
+            }
+            else
+            {
+                var json = await ipfs.DoCommandAsync("swarm/filters", cancel);
+                addrs = (JObject.Parse(json)["Strings"]) as JArray;
+            }
+
             if (addrs == null)
                 return new MultiAddress[0];
             return addrs.Select(a => new MultiAddress((string)a));
@@ -124,6 +134,7 @@ namespace Ipfs.Api
 
         public async Task<MultiAddress> RemoveAddressFilterAsync(MultiAddress address, bool persist = false, CancellationToken cancel = default(CancellationToken))
         {
+            // go-ipfs always does persist, https://github.com/ipfs/go-ipfs/issues/4605
             var json = await ipfs.DoCommandAsync("swarm/filters/rm", cancel, address.ToString());
             var addrs = (JArray)(JObject.Parse(json)["Strings"]);
             var a = addrs.FirstOrDefault();

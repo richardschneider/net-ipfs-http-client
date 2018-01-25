@@ -84,17 +84,21 @@ namespace Ipfs.Api
         public async Task Filter_Add_Remove()
         {
             var ipfs = TestFixture.Ipfs;
-            var somewhere = new MultiAddress("/ip4/192.168.0.0/ipcidr/16");
-            var filter = await ipfs.Swarm.AddAddressFilterAsync(somewhere);
+            var somewhere = new MultiAddress("/ip4/192.127.0.0/ipcidr/16");
+            var filter = await ipfs.Swarm.AddAddressFilterAsync(somewhere, true);
             Assert.IsNotNull(filter);
             Assert.AreEqual(somewhere, filter);
             var filters = await ipfs.Swarm.ListAddressFiltersAsync();
             Assert.IsTrue(filters.Any(a => a == somewhere));
+            filters = await ipfs.Swarm.ListAddressFiltersAsync(true);
+            Assert.IsTrue(filters.Any(a => a == somewhere));
 
-            filter = await ipfs.Swarm.RemoveAddressFilterAsync(somewhere);
+            filter = await ipfs.Swarm.RemoveAddressFilterAsync(somewhere, true);
             Assert.IsNotNull(filter);
             Assert.AreEqual(somewhere, filter);
             filters = await ipfs.Swarm.ListAddressFiltersAsync();
+            Assert.IsFalse(filters.Any(a => a == somewhere));
+            filters = await ipfs.Swarm.ListAddressFiltersAsync(true);
             Assert.IsFalse(filters.Any(a => a == somewhere));
         }
 
