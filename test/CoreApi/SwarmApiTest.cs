@@ -79,5 +79,41 @@ namespace Ipfs.Api
 
             Assert.Fail("Cannot connect to any peer");
         }
+
+        [TestMethod]
+        public async Task Filter_Add_Remove()
+        {
+            var ipfs = TestFixture.Ipfs;
+            var somewhere = new MultiAddress("/ip4/192.168.0.0/ipcidr/16");
+            var filter = await ipfs.Swarm.AddAddressFilterAsync(somewhere);
+            Assert.IsNotNull(filter);
+            Assert.AreEqual(somewhere, filter);
+            var filters = await ipfs.Swarm.ListAddressFiltersAsync();
+            Assert.IsTrue(filters.Any(a => a == somewhere));
+
+            filter = await ipfs.Swarm.RemoveAddressFilterAsync(somewhere);
+            Assert.IsNotNull(filter);
+            Assert.AreEqual(somewhere, filter);
+            filters = await ipfs.Swarm.ListAddressFiltersAsync();
+            Assert.IsFalse(filters.Any(a => a == somewhere));
+        }
+
+        [TestMethod]
+        public async Task Filter_List()
+        {
+            var ipfs = TestFixture.Ipfs;
+            var filters = await ipfs.Swarm.ListAddressFiltersAsync(persist: false);
+            Assert.IsNotNull(filters);
+        }
+
+        [TestMethod]
+        public async Task Filter_Remove_Unknown()
+        {
+            var ipfs = TestFixture.Ipfs;
+            var somewhere = new MultiAddress("/ip4/192.168.0.3/ipcidr/2");
+
+            var filter = await ipfs.Swarm.RemoveAddressFilterAsync(somewhere);
+            Assert.IsNull(filter);
+        }
     }
 }
