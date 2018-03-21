@@ -20,6 +20,12 @@ namespace Ipfs.Api
         }
 
         /// <inheritdoc />
+        public async Task ShutdownAsync()
+        {
+            await DoCommandAsync("shutdown", default(CancellationToken));
+        }
+
+        /// <inheritdoc />
         public Task<Dictionary<string, string>> VersionAsync(CancellationToken cancel = default(CancellationToken))
         {
             return DoCommandAsync<Dictionary<string, string>>("version", cancel);

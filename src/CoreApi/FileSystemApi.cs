@@ -26,23 +26,40 @@ namespace Ipfs.Api
             this.emptyFolder = new Lazy<DagNode>(() => ipfs.Object.NewDirectoryAsync().Result);
         }
 
-        public async Task<IFileSystemNode> AddFileAsync(string path, CancellationToken cancel = default(CancellationToken))
+        public async Task<IFileSystemNode> AddFileAsync(string path, AddFileOptions options = null, CancellationToken cancel = default(CancellationToken))
         {
             using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
-                var node = await AddAsync(stream, Path.GetFileName(path), cancel);
+                var node = await AddAsync(stream, Path.GetFileName(path), options, cancel);
                 return node;
             }
         }
 
-        public Task<IFileSystemNode> AddTextAsync(string text, CancellationToken cancel = default(CancellationToken))
+        public Task<IFileSystemNode> AddTextAsync(string text, AddFileOptions options = null, CancellationToken cancel = default(CancellationToken))
         {
-            return AddAsync(new MemoryStream(Encoding.UTF8.GetBytes(text), false), "", cancel);
+            return AddAsync(new MemoryStream(Encoding.UTF8.GetBytes(text), false), "", options, cancel);
         }
 
-        public async Task<IFileSystemNode> AddAsync(Stream stream, string name = "", CancellationToken cancel = default(CancellationToken))
+        public async Task<IFileSystemNode> AddAsync(Stream stream, string name = "", AddFileOptions options = null, CancellationToken cancel = default(CancellationToken))
         {
-            var json = await ipfs.UploadAsync("add", cancel, stream);
+            if (options == null)
+                options = new AddFileOptions();
+            var opts = new List<string>();
+            if (!options.Pin)
+                opts.Add("pin=false");
+            if (options.Wrap)
+                opts.Add("wrap-with-directory=true");
+            if (options.RawLeaves)
+                opts.Add("raw-leaves=true");
+            if (options.OnlyHash)
+                opts.Add("only-hash=true");
+            if (options.Trickle)
+                opts.Add("trickle=true");
+            if (options.Hash != "sha2-256")
+                opts.Add($"hash=${options.Hash}");
+            opts.Add($"chunker=size-{options.ChunkSize}");
+
+            var json = await ipfs.UploadAsync("add", cancel, stream, opts.ToArray());
             var r = JObject.Parse(json);
             var fsn = new FileSystemNode
             {
@@ -57,18 +74,22 @@ namespace Ipfs.Api
             return fsn;
         }
 
-        public async Task<IFileSystemNode> AddDirectoryAsync(string path, bool recursive = true, CancellationToken cancel = default(CancellationToken))
+        public async Task<IFileSystemNode> AddDirectoryAsync(string path, bool recursive = true, AddFileOptions options = null, CancellationToken cancel = default(CancellationToken))
         {
+            if (options == null)
+                options = new AddFileOptions();
+            options.Wrap = false;
+
             // Add the files and sub-directories.
             path = Path.GetFullPath(path);
             var files = Directory
                 .EnumerateFiles(path)
-                .Select(p => AddFileAsync(p, cancel));
+                .Select(p => AddFileAsync(p, options, cancel));
             if (recursive)
             {
                 var folders = Directory
                     .EnumerateDirectories(path)
-                    .Select(dir => AddDirectoryAsync(dir, recursive, cancel));
+                    .Select(dir => AddDirectoryAsync(dir, recursive, options, cancel));
                 files = files.Union(folders);
             }
             var nodes = await Task.WhenAll(files);
@@ -133,6 +154,11 @@ namespace Ipfs.Api
             return ipfs.DownloadAsync("cat", cancel, path);
         }
 
+        public Task<Stream> ReadFileAsync(string path, long offset, long length = 0, CancellationToken cancel = default(CancellationToken))
+        {
+            // TODO: length is not yet supported by daemons
+            return ipfs.DownloadAsync("cat", cancel, path, $"offset={offset}");
+        }
 
         /// <summary>
         ///   Get information about the file or directory.
