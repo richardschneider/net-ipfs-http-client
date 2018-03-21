@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -49,6 +50,20 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
+        public void Put_Bytes_Pinned()
+        {
+            var data1 = new byte[] { 23, 24, 127 };
+            var cid1 = ipfs.Block.PutAsync(data1, contentType: "raw", pin: true).Result;
+            var pins = ipfs.Pin.ListAsync().Result;
+            Assert.IsTrue(pins.Any(pin => pin == cid1));
+
+            var data2 = new byte[] { 123, 124, 27 };
+            var cid2 = ipfs.Block.PutAsync(data2, contentType: "raw", pin: false).Result;
+            pins = ipfs.Pin.ListAsync().Result;
+            Assert.IsFalse(pins.Any(pin => pin == cid2));
+        }
+
+        [TestMethod]
         public void Put_Stream()
         {
             var cid = ipfs.Block.PutAsync(new MemoryStream(blob)).Result;
@@ -79,6 +94,20 @@ namespace Ipfs.Api
             var data = ipfs.Block.GetAsync(cid).Result;
             Assert.AreEqual(blob.Length, data.Size);
             CollectionAssert.AreEqual(blob, data.DataBytes);
+        }
+
+        [TestMethod]
+        public void Put_Stream_Pinned()
+        {
+            var data1 = new MemoryStream(new byte[] { 23, 24, 127 });
+            var cid1 = ipfs.Block.PutAsync(data1, contentType: "raw", pin: true).Result;
+            var pins = ipfs.Pin.ListAsync().Result;
+            Assert.IsTrue(pins.Any(pin => pin == cid1));
+
+            var data2 = new MemoryStream(new byte[] { 123, 124, 27 });
+            var cid2 = ipfs.Block.PutAsync(data2, contentType: "raw", pin: false).Result;
+            pins = ipfs.Pin.ListAsync().Result;
+            Assert.IsFalse(pins.Any(pin => pin == cid2));
         }
 
         [TestMethod]

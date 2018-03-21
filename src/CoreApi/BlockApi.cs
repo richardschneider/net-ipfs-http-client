@@ -36,6 +36,7 @@ namespace Ipfs.Api
             byte[] data,
             string contentType = Cid.DefaultContentType,
             string multiHash = MultiHash.DefaultAlgorithmName,
+            bool pin = false,
             CancellationToken cancel = default(CancellationToken))
         {
             var options = new List<string>();
@@ -46,13 +47,21 @@ namespace Ipfs.Api
             }
             var json = await ipfs.UploadAsync("block/put", cancel, data, options.ToArray());
             var info = JObject.Parse(json);
-            return (string)info["Key"];
+            Cid cid = (string)info["Key"];
+
+            if (pin)
+            {
+                await ipfs.Pin.AddAsync(cid, recursive: false, cancel: cancel);
+            }
+
+            return cid;
         }
 
         public async Task<Cid> PutAsync(
             Stream data,
             string contentType = Cid.DefaultContentType,
             string multiHash = MultiHash.DefaultAlgorithmName,
+            bool pin = false,
             CancellationToken cancel = default(CancellationToken))
         {
             var options = new List<string>();
@@ -63,7 +72,14 @@ namespace Ipfs.Api
             }
             var json = await ipfs.UploadAsync("block/put", cancel, data, options.ToArray());
             var info = JObject.Parse(json);
-            return (string)info["Key"];
+            Cid cid = (string)info["Key"];
+
+            if (pin)
+            {
+                await ipfs.Pin.AddAsync(cid, recursive: false, cancel: cancel);
+            }
+
+            return cid;
         }
 
         public async Task<IDataBlock> StatAsync(Cid id, CancellationToken cancel = default(CancellationToken))
