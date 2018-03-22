@@ -30,6 +30,7 @@ namespace Ipfs.Api
                 .Select(p => new Peer {
                     Id = p.Name,
                     Addresses = ((JArray)p.Value)
+                        .Where(v => !string.IsNullOrWhiteSpace((string)v))
                         .Select(v => new MultiAddress((string)v))
                 });
         }
