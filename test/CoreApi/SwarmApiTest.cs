@@ -35,7 +35,6 @@ namespace Ipfs.Api
             {
                 Assert.IsNotNull(peer.Id);
                 Assert.IsNotNull(peer.ConnectedAddress);
-                Assert.AreEqual(peer.Id, peer.ConnectedAddress.Protocols.First(p => p.Name == "ipfs").Value);
             }
         }
 
