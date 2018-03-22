@@ -23,6 +23,7 @@ references:
   name: DataBytes
   href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_DataBytes_
   commentId: Overload:Ipfs.Api.Block.DataBytes
+  isSpec: "True"
   fullName: Ipfs.Api.Block.DataBytes
   nameWithType: Block.DataBytes
 - uid: Ipfs.Api.Block.DataStream
@@ -35,6 +36,7 @@ references:
   name: DataStream
   href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_DataStream_
   commentId: Overload:Ipfs.Api.Block.DataStream
+  isSpec: "True"
   fullName: Ipfs.Api.Block.DataStream
   nameWithType: Block.DataStream
 - uid: Ipfs.Api.Block.Id
@@ -47,6 +49,7 @@ references:
   name: Id
   href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_Id_
   commentId: Overload:Ipfs.Api.Block.Id
+  isSpec: "True"
   fullName: Ipfs.Api.Block.Id
   nameWithType: Block.Id
 - uid: Ipfs.Api.Block.Size
@@ -59,6 +62,7 @@ references:
   name: Size
   href: api/Ipfs.Api.Block.html#Ipfs_Api_Block_Size_
   commentId: Overload:Ipfs.Api.Block.Size
+  isSpec: "True"
   fullName: Ipfs.Api.Block.Size
   nameWithType: Block.Size
 - uid: Ipfs.Api.FileSystemLink
@@ -77,6 +81,7 @@ references:
   name: Id
   href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_Id_
   commentId: Overload:Ipfs.Api.FileSystemLink.Id
+  isSpec: "True"
   fullName: Ipfs.Api.FileSystemLink.Id
   nameWithType: FileSystemLink.Id
 - uid: Ipfs.Api.FileSystemLink.IsDirectory
@@ -89,6 +94,7 @@ references:
   name: IsDirectory
   href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_IsDirectory_
   commentId: Overload:Ipfs.Api.FileSystemLink.IsDirectory
+  isSpec: "True"
   fullName: Ipfs.Api.FileSystemLink.IsDirectory
   nameWithType: FileSystemLink.IsDirectory
 - uid: Ipfs.Api.FileSystemLink.Name
@@ -101,6 +107,7 @@ references:
   name: Name
   href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_Name_
   commentId: Overload:Ipfs.Api.FileSystemLink.Name
+  isSpec: "True"
   fullName: Ipfs.Api.FileSystemLink.Name
   nameWithType: FileSystemLink.Name
 - uid: Ipfs.Api.FileSystemLink.Size
@@ -113,6 +120,7 @@ references:
   name: Size
   href: api/Ipfs.Api.FileSystemLink.html#Ipfs_Api_FileSystemLink_Size_
   commentId: Overload:Ipfs.Api.FileSystemLink.Size
+  isSpec: "True"
   fullName: Ipfs.Api.FileSystemLink.Size
   nameWithType: FileSystemLink.Size
 - uid: Ipfs.Api.FileSystemNode
@@ -131,6 +139,7 @@ references:
   name: DataBytes
   href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_DataBytes_
   commentId: Overload:Ipfs.Api.FileSystemNode.DataBytes
+  isSpec: "True"
   fullName: Ipfs.Api.FileSystemNode.DataBytes
   nameWithType: FileSystemNode.DataBytes
 - uid: Ipfs.Api.FileSystemNode.DataStream
@@ -143,6 +152,7 @@ references:
   name: DataStream
   href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_DataStream_
   commentId: Overload:Ipfs.Api.FileSystemNode.DataStream
+  isSpec: "True"
   fullName: Ipfs.Api.FileSystemNode.DataStream
   nameWithType: FileSystemNode.DataStream
 - uid: Ipfs.Api.FileSystemNode.Id
@@ -155,6 +165,7 @@ references:
   name: Id
   href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Id_
   commentId: Overload:Ipfs.Api.FileSystemNode.Id
+  isSpec: "True"
   fullName: Ipfs.Api.FileSystemNode.Id
   nameWithType: FileSystemNode.Id
 - uid: Ipfs.Api.FileSystemNode.IsDirectory
@@ -167,6 +178,7 @@ references:
   name: IsDirectory
   href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_IsDirectory_
   commentId: Overload:Ipfs.Api.FileSystemNode.IsDirectory
+  isSpec: "True"
   fullName: Ipfs.Api.FileSystemNode.IsDirectory
   nameWithType: FileSystemNode.IsDirectory
 - uid: Ipfs.Api.FileSystemNode.Links
@@ -179,6 +191,7 @@ references:
   name: Links
   href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Links_
   commentId: Overload:Ipfs.Api.FileSystemNode.Links
+  isSpec: "True"
   fullName: Ipfs.Api.FileSystemNode.Links
   nameWithType: FileSystemNode.Links
 - uid: Ipfs.Api.FileSystemNode.Name
@@ -191,6 +204,7 @@ references:
   name: Name
   href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Name_
   commentId: Overload:Ipfs.Api.FileSystemNode.Name
+  isSpec: "True"
   fullName: Ipfs.Api.FileSystemNode.Name
   nameWithType: FileSystemNode.Name
 - uid: Ipfs.Api.FileSystemNode.Size
@@ -203,6 +217,7 @@ references:
   name: Size
   href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_Size_
   commentId: Overload:Ipfs.Api.FileSystemNode.Size
+  isSpec: "True"
   fullName: Ipfs.Api.FileSystemNode.Size
   nameWithType: FileSystemNode.Size
 - uid: Ipfs.Api.FileSystemNode.ToLink(System.String)
@@ -215,6 +230,7 @@ references:
   name: ToLink
   href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_ToLink_
   commentId: Overload:Ipfs.Api.FileSystemNode.ToLink
+  isSpec: "True"
   fullName: Ipfs.Api.FileSystemNode.ToLink
   nameWithType: FileSystemNode.ToLink
 - uid: Ipfs.Api.IpfsClient
@@ -239,6 +255,7 @@ references:
   name: IpfsClient
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient__ctor_
   commentId: Overload:Ipfs.Api.IpfsClient.#ctor
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.IpfsClient
   nameWithType: IpfsClient.IpfsClient
 - uid: Ipfs.Api.IpfsClient.ApiUri
@@ -251,6 +268,7 @@ references:
   name: ApiUri
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ApiUri_
   commentId: Overload:Ipfs.Api.IpfsClient.ApiUri
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.ApiUri
   nameWithType: IpfsClient.ApiUri
 - uid: Ipfs.Api.IpfsClient.Bitswap
@@ -263,6 +281,7 @@ references:
   name: Bitswap
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Bitswap_
   commentId: Overload:Ipfs.Api.IpfsClient.Bitswap
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.Bitswap
   nameWithType: IpfsClient.Bitswap
 - uid: Ipfs.Api.IpfsClient.Block
@@ -275,6 +294,7 @@ references:
   name: Block
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Block_
   commentId: Overload:Ipfs.Api.IpfsClient.Block
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.Block
   nameWithType: IpfsClient.Block
 - uid: Ipfs.Api.IpfsClient.Bootstrap
@@ -287,6 +307,7 @@ references:
   name: Bootstrap
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Bootstrap_
   commentId: Overload:Ipfs.Api.IpfsClient.Bootstrap
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.Bootstrap
   nameWithType: IpfsClient.Bootstrap
 - uid: Ipfs.Api.IpfsClient.Config
@@ -299,6 +320,7 @@ references:
   name: Config
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Config_
   commentId: Overload:Ipfs.Api.IpfsClient.Config
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.Config
   nameWithType: IpfsClient.Config
 - uid: Ipfs.Api.IpfsClient.Dag
@@ -311,6 +333,7 @@ references:
   name: Dag
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Dag_
   commentId: Overload:Ipfs.Api.IpfsClient.Dag
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.Dag
   nameWithType: IpfsClient.Dag
 - uid: Ipfs.Api.IpfsClient.DefaultApiUri
@@ -329,6 +352,7 @@ references:
   name: Dht
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Dht_
   commentId: Overload:Ipfs.Api.IpfsClient.Dht
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.Dht
   nameWithType: IpfsClient.Dht
 - uid: Ipfs.Api.IpfsClient.DoCommandAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])
@@ -344,6 +368,7 @@ references:
   name: DoCommandAsync
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_DoCommandAsync_
   commentId: Overload:Ipfs.Api.IpfsClient.DoCommandAsync
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.DoCommandAsync
   nameWithType: IpfsClient.DoCommandAsync
 - uid: Ipfs.Api.IpfsClient.DoCommandAsync``1(System.String,System.Threading.CancellationToken,System.String,System.String[])
@@ -368,6 +393,7 @@ references:
   name: DownloadAsync
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_DownloadAsync_
   commentId: Overload:Ipfs.Api.IpfsClient.DownloadAsync
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.DownloadAsync
   nameWithType: IpfsClient.DownloadAsync
 - uid: Ipfs.Api.IpfsClient.DownloadBytesAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])
@@ -383,6 +409,7 @@ references:
   name: DownloadBytesAsync
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_DownloadBytesAsync_
   commentId: Overload:Ipfs.Api.IpfsClient.DownloadBytesAsync
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.DownloadBytesAsync
   nameWithType: IpfsClient.DownloadBytesAsync
 - uid: Ipfs.Api.IpfsClient.FileSystem
@@ -395,6 +422,7 @@ references:
   name: FileSystem
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_FileSystem_
   commentId: Overload:Ipfs.Api.IpfsClient.FileSystem
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.FileSystem
   nameWithType: IpfsClient.FileSystem
 - uid: Ipfs.Api.IpfsClient.Generic
@@ -407,6 +435,7 @@ references:
   name: Generic
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Generic_
   commentId: Overload:Ipfs.Api.IpfsClient.Generic
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.Generic
   nameWithType: IpfsClient.Generic
 - uid: Ipfs.Api.IpfsClient.IdAsync(Ipfs.MultiHash,System.Threading.CancellationToken)
@@ -419,6 +448,7 @@ references:
   name: IdAsync
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_IdAsync_
   commentId: Overload:Ipfs.Api.IpfsClient.IdAsync
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.IdAsync
   nameWithType: IpfsClient.IdAsync
 - uid: Ipfs.Api.IpfsClient.Key
@@ -431,6 +461,7 @@ references:
   name: Key
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Key_
   commentId: Overload:Ipfs.Api.IpfsClient.Key
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.Key
   nameWithType: IpfsClient.Key
 - uid: Ipfs.Api.IpfsClient.Name
@@ -443,6 +474,7 @@ references:
   name: Name
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Name_
   commentId: Overload:Ipfs.Api.IpfsClient.Name
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.Name
   nameWithType: IpfsClient.Name
 - uid: Ipfs.Api.IpfsClient.Object
@@ -455,6 +487,7 @@ references:
   name: Object
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Object_
   commentId: Overload:Ipfs.Api.IpfsClient.Object
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.Object
   nameWithType: IpfsClient.Object
 - uid: Ipfs.Api.IpfsClient.Pin
@@ -467,6 +500,7 @@ references:
   name: Pin
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Pin_
   commentId: Overload:Ipfs.Api.IpfsClient.Pin
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.Pin
   nameWithType: IpfsClient.Pin
 - uid: Ipfs.Api.IpfsClient.PostDownloadAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])
@@ -482,6 +516,7 @@ references:
   name: PostDownloadAsync
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_PostDownloadAsync_
   commentId: Overload:Ipfs.Api.IpfsClient.PostDownloadAsync
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.PostDownloadAsync
   nameWithType: IpfsClient.PostDownloadAsync
 - uid: Ipfs.Api.IpfsClient.PubSub
@@ -494,8 +529,22 @@ references:
   name: PubSub
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_PubSub_
   commentId: Overload:Ipfs.Api.IpfsClient.PubSub
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.PubSub
   nameWithType: IpfsClient.PubSub
+- uid: Ipfs.Api.IpfsClient.ShutdownAsync
+  name: ShutdownAsync()
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ShutdownAsync
+  commentId: M:Ipfs.Api.IpfsClient.ShutdownAsync
+  fullName: Ipfs.Api.IpfsClient.ShutdownAsync()
+  nameWithType: IpfsClient.ShutdownAsync()
+- uid: Ipfs.Api.IpfsClient.ShutdownAsync*
+  name: ShutdownAsync
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ShutdownAsync_
+  commentId: Overload:Ipfs.Api.IpfsClient.ShutdownAsync
+  isSpec: "True"
+  fullName: Ipfs.Api.IpfsClient.ShutdownAsync
+  nameWithType: IpfsClient.ShutdownAsync
 - uid: Ipfs.Api.IpfsClient.Swarm
   name: Swarm
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Swarm
@@ -506,6 +555,7 @@ references:
   name: Swarm
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Swarm_
   commentId: Overload:Ipfs.Api.IpfsClient.Swarm
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.Swarm
   nameWithType: IpfsClient.Swarm
 - uid: Ipfs.Api.IpfsClient.TrustedPeers
@@ -518,6 +568,7 @@ references:
   name: TrustedPeers
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_TrustedPeers_
   commentId: Overload:Ipfs.Api.IpfsClient.TrustedPeers
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.TrustedPeers
   nameWithType: IpfsClient.TrustedPeers
 - uid: Ipfs.Api.IpfsClient.UploadAsync(System.String,System.Threading.CancellationToken,System.Byte[],System.String[])
@@ -529,19 +580,20 @@ references:
   fullName.vb: Ipfs.Api.IpfsClient.UploadAsync(System.String, System.Threading.CancellationToken, System.Byte(), System.String())
   nameWithType: IpfsClient.UploadAsync(String, CancellationToken, Byte[], String[])
   nameWithType.vb: IpfsClient.UploadAsync(String, CancellationToken, Byte(), String())
-- uid: Ipfs.Api.IpfsClient.UploadAsync(System.String,System.Threading.CancellationToken,System.IO.Stream,System.String[])
-  name: UploadAsync(String, CancellationToken, Stream, String[])
-  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_UploadAsync_System_String_System_Threading_CancellationToken_System_IO_Stream_System_String___
-  commentId: M:Ipfs.Api.IpfsClient.UploadAsync(System.String,System.Threading.CancellationToken,System.IO.Stream,System.String[])
-  name.vb: UploadAsync(String, CancellationToken, Stream, String())
-  fullName: Ipfs.Api.IpfsClient.UploadAsync(System.String, System.Threading.CancellationToken, System.IO.Stream, System.String[])
-  fullName.vb: Ipfs.Api.IpfsClient.UploadAsync(System.String, System.Threading.CancellationToken, System.IO.Stream, System.String())
-  nameWithType: IpfsClient.UploadAsync(String, CancellationToken, Stream, String[])
-  nameWithType.vb: IpfsClient.UploadAsync(String, CancellationToken, Stream, String())
+- uid: Ipfs.Api.IpfsClient.UploadAsync(System.String,System.Threading.CancellationToken,System.IO.Stream,System.String,System.String[])
+  name: UploadAsync(String, CancellationToken, Stream, String, String[])
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_UploadAsync_System_String_System_Threading_CancellationToken_System_IO_Stream_System_String_System_String___
+  commentId: M:Ipfs.Api.IpfsClient.UploadAsync(System.String,System.Threading.CancellationToken,System.IO.Stream,System.String,System.String[])
+  name.vb: UploadAsync(String, CancellationToken, Stream, String, String())
+  fullName: Ipfs.Api.IpfsClient.UploadAsync(System.String, System.Threading.CancellationToken, System.IO.Stream, System.String, System.String[])
+  fullName.vb: Ipfs.Api.IpfsClient.UploadAsync(System.String, System.Threading.CancellationToken, System.IO.Stream, System.String, System.String())
+  nameWithType: IpfsClient.UploadAsync(String, CancellationToken, Stream, String, String[])
+  nameWithType.vb: IpfsClient.UploadAsync(String, CancellationToken, Stream, String, String())
 - uid: Ipfs.Api.IpfsClient.UploadAsync*
   name: UploadAsync
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_UploadAsync_
   commentId: Overload:Ipfs.Api.IpfsClient.UploadAsync
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.UploadAsync
   nameWithType: IpfsClient.UploadAsync
 - uid: Ipfs.Api.IpfsClient.UserAgent
@@ -554,6 +606,7 @@ references:
   name: UserAgent
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_UserAgent_
   commentId: Overload:Ipfs.Api.IpfsClient.UserAgent
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.UserAgent
   nameWithType: IpfsClient.UserAgent
 - uid: Ipfs.Api.IpfsClient.VersionAsync(System.Threading.CancellationToken)
@@ -566,6 +619,7 @@ references:
   name: VersionAsync
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_VersionAsync_
   commentId: Overload:Ipfs.Api.IpfsClient.VersionAsync
+  isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.VersionAsync
   nameWithType: IpfsClient.VersionAsync
 - uid: Ipfs.Api.MerkleNode
@@ -596,6 +650,7 @@ references:
   name: MerkleNode
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode__ctor_
   commentId: Overload:Ipfs.Api.MerkleNode.#ctor
+  isSpec: "True"
   fullName: Ipfs.Api.MerkleNode.MerkleNode
   nameWithType: MerkleNode.MerkleNode
 - uid: Ipfs.Api.MerkleNode.BlockSize
@@ -608,6 +663,7 @@ references:
   name: BlockSize
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_BlockSize_
   commentId: Overload:Ipfs.Api.MerkleNode.BlockSize
+  isSpec: "True"
   fullName: Ipfs.Api.MerkleNode.BlockSize
   nameWithType: MerkleNode.BlockSize
 - uid: Ipfs.Api.MerkleNode.DataBytes
@@ -620,6 +676,7 @@ references:
   name: DataBytes
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_DataBytes_
   commentId: Overload:Ipfs.Api.MerkleNode.DataBytes
+  isSpec: "True"
   fullName: Ipfs.Api.MerkleNode.DataBytes
   nameWithType: MerkleNode.DataBytes
 - uid: Ipfs.Api.MerkleNode.DataStream
@@ -632,6 +689,7 @@ references:
   name: DataStream
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_DataStream_
   commentId: Overload:Ipfs.Api.MerkleNode.DataStream
+  isSpec: "True"
   fullName: Ipfs.Api.MerkleNode.DataStream
   nameWithType: MerkleNode.DataStream
 - uid: Ipfs.Api.MerkleNode.Equals(Ipfs.Api.MerkleNode)
@@ -650,6 +708,7 @@ references:
   name: Equals
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_Equals_
   commentId: Overload:Ipfs.Api.MerkleNode.Equals
+  isSpec: "True"
   fullName: Ipfs.Api.MerkleNode.Equals
   nameWithType: MerkleNode.Equals
 - uid: Ipfs.Api.MerkleNode.GetHashCode
@@ -662,6 +721,7 @@ references:
   name: GetHashCode
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_GetHashCode_
   commentId: Overload:Ipfs.Api.MerkleNode.GetHashCode
+  isSpec: "True"
   fullName: Ipfs.Api.MerkleNode.GetHashCode
   nameWithType: MerkleNode.GetHashCode
 - uid: Ipfs.Api.MerkleNode.Id
@@ -674,6 +734,7 @@ references:
   name: Id
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_Id_
   commentId: Overload:Ipfs.Api.MerkleNode.Id
+  isSpec: "True"
   fullName: Ipfs.Api.MerkleNode.Id
   nameWithType: MerkleNode.Id
 - uid: Ipfs.Api.MerkleNode.Links
@@ -686,6 +747,7 @@ references:
   name: Links
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_Links_
   commentId: Overload:Ipfs.Api.MerkleNode.Links
+  isSpec: "True"
   fullName: Ipfs.Api.MerkleNode.Links
   nameWithType: MerkleNode.Links
 - uid: Ipfs.Api.MerkleNode.Name
@@ -698,6 +760,7 @@ references:
   name: Name
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_Name_
   commentId: Overload:Ipfs.Api.MerkleNode.Name
+  isSpec: "True"
   fullName: Ipfs.Api.MerkleNode.Name
   nameWithType: MerkleNode.Name
 - uid: Ipfs.Api.MerkleNode.op_Equality(Ipfs.Api.MerkleNode,Ipfs.Api.MerkleNode)
@@ -710,6 +773,7 @@ references:
   name: Equality
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_op_Equality_
   commentId: Overload:Ipfs.Api.MerkleNode.op_Equality
+  isSpec: "True"
   fullName: Ipfs.Api.MerkleNode.Equality
   nameWithType: MerkleNode.Equality
 - uid: Ipfs.Api.MerkleNode.op_Implicit(System.String)~Ipfs.Api.MerkleNode
@@ -725,6 +789,7 @@ references:
   name: Implicit
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_op_Implicit_
   commentId: Overload:Ipfs.Api.MerkleNode.op_Implicit
+  isSpec: "True"
   name.vb: Widening
   fullName: Ipfs.Api.MerkleNode.Implicit
   fullName.vb: Ipfs.Api.MerkleNode.Widening
@@ -740,6 +805,7 @@ references:
   name: Inequality
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_op_Inequality_
   commentId: Overload:Ipfs.Api.MerkleNode.op_Inequality
+  isSpec: "True"
   fullName: Ipfs.Api.MerkleNode.Inequality
   nameWithType: MerkleNode.Inequality
 - uid: Ipfs.Api.MerkleNode.Size
@@ -752,6 +818,7 @@ references:
   name: Size
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_Size_
   commentId: Overload:Ipfs.Api.MerkleNode.Size
+  isSpec: "True"
   fullName: Ipfs.Api.MerkleNode.Size
   nameWithType: MerkleNode.Size
 - uid: Ipfs.Api.MerkleNode.ToLink(System.String)
@@ -764,6 +831,7 @@ references:
   name: ToLink
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_ToLink_
   commentId: Overload:Ipfs.Api.MerkleNode.ToLink
+  isSpec: "True"
   fullName: Ipfs.Api.MerkleNode.ToLink
   nameWithType: MerkleNode.ToLink
 - uid: Ipfs.Api.MerkleNode.ToString
@@ -776,6 +844,7 @@ references:
   name: ToString
   href: api/Ipfs.Api.MerkleNode.html#Ipfs_Api_MerkleNode_ToString_
   commentId: Overload:Ipfs.Api.MerkleNode.ToString
+  isSpec: "True"
   fullName: Ipfs.Api.MerkleNode.ToString
   nameWithType: MerkleNode.ToString
 - uid: Ipfs.Api.PublishedMessage
@@ -794,6 +863,7 @@ references:
   name: PublishedMessage
   href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage__ctor_
   commentId: Overload:Ipfs.Api.PublishedMessage.#ctor
+  isSpec: "True"
   fullName: Ipfs.Api.PublishedMessage.PublishedMessage
   nameWithType: PublishedMessage.PublishedMessage
 - uid: Ipfs.Api.PublishedMessage.DataBytes
@@ -806,6 +876,7 @@ references:
   name: DataBytes
   href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_DataBytes_
   commentId: Overload:Ipfs.Api.PublishedMessage.DataBytes
+  isSpec: "True"
   fullName: Ipfs.Api.PublishedMessage.DataBytes
   nameWithType: PublishedMessage.DataBytes
 - uid: Ipfs.Api.PublishedMessage.DataStream
@@ -818,6 +889,7 @@ references:
   name: DataStream
   href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_DataStream_
   commentId: Overload:Ipfs.Api.PublishedMessage.DataStream
+  isSpec: "True"
   fullName: Ipfs.Api.PublishedMessage.DataStream
   nameWithType: PublishedMessage.DataStream
 - uid: Ipfs.Api.PublishedMessage.DataString
@@ -830,6 +902,7 @@ references:
   name: DataString
   href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_DataString_
   commentId: Overload:Ipfs.Api.PublishedMessage.DataString
+  isSpec: "True"
   fullName: Ipfs.Api.PublishedMessage.DataString
   nameWithType: PublishedMessage.DataString
 - uid: Ipfs.Api.PublishedMessage.Id
@@ -842,6 +915,7 @@ references:
   name: Id
   href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_Id_
   commentId: Overload:Ipfs.Api.PublishedMessage.Id
+  isSpec: "True"
   fullName: Ipfs.Api.PublishedMessage.Id
   nameWithType: PublishedMessage.Id
 - uid: Ipfs.Api.PublishedMessage.Sender
@@ -854,6 +928,7 @@ references:
   name: Sender
   href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_Sender_
   commentId: Overload:Ipfs.Api.PublishedMessage.Sender
+  isSpec: "True"
   fullName: Ipfs.Api.PublishedMessage.Sender
   nameWithType: PublishedMessage.Sender
 - uid: Ipfs.Api.PublishedMessage.SequenceNumber
@@ -866,6 +941,7 @@ references:
   name: SequenceNumber
   href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_SequenceNumber_
   commentId: Overload:Ipfs.Api.PublishedMessage.SequenceNumber
+  isSpec: "True"
   fullName: Ipfs.Api.PublishedMessage.SequenceNumber
   nameWithType: PublishedMessage.SequenceNumber
 - uid: Ipfs.Api.PublishedMessage.Size
@@ -878,6 +954,7 @@ references:
   name: Size
   href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_Size_
   commentId: Overload:Ipfs.Api.PublishedMessage.Size
+  isSpec: "True"
   fullName: Ipfs.Api.PublishedMessage.Size
   nameWithType: PublishedMessage.Size
 - uid: Ipfs.Api.PublishedMessage.Topics
@@ -890,6 +967,7 @@ references:
   name: Topics
   href: api/Ipfs.Api.PublishedMessage.html#Ipfs_Api_PublishedMessage_Topics_
   commentId: Overload:Ipfs.Api.PublishedMessage.Topics
+  isSpec: "True"
   fullName: Ipfs.Api.PublishedMessage.Topics
   nameWithType: PublishedMessage.Topics
 - uid: Ipfs.Api.TrustedPeerCollection
@@ -908,6 +986,7 @@ references:
   name: Add
   href: api/Ipfs.Api.TrustedPeerCollection.html#Ipfs_Api_TrustedPeerCollection_Add_
   commentId: Overload:Ipfs.Api.TrustedPeerCollection.Add
+  isSpec: "True"
   fullName: Ipfs.Api.TrustedPeerCollection.Add
   nameWithType: TrustedPeerCollection.Add
 - uid: Ipfs.Api.TrustedPeerCollection.AddDefaultNodes
@@ -920,6 +999,7 @@ references:
   name: AddDefaultNodes
   href: api/Ipfs.Api.TrustedPeerCollection.html#Ipfs_Api_TrustedPeerCollection_AddDefaultNodes_
   commentId: Overload:Ipfs.Api.TrustedPeerCollection.AddDefaultNodes
+  isSpec: "True"
   fullName: Ipfs.Api.TrustedPeerCollection.AddDefaultNodes
   nameWithType: TrustedPeerCollection.AddDefaultNodes
 - uid: Ipfs.Api.TrustedPeerCollection.Clear
@@ -932,6 +1012,7 @@ references:
   name: Clear
   href: api/Ipfs.Api.TrustedPeerCollection.html#Ipfs_Api_TrustedPeerCollection_Clear_
   commentId: Overload:Ipfs.Api.TrustedPeerCollection.Clear
+  isSpec: "True"
   fullName: Ipfs.Api.TrustedPeerCollection.Clear
   nameWithType: TrustedPeerCollection.Clear
 - uid: Ipfs.Api.TrustedPeerCollection.Contains(Ipfs.MultiAddress)
@@ -944,6 +1025,7 @@ references:
   name: Contains
   href: api/Ipfs.Api.TrustedPeerCollection.html#Ipfs_Api_TrustedPeerCollection_Contains_
   commentId: Overload:Ipfs.Api.TrustedPeerCollection.Contains
+  isSpec: "True"
   fullName: Ipfs.Api.TrustedPeerCollection.Contains
   nameWithType: TrustedPeerCollection.Contains
 - uid: Ipfs.Api.TrustedPeerCollection.CopyTo(Ipfs.MultiAddress[],System.Int32)
@@ -959,6 +1041,7 @@ references:
   name: CopyTo
   href: api/Ipfs.Api.TrustedPeerCollection.html#Ipfs_Api_TrustedPeerCollection_CopyTo_
   commentId: Overload:Ipfs.Api.TrustedPeerCollection.CopyTo
+  isSpec: "True"
   fullName: Ipfs.Api.TrustedPeerCollection.CopyTo
   nameWithType: TrustedPeerCollection.CopyTo
 - uid: Ipfs.Api.TrustedPeerCollection.Count
@@ -971,6 +1054,7 @@ references:
   name: Count
   href: api/Ipfs.Api.TrustedPeerCollection.html#Ipfs_Api_TrustedPeerCollection_Count_
   commentId: Overload:Ipfs.Api.TrustedPeerCollection.Count
+  isSpec: "True"
   fullName: Ipfs.Api.TrustedPeerCollection.Count
   nameWithType: TrustedPeerCollection.Count
 - uid: Ipfs.Api.TrustedPeerCollection.GetEnumerator
@@ -983,6 +1067,7 @@ references:
   name: GetEnumerator
   href: api/Ipfs.Api.TrustedPeerCollection.html#Ipfs_Api_TrustedPeerCollection_GetEnumerator_
   commentId: Overload:Ipfs.Api.TrustedPeerCollection.GetEnumerator
+  isSpec: "True"
   fullName: Ipfs.Api.TrustedPeerCollection.GetEnumerator
   nameWithType: TrustedPeerCollection.GetEnumerator
 - uid: Ipfs.Api.TrustedPeerCollection.IsReadOnly
@@ -995,6 +1080,7 @@ references:
   name: IsReadOnly
   href: api/Ipfs.Api.TrustedPeerCollection.html#Ipfs_Api_TrustedPeerCollection_IsReadOnly_
   commentId: Overload:Ipfs.Api.TrustedPeerCollection.IsReadOnly
+  isSpec: "True"
   fullName: Ipfs.Api.TrustedPeerCollection.IsReadOnly
   nameWithType: TrustedPeerCollection.IsReadOnly
 - uid: Ipfs.Api.TrustedPeerCollection.Remove(Ipfs.MultiAddress)
@@ -1007,6 +1093,7 @@ references:
   name: Remove
   href: api/Ipfs.Api.TrustedPeerCollection.html#Ipfs_Api_TrustedPeerCollection_Remove_
   commentId: Overload:Ipfs.Api.TrustedPeerCollection.Remove
+  isSpec: "True"
   fullName: Ipfs.Api.TrustedPeerCollection.Remove
   nameWithType: TrustedPeerCollection.Remove
 - uid: Ipfs.Api.TrustedPeerCollection.System#Collections#IEnumerable#GetEnumerator
@@ -1021,6 +1108,7 @@ references:
   name: IEnumerable.GetEnumerator
   href: api/Ipfs.Api.TrustedPeerCollection.html#Ipfs_Api_TrustedPeerCollection_System_Collections_IEnumerable_GetEnumerator_
   commentId: Overload:Ipfs.Api.TrustedPeerCollection.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
   name.vb: System.Collections.IEnumerable.GetEnumerator
   fullName: Ipfs.Api.TrustedPeerCollection.System.Collections.IEnumerable.GetEnumerator
   nameWithType: TrustedPeerCollection.IEnumerable.GetEnumerator
