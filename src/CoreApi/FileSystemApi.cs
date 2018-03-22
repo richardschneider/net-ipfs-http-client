@@ -59,18 +59,31 @@ namespace Ipfs.Api
                 opts.Add($"hash=${options.Hash}");
             opts.Add($"chunker=size-{options.ChunkSize}");
 
-            var json = await ipfs.UploadAsync("add", cancel, stream, opts.ToArray());
-            var r = JObject.Parse(json);
-            var fsn = new FileSystemNode
+            var json = await ipfs.UploadAsync("add", cancel, stream, name, opts.ToArray());
+
+            // The result is a stream of LDJSON objects.
+            // See https://github.com/ipfs/go-ipfs/issues/4852
+            FileSystemNode fsn = null;
+            using (var sr = new StringReader(json))
+            using (var jr = new JsonTextReader(sr) { SupportMultipleContent = true })
             {
-                Id = (string)r["Hash"],
-                Size = long.Parse((string)r["Size"]),
-                IsDirectory = false,
-                Name = name,
-                IpfsClient = ipfs
-            };
-            if (log.IsDebugEnabled)
-                log.Debug("added " + fsn.Id + " " + fsn.Name);
+                while (jr.Read())
+                {
+                    var r = await JObject.LoadAsync(jr, cancel);
+                    fsn = new FileSystemNode
+                    {
+                        Id = (string)r["Hash"],
+                        Size = long.Parse((string)r["Size"]),
+                        IsDirectory = false,
+                        Name = name,
+                        IpfsClient = ipfs
+                    };
+                    if (log.IsDebugEnabled)
+                        log.Debug("added " + fsn.Id + " " + fsn.Name);
+                }
+            }
+
+            fsn.IsDirectory = options.Wrap;
             return fsn;
         }
 

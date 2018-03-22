@@ -71,7 +71,7 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
-        [Ignore("https://github.com/ipfs/go-ipfs/issues/4852")]
+        //[Ignore("https://github.com/ipfs/go-ipfs/issues/4852")]
         public async Task Add_Wrap()
         {
             var path = "hello.txt";
@@ -89,7 +89,6 @@ namespace Ipfs.Api
                 Assert.AreEqual(1, node.Links.Count());
                 Assert.AreEqual("hello.txt", node.Links.First().Name);
                 Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", (string)node.Links.First().Id);
-                Assert.AreEqual(19, node.Links.First().Size);
             }
             finally
             {

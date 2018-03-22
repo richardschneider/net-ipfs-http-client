@@ -70,7 +70,7 @@ namespace Ipfs.Api
                 options.Add($"mhtype={multiHash}");
                 options.Add($"format={contentType}");
             }
-            var json = await ipfs.UploadAsync("block/put", cancel, data, options.ToArray());
+            var json = await ipfs.UploadAsync("block/put", cancel, data, null, options.ToArray());
             var info = JObject.Parse(json);
             Cid cid = (string)info["Key"];
 

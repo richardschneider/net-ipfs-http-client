@@ -396,24 +396,42 @@ namespace Ipfs.Api
         }
 
         /// <summary>
-        /// 
+        ///   Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> that
+        ///   requires uploading of a "file".
         /// </summary>
-        /// <param name="command"></param>
+        /// <param name="command">
+        ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+        ///   <see href="https://ipfs.io/docs/api/#apiv0add">"add"</see>.
+        /// </param>
         /// <param name="cancel">
         ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
         /// </param>
-        /// <param name="data"></param>
-        /// <param name="options"></param>
-        /// <returns></returns>
+        /// <param name="data">
+        ///   A <see cref="Stream"/> containing the data to upload.
+        /// </param>
+        /// <param name="name">
+        ///   The name associated with the <paramref name="data"/>, can be <b>null</b>.
+        ///   Typically a filename, such as "hello.txt".
+        /// </param>
+        /// <param name="options">
+        ///   The optional flags to the command.
+        /// </param>
+        /// <returns>
+        ///   A task that represents the asynchronous operation. The task's value is 
+        ///   the HTTP response as a string.
+        /// </returns>
         /// <exception cref="HttpRequestException">
         ///   When the IPFS server indicates an error.
         /// </exception>
-        public async Task<String> UploadAsync(string command, CancellationToken cancel, Stream data, params string[] options)
+        public async Task<String> UploadAsync(string command, CancellationToken cancel, Stream data, string name, params string[] options)
         {
             var content = new MultipartFormDataContent();
             var streamContent = new StreamContent(data);
             streamContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-            content.Add(streamContent, "file");
+            if (string.IsNullOrEmpty(name))
+                content.Add(streamContent, "file");
+            else
+                content.Add(streamContent, "file", name);
 
             var url = BuildCommand(command, null, options);
             if (log.IsDebugEnabled)
