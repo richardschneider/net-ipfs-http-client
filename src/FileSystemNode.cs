@@ -109,8 +109,6 @@ namespace Ipfs.Api
                 Size = Size,
                 IsDirectory = IsDirectory
             };
-            Console.WriteLine("my name " + Name);
-            Console.WriteLine("link name " + link.Name);
             return link;
         }
 
