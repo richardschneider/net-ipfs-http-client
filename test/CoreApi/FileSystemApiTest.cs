@@ -49,7 +49,6 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
-        [Ignore("No support in go-ipfs")]
         public void Read_With_Offset()
         {
             var ipfs = TestFixture.Ipfs;
