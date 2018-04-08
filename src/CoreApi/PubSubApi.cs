@@ -44,9 +44,6 @@ namespace Ipfs.Api
 
         public async Task Publish(string topic, string message, CancellationToken cancel = default(CancellationToken))
         {
-            // Avoid seqno bug in go-floodsub, see https://github.com/libp2p/go-floodsub/issues/52
-            await Task.Delay(16);
-
             var _ = await ipfs.DoCommandAsync("pubsub/pub", cancel, topic, "arg=" + message);
             return;
         }
