@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ipfs.Api
@@ -184,7 +185,7 @@ namespace Ipfs.Api
             }
             finally
             {
-                Directory.Delete(temp, true);
+                DeleteTemp(temp);
             }
         }
 
@@ -227,7 +228,24 @@ namespace Ipfs.Api
             }
             finally
             {
-                Directory.Delete(temp, true);
+                DeleteTemp(temp);
+            }
+        }
+
+        void DeleteTemp(string temp)
+        {
+            while (true)
+            {
+                try
+                {
+                    Directory.Delete(temp, true);
+                    break;
+                }
+                catch (Exception)
+                {
+                    Thread.Sleep(1);
+                    continue;  // most likely anti-virus is reading a file
+                }
             }
         }
 

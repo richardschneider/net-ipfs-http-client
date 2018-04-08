@@ -105,10 +105,21 @@ namespace Ipfs.Api
                     .Select(dir => AddDirectoryAsync(dir, recursive, options, cancel));
                 files = files.Union(folders);
             }
-            var nodes = await Task.WhenAll(files);
 
-            // Create the directory with links to the created files and sub-directories
+            // go-ipfs v0.4.14 sometimes fails when sending lots of 'add file'
+            // requests.  It's happy with adding one file at a time.
+#if true
+            var links = new List<IFileSystemLink>();
+            foreach (var file in files)
+            {
+                var node = await file;
+                links.Add(node.ToLink());
+            }
+#else
+            var nodes = await Task.WhenAll(files);
             var links = nodes.Select(node => node.ToLink());
+#endif
+            // Create the directory with links to the created files and sub-directories
             var folder = emptyFolder.Value.AddLinks(links);
             var directory = await ipfs.Object.PutAsync(folder, cancel);
 
