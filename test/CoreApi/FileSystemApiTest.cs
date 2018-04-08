@@ -55,8 +55,10 @@ namespace Ipfs.Api
             var ipfs = TestFixture.Ipfs;
             var indata = new MemoryStream(new byte[] { 10, 20, 30 });
             var node = ipfs.FileSystem.AddAsync(indata).Result;
-            var outdata = ipfs.FileSystem.ReadFileAsync(node.Id, offset: 1).Result;
-            Assert.AreEqual(20, outdata.ReadByte());
+            using (var outdata = ipfs.FileSystem.ReadFileAsync(node.Id, offset: 1).Result)
+            {
+                Assert.AreEqual(20, outdata.ReadByte());
+            }
         }
 
         [TestMethod]
