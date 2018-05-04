@@ -33,7 +33,7 @@ namespace Ipfs.Api
         public async Task Publish()
         {
             var ipfs = TestFixture.Ipfs;
-            var cs = new CancellationTokenSource(TimeSpan.FromMinutes(2));
+            var cs = new CancellationTokenSource(TimeSpan.FromMinutes(5));
             var content = await ipfs.FileSystem.AddTextAsync("hello world");
             var key = await ipfs.Key.CreateAsync("name-publish-test", "rsa", 1024);
             try
