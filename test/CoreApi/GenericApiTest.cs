@@ -36,6 +36,14 @@ namespace Ipfs.Api
             Assert.IsTrue(versions.ContainsKey("Repo"));
         }
 
+        [TestMethod]
+        public void Resolve()
+        {
+            var ipfs = TestFixture.Ipfs;
+            var path = ipfs.ResolveAsync("QmYNQJoKGNHTpPxCBPh9KkDpaExgd2duMa3aF6ytMpHdao").Result;
+            Assert.AreEqual("/ipfs/QmYNQJoKGNHTpPxCBPh9KkDpaExgd2duMa3aF6ytMpHdao", path);
+        }
+
     }
 }
 
