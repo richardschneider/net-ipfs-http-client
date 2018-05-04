@@ -355,6 +355,19 @@ references:
   isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.Dht
   nameWithType: IpfsClient.Dht
+- uid: Ipfs.Api.IpfsClient.Dns
+  name: Dns
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Dns
+  commentId: P:Ipfs.Api.IpfsClient.Dns
+  fullName: Ipfs.Api.IpfsClient.Dns
+  nameWithType: IpfsClient.Dns
+- uid: Ipfs.Api.IpfsClient.Dns*
+  name: Dns
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_Dns_
+  commentId: Overload:Ipfs.Api.IpfsClient.Dns
+  isSpec: "True"
+  fullName: Ipfs.Api.IpfsClient.Dns
+  nameWithType: IpfsClient.Dns
 - uid: Ipfs.Api.IpfsClient.DoCommandAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])
   name: DoCommandAsync(String, CancellationToken, String, String[])
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_DoCommandAsync_System_String_System_Threading_CancellationToken_System_String_System_String___
@@ -532,6 +545,19 @@ references:
   isSpec: "True"
   fullName: Ipfs.Api.IpfsClient.PubSub
   nameWithType: IpfsClient.PubSub
+- uid: Ipfs.Api.IpfsClient.ResolveAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  name: ResolveAsync(String, Boolean, CancellationToken)
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ResolveAsync_System_String_System_Boolean_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Api.IpfsClient.ResolveAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  fullName: Ipfs.Api.IpfsClient.ResolveAsync(System.String, System.Boolean, System.Threading.CancellationToken)
+  nameWithType: IpfsClient.ResolveAsync(String, Boolean, CancellationToken)
+- uid: Ipfs.Api.IpfsClient.ResolveAsync*
+  name: ResolveAsync
+  href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ResolveAsync_
+  commentId: Overload:Ipfs.Api.IpfsClient.ResolveAsync
+  isSpec: "True"
+  fullName: Ipfs.Api.IpfsClient.ResolveAsync
+  nameWithType: IpfsClient.ResolveAsync
 - uid: Ipfs.Api.IpfsClient.ShutdownAsync
   name: ShutdownAsync()
   href: api/Ipfs.Api.IpfsClient.html#Ipfs_Api_IpfsClient_ShutdownAsync
