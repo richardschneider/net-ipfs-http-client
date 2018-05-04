@@ -22,14 +22,35 @@ namespace Ipfs.Api
             this.ipfs = ipfs;
         }
 
-        public Task<Cid> PublishAsync(string path, bool resolve = true, string key = "self", TimeSpan? lifetime = null, CancellationToken cancel = default(CancellationToken))
+        public async Task<NamedContent> PublishAsync(string path, bool resolve = true, string key = "self", TimeSpan? lifetime = null, CancellationToken cancel = default(CancellationToken))
         {
-            throw new NotImplementedException();
+            var json = await ipfs.DoCommandAsync("name/publish", cancel,
+                path,
+                "lifetime=24h",
+                $"resolve={resolve.ToString().ToLowerInvariant()}",
+                $"key={key}");
+            // TODO: lifetime
+            var info = JObject.Parse(json);
+            return new NamedContent
+            {
+                NamePath = (string)info["Name"],
+                ContentPath = (string)info["Value"]
+            };
         }
 
-        public Task<Cid> ResolveAsync(string name, bool recursive = false, bool nocache = false, CancellationToken cancel = default(CancellationToken))
+        public Task<NamedContent> PublishAsync(Cid id, string key = "self", TimeSpan? lifetime = null, CancellationToken cancel = default(CancellationToken))
         {
-            throw new NotImplementedException();
+            return PublishAsync("/ipfs/" + id.Encode(), false, key, lifetime, cancel);
+        }
+
+        public async Task<string> ResolveAsync(string name, bool recursive = false, bool nocache = false, CancellationToken cancel = default(CancellationToken))
+        {
+            var json = await ipfs.DoCommandAsync("name/resolve", cancel,
+                name,
+                $"recursive={recursive.ToString().ToLowerInvariant()}",
+                $"nocache={nocache.ToString().ToLowerInvariant()}");
+            var path = (string)(JObject.Parse(json)["Path"]);
+            return path;
         }
     }
 }
