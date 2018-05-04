@@ -30,6 +30,7 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
+        [Ignore("takes forever")]
         public async Task Publish()
         {
             var ipfs = TestFixture.Ipfs;

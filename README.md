@@ -26,7 +26,7 @@ More information, including the Class Reference, is on the [Project](https://ric
   - [Misc API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IGenericApi.html)
   - [FileSystem API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IFileSystemApi.html)
   - [Key API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IKeyApi.html)
-  - [Name API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.INameApi.html) **NYI**
+  - [Name API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.INameApi.html)
   - [Object API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IObjectApi.html)
   - [Pin API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IPinApi.html)
   - [PubSub API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IPubSubApi.html)
