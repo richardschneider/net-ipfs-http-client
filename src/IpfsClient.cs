@@ -75,6 +75,7 @@ namespace Ipfs.Api
             Key = new KeyApi(this);
             Generic = this;
             Name = new NameApi(this);
+            Dns = new DnsApi(this);
         }
 
         /// <summary>
@@ -121,6 +122,9 @@ namespace Ipfs.Api
 
         /// <inheritdoc />
         public IGenericApi Generic { get; private set; }
+
+        /// <inheritdoc />
+        public IDnsApi Dns { get; private set; }
 
         /// <inheritdoc />
         public INameApi Name { get; private set; }
