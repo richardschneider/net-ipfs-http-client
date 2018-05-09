@@ -33,5 +33,14 @@ namespace Ipfs.Api
             CollectionAssert.AreEqual(data, streamData.ToArray());
         }
 
+        [TestMethod]
+        public void Id_NotSupported()
+        {
+            var msg = new PublishedMessage(json);
+            ExceptionAssert.Throws<NotSupportedException>(() => {
+                var _ = msg.Id;
+            });
+        }
+
     }
 }

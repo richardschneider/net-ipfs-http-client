@@ -72,7 +72,12 @@ namespace Ipfs.Api
             }
         }
 
-        /// <inheritdoc />
-        public Cid Id => throw new NotImplementedException();
+        /// <summary>>
+        ///   NOT SUPPORTED.
+        /// </summary>
+        /// <exception cref="NotSupportedException">
+        ///   A published message does not have a content id.
+        /// </exception>
+        public Cid Id => throw new NotSupportedException();
     }
 }
