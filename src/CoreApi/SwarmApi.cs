@@ -53,7 +53,7 @@ namespace Ipfs.Api
                        {
                            Id = address.Protocols.First(p => p.Name == "ipfs").Value,
                            ConnectedAddress = parts[0],
-                           Latency = ParseLatency(parts[1])
+                           Latency = Duration.Parse(parts[1])
                        };
                    });
             }
@@ -66,32 +66,12 @@ namespace Ipfs.Api
                 {
                     Id = (string)p["Peer"],
                     ConnectedAddress = new MultiAddress((string)p["Addr"] + "/ipfs/" + (string)p["Peer"]),
-                    Latency = ParseLatency((string)p["Latency"])
+                    Latency = Duration.Parse((string)p["Latency"])
                 });
             }
             
             // Hmmm. Another change we can handle
             throw new FormatException("Unknown response from 'swarm/peers");
-        }
-
-        TimeSpan ParseLatency(string latency)
-        {
-            if (latency == "n/a" || latency == "unknown")
-            {
-                return TimeSpan.Zero;
-            }
-            if (latency.EndsWith("ms"))
-            {
-                var ms = Double.Parse(latency.Substring(0, latency.Length - 2));
-                return TimeSpan.FromMilliseconds(ms);
-            }
-            if (latency.EndsWith("s"))
-            {
-                var sec = Double.Parse(latency.Substring(0, latency.Length - 1));
-                return TimeSpan.FromSeconds(sec);
-            }
-
-            throw new FormatException(String.Format("Invalid latency unit '{0}'.", latency));
         }
 
         public async Task ConnectAsync(MultiAddress address, CancellationToken cancel = default(CancellationToken))
