@@ -21,7 +21,7 @@ More information, including the Class Reference, is on the [Project](https://ric
   - [Bitswap API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBitswapApi.html) **NYI**
   - [Block API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBlockApi.html)
   - [Config API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IConfigApi.html)
-  - [Dag API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IDagApi.html) **NYI**
+  - [Dag API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IDagApi.html)
   - [Dht API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IDhtApi.html)
   - [Misc API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IGenericApi.html)
   - [FileSystem API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IFileSystemApi.html)
