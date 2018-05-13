@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Ipfs.CoreApi;
+using System.Globalization;
 
 namespace Ipfs.Api
 {
@@ -23,14 +24,76 @@ namespace Ipfs.Api
         }
 
 
-        public Task<Cid> PutAsync(ILinkedNode data, string contentType, string multiHash = MultiHash.DefaultAlgorithmName, CancellationToken cancel = default(CancellationToken))
+        public async Task<Cid> PutAsync(
+            JObject data,
+            string contentType = "cbor",
+            string multiHash = MultiHash.DefaultAlgorithmName,
+            bool pin = true,
+            CancellationToken cancel = default(CancellationToken))
         {
-            throw new NotImplementedException();
+            using (var ms = new MemoryStream())
+            {
+                using (var sw = new StreamWriter(ms, new UTF8Encoding(false), 4096, true) { AutoFlush = true })
+                using (var jw = new JsonTextWriter(sw))
+                {
+                    var serializer = new JsonSerializer
+                    {
+                        Culture = CultureInfo.InvariantCulture
+                    };
+                    serializer.Serialize(jw, data);
+                }
+                ms.Position = 0;
+                return await PutAsync(ms, contentType, multiHash, pin, cancel);
+            }
         }
 
-        Task<ILinkedNode> IDagApi.GetAsync(string path, CancellationToken cancel)
+        public async Task<Cid> PutAsync(object data, string contentType = "cbor", string multiHash = "sha2-256", bool pin = true, CancellationToken cancel = default(CancellationToken))
         {
-            throw new NotImplementedException();
+            using (var ms = new MemoryStream(
+                Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(data)),
+                false))
+            {
+                return await PutAsync(ms, contentType, multiHash, pin, cancel);
+            }
+        }
+
+        public async Task<Cid> PutAsync(
+            Stream data,
+            string contentType = "cbor",
+            string multiHash = "sha2-256",
+            bool pin = true,
+            CancellationToken cancel = default(CancellationToken))
+        {
+            var json = await ipfs.UploadAsync("dag/put", cancel,
+                data, null,
+                $"format={contentType}",
+                $"pin={pin.ToString().ToLowerInvariant()}",
+                $"hash={multiHash}");
+            var result = JObject.Parse(json);
+            return (Cid)(string)result["Cid"]["/"];
+        }
+
+        public async Task<JObject> GetAsync(
+            Cid id, 
+            CancellationToken cancel = default(CancellationToken))
+        {
+            var json = await ipfs.DoCommandAsync("dag/get", cancel, id);
+            return JObject.Parse(json);
+        }
+
+
+        public async Task<JToken> GetAsync(
+            string path, 
+            CancellationToken cancel = default(CancellationToken))
+        {
+            var json = await ipfs.DoCommandAsync("dag/get", cancel, path);
+            return JToken.Parse(json);
+        }
+
+        public async Task<T> GetAsync<T>(Cid id, CancellationToken cancel = default(CancellationToken))
+        {
+            var json = await ipfs.DoCommandAsync("dag/get", cancel, id);
+            return JsonConvert.DeserializeObject<T>(json);
         }
     }
 }
