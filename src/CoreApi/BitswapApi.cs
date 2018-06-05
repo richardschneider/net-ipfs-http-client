@@ -24,7 +24,7 @@ namespace Ipfs.Api
 
         public Task<IDataBlock> GetAsync(Cid id, CancellationToken cancel = default(CancellationToken))
         {
-            throw new NotImplementedException();
+            return ipfs.Block.GetAsync(id, cancel);
         }
 
         public async Task<IEnumerable<Cid>> WantsAsync(MultiHash peer = null, CancellationToken cancel = default(CancellationToken))

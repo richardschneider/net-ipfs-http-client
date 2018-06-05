@@ -18,10 +18,18 @@ namespace Ipfs.Api
         public async Task Wants()
         {
             var block = new DagNode(Encoding.UTF8.GetBytes("BitswapApiTest unknown block"));
-            Task.Run(() => ipfs.Block.GetAsync(block.Id).Wait());
-            await Task.Delay(1300);
-            var wants = await ipfs.Bitswap.WantsAsync();
-            CollectionAssert.Contains(wants.ToArray(), block.Id);
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            Task.Run(() => ipfs.Bitswap.GetAsync(block.Id).Wait());
+
+            var endTime = DateTime.Now.AddSeconds(10);
+            while (DateTime.Now < endTime)
+            {
+                await Task.Delay(100);
+                var wants = await ipfs.Bitswap.WantsAsync();
+                if (wants.Contains(block.Id))
+                    return;
+            }
+            Assert.Fail("wanted block is missing");
         }
 
     }

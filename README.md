@@ -18,7 +18,7 @@ More information, including the Class Reference, is on the [Project](https://ric
 - Supports [cancellation](https://richardschneider.github.io/net-ipfs-api/articles/cancellation.html) of all requests to the IPFS Server
 - Comprehensive [documentation](https://richardschneider.github.io/net-ipfs-api)
 - C# style access to the [ipfs core interface](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.html)
-  - [Bitswap API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBitswapApi.html) **NYI**
+  - [Bitswap API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBitswapApi.html)
   - [Block API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBlockApi.html)
   - [Config API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IConfigApi.html)
   - [Dag API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IDagApi.html)
