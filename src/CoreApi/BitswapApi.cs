@@ -21,6 +21,27 @@ namespace Ipfs.Api
         {
             this.ipfs = ipfs;
         }
+
+        public Task<IDataBlock> GetAsync(Cid id, CancellationToken cancel = default(CancellationToken))
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Cid>> WantsAsync(MultiHash peer = null, CancellationToken cancel = default(CancellationToken))
+        {
+            var json = await ipfs.DoCommandAsync("bitswap/wantlist", cancel, peer?.ToString());
+            var keys = (JArray)(JObject.Parse(json)["Keys"]);
+            // https://github.com/ipfs/go-ipfs/issues/5077
+            return keys
+                .Select(k => 
+                {
+                    if (k.Type == JTokenType.String)
+                        return Cid.Decode(k.ToString());
+                    var obj = (JObject)k;
+                    return Cid.Decode(obj["/"].ToString());
+                });
+
+        }
     }
 
 }
