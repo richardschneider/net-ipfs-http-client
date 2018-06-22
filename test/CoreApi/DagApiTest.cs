@@ -21,14 +21,16 @@ namespace Ipfs.Api
             var ipfs = TestFixture.Ipfs;
             var expected = new JObject();
             expected["a"] = "alpha";
+            var expectedId = "zdpuAyZWTqKMMn76eAAdDoL5nSdwZfSBRn5cSb2L4NALcWcyS";
             var id = await ipfs.Dag.PutAsync(expected);
             Assert.IsNotNull(id);
+            Assert.AreEqual(expectedId, (string)id);
 
             var actual = await ipfs.Dag.GetAsync(id);
             Assert.IsNotNull(actual);
             Assert.AreEqual(expected["a"], actual["a"]);
 
-            var value = (string) await ipfs.Dag.GetAsync(id.Encode() + "/a");
+            var value = (string) await ipfs.Dag.GetAsync(expectedId + "/a");
             Assert.AreEqual(expected["a"], value);
         }
 
