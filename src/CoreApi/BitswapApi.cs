@@ -40,7 +40,11 @@ namespace Ipfs.Api
                     var obj = (JObject)k;
                     return Cid.Decode(obj["/"].ToString());
                 });
+        }
 
+        public async Task UnwantAsync(Cid id, CancellationToken cancel = default(CancellationToken))
+        {
+            await ipfs.DoCommandAsync("bitswap/unwant", cancel, id);
         }
     }
 

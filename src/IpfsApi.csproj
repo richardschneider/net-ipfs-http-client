@@ -27,8 +27,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ipfs.Core" Version="0.27.4" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Ipfs.Core" Version="0.28.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
 	  <PackageReference Include="System.Net.Http" Version="4.3.3" Condition="'$(TargetFramework)' == 'netstandard14'" />
     <PackageReference Include="System.Net.Http" Version="4.3.3" Condition="'$(TargetFramework)' == 'net45'" />
   </ItemGroup>

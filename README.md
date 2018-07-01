@@ -16,6 +16,7 @@ More information, including the Class Reference, is on the [Project](https://ric
 - Targets .NET Framework 4.5, .NET Standard 1.4 and .NET Standard 2.0
 - [Asynchronous I/O](https://richardschneider.github.io/net-ipfs-api/articles/async.html) to an IPFS server
 - Supports [cancellation](https://richardschneider.github.io/net-ipfs-api/articles/cancellation.html) of all requests to the IPFS Server
+- Requests that all responses are compressed
 - Comprehensive [documentation](https://richardschneider.github.io/net-ipfs-api)
 - C# style access to the [ipfs core interface](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.html)
   - [Bitswap API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBitswapApi.html)
