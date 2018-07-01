@@ -20,6 +20,7 @@ namespace Ipfs.Api
             return DoCommandAsync<Peer>("id", cancel, peer?.ToString());
         }
 
+        /// <inheritdoc />
         public async Task<string> ResolveAsync(string name, bool recursive = false, CancellationToken cancel = default(CancellationToken))
         {
             var json = await DoCommandAsync("resolve", cancel,
