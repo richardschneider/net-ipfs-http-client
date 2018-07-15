@@ -122,7 +122,6 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
-        [Ignore("go-ipfs doesn't allow multiple subscribe to the same topic")]
         public async Task Multiple_Subscribe_Mutiple_Messages()
         {
             messageCount = 0;

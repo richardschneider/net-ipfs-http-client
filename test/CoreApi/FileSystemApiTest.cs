@@ -73,7 +73,6 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
-        //[Ignore("https://github.com/ipfs/go-ipfs/issues/4852")]
         public async Task Add_Wrap()
         {
             var path = "hello.txt";
