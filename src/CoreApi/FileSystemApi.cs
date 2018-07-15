@@ -55,8 +55,10 @@ namespace Ipfs.Api
                 opts.Add("only-hash=true");
             if (options.Trickle)
                 opts.Add("trickle=true");
-            if (options.Hash != "sha2-256")
+            if (options.Hash != MultiHash.DefaultAlgorithmName)
                 opts.Add($"hash=${options.Hash}");
+            if (options.Encoding != MultiBase.DefaultAlgorithmName)
+                opts.Add($"cid-base=${options.Encoding}");
             opts.Add($"chunker=size-{options.ChunkSize}");
 
             var json = await ipfs.UploadAsync("add", cancel, stream, name, opts.ToArray());

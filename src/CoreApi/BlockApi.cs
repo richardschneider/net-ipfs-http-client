@@ -36,14 +36,18 @@ namespace Ipfs.Api
             byte[] data,
             string contentType = Cid.DefaultContentType,
             string multiHash = MultiHash.DefaultAlgorithmName,
+            string encoding = MultiBase.DefaultAlgorithmName,
             bool pin = false,
             CancellationToken cancel = default(CancellationToken))
         {
             var options = new List<string>();
-            if (multiHash != MultiHash.DefaultAlgorithmName || contentType != Cid.DefaultContentType)
+            if (multiHash != MultiHash.DefaultAlgorithmName || 
+                contentType != Cid.DefaultContentType ||
+                encoding != MultiBase.DefaultAlgorithmName)
             {
                 options.Add($"mhtype={multiHash}");
                 options.Add($"format={contentType}");
+                options.Add($"cid-base={encoding}");
             }
             var json = await ipfs.UploadAsync("block/put", cancel, data, options.ToArray());
             var info = JObject.Parse(json);
@@ -61,14 +65,18 @@ namespace Ipfs.Api
             Stream data,
             string contentType = Cid.DefaultContentType,
             string multiHash = MultiHash.DefaultAlgorithmName,
+            string encoding = MultiBase.DefaultAlgorithmName,
             bool pin = false,
             CancellationToken cancel = default(CancellationToken))
         {
             var options = new List<string>();
-            if (multiHash != MultiHash.DefaultAlgorithmName || contentType != Cid.DefaultContentType)
+            if (multiHash != MultiHash.DefaultAlgorithmName ||
+                contentType != Cid.DefaultContentType ||
+                encoding != MultiBase.DefaultAlgorithmName)
             {
                 options.Add($"mhtype={multiHash}");
                 options.Add($"format={contentType}");
+                options.Add($"cid-base={encoding}");
             }
             var json = await ipfs.UploadAsync("block/put", cancel, data, null, options.ToArray());
             var info = JObject.Parse(json);

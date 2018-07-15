@@ -28,6 +28,7 @@ namespace Ipfs.Api
             JObject data,
             string contentType = "dag-cbor",
             string multiHash = MultiHash.DefaultAlgorithmName,
+            string encoding = MultiBase.DefaultAlgorithmName,
             bool pin = true,
             CancellationToken cancel = default(CancellationToken))
         {
@@ -43,7 +44,7 @@ namespace Ipfs.Api
                     serializer.Serialize(jw, data);
                 }
                 ms.Position = 0;
-                return await PutAsync(ms, contentType, multiHash, pin, cancel);
+                return await PutAsync(ms, contentType, multiHash, encoding, pin, cancel);
             }
         }
 
@@ -51,6 +52,7 @@ namespace Ipfs.Api
             object data, 
             string contentType = "dag-cbor",
             string multiHash = MultiHash.DefaultAlgorithmName,
+            string encoding = MultiBase.DefaultAlgorithmName,
             bool pin = true, 
             CancellationToken cancel = default(CancellationToken))
         {
@@ -58,7 +60,7 @@ namespace Ipfs.Api
                 Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(data)),
                 false))
             {
-                return await PutAsync(ms, contentType, multiHash, pin, cancel);
+                return await PutAsync(ms, contentType, multiHash, encoding, pin, cancel);
             }
         }
 
@@ -66,6 +68,7 @@ namespace Ipfs.Api
             Stream data,
             string contentType = "dag-cbor",
             string multiHash = MultiHash.DefaultAlgorithmName,
+            string encoding = MultiBase.DefaultAlgorithmName,
             bool pin = true,
             CancellationToken cancel = default(CancellationToken))
         {
@@ -73,7 +76,8 @@ namespace Ipfs.Api
                 data, null,
                 $"format={contentType}",
                 $"pin={pin.ToString().ToLowerInvariant()}",
-                $"hash={multiHash}");
+                $"hash={multiHash}",
+                $"cid-base={encoding}");
             var result = JObject.Parse(json);
             return (Cid)(string)result["Cid"]["/"];
         }
