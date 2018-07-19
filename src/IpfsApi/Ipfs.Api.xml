@@ -1,0 +1,706 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ipfs.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Ipfs.Api.Block">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.Block.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.Block.DataBytes">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.Block.DataStream">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.Block.Size">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.FileSystemApi.ReadAllTextAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Reads the content of an existing IPFS file as text.
+            </summary>
+            <param name="path">
+              A path to an existing file, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
+              or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              The contents of the <paramref name="path"/> as a <see cref="T:System.String"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Api.FileSystemApi.ReadFileAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Opens an existing IPFS file for reading.
+            </summary>
+            <param name="path">
+              A path to an existing file, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
+              or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A <see cref="T:System.IO.Stream"/> to the file contents.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Api.FileSystemApi.ListFileAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Get information about the file or directory.
+            </summary>
+            <param name="path">
+              A path to an existing file or directory, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
+              or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:Ipfs.Api.IpfsClient">
+            <summary>
+              A client that allows access to the InterPlanetary File System (IPFS).
+            </summary>
+            <remarks>
+              The API is based on the <see href="https://ipfs.io/docs/commands/">IPFS commands</see>.
+            </remarks>
+            <seealso href="https://ipfs.io/docs/api/">IPFS API</seealso>
+            <seealso href="https://ipfs.io/docs/commands/">IPFS commands</seealso>
+            <remarks>
+              <b>IpfsClient</b> is thread safe, only one instance is required
+              by the application.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.IdAsync(Ipfs.MultiHash,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.ResolveAsync(System.String,System.Boolean,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.ShutdownAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.VersionAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="F:Ipfs.Api.IpfsClient.DefaultApiUri">
+            <summary>
+              The default URL to the IPFS HTTP API server.
+            </summary>
+            <value>
+              The default is "http://localhost:5001".
+            </value>
+            <remarks>
+              The environment variable "IpfsHttpApi" overrides this value.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.#ctor">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.Api.IpfsClient"/> class and sets the
+              default values.
+            </summary>
+            <remarks>
+              All methods of IpfsClient are thread safe.  Typically, only one instance is required for
+              an application.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.#ctor(System.String)">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.Api.IpfsClient"/> class and specifies
+              the <see cref="P:Ipfs.Api.IpfsClient.ApiUri">API host's URL</see>.
+              default values
+            </summary>
+            <param name="host">
+              The URL of the API host.  For example "http://localhost:5001" or "http://ipv4.fiddler:5001".
+            </param>
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.ApiUri">
+            <summary>
+              The URL to the IPFS API server.  The default is "http://localhost:5001".
+            </summary>
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.UserAgent">
+            <summary>
+              The value of HTTP User-Agent header sent to the API server. 
+            </summary>
+            <value>
+              The default value is "net-ipfs/M.N", where M is the major and N is minor version
+              numbers of the assembly.
+            </value>
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.TrustedPeers">
+            <summary>
+              The list of peers that are initially trusted by IPFS.
+            </summary>
+            <remarks>
+              This is equilivent to <c>ipfs bootstrap list</c>.
+            </remarks>
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.Bitswap">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.Bootstrap">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.Generic">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.Dns">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.Block">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.Config">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.Pin">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.Dag">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.Dht">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.Swarm">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.Object">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.FileSystem">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.PubSub">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.IpfsClient.Key">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.Api">
+            <summary>
+              Get the IPFS API.
+            </summary>
+            <returns>
+              A <see cref="T:System.Net.Http.HttpClient"/>.
+            </returns>
+            <remarks>
+              Only one client is needed.  Its thread safe.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.DoCommandAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])">
+            <summary>
+             Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a string.
+            </summary>
+            <param name="command">
+              The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+              <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <param name="arg">
+              The optional argument to the command.
+            </param>
+            <param name="options">
+              The optional flags to the command.
+            </param>
+            <returns>
+              A string representation of the command's result.
+            </returns>
+            <exception cref="T:System.Net.Http.HttpRequestException">
+              When the IPFS server indicates an error.
+            </exception>
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.DoCommandAsync``1(System.String,System.Threading.CancellationToken,System.String,System.String[])">
+            <summary>
+              Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning 
+              a specific <see cref="T:System.Type"/>.
+            </summary>
+            <typeparam name="T">
+              The <see cref="T:System.Type"/> of object to return.
+            </typeparam>
+            <param name="command">
+              The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+              <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <param name="arg">
+              The optional argument to the command.
+            </param>
+            <param name="options">
+              The optional flags to the command.
+            </param>
+            <returns>
+              A <typeparamref name="T"/>.
+            </returns>
+            <remarks>
+              The command's response is converted to <typeparamref name="T"/> using
+              <c>JsonConvert</c>.
+            </remarks>
+            <exception cref="T:System.Net.Http.HttpRequestException">
+              When the IPFS server indicates an error.
+            </exception>
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.PostDownloadAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])">
+            <summary>
+             Post an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a stream.
+            </summary>
+            <param name="command">
+              The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+              <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <param name="arg">
+              The optional argument to the command.
+            </param>
+            <param name="options">
+              The optional flags to the command.
+            </param>
+            <returns>
+              A <see cref="T:System.IO.Stream"/> containing the command's result.
+            </returns>
+            <exception cref="T:System.Net.Http.HttpRequestException">
+              When the IPFS server indicates an error.
+            </exception>
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.DownloadAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])">
+            <summary>
+             Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a
+             <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="command">
+              The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+              <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <param name="arg">
+              The optional argument to the command.
+            </param>
+            <param name="options">
+              The optional flags to the command.
+            </param>
+            <returns>
+              A <see cref="T:System.IO.Stream"/> containing the command's result.
+            </returns>
+            <exception cref="T:System.Net.Http.HttpRequestException">
+              When the IPFS server indicates an error.
+            </exception>
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.DownloadBytesAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])">
+            <summary>
+             Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning a
+             a byte array.
+            </summary>
+            <param name="command">
+              The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+              <see href="https://ipfs.io/docs/api/#apiv0filels">"file/ls"</see>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <param name="arg">
+              The optional argument to the command.
+            </param>
+            <param name="options">
+              The optional flags to the command.
+            </param>
+            <returns>
+              A byte array containing the command's result.
+            </returns>
+            <exception cref="T:System.Net.Http.HttpRequestException">
+              When the IPFS server indicates an error.
+            </exception>
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.UploadAsync(System.String,System.Threading.CancellationToken,System.IO.Stream,System.String,System.String[])">
+            <summary>
+              Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> that
+              requires uploading of a "file".
+            </summary>
+            <param name="command">
+              The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+              <see href="https://ipfs.io/docs/api/#apiv0add">"add"</see>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <param name="data">
+              A <see cref="T:System.IO.Stream"/> containing the data to upload.
+            </param>
+            <param name="name">
+              The name associated with the <paramref name="data"/>, can be <b>null</b>.
+              Typically a filename, such as "hello.txt".
+            </param>
+            <param name="options">
+              The optional flags to the command.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value is 
+              the HTTP response as a string.
+            </returns>
+            <exception cref="T:System.Net.Http.HttpRequestException">
+              When the IPFS server indicates an error.
+            </exception>
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.UploadAsync(System.String,System.Threading.CancellationToken,System.Byte[],System.String[])">
+            <summary>
+             TODO
+            </summary>
+        </member>
+        <member name="M:Ipfs.Api.IpfsClient.ThrowOnErrorAsync(System.Net.Http.HttpResponseMessage)">
+            <summary>
+              Throws an <see cref="T:System.Net.Http.HttpRequestException"/> if the response
+              does not indicate success.
+            </summary>
+            <param name="response"></param>
+            <returns>
+               <b>true</b>
+            </returns>
+            <remarks>
+              The API server returns an JSON error in the form <c>{ "Message": "...", "Code": ... }</c>.
+            </remarks>
+        </member>
+        <member name="T:Ipfs.Api.KeyApi.KeyInfo">
+            <summary>
+              Information about a local key.
+            </summary>
+        </member>
+        <member name="P:Ipfs.Api.KeyApi.KeyInfo.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.KeyApi.KeyInfo.Name">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.KeyApi.KeyInfo.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Ipfs.Api.ObjectApi.DagInfo">
+            <summary>
+             TODO
+            </summary>
+        </member>
+        <member name="P:Ipfs.Api.ObjectApi.DagInfo.Hash">
+            <summary>
+             TODO
+            </summary>
+        </member>
+        <member name="P:Ipfs.Api.ObjectApi.DagInfo.NumLinks">
+            <summary>
+             TODO
+            </summary>
+        </member>
+        <member name="P:Ipfs.Api.ObjectApi.DagInfo.BlockSize">
+            <summary>
+             TODO
+            </summary>
+        </member>
+        <member name="P:Ipfs.Api.ObjectApi.DagInfo.LinksSize">
+            <summary>
+             TODO
+            </summary>
+        </member>
+        <member name="P:Ipfs.Api.ObjectApi.DagInfo.DataSize">
+            <summary>
+             TODO
+            </summary>
+        </member>
+        <member name="P:Ipfs.Api.ObjectApi.DagInfo.CumulativeSize">
+            <summary>
+             TODO
+            </summary>
+        </member>
+        <member name="M:Ipfs.Api.ObjectApi.StatAsync(Ipfs.Cid,System.Threading.CancellationToken)">
+            <summary>
+              Get the statistics of a MerkleDAG node.
+            </summary>
+            <param name="id">
+              The <see cref="T:Ipfs.Cid"/> of the node.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:Ipfs.Api.FileSystemLink">
+            <summary>
+                A link to another file system node in IPFS.
+            </summary>
+        </member>
+        <member name="P:Ipfs.Api.FileSystemLink.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.FileSystemLink.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.FileSystemLink.Size">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.FileSystemLink.IsDirectory">
+            <inheritdoc />
+        </member>
+        <member name="T:Ipfs.Api.FileSystemNode">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.FileSystemNode.DataBytes">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.FileSystemNode.DataStream">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.FileSystemNode.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.FileSystemNode.Links">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.FileSystemNode.Size">
+            <summary>
+              Size of the file contents.
+            </summary>
+            <value>
+              This is the size of the file not the raw encoded contents
+              of the block.
+            </value>
+        </member>
+        <member name="P:Ipfs.Api.FileSystemNode.IsDirectory">
+            <summary>
+              Determines if the link is a directory (folder).
+            </summary>
+            <value>
+              <b>true</b> if the link is a directory; Otherwise <b>false</b>,
+              the link is some type of a file.
+            </value>
+        </member>
+        <member name="P:Ipfs.Api.FileSystemNode.Name">
+            <summary>
+              The file name of the IPFS node.
+            </summary>
+        </member>
+        <member name="M:Ipfs.Api.FileSystemNode.ToLink(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Ipfs.Api.MerkleNode">
+            <summary>
+              The IPFS <see href="https://github.com/ipfs/specs/tree/master/merkledag">MerkleDag</see> is the datastructure at the heart of IPFS. It is an acyclic directed graph whose edges are hashes.
+            </summary>
+            <remarks>
+              Initially an <b>MerkleNode</b> is just constructed with its Cid.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Api.MerkleNode.#ctor(Ipfs.Cid,System.String)">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.Api.MerkleNode"/> with the specified
+              <see cref="T:Ipfs.Cid"/> and optional <see cref="P:Ipfs.Api.MerkleNode.Name"/>.
+            </summary>
+            <param name="id">
+              The <see cref="T:Ipfs.Cid"/> of the node.
+            </param>
+            <param name="name">A name for the node.</param>
+        </member>
+        <member name="M:Ipfs.Api.MerkleNode.#ctor(System.String,System.String)">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.Api.MerkleNode"/> with the specified
+              <see cref="P:Ipfs.Api.MerkleNode.Id">cid</see> and optional <see cref="P:Ipfs.Api.MerkleNode.Name"/>.
+            </summary>
+            <param name="path">
+              The string representation of a <see cref="T:Ipfs.Cid"/> of the node or "/ipfs/cid".
+            </param>
+            <param name="name">A name for the node.</param>
+        </member>
+        <member name="M:Ipfs.Api.MerkleNode.#ctor(Ipfs.IMerkleLink)">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.Api.MerkleNode"/> from the
+              <see cref="T:Ipfs.IMerkleLink"/>.
+            </summary>
+            <param name="link">The link to a node.</param>
+        </member>
+        <member name="P:Ipfs.Api.MerkleNode.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.MerkleNode.Name">
+            <summary>
+              The name for the node.  If unknown it is "" (not null).
+            </summary>
+        </member>
+        <member name="P:Ipfs.Api.MerkleNode.BlockSize">
+            <summary>
+              Size of the raw, encoded node.
+            </summary>
+        </member>
+        <member name="P:Ipfs.Api.MerkleNode.Size">
+            <inheritdoc />
+            <seealso cref="P:Ipfs.Api.MerkleNode.BlockSize"/>
+        </member>
+        <member name="P:Ipfs.Api.MerkleNode.Links">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.MerkleNode.DataBytes">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.MerkleNode.DataStream">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.MerkleNode.ToLink(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.MerkleNode.GetBlockStats">
+            <summary>
+              Get block statistics about the node, <c>ipfs block stat <i>key</i></c>
+            </summary>
+            <remarks>
+              The object stats include the block stats.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Api.MerkleNode.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.MerkleNode.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.MerkleNode.Equals(Ipfs.Api.MerkleNode)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.MerkleNode.op_Equality(Ipfs.Api.MerkleNode,Ipfs.Api.MerkleNode)">
+            <summary>
+             TODO
+            </summary>
+        </member>
+        <member name="M:Ipfs.Api.MerkleNode.op_Inequality(Ipfs.Api.MerkleNode,Ipfs.Api.MerkleNode)">
+            <summary>
+             TODO
+            </summary>
+        </member>
+        <member name="M:Ipfs.Api.MerkleNode.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.MerkleNode.op_Implicit(System.String)~Ipfs.Api.MerkleNode">
+            <summary>
+             TODO
+            </summary>
+        </member>
+        <member name="T:Ipfs.Api.PublishedMessage">
+            <summary>
+              A published message.
+            </summary>
+            <remarks>
+              The <see cref="T:Ipfs.Api.PubSubApi"/> is used to publish and subsribe to a message.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Api.PublishedMessage.#ctor(System.String)">
+            <summary>
+              Creates a new instance of <see cref="T:Ipfs.Api.PublishedMessage"/> from the
+              specified JSON string.
+            </summary>
+            <param name="json">
+              The JSON representation of a published message.
+            </param>
+        </member>
+        <member name="P:Ipfs.Api.PublishedMessage.Sender">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.PublishedMessage.Topics">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.PublishedMessage.SequenceNumber">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.PublishedMessage.DataBytes">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.PublishedMessage.DataStream">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.PublishedMessage.Size">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.PublishedMessage.DataString">
+            <summary>
+              Contents as a string.
+            </summary>
+            <value>
+              The contents interpreted as a UTF-8 string.
+            </value>
+        </member>
+        <member name="P:Ipfs.Api.PublishedMessage.Id">
+            <summary>>
+              NOT SUPPORTED.
+            </summary>
+            <exception cref="T:System.NotSupportedException">
+              A published message does not have a content id.
+            </exception>
+        </member>
+        <member name="T:Ipfs.Api.TrustedPeerCollection">
+            <summary>
+              A list of trusted peers.
+            </summary>
+            <remarks>
+              This is the list of peers that are initially trusted by IPFS. Its equivalent to the
+              <see href="https://ipfs.io/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example#/ipfs/QmThrNbvLj7afQZhxH72m5Nn1qiVn3eMKWFYV49Zp2mv9B/bootstrap/readme.md">ipfs bootstrap</see> command.
+            </remarks>
+            <returns>
+              A series of <see cref="T:Ipfs.MultiAddress"/>.  Each address ends with an IPNS node id, for
+              example "/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ".
+            </returns>
+        </member>
+        <member name="M:Ipfs.Api.TrustedPeerCollection.Add(Ipfs.MultiAddress)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.TrustedPeerCollection.AddDefaultNodes">
+            <summary>
+               Add the default bootstrap nodes to the trusted peers.
+            </summary>
+            <remarks>
+               Equivalent to <c>ipfs bootstrap add --default</c>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Api.TrustedPeerCollection.Clear">
+            <summary>
+               Remove all the trusted peers.
+            </summary>
+            <remarks>
+               Equivalent to <c>ipfs bootstrap rm --all</c>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Api.TrustedPeerCollection.Contains(Ipfs.MultiAddress)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.TrustedPeerCollection.CopyTo(Ipfs.MultiAddress[],System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.TrustedPeerCollection.Count">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.Api.TrustedPeerCollection.IsReadOnly">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.TrustedPeerCollection.Remove(Ipfs.MultiAddress)">
+            <summary>
+               Remove the trusted peer.
+            </summary>
+            <remarks>
+               Equivalent to <c>ipfs bootstrap rm <i>peer</i></c>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Api.TrustedPeerCollection.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Api.TrustedPeerCollection.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
