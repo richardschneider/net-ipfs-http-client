@@ -389,37 +389,37 @@
         <member name="M:Ipfs.Api.KeyApi.KeyInfo.ToString">
             <inheritdoc />
         </member>
-        <member name="T:Ipfs.Api.ObjectApi.DagInfo">
+        <member name="T:Ipfs.Api.DagInfo">
             <summary>
              TODO
             </summary>
         </member>
-        <member name="P:Ipfs.Api.ObjectApi.DagInfo.Hash">
+        <member name="P:Ipfs.Api.DagInfo.Hash">
             <summary>
              TODO
             </summary>
         </member>
-        <member name="P:Ipfs.Api.ObjectApi.DagInfo.NumLinks">
+        <member name="P:Ipfs.Api.DagInfo.NumLinks">
             <summary>
              TODO
             </summary>
         </member>
-        <member name="P:Ipfs.Api.ObjectApi.DagInfo.BlockSize">
+        <member name="P:Ipfs.Api.DagInfo.BlockSize">
             <summary>
              TODO
             </summary>
         </member>
-        <member name="P:Ipfs.Api.ObjectApi.DagInfo.LinksSize">
+        <member name="P:Ipfs.Api.DagInfo.LinksSize">
             <summary>
              TODO
             </summary>
         </member>
-        <member name="P:Ipfs.Api.ObjectApi.DagInfo.DataSize">
+        <member name="P:Ipfs.Api.DagInfo.DataSize">
             <summary>
              TODO
             </summary>
         </member>
-        <member name="P:Ipfs.Api.ObjectApi.DagInfo.CumulativeSize">
+        <member name="P:Ipfs.Api.DagInfo.CumulativeSize">
             <summary>
              TODO
             </summary>

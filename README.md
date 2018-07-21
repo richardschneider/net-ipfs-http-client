@@ -6,12 +6,15 @@
 [![docs](https://cdn.rawgit.com/richardschneider/net-ipfs-api/master/doc/images/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-api)
 
 
-A .Net client library for the IPFS HTTP API, implemented in C#. 
+A .Net client library for the IPFS HTTP API, implemented in C#.
+Also includes a higher-order API for writing monadic program transformations that manipulate the lower-level IPFS calls as abstract syntax trees in F#.
 More information, including the Class Reference, is on the [Project](https://richardschneider.github.io/net-ipfs-api/) web site.
 
 ![](https://ipfs.io/ipfs/QmQJ68PFMDdAsgCZvA1UVzzn18asVcf7HVvCDgpjiSCAse)
 
 ## Features
+
+### IPFS Core interface
 
 - Targets .NET Framework 4.5, .NET Standard 1.4 and .NET Standard 2.0
 - [Asynchronous I/O](https://richardschneider.github.io/net-ipfs-api/articles/async.html) to an IPFS server
@@ -32,6 +35,8 @@ More information, including the Class Reference, is on the [Project](https://ric
   - [Pin API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IPinApi.html)
   - [PubSub API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IPubSubApi.html)
   - [Swarm API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.ISwarmApi.html)
+
+### Free monad DSL
 
 ## Getting started
 
