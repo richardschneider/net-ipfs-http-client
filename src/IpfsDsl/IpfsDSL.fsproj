@@ -5,8 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="TaskBuilder.fs" />
-    <Compile Include="Library.fs" />
+    <Compile Include="Cancellation.fs" />
+    <Compile Include="SubDSLs.fs" />
+    <Compile Include="IpfsDSL.fs" />
+    <Compile Include="Programs.fs" />
   </ItemGroup>
 
   <ItemGroup>

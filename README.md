@@ -7,7 +7,7 @@
 
 
 A .Net client library for the IPFS HTTP API, implemented in C#.
-Also includes a higher-order API for writing monadic program transformations that manipulate the lower-level IPFS calls as abstract syntax trees in F#.
+Also includes a higher-order API for writing monadic program transformations that manipulate the lower-level IPFS API calls as abstract syntax trees in F#.
 More information, including the Class Reference, is on the [Project](https://richardschneider.github.io/net-ipfs-api/) web site.
 
 ![](https://ipfs.io/ipfs/QmQJ68PFMDdAsgCZvA1UVzzn18asVcf7HVvCDgpjiSCAse)
@@ -50,10 +50,10 @@ For the latest build or older non-released builds see [Continuous Integration](h
 
 Every IPFS Api is a property of the [IpfsClient](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.IpfsClient.html).  The following example reads a text file
 
-```
+```csharp
 var ipfs = new IpfsClient();
 
-const string filename = "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about";
+readonly string filename = "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about";
 string text = await ipfs.FileSystem.ReadAllTextAsync(filename);
 ```
 

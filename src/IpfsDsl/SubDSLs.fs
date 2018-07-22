@@ -5,38 +5,15 @@ open Ipfs.CoreApi
 open System
 open System.IO
 open System.Threading
-open System.Threading.Tasks
 open System.Collections.Generic
-open Newtonsoft.Json
 open Newtonsoft.Json.Linq
 open FSharpPlus
 open FSharp.Control
-open FSharp.Control.AsyncPrimitives
 
-module Definitions =
+[<AutoOpen>]
+module SubDSLs =
 
     [<AutoOpen>]
-    module Cancellation =
-        type Cto = CancellationToken option
-        type CancellationContext = private | Cancelable of Cto * CancellationTokenSource option
-
-        let mToken (Cancelable(ct,_)) = ct
-        let mTokenSource (Cancelable(_,src)) = src
-
-        let cancelNow (Cancelable(_,src)) =
-            match src with
-            | Some(cts) -> cts.Cancel()
-            | None -> ()
-
-        let dontUse :Cto = None
-
-        let newContext = monad {
-            let cts = new CancellationTokenSource()
-            return! (Cancelable(Some(cts.Token), Some(cts)))
-        }
-
-        let emptyContext = Cancelable(None, None)
-
     module BitswapDSL =
 
         // 1. [x] the embedded language specification
@@ -62,8 +39,7 @@ module Definitions =
             static member prepareWants (mh) (ct) = WantsArgs(mh, ct)
             static member prepareUnwants (id) (ct) = UnwantsArgs(id, ct)
 
-        type BitswapDSLResults =
-            private
+        type BitswapDSLResult =
             | Err
             | GetResult of Async<IDataBlock>
             | WantsResult of AsyncSeq<Cid>
@@ -98,12 +74,12 @@ module Definitions =
         }
 
         // 4. surface area - public functions that build expressions to support the embedded language
-        let inline get (client) = Get(getCall client)
-        let inline wants (client) = Wants(wantsCall client)
-        let inline unwants (client) = Unwants(unwantsCall client)
+        let get (client) = Get(getCall client)
+        let wants (client) = Wants(wantsCall client)
+        let unwants (client) = Unwants(unwantsCall client)
 
         // 5. interpreter
-        let inline interpret (expression:BitswapDSL) (args:BitswapDSLArgs) : Async<BitswapDSLResults> = async {
+        let interpret (expression:BitswapDSL) (args:BitswapDSLArgs) : Async<BitswapDSLResult> = async {
             match expression, args with
             | Get(f), GetArgs(a) -> return GetResult(f a)
             | Wants(f), WantsArgs(a) -> return WantsResult(f a)
@@ -119,6 +95,7 @@ module Definitions =
     type private Pin = bool
     type private IgnoreNonexistent = bool
 
+    [<AutoOpen>]
     module BlockDSL =
 
         // 1. [x] the embedded language specification
@@ -150,8 +127,7 @@ module Definitions =
             static member prepareStatsArgs (id) (ct) = StatsArgs(id, ct)
             static member prepareRemoveArgs (id) (ignore) (ct) = RemoveArgs(id, ignore, ct)
 
-        type BlockDSLResults =
-            private
+        type BlockDSLResult =
             | Err
             | GetResult of Async<IDataBlock>
             | PutArrayResult of Async<Cid>
@@ -218,14 +194,14 @@ module Definitions =
         }
 
         // 4. surface area - public functions that build expressions to support the embedded language
-        let inline get (client) = Get(getCall client)
-        let inline putArray (client) = PutArray(fittedPutArrayCall client)
-        let inline putStream (client) = PutStream(fittedPutStreamCall client)
-        let inline stats (client) = Stats(statsCall client)
-        let inline remove (client) = Remove(removeCall client)
+        let get (client) = Get(getCall client)
+        let putArray (client) = PutArray(fittedPutArrayCall client)
+        let putStream (client) = PutStream(fittedPutStreamCall client)
+        let stats (client) = Stats(statsCall client)
+        let remove (client) = Remove(removeCall client)
 
         // 5. interpreters
-        let inline interpret (expression:BlockDSL) (args:BlockDSLArgs) : Async<BlockDSLResults> = async {
+        let interpret (expression:BlockDSL) (args:BlockDSLArgs) : Async<BlockDSLResult> = async {
             match expression, args with
             | Get(f), GetArgs(a) -> return GetResult(f a)
             | PutArray(f), PutArrayArgs(a) -> return PutArrayResult(f a)
@@ -235,6 +211,7 @@ module Definitions =
             | _,_ -> return Err
         }
 
+    [<AutoOpen>]
     module BootstrapDSL =
         
         // 1. [x] the embedded language specification
@@ -266,8 +243,7 @@ module Definitions =
             static member prepareRemoveAll (ct) = RemoveAllArgs(ct)
             static member prepareRemove (ma) (ct) = RemoveArgs(ma, ct)
 
-        type BootstrapDSLResults =
-            private
+        type BootstrapDSLResult =
             | Err
             | AddResult of Async<MultiAddress>
             | AddDefaultsResult of AsyncSeq<MultiAddress>
@@ -323,14 +299,14 @@ module Definitions =
         }
 
         // 4. surface area - public functions that build expressions to support the embedded language
-        let inline add (client) = Add(addCall client)
-        let inline addDefaults (client) = AddDefaults(addDefaultsCall client)
-        let inline list (client) = Ls(listCall client)
-        let inline removeAll (client) = RemoveAll(removeAllCall client)
-        let inline remove (client) = Remove(removeCall client)
+        let add (client) = Add(addCall client)
+        let addDefaults (client) = AddDefaults(addDefaultsCall client)
+        let list (client) = Ls(listCall client)
+        let removeAll (client) = RemoveAll(removeAllCall client)
+        let remove (client) = Remove(removeCall client)
 
         // 5. interpreters
-        let inline interpret (expression:BootstrapDSL) (args:BootstrapDSLArgs) : Async<BootstrapDSLResults> = async {
+        let interpret (expression:BootstrapDSL) (args:BootstrapDSLArgs) : Async<BootstrapDSLResult> = async {
             match expression, args with
             | Add(f), AddArgs(a) -> return AddResult(f a)
             | AddDefaults(f), AddDefaultsArgs(a) -> return AddDefaultsResult(f a)
@@ -342,6 +318,7 @@ module Definitions =
 
     type private ConfigKey = string
 
+    [<AutoOpen>]
     module ConfigDSL =
 
         // 1. [x] the embedded language specification
@@ -373,8 +350,7 @@ module Definitions =
             static member prepareSetKeyToken (ck) (tk) (ct) = SetKeyTokenArgs(ck, tk, ct)
             static member prepareReplace (settings) = ReplaceArgs(settings)
 
-        type ConfigDSLResults =
-            private
+        type ConfigDSLResult =
             | Err
             | GetAllResult of Async<JObject>
             | GetKeyResult of Async<JToken>
@@ -422,14 +398,14 @@ module Definitions =
         }
 
         // 4. surface area - public functions that build expressions to support the embedded language
-        let inline getAll (client) = GetAll(getAllCall client)
-        let inline getKey (client) = GetKey(getKeyCall client)
-        let inline setKeyString (client) = SetKeyString(setKeyStringCall client)
-        let inline setKeyToken (client) = SetKeyToken(setKeyTokenCall client)
-        let inline replace (client) = Replace(replaceCall client)
+        let getAll (client) = GetAll(getAllCall client)
+        let getKey (client) = GetKey(getKeyCall client)
+        let setKeyString (client) = SetKeyString(setKeyStringCall client)
+        let setKeyToken (client) = SetKeyToken(setKeyTokenCall client)
+        let replace (client) = Replace(replaceCall client)
 
         // 5. interpreters
-        let inline interpret (expression:ConfigDSL) (args:ConfigDSLArgs) : Async<ConfigDSLResults> = async {
+        let interpret (expression:ConfigDSL) (args:ConfigDSLArgs) : Async<ConfigDSLResult> = async {
             match expression, args with
             | GetAll(f), GetAllArgs(a) -> return GetAllResult(f a)
             | GetKey(f), GetKeyArgs(a) -> return GetKeyResult(f a)
@@ -439,6 +415,7 @@ module Definitions =
             | _,_ -> return Err
         }
 
+    [<AutoOpen>]
     module DagDSL =
 
         // 1. [x] the embedded language specification
@@ -494,8 +471,7 @@ module Definitions =
             static member prepareGetJSONToken (s) (ct) = GetJSONTokenArgs(s, ct)
             static member prepareGetNativeT (id) (ct) = GetNativeTArgs(id, ct)
 
-        type DagDSLResults<'Native> =
-            private
+        type DagDSLResult<'Native> =
             | Err
             | PutJSONResult of Async<Cid>
             | PutNativeResult of Async<Cid>
@@ -557,15 +533,15 @@ module Definitions =
         }
 
         // 4. surface area - public functions that build expressions to support the embedded language
-        let inline putJSON (client) = PutJSON(putJSONCall client)
-        let inline putNative (client) = PutNative(putNativeCall client)
-        let inline putStream (client) = PutStream(putStreamCall client)
-        let inline getJSONObject (client) = GetJSONObject(getJSONObjectCall client)
-        let inline getJSONToken (client) = GetJSONToken(getJSONTokenCall client)
-        let inline getNativeT'<'a> (client) = DagDSL<'a>.GetNativeT(getNativeTCall<'a> client)
+        let putJSON (client) = PutJSON(putJSONCall client)
+        let putNative (client) = PutNative(putNativeCall client)
+        let putStream (client) = PutStream(putStreamCall client)
+        let getJSONObject (client) = GetJSONObject(getJSONObjectCall client)
+        let getJSONToken (client) = GetJSONToken(getJSONTokenCall client)
+        let getNativeT'<'a> (client) = DagDSL<'a>.GetNativeT(getNativeTCall<'a> client)
 
         // 5. interpreters
-        let inline interpret (expression:DagDSL<'a>) (args:DagDSLArgs) : Async<DagDSLResults<'a>> = async {
+        let interpret (expression:DagDSL<'a>) (args:DagDSLArgs) : Async<DagDSLResult<'a>> = async {
             match expression, args with
             | PutJSON(f), PutJSONArgs(a) -> return PutJSONResult(f a)
             | PutNative(f), PutNativeArgs(a) -> return PutNativeResult(f a)
@@ -576,6 +552,7 @@ module Definitions =
             | _,_ -> return Err
         }
 
+    [<AutoOpen>]
     module DhtDSL =
         
         // 1. [x] the embedded language specification
@@ -598,8 +575,7 @@ module Definitions =
             static member prepareFindPeer (mh) (ct) = FindPeerArgs(mh, ct)
             static member prepareFindProviders (id) (ct) = FindProvidersArgs(id, ct)
 
-        type DhtDSLResults =
-            private
+        type DhtDSLResult =
             | Err
             | FindPeerResult of Async<Peer>
             | FindProvidersResult of AsyncSeq<Peer>
@@ -625,11 +601,11 @@ module Definitions =
         }
 
         // 4. surface area - public functions that build expressions to support the embedded language
-        let inline findPeer (client) = FindPeer(findPeerCall client)
-        let inline findProviders (client) = FindProviders(findProvidersCall client)
+        let findPeer (client) = FindPeer(findPeerCall client)
+        let findProviders (client) = FindProviders(findProvidersCall client)
 
         // 5. interpreters
-        let inline interpret (expression:DhtDSL) (args:DhtDSLArgs) : Async<DhtDSLResults> = async {
+        let interpret (expression:DhtDSL) (args:DhtDSLArgs) : Async<DhtDSLResult> = async {
             match expression, args with
             | FindPeer(f), FindPeerArgs(a) -> return FindPeerResult(f a)
             | FindProviders(f), FindProvidersArgs(a) -> return FindProvidersResult(f a)
@@ -638,6 +614,7 @@ module Definitions =
 
     type private Recursive = bool
 
+    [<AutoOpen>]
     module DnsDSL =
 
         // 1. [x] the embedded language specification
@@ -657,6 +634,9 @@ module Definitions =
             | ResolveArgs of args:(string * Recursive * Cto)
             static member prepareResolve (name) (r:bool) (ct) = ResolveArgs(name, r, ct)
 
+        type DnsDSLResult =
+            | ResolveResult of Async<string>
+
         // 3. private low-level interop "calls" that are bound to the expressions of the language
         let inline private resolveCall (client:IpfsClient) (t: string * Recursive * Cto) = async {
             let (name, rec', ct) = t
@@ -668,11 +648,12 @@ module Definitions =
         }
 
         // 4. surface area - public functions that build expressions to support the embedded language
-        let inline resolve (client) = Resolve(resolveCall client)
+        let resolve (client) = Resolve(resolveCall client)
 
         // 5. interpreters
-        let inline interpret (Resolve(f)) (ResolveArgs(args)) = async {
-            return! f args
+        let interpret (expression:DnsDSL) (args:DnsDSLArgs) : Async<DnsDSLResult> = async {
+            match expression, args with
+            | Resolve(f), ResolveArgs(a) -> return ResolveResult(f a)
         }
     
     type private FileOptions = AddFileOptions
@@ -680,6 +661,7 @@ module Definitions =
     type private FileName = string
     type private IpfsFilePath = string
 
+    [<AutoOpen>]
     module FileSystemDSL =
         
         // 1. [x] the embedded language specification
@@ -717,8 +699,7 @@ module Definitions =
             static member prepareReadFile (ifp) (ct) = ReadFileArgs(ifp, ct)
             static member prepareLs (ifp) (ct) = LsArgs(ifp, ct)
 
-        type FileSystemDSLResults =
-            private
+        type FileSystemDSLResult =
             | Err
             | AddFileResult of Async<IFileSystemNode>
             | AddTextResult of Async<IFileSystemNode>
@@ -790,16 +771,16 @@ module Definitions =
         }
 
         // 4. surface area - public functions that build expressions to support the embedded language
-        let inline addFile (client) = AddFile(addFileCall client)
-        let inline addText (client) = AddText(addTextCall client)
-        let inline addStream (client) = AddStream(addStreamCall client)
-        let inline addDirectory (client) = AddDirectory(addDirectoryCall client)
-        let inline readAllText (client) = ReadAllText(readAllTextCall client)
-        let inline readFile (client) = ReadFile(readFileCall client)
-        let inline ls (client) = Ls(lsCall client)
+        let addFile (client) = AddFile(addFileCall client)
+        let addText (client) = AddText(addTextCall client)
+        let addStream (client) = AddStream(addStreamCall client)
+        let addDirectory (client) = AddDirectory(addDirectoryCall client)
+        let readAllText (client) = ReadAllText(readAllTextCall client)
+        let readFile (client) = ReadFile(readFileCall client)
+        let ls (client) = Ls(lsCall client)
 
         // 5. interpreters
-        let inline interpret (expression:FileSystemDSL) (args:FileSystemDSLArgs) : Async<FileSystemDSLResults> = async {
+        let interpret (expression:FileSystemDSL) (args:FileSystemDSLArgs) : Async<FileSystemDSLResult> = async {
             match expression, args with
             | AddFile(f), AddFileArgs(a) -> return AddFileResult(f a)
             | AddText(f), AddTextArgs(a) -> return AddTextResult(f a)
@@ -811,6 +792,7 @@ module Definitions =
             | _,_ -> return Err
         }
 
+    [<AutoOpen>]
     module GenericDSL =
 
         // 1. [x] the embedded language specification
@@ -839,8 +821,7 @@ module Definitions =
             static member prepareShutdown () = ShutdownArgs(())
             static member prepareVersion (ct) = VersionArgs(ct)
 
-        type GenericDSLResults =
-            private
+        type GenericDSLResult =
             | Err
             | NodeIdResult of Async<Peer>
             | ResolveResult of Async<string>
@@ -879,13 +860,13 @@ module Definitions =
         }
 
         // 4. surface area - public functions that build expressions to support the embedded language
-        let inline nodeId (client) = NodeId(nodeIdCall client)
-        let inline resolve (client) = Resolve(resolveCall client)
-        let inline shutdown (client) = Shutdown(shutdownCall client)
-        let inline version (client) = Version(versionCall client)
+        let nodeId (client) = NodeId(nodeIdCall client)
+        let resolve (client) = Resolve(resolveCall client)
+        let shutdown (client) = Shutdown(shutdownCall client)
+        let version (client) = Version(versionCall client)
 
         // 5. interpreters
-        let interpret (expression:GenericDSL) (args:GenericDSLArgs) : Async<GenericDSLResults> = async {
+        let interpret (expression:GenericDSL) (args:GenericDSLArgs) : Async<GenericDSLResult> = async {
             match expression, args with
             | NodeId(f), NodeIdArgs(a) -> return NodeIdResult(f a)
             | Resolve(f), ResolveArgs(a) -> return ResolveResult(f a)
@@ -898,6 +879,7 @@ module Definitions =
     type private KeyType = string
     type private KeySize = int
 
+    [<AutoOpen>]
     module KeyDSL =
 
         // 1. [x] the embedded language specification
@@ -923,8 +905,7 @@ module Definitions =
             static member prepareLs (ct) = LsArgs(ct)
             static member prepareRemove (kn) (ct) = RemoveArgs(kn, ct)
 
-        type KeyDSLResults =
-            private
+        type KeyDSLResult =
             | Err
             | GenerateResult of Async<IKey>
             | LsResult of AsyncSeq<IKey>
@@ -960,12 +941,12 @@ module Definitions =
         }
 
         // 4. surface area - public functions that build expressions to support the embedded language
-        let inline generate (client) = Generate(generateCall client)
-        let inline ls (client) = Ls(lsCall client)
-        let inline remove (client) = Remove(removeCall client)
+        let generate (client) = Generate(generateCall client)
+        let ls (client) = Ls(lsCall client)
+        let remove (client) = Remove(removeCall client)
 
         // 5. interpreters
-        let inline interpret (expression:KeyDSL) (args:KeyDSLArgs) : Async<KeyDSLResults> = async {
+        let interpret (expression:KeyDSL) (args:KeyDSLArgs) : Async<KeyDSLResult> = async {
             match expression, args with
             | Generate(f), GenerateArgs(a) -> return GenerateResult(f a)
             | Ls(f), LsArgs(a) -> return LsResult(f a)
@@ -978,6 +959,7 @@ module Definitions =
     type private NoCache = bool
     type private IpfsName = string
 
+    [<AutoOpen>]
     module NameDSL =
 
         // 1. [x] the embedded language specification
@@ -1003,8 +985,7 @@ module Definitions =
             static member preparePublishCid (id) (kn) (ts) (ct) = PublishCidArgs(id, kn, ts, ct)
             static member prepareResolve (ifn) (r) (nc) (ct) = ResolveArgs(ifn, r, nc, ct)
 
-        type NameDSLResults =
-            private
+        type NameDSLResult =
             | Err
             | PublishPathResult of Async<NamedContent>
             | PublishCidResult of Async<NamedContent>
@@ -1047,12 +1028,12 @@ module Definitions =
         }
 
         // 4. surface area - public functions that build expressions to support the embedded language
-        let inline publishPath (client) = PublishPath(publishPathCall client)
-        let inline publishCid (client) = PublishCid(publishCidCall client)
-        let inline resolve (client) = Resolve(resolveCall client)
+        let publishPath (client) = PublishPath(publishPathCall client)
+        let publishCid (client) = PublishCid(publishCidCall client)
+        let resolve (client) = Resolve(resolveCall client)
 
         // 5. interpreters
-        let inline interpret (expression:NameDSL) (args:NameDSLArgs) : Async<NameDSLResults> = async {
+        let interpret (expression:NameDSL) (args:NameDSLArgs) : Async<NameDSLResult> = async {
             match expression, args with
             | PublishPath(f), PublishPathArgs(a) -> return PublishPathResult(f a)
             | PublishCid(f), PublishCidArgs(a) -> return PublishCidResult(f a)
@@ -1063,6 +1044,7 @@ module Definitions =
     type private ObjectTemplate = string
     type private MerkleLinks = IMerkleLink seq
 
+    [<AutoOpen>]
     module ObjectDSL =
 
         // 1. [x] the embedded language specification
@@ -1100,8 +1082,7 @@ module Definitions =
             static member prepareGetData (id) (ct) = GetDataArgs(id, ct)
             static member prepareGetLinks (id) (ct) = GetLinksArgs(id, ct)
 
-        type ObjectDSLResults =
-            private
+        type ObjectDSLResult =
             | Err
             | NewDirectoryResult of Async<DagNode>
             | NewFromTemplateResult of Async<DagNode>
@@ -1173,16 +1154,16 @@ module Definitions =
         }
 
         // 4. surface area - public functions that build expressions to support the embedded language
-        let inline newDirectory (client) = NewDirectory(newDirectoryCall client)
-        let inline newFromTemplate (client) = NewFromTemplate(newFromTemplateCall client)
-        let inline getNode (client) = GetNode(getNodeCall client)
-        let inline putBytes (client) = PutBytes(putBytesCall client)
-        let inline putNode (client) = PutNode(putNodeCall client)
-        let inline getData (client) = GetData(getDataCall client)
-        let inline getLinks (client) = GetLinks(getLinksCall client)
+        let newDirectory (client) = NewDirectory(newDirectoryCall client)
+        let newFromTemplate (client) = NewFromTemplate(newFromTemplateCall client)
+        let getNode (client) = GetNode(getNodeCall client)
+        let putBytes (client) = PutBytes(putBytesCall client)
+        let putNode (client) = PutNode(putNodeCall client)
+        let getData (client) = GetData(getDataCall client)
+        let getLinks (client) = GetLinks(getLinksCall client)
 
         // 5. interpreters
-        let interpret (expression:ObjectDSL) (args:ObjectDSLArgs) : Async<ObjectDSLResults> = async {
+        let interpret (expression:ObjectDSL) (args:ObjectDSLArgs) : Async<ObjectDSLResult> = async {
             match expression, args with
             | NewDirectory(f), NewDirectoryArgs(a) -> return NewDirectoryResult(f a)
             | NewFromTemplate(f), NewFromTemplateArgs(a) -> return NewFromTemplateResult(f a)
@@ -1194,13 +1175,14 @@ module Definitions =
             | _,_ -> return Err
         }
 
+    [<AutoOpen>]
     module PinDSL =
 
         // 1. [x] the embedded language specification
-        // 2. [ ] arguments to be passed by, and results returned by interpreter as specified by the embedded language
-        // 3. [ ] private low-level interop "calls" that are bound to the expressions of the language
-        // 4. [ ] surface area - public functions that build expressions to support the embedded language
-        // 5. [ ] interpreters
+        // 2. [x] arguments to be passed by, and results returned by interpreter as specified by the embedded language
+        // 3. [x] private low-level interop "calls" that are bound to the expressions of the language
+        // 4. [x] surface area - public functions that build expressions to support the embedded language
+        // 5. [x] interpreters
 
         // 1. the embedded language specification
         type PinDSL =
@@ -1209,16 +1191,83 @@ module Definitions =
             | Ls of pins:(Cto -> AsyncSeq<Cid>)
             | Remove of pin:((Cid * Recursive * Cto) -> AsyncSeq<Cid>)
 
+        // 2. arguments to be passed by, and results returned by interpreter as specified by the embedded language
+        type PinDSLArgs =
+            private
+            | AddArgs of (IpfsFilePath * Recursive * Cto)
+            | LsArgs of Cto
+            | RemoveArgs of (Cid * Recursive * Cto)
+            static member prepareAdd (ifp) (r) (ct) = AddArgs(ifp, r, ct)
+            static member prepareLs (ct) = LsArgs(ct)
+            static member prepareRemove (id) (r) (ct) = RemoveArgs(id, r, ct)
+
+        type PinDSLResult =
+            | Err
+            | AddResult of AsyncSeq<Cid>
+            | LsResult of AsyncSeq<Cid>
+            | RemoveResult of AsyncSeq<Cid> 
+            
+        // 3. private low-level interop "calls" that are bound to the expressions of the language
+        let inline private addCall (client:IpfsClient) (t: IpfsFilePath * Recursive * Cto) = asyncSeq {
+            let (ifp, r, ct) = t
+            let op =
+                match ct with
+                | Some(c) -> client.Pin.AddAsync(ifp, r, c)
+                | None -> client.Pin.AddAsync(ifp, r)
+
+            let! results = Async.AwaitTask op
+            for pin in results do
+                yield pin
+        }
+
+        let inline private lsCall (client:IpfsClient) (ct: Cto) = asyncSeq {
+            let op =
+                match ct with
+                | Some(c) -> client.Pin.ListAsync(c)
+                | None -> client.Pin.ListAsync()
+
+            let! results = Async.AwaitTask op
+            for pin in results do
+                yield pin
+        }
+
+        let inline private removeCall (client:IpfsClient) (t: Cid * Recursive * Cto) = asyncSeq {
+            let (ifp, r, ct) = t
+            let op =
+                match ct with
+                | Some(c) -> client.Pin.RemoveAsync(ifp, r, c)
+                | None -> client.Pin.RemoveAsync(ifp, r)
+
+            let! results = Async.AwaitTask op
+            for pin in results do
+                yield pin
+        }
+
+        // 4. surface area - public functions that build expressions to support the embedded language
+        let add (client) = Add(addCall client)
+        let ls (client) = Ls(lsCall client)
+        let remove (client) = Remove(removeCall client)
+
+        // 5. interpreters
+        let interpret (expression:PinDSL) (args:PinDSLArgs) : Async<PinDSLResult> = async {
+            match expression, args with
+            | Add(f), AddArgs(a) -> return AddResult(f a)
+            | Ls(f), LsArgs(a) -> return LsResult(f a)
+            | Remove(f), RemoveArgs(a) -> return RemoveResult(f a)
+            | _,_ -> return Err
+        }
+
     type private Topic = string
     type private Message = string
 
+    [<AutoOpen>]
     module PubSubDSL =
 
         // 1. [x] the embedded language specification
-        // 2. [ ] arguments to be passed by, and results returned by interpreter as specified by the embedded language
-        // 3. [ ] private low-level interop "calls" that are bound to the expressions of the language
-        // 4. [ ] surface area - public functions that build expressions to support the embedded language
-        // 5. [ ] interpreters
+        // 2. [x] arguments to be passed by, and results returned by interpreter as specified by the embedded language
+        // 3. [x] private low-level interop "calls" that are bound to the expressions of the language
+        // 4. [x] surface area - public functions that build expressions to support the embedded language
+        // 5. [x] interpreters
 
         // 1. the embedded language specification
         type PubSubDSL =
@@ -1226,17 +1275,91 @@ module Definitions =
             | Ls of subscribed:(Cto -> AsyncSeq<Topic>)
             | Peers of subscribed:((Topic * Cto) -> AsyncSeq<Peer>)
             | Publish of channel:((Topic * Message * Cto) -> Async<unit>)
-            | Subscribe of channel:((Topic * Action<IPublishedMessage> * Cto) -> Async<unit>)
-    
-    type private Persist = bool option
+            | Subscribe of channel:((Topic * Action<IPublishedMessage> * CancellationToken) -> Async<unit>)
 
+        // 2. arguments to be passed by, and results returned by interpreter as specified by the embedded language
+        type PubSubDSLArgs =
+            private
+            | LsArgs of Cto
+            | PeersArgs of (Topic * Cto)
+            | PublishArgs of (Topic * Message * Cto)
+            | SubscribeArgs of (Topic * Action<IPublishedMessage> * CancellationToken)
+            static member prepareLs (ct) = LsArgs(ct)
+            static member preparePeers (t) (ct) = PeersArgs(t, ct)
+            static member preparePublish (t) (m) (ct) = PublishArgs(t, m, ct)
+            static member prepareSubscribe (t) (ac) (ct) = SubscribeArgs(t, ac, ct)
+
+        type PubSubDSLResult =
+            | Err
+            | LsResult of AsyncSeq<Topic>
+            | PeersResult of AsyncSeq<Peer>
+            | PublishResult of Async<unit>
+            | SubscribeResult of Async<unit>
+
+        // 3. private low-level interop "calls" that are bound to the expressions of the language
+        let inline private lsCall (client:IpfsClient) (ct: Cto) = asyncSeq {
+            let op =
+                match ct with
+                | Some(c) -> client.PubSub.SubscribedTopicsAsync(c)
+                | None -> client.PubSub.SubscribedTopicsAsync()
+            
+            let! results = Async.AwaitTask op
+            for topic in results do
+                yield topic
+        }
+
+        let inline private peersCall (client:IpfsClient) (pair: Topic * Cto) = asyncSeq {
+            let op =
+                match snd pair with
+                | Some(c) -> client.PubSub.PeersAsync(fst pair, c)
+                | None -> client.PubSub.PeersAsync(fst pair)
+            
+            let! results = Async.AwaitTask op
+            for topic in results do
+                yield topic
+        }
+
+        let inline private publishCall (client:IpfsClient) (t: Topic * Message * Cto) = async {
+            let (topic, mess, ct) = t
+            let op =
+                match ct with
+                | Some(c) -> client.PubSub.Publish(topic, mess, c)
+                | None -> client.PubSub.Publish(topic, mess)
+            return! Async.AwaitTask op
+        }
+
+        let inline private subscribeCall (client:IpfsClient) (t: Topic * Action<IPublishedMessage> * CancellationToken) = async {
+            let (topic, cont, c) = t
+            let op = client.PubSub.Subscribe(topic, cont, c)
+            return! Async.AwaitTask op
+        }
+
+        // 4. surface area - public functions that build expressions to support the embedded language
+        let ls (client) = Ls(lsCall client)
+        let peers (client) = Peers(peersCall client)
+        let publish (client) = Publish(publishCall client)
+        let subscribe (client) = Subscribe(subscribeCall client)
+
+        // 5. interpreters
+        let interpret (expression:PubSubDSL) (args:PubSubDSLArgs) : Async<PubSubDSLResult> = async {
+            match expression, args with
+            | Ls(f), LsArgs(a) -> return LsResult(f a)
+            | Peers(f), PeersArgs(a) -> return PeersResult(f a)
+            | Publish(f), PublishArgs(a) -> return PublishResult(f a)
+            | Subscribe(f), SubscribeArgs(a) -> return SubscribeResult(f a)
+            | _,_ -> return Err
+        }
+    
+    type private Persist = bool
+
+    [<AutoOpen>]
     module SwarmDSL =
 
         // 1. [x] the embedded language specification
-        // 2. [ ] arguments to be passed by, and results returned by interpreter as specified by the embedded language
-        // 3. [ ] private low-level interop "calls" that are bound to the expressions of the language
-        // 4. [ ] surface area - public functions that build expressions to support the embedded language
-        // 5. [ ] interpreters
+        // 2. [x] arguments to be passed by, and results returned by interpreter as specified by the embedded language
+        // 3. [x] private low-level interop "calls" that are bound to the expressions of the language
+        // 4. [x] surface area - public functions that build expressions to support the embedded language
+        // 5. [x] interpreters
 
         // 1. the embedded language specification
         type SwarmDSL =
@@ -1246,129 +1369,123 @@ module Definitions =
             | Connect of peer:((MultiAddress * Cto) -> Async<unit>)
             | Disconnect of peer:((MultiAddress * Cto) -> Async<unit>)
             | AddAddressFilter of filter:((MultiAddress * Persist * Cto) -> Async<MultiAddress>)
-            | ListAddressFilter of filters:((Persist * Cto) -> AsyncSeq<MultiAddress>)
+            | ListAddressFilters of filters:((Persist * Cto) -> AsyncSeq<MultiAddress>)
             | RemoveAddressFilter of filter:((MultiAddress * Persist * Cto) -> Async<MultiAddress>)
 
-    [<AutoOpen>]
-    module IpfsClientDSL =
-        open BitswapDSL
-        open BlockDSL
-        open BootstrapDSL
-        open ConfigDSL
-        open DagDSL
-        open DhtDSL
-        open FileSystemDSL
-        open GenericDSL
-        open KeyDSL
-        open NameDSL
-        open ObjectDSL
-        open PinDSL
-        open PubSubDSL
-        open SwarmDSL
-        
-        type IpfsClientDSLExpression<'Result> =
-            | BitswapProcedure    of BitswapDSL
-            | BlockProcedure      of BlockDSL
-            | BootstrapProcedure  of BootstrapDSL
-            | ConfigProcedure     of ConfigDSL
-            | DagProcedure        of DagDSL<'Result>
-            | DhtProcedure        of DhtDSL
-            | FileSystemProcedure of FileSystemDSL
-            | GenericProcedure    of GenericDSL
-            | KeyProcedure        of KeyDSL
-            | NameProcedure       of NameDSL
-            | ObjectProcedure     of ObjectDSL
-            | PinProcedure        of PinDSL
-            | PubSubProcedure     of PubSubDSL
-            | SwarmProcedure      of SwarmDSL
-            | Sequential          of current:IpfsClientDSLExpression<'Result> * prev:IpfsClientDSLExpression<'Result>
+        // 2. arguments to be passed by, and results returned by interpreter as specified by the embedded language
+        type SwarmDSLArgs =
+            private
+            | AddressessArgs of Cto
+            | PeersArgs of Cto
+            | ConnectArgs of (MultiAddress * Cto)
+            | DisconnectArgs of (MultiAddress * Cto)
+            | AddAddressFilterArgs of (MultiAddress * Persist * Cto)
+            | ListAddressFiltersArgs of (Persist * Cto)
+            | RemoveAddressFilterArgs of (MultiAddress * Persist * Cto)
+            static member prepareAddressess (ct) = AddressessArgs(ct)
+            static member preparePeers (ct) = PeersArgs(ct)
+            static member prepareConnect (ma) (ct) = ConnectArgs(ma, ct)
+            static member prepareDisconnect (ma) (ct) = DisconnectArgs(ma, ct)
+            static member prepareAddAddressFilter (ma) (p) (ct) = AddAddressFilterArgs(ma, p, ct)
+            static member prepareListAddressFilter (p) (ct) = ListAddressFiltersArgs(p, ct)
+            static member prepareRemoveAddressFilter (ma) (p) (ct) = RemoveAddressFilterArgs(ma, p, ct)
 
-        let rec flatMap : ('a -> 'b) -> (IpfsClientDSLExpression<'a>) -> (IpfsClientDSLExpression<'b>) =
-            fun f ->
-                function
-                | BitswapProcedure(proc)    -> BitswapProcedure(proc)
-                | BlockProcedure(proc)      -> BlockProcedure(proc)
-                | BootstrapProcedure(proc)  -> BootstrapProcedure(proc)
-                | ConfigProcedure(proc)     -> ConfigProcedure(proc)
-                | DagProcedure(proc)        -> DagProcedure(DagDSL.flatMap f proc)
-                | DhtProcedure(proc)        -> DhtProcedure(proc)
-                | FileSystemProcedure(proc) -> FileSystemProcedure(proc)
-                | GenericProcedure(proc)    -> GenericProcedure(proc)
-                | KeyProcedure(proc)        -> KeyProcedure(proc)
-                | NameProcedure(proc)       -> NameProcedure(proc)
-                | ObjectProcedure(proc)     -> ObjectProcedure(proc)
-                | PinProcedure(proc)        -> PinProcedure(proc)
-                | PubSubProcedure(proc)     -> PubSubProcedure(proc)
-                | SwarmProcedure(proc)      -> SwarmProcedure(proc)
-                | Sequential(current, prev) -> Sequential(flatMap f current, flatMap f prev)
+        type SwarmDSLResult =
+            | Err
+            | AddressessResult of AsyncSeq<Peer>
+            | PeersResult of AsyncSeq<Peer>
+            | ConnectResult of Async<unit>
+            | DisconnectResult of Async<unit>
+            | AddAddressFilterResult of Async<MultiAddress>
+            | ListAddressFiltersResult of AsyncSeq<MultiAddress>
+            | RemoveAddressFilterResult of Async<MultiAddress>
 
-        /// combines two statements by first running the right one, and then the left one
-        let (<+) : (IpfsClientDSLExpression<'a>) -> (IpfsClientDSLExpression<'a>) -> (IpfsClientDSLExpression<'a>) =
-            fun s1 s2 -> Sequential(s1, s2)
-
-        /// combines two statements by first running the left one, and then the right one
-        let (+>) : (IpfsClientDSLExpression<'a>) -> (IpfsClientDSLExpression<'a>) -> (IpfsClientDSLExpression<'a>) =
-            fun s1 s2 -> Sequential(s2, s1)
-        
-        type IpfsClientDSLExpression<'Result> with
-            static member Map (x:IpfsClientDSLExpression<'Result>, f) = flatMap f x
-        
-        /// the "free monad", also called a program, this little recursive structure models all possible
-        /// execution scenarios of using the IPFS API with the embedded langauge, more precisely,
-        /// the following two can occur:
-        /// (1) the program you write never terminates, and gets stuck in an infinite recursive loop
-        /// (2) the program iterates recursively until it reaches a value, which it returns and terminates
-        type FreeIpfsClient<'a> =
-            /// Free, the recursive step,
-            /// a statement in the embedded language about the next step in the program
-            | Free of IpfsClientDSLExpression<FreeIpfsClient<'a>>
-
-            /// Pure, the final state,
-            /// a pure value returned by the program
-            | Pure of 'a
-
-        /// binds fsharp (and embedded) expressions into programs of the embedded language 
-        let rec bindFree : ('a -> FreeIpfsClient<'b>) -> FreeIpfsClient<'a> -> FreeIpfsClient<'b> =
-            fun f ->
-                function
-                | Free(clientDSL) -> Free(flatMap (bindFree f) clientDSL)
-                | Pure(expression) -> f expression
-
-        /// lifts expressions of the embedded language into programs of the embedded language
-        let liftFree : IpfsClientDSLExpression<'a> -> FreeIpfsClient<'a> =
-            fun statement -> Free (flatMap Pure statement)
-        
-        type FreeIpfsClient<'a> with
-            static member Bind (x:FreeIpfsClient<'a>, f) = bindFree f x
-
-        type FreeIpfsClientBuilder() =
-            member this.Return     x = Pure x
-            member this.ReturnFrom x = x
-            member this.Zero      () = Pure ()
-            member this.Bind (ma, f) = bindFree f ma
-
-        let ipfsClient = FreeIpfsClientBuilder()
-
-        let create = monad { return! IpfsClient() }
-
-        /// given an instance of IPFS client and a continuation program,
-        /// yields control flow to the continuation after bootstraping the client to use default peers
-        let usingDefaultPeers (client:IpfsClient) (continuation:FreeIpfsClient<'a>) = ipfsClient {
-            let useDefaultPeers = (BootstrapProcedure(addDefaults client))
-            let combined = 
-                match continuation with
-                // sequencing step
-                | Free(cont) -> Free(useDefaultPeers +> cont)
-                // reductive step
-                | Pure(expression) -> Pure(expression)
-            return! combined 
+        // 3. private low-level interop "calls" that are bound to the expressions of the language
+        let inline private addressessCall (client:IpfsClient) (ct: Cto) = asyncSeq {
+            let op =
+                match ct with
+                | Some(c) -> client.Swarm.AddressesAsync(c)
+                | None -> client.Swarm.AddressesAsync()
+            
+            let! results = Async.AwaitTask op
+            for address in results do
+                yield address
         }
 
-        let findingProviders (client:IpfsClient) = ipfsClient {
-            return! liftFree (DhtProcedure(findProviders client))
+        let inline private peersCall (client:IpfsClient) (ct: Cto) = asyncSeq {
+            let op =
+                match ct with
+                | Some(c) -> client.Swarm.PeersAsync(c)
+                | None -> client.Swarm.PeersAsync()
+            
+            let! results = Async.AwaitTask op
+            for peer in results do
+                yield peer
         }
 
-        let createWithDefaultPeers (continuation:FreeIpfsClient<'a>) = ipfsClient {
-            let client = create
-            return! usingDefaultPeers client continuation
+        let inline private connectCall (client:IpfsClient) (pair: MultiAddress * Cto) = async {
+            let op =
+                match snd pair with
+                | Some(c) -> client.Swarm.ConnectAsync(fst pair, c)
+                | None -> client.Swarm.ConnectAsync(fst pair)
+            return! Async.AwaitTask op
+        }
+
+        let inline private disconnectCall (client:IpfsClient) (pair: MultiAddress * Cto) = async {
+            let op =
+                match snd pair with
+                | Some(c) -> client.Swarm.DisconnectAsync(fst pair, c)
+                | None -> client.Swarm.DisconnectAsync(fst pair)
+            return! Async.AwaitTask op
+        }
+
+        let inline private addAddressFilterCall (client:IpfsClient) (t: MultiAddress * Persist * Cto) = async {
+            let (ma, p, ct) = t
+            let op =
+                match ct with
+                | Some(c) -> client.Swarm.AddAddressFilterAsync(ma, p, c)
+                | None -> client.Swarm.AddAddressFilterAsync(ma, p)
+            return! Async.AwaitTask op
+        }
+
+        let inline private listAddressFiltersCall (client:IpfsClient) (pair: Persist * Cto) = asyncSeq {
+            let op =
+                match snd pair with
+                | Some(c) -> client.Swarm.ListAddressFiltersAsync(fst pair,c )
+                | None -> client.Swarm.ListAddressFiltersAsync(fst pair)
+
+            let! results = Async.AwaitTask op
+            for address in results do
+                yield address
+        }
+
+        let inline private removeAddressFilterCall (client:IpfsClient) (t: MultiAddress * Persist * Cto) = async {
+            let (ma, p, ct) = t
+            let op =
+                match ct with
+                | Some(c) -> client.Swarm.RemoveAddressFilterAsync(ma, p, c)
+                | None -> client.Swarm.RemoveAddressFilterAsync(ma, p)
+            return! Async.AwaitTask op
+        }
+
+        // 4. surface area - public functions that build expressions to support the embedded language
+        let addressess (client) = Addressess(addressessCall client)
+        let peers (client) = Peers(peersCall client)
+        let connect (client) = Connect(connectCall client)
+        let disconnect (client) = Disconnect(disconnectCall client)
+        let addAddressFilter (client) = AddAddressFilter(addAddressFilterCall client)
+        let listAddressFilters (client) = ListAddressFilters(listAddressFiltersCall client)
+        let removeAddressFilter (client) = RemoveAddressFilter(removeAddressFilterCall client)
+
+        // 5. interpreters
+        let interpret (expression:SwarmDSL) (args:SwarmDSLArgs) : Async<SwarmDSLResult> = async {
+            match expression, args with
+            | Addressess(f), AddressessArgs(a) -> return AddressessResult(f a)
+            | Peers(f), PeersArgs(a) -> return PeersResult(f a)
+            | Connect(f), ConnectArgs(a) -> return ConnectResult(f a)
+            | Disconnect(f), DisconnectArgs(a) -> return DisconnectResult(f a)
+            | AddAddressFilter(f), AddAddressFilterArgs(a) -> return AddAddressFilterResult(f a)
+            | ListAddressFilters(f), ListAddressFiltersArgs(a) -> return ListAddressFiltersResult(f a)
+            | RemoveAddressFilter(f), RemoveAddressFilterArgs(a) -> return RemoveAddressFilterResult(f a)
+            | _,_ -> return Err
         }
