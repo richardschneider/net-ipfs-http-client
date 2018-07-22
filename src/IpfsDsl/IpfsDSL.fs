@@ -148,6 +148,7 @@ module IpfsDSL =
         member this.Zero               () = Return ()
         member this.Bind          (ma, f) = bindFree f ma
         member this.Delay (f: unit -> 'a) = f
+        member this.Run               (f) = f()
 
     let ipfs = IpfsClientProgramBuilder()
 
