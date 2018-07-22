@@ -6,12 +6,15 @@
 [![docs](https://cdn.rawgit.com/richardschneider/net-ipfs-api/master/doc/images/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-api)
 
 
-A .Net client library for the IPFS HTTP API, implemented in C#. 
+A .Net client library for the IPFS HTTP API, implemented in C#.
+Also includes a higher-order API for writing monadic program transformations that manipulate the lower-level IPFS API calls as abstract syntax trees in F#.
 More information, including the Class Reference, is on the [Project](https://richardschneider.github.io/net-ipfs-api/) web site.
 
 ![](https://ipfs.io/ipfs/QmQJ68PFMDdAsgCZvA1UVzzn18asVcf7HVvCDgpjiSCAse)
 
 ## Features
+
+### IPFS Core interface
 
 - Targets .NET Framework 4.5, .NET Standard 1.4 and .NET Standard 2.0
 - [Asynchronous I/O](https://richardschneider.github.io/net-ipfs-api/articles/async.html) to an IPFS server
@@ -33,6 +36,8 @@ More information, including the Class Reference, is on the [Project](https://ric
   - [PubSub API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IPubSubApi.html)
   - [Swarm API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.ISwarmApi.html)
 
+### Free monad DSL
+
 ## Getting started
 
 Published releases of IPFS API are available on [NuGet](https://www.nuget.org/packages/ipfs.api/).  To install, run the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console).
@@ -45,10 +50,10 @@ For the latest build or older non-released builds see [Continuous Integration](h
 
 Every IPFS Api is a property of the [IpfsClient](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.IpfsClient.html).  The following example reads a text file
 
-```
+```csharp
 var ipfs = new IpfsClient();
 
-const string filename = "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about";
+readonly string filename = "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about";
 string text = await ipfs.FileSystem.ReadAllTextAsync(filename);
 ```
 
