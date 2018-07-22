@@ -143,10 +143,11 @@ module IpfsDSL =
         fun statement -> Free (flatMap Return statement)
 
     type IpfsClientProgramBuilder() =
-        member this.Return     x = Return x
-        member this.ReturnFrom x = x
-        member this.Zero      () = Return ()
-        member this.Bind (ma, f) = bindFree f ma
+        member this.Return              x = Return x
+        member this.ReturnFrom          x = x
+        member this.Zero               () = Return ()
+        member this.Bind          (ma, f) = bindFree f ma
+        member this.Delay (f: unit -> 'a) = f
 
     let ipfs = IpfsClientProgramBuilder()
 
