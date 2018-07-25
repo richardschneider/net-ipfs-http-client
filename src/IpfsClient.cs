@@ -29,6 +29,8 @@ namespace Ipfs.Api
     /// </remarks>
     public partial class IpfsClient : ICoreApi
     {
+        const string unknownFilename = "unknown";
+
         static ILog log = LogManager.GetLogger(typeof(IpfsClient));
         static object safe = new object();
         static HttpClient api = null;
@@ -433,7 +435,7 @@ namespace Ipfs.Api
             var streamContent = new StreamContent(data);
             streamContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
             if (string.IsNullOrEmpty(name))
-                content.Add(streamContent, "file");
+                content.Add(streamContent, "file", unknownFilename);
             else
                 content.Add(streamContent, "file", name);
 
@@ -458,7 +460,7 @@ namespace Ipfs.Api
             var content = new MultipartFormDataContent();
             var streamContent = new ByteArrayContent(data);
             streamContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-            content.Add(streamContent, "file");
+            content.Add(streamContent, "file", unknownFilename);
 
             var url = BuildCommand(command, null, options);
             if (log.IsDebugEnabled)
@@ -502,7 +504,8 @@ namespace Ipfs.Api
             string message = body;
             try
             {
-                message = (string)JsonConvert.DeserializeObject<dynamic>(body).Message;
+                var res = JsonConvert.DeserializeObject<dynamic>(body);
+                message = (string)res.Message;
             }
             catch { }
             throw new HttpRequestException(message);
