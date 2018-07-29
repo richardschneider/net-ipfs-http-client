@@ -33,7 +33,7 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
-        [Ignore("doesn't work on go ipfs")]
+        [Ignore("https://github.com/ipfs/go-ipfs/issues/5295")]
         public async Task Unwant()
         {
             var block = new DagNode(Encoding.UTF8.GetBytes("BitswapApiTest unknown block 2"));
@@ -46,14 +46,22 @@ namespace Ipfs.Api
                 if (DateTime.Now > endTime)
                     Assert.Fail("wanted block is missing");
                 await Task.Delay(100);
-                var w = await ipfs.Bitswap.WantsAsync();
-                if (w.Contains(block.Id))
+                var wants = await ipfs.Bitswap.WantsAsync();
+                if (wants.Contains(block.Id))
                     break;
             }
 
             await ipfs.Bitswap.UnwantAsync(block.Id);
-            var wants = await ipfs.Bitswap.WantsAsync();
-            CollectionAssert.DoesNotContain(wants.ToArray(), block.Id);
+            endTime = DateTime.Now.AddSeconds(10);
+            while (true)
+            {
+                if (DateTime.Now > endTime)
+                    Assert.Fail("unwanted block is present");
+                await Task.Delay(100);
+                var wants = await ipfs.Bitswap.WantsAsync();
+                if (!wants.Contains(block.Id))
+                    break;
+            }
         }
     }
 }
