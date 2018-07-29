@@ -168,6 +168,19 @@ references:
   isSpec: "True"
   fullName: Ipfs.Api.FileSystemNode.Id
   nameWithType: FileSystemNode.Id
+- uid: Ipfs.Api.FileSystemNode.IpfsClient
+  name: IpfsClient
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_IpfsClient
+  commentId: P:Ipfs.Api.FileSystemNode.IpfsClient
+  fullName: Ipfs.Api.FileSystemNode.IpfsClient
+  nameWithType: FileSystemNode.IpfsClient
+- uid: Ipfs.Api.FileSystemNode.IpfsClient*
+  name: IpfsClient
+  href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_IpfsClient_
+  commentId: Overload:Ipfs.Api.FileSystemNode.IpfsClient
+  isSpec: "True"
+  fullName: Ipfs.Api.FileSystemNode.IpfsClient
+  nameWithType: FileSystemNode.IpfsClient
 - uid: Ipfs.Api.FileSystemNode.IsDirectory
   name: IsDirectory
   href: api/Ipfs.Api.FileSystemNode.html#Ipfs_Api_FileSystemNode_IsDirectory
