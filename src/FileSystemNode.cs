@@ -112,7 +112,13 @@ namespace Ipfs.Api
             return link;
         }
 
-        internal IpfsClient IpfsClient
+        /// <summary>
+        ///   The client to IPFS.
+        /// </summary>
+        /// <value>
+        ///   Used to fetch additional information on the node.
+        /// </value>
+        public IpfsClient IpfsClient
         {
             get
             {

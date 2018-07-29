@@ -208,7 +208,8 @@ namespace Ipfs.Api
                 Id = (string)o["Hash"],
                 Size = (long)o["Size"],
                 IsDirectory = (string)o["Type"] == "Directory",
-                Links = new FileSystemLink[0]
+                Links = new FileSystemLink[0],
+                IpfsClient = ipfs
             };
             var links = o["Links"] as JArray;
             if (links != null)

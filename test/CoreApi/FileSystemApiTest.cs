@@ -211,19 +211,31 @@ namespace Ipfs.Api
                 Assert.AreNotEqual(0, files[0].Size);
                 Assert.AreNotEqual(0, files[1].Size);
 
-                var xfiles = new FileSystemNode { Id = files[2].Id }.Links.ToArray();
+                var xfiles = new FileSystemNode
+                {
+                    Id = files[2].Id,
+                    IpfsClient = ipfs,
+                }.Links.ToArray();
                 Assert.AreEqual(2, xfiles.Length);
                 Assert.AreEqual("x.txt", xfiles[0].Name);
                 Assert.AreEqual("y", xfiles[1].Name);
                 Assert.IsFalse(xfiles[0].IsDirectory);
                 Assert.IsTrue(xfiles[1].IsDirectory);
 
-                var yfiles = new FileSystemNode { Id = xfiles[1].Id }.Links.ToArray();
+                var yfiles = new FileSystemNode
+                {
+                    Id = xfiles[1].Id,
+                    IpfsClient = ipfs
+                }.Links.ToArray();
                 Assert.AreEqual(1, yfiles.Length);
                 Assert.AreEqual("y.txt", yfiles[0].Name);
                 Assert.IsFalse(yfiles[0].IsDirectory);
 
-                var y = new FileSystemNode { Id = yfiles[0].Id };
+                var y = new FileSystemNode
+                {
+                    Id = yfiles[0].Id,
+                    IpfsClient = ipfs
+                };
                 Assert.AreEqual("y", Encoding.UTF8.GetString(y.DataBytes));
                 Assert.AreEqual("y", ipfs.FileSystem.ReadAllTextAsync(dir.Id + "/x/y/y.txt").Result);
             }
