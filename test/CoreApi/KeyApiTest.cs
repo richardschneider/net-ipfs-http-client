@@ -37,7 +37,7 @@ namespace Ipfs.Api
         {
             var name = "net-api-test-create";
             IpfsClient ipfs = TestFixture.Ipfs;
-            var key = await ipfs.Key.CreateAsync(name, "rsa", 2048);
+            var key = await ipfs.Key.CreateAsync(name, "rsa", 1024);
             try
             {
                 Assert.IsNotNull(key);
@@ -60,7 +60,7 @@ namespace Ipfs.Api
         {
             var name = "net-api-test-remove";
             IpfsClient ipfs = TestFixture.Ipfs;
-            var key = await ipfs.Key.CreateAsync(name, "rsa", 2048);
+            var key = await ipfs.Key.CreateAsync(name, "rsa", 1024);
             var keys = await ipfs.Key.ListAsync();
             var clone = keys.Single(k => k.Name == name);
             Assert.IsNotNull(clone);
