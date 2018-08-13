@@ -26,7 +26,7 @@ namespace Ipfs.Api
         {
             var json = await ipfs.DoCommandAsync("name/publish", cancel,
                 path,
-                "lifetime=24h",
+                "lifetime=24h", // TODO
                 $"resolve={resolve.ToString().ToLowerInvariant()}",
                 $"key={key}");
             // TODO: lifetime
