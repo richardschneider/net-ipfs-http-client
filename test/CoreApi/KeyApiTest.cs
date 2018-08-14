@@ -74,5 +74,39 @@ namespace Ipfs.Api
             Assert.IsFalse(keys.Any(k => k.Name == name));
         }
 
+        [TestMethod]
+        public async Task Rename_Key()
+        {
+            var oname = "net-api-test-rename1";
+            var rname = "net-api-test-rename2";
+            IpfsClient ipfs = TestFixture.Ipfs;
+            var okey = await ipfs.Key.CreateAsync(oname, "rsa", 1024);
+            try
+            {
+                Assert.AreEqual(oname, okey.Name);
+
+                var rkey = await ipfs.Key.RenameAsync(oname, rname);
+                Assert.AreEqual(okey.Id, rkey.Id);
+                Assert.AreEqual(rname, rkey.Name);
+
+                var keys = await ipfs.Key.ListAsync();
+                Assert.IsTrue(keys.Any(k => k.Name == rname));
+                Assert.IsFalse(keys.Any(k => k.Name == oname));
+            }
+            finally
+            {
+                try
+                {
+                    await ipfs.Key.RemoveAsync(oname);
+                }
+                catch (Exception) { }
+                try
+                {
+                    await ipfs.Key.RemoveAsync(rname);
+                }
+                catch (Exception) { }
+            }
+        }
+
     }
 }

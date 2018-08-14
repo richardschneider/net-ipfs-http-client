@@ -22,7 +22,7 @@ namespace Ipfs.Api
             this.ipfs = ipfs;
         }
 
-        public async Task<IDataBlock> GetAsync(Cid id, CancellationToken cancel = default(CancellationToken)) // TODO CID support
+        public async Task<IDataBlock> GetAsync(Cid id, CancellationToken cancel = default(CancellationToken))
         {
             var data = await ipfs.DownloadBytesAsync("block/get", cancel, id);
             return new Block
@@ -101,7 +101,7 @@ namespace Ipfs.Api
             };
         }
 
-        public async Task<Cid> RemoveAsync(Cid id, bool ignoreNonexistent = false, CancellationToken cancel = default(CancellationToken)) // TODO CID support
+        public async Task<Cid> RemoveAsync(Cid id, bool ignoreNonexistent = false, CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.DoCommandAsync("block/rm", cancel, id, "force=" + ignoreNonexistent.ToString().ToLowerInvariant());
             if (json.Length == 0)

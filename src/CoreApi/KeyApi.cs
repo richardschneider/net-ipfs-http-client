@@ -72,9 +72,15 @@ namespace Ipfs.Api
                 .First();
         }
 
-        public Task<IKey> RenameAsync(string oldName, string newName, CancellationToken cancel = default(CancellationToken))
+        public async Task<IKey> RenameAsync(string oldName, string newName, CancellationToken cancel = default(CancellationToken))
         {
-            throw new NotImplementedException();
+            var json = await ipfs.DoCommandAsync("key/rename", cancel, oldName, $"arg={newName}");
+            var key = JObject.Parse(json);
+            return new KeyInfo
+            {
+                Id = (string)key["Id"],
+                Name = (string)key["Now"]
+            };
         }
 
         public Task<string> ExportAsync(string name, char[] password, CancellationToken cancel = default(CancellationToken))
