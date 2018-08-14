@@ -58,6 +58,35 @@ namespace Ipfs.Api
             using (var outdata = ipfs.FileSystem.ReadFileAsync(node.Id, offset: 1).Result)
             {
                 Assert.AreEqual(20, outdata.ReadByte());
+                Assert.AreEqual(30, outdata.ReadByte());
+                Assert.AreEqual(-1, outdata.ReadByte());
+            }
+        }
+
+        [TestMethod]
+        public void Read_With_Offset_Length_1()
+        {
+            var ipfs = TestFixture.Ipfs;
+            var indata = new MemoryStream(new byte[] { 10, 20, 30 });
+            var node = ipfs.FileSystem.AddAsync(indata).Result;
+            using (var outdata = ipfs.FileSystem.ReadFileAsync(node.Id, offset: 1, count: 1).Result)
+            {
+                Assert.AreEqual(20, outdata.ReadByte());
+                Assert.AreEqual(-1, outdata.ReadByte());
+            }
+        }
+
+        [TestMethod]
+        public void Read_With_Offset_Length_2()
+        {
+            var ipfs = TestFixture.Ipfs;
+            var indata = new MemoryStream(new byte[] { 10, 20, 30 });
+            var node = ipfs.FileSystem.AddAsync(indata).Result;
+            using (var outdata = ipfs.FileSystem.ReadFileAsync(node.Id, offset: 1, count: 2).Result)
+            {
+                Assert.AreEqual(20, outdata.ReadByte());
+                Assert.AreEqual(30, outdata.ReadByte());
+                Assert.AreEqual(-1, outdata.ReadByte());
             }
         }
 

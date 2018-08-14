@@ -182,8 +182,17 @@ namespace Ipfs.Api
 
         public Task<Stream> ReadFileAsync(string path, long offset, long length = 0, CancellationToken cancel = default(CancellationToken))
         {
-            // TODO: length is not yet supported by daemons
-            return ipfs.DownloadAsync("cat", cancel, path, $"offset={offset}");
+            // https://github.com/ipfs/go-ipfs/issues/5380
+            if (offset > int.MaxValue)
+                throw new NotSupportedException("Only int offsets are currently supported.");
+            if (length > int.MaxValue)
+                throw new NotSupportedException("Only int lengths are currently supported.");
+
+            if (length == 0)
+                length = int.MaxValue; // go-ipfs only accepts int lengths
+            return ipfs.DownloadAsync("cat", cancel, path, 
+                $"offset={offset}",
+                $"length={length}");
         }
 
         /// <summary>
