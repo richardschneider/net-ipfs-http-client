@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -91,7 +92,7 @@ namespace Ipfs.Api
             {
                 cs.Cancel();
             }
-         }
+        }
 
         [TestMethod]
         public async Task Subscribe_Mutiple_Messages()
@@ -129,7 +130,7 @@ namespace Ipfs.Api
             var ipfs = TestFixture.Ipfs;
             var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
             var cs = new CancellationTokenSource();
-            Action<IPublishedMessage> processMessage = (msg) => 
+            Action<IPublishedMessage> processMessage = (msg) =>
             {
                 Interlocked.Increment(ref messageCount);
             };
@@ -172,6 +173,62 @@ namespace Ipfs.Api
             await ipfs.PubSub.Publish(topic, "hello world!!!");
             await Task.Delay(1000);
             Assert.AreEqual(1, messageCount1);
+        }
+
+        [TestMethod]
+        public async Task Subscribe_Multiple_Topics()
+        {
+            messageCount = 0;
+            var topicCount = 4;
+            var topics = new string[topicCount];
+            var cancels = new CancellationTokenSource[topicCount];
+            var ipfs = TestFixture.Ipfs;
+
+            for (int i = 0; i < topicCount; ++i)
+            {
+                topics[i] = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
+                cancels[i] = new CancellationTokenSource();
+            }
+            Action<IPublishedMessage> processMessage = (msg) =>
+            {
+                Interlocked.Increment(ref messageCount);
+            };
+
+            try
+            {
+                // Subscribe to N topics.
+                for (int i = 0; i < topicCount; ++i)
+                {
+                    await ipfs.PubSub.Subscribe(topics[i], msg =>
+                    {
+                        Interlocked.Increment(ref messageCount);
+                    }, cancels[i].Token);
+                }
+
+                // Verify topics.
+                var actualTopics = await ipfs.PubSub.SubscribedTopicsAsync();
+                foreach (var topic in actualTopics)
+                {
+                    CollectionAssert.Contains(topics, topic);
+                }
+
+                // Publish a message to each topic.
+                for (int i = 0; i < topicCount; ++i)
+                {
+                    await ipfs.PubSub.Publish(topics[i], "hello world!");
+                }
+
+                // Verify that all messages have been received.
+                await Task.Delay(1000);
+                Assert.AreEqual(topicCount, messageCount);
+            }
+            finally
+            {
+                foreach (var cs in cancels)
+                {
+                    cs.Cancel();
+                }
+            }
         }
     }
 }
