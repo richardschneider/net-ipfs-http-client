@@ -25,8 +25,8 @@ namespace Ipfs.Api
         public async Task Resolve()
         {
             IpfsClient ipfs = TestFixture.Ipfs;
-            var id = await ipfs.Name.ResolveAsync("ipfs.io");
-            Assert.IsNotNull(id);
+            var id = await ipfs.Name.ResolveAsync("ipfs.io", recursive: true);
+            StringAssert.StartsWith(id, "/ipfs/");
         }
 
         [TestMethod]

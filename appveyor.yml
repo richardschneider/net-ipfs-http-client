@@ -23,9 +23,6 @@ init:
   - git config --global user.email "noreply@emanon.org"
   - git config --global user.name "Appveyor CI"
 
-cache:
-  - packages -> **\packages.config      # preserve "packages" directory in the root of build folder but will reset it if packages.config is modified
-
 environment:
   COVERALLS_REPO_TOKEN:
     secure: u109t00NLIZQyREMNUyPlMd8gCi6w3o790yT8mQnzEC0LvZyevt+04u63TQfrifC
@@ -33,7 +30,7 @@ environment:
 
 # tools we need for bulding/testing/deploying
 install:
-  - choco install gitversion.portable -pre -y
+  - choco install gitversion.portable -y
   - nuget update -self
   - choco install docfx -y
   - npm install gh-pages -g

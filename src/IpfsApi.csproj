@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard14;netstandard2;net45</TargetFrameworks>
     <AssemblyName>Ipfs.Api</AssemblyName>
     <RootNamespace>Ipfs.Api</RootNamespace>
-    <DocumentationFile>Ipfs.Api.xml</DocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <DebugType>full</DebugType>
     
     <!-- developer build is always 0.42 -->
@@ -17,7 +17,7 @@
     <Title>IPFS API</Title>
     <Description> Provides .Net client access to the InterPlanetary File System.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/richardschneider/net-ipfs-api/releases</PackageReleaseNotes>
     <Copyright>© 2015-2018 Richard Schneider</Copyright>
     <PackageTags>ipfs peer-to-peer distributed file-system</PackageTags>
     <IncludeSymbols>True</IncludeSymbols>
