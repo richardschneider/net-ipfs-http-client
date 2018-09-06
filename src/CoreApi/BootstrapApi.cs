@@ -37,7 +37,8 @@ namespace Ipfs.Api
             var json = await ipfs.DoCommandAsync("bootstrap/add/default", cancel);
             var addrs = (JArray)(JObject.Parse(json)["Peers"]);
             return addrs
-                .Select(a => new MultiAddress((string)a));
+                .Select(a => MultiAddress.TryCreate((string)a))
+                .Where(ma => ma != null);
         }
 
         public async Task<IEnumerable<MultiAddress>> ListAsync(CancellationToken cancel = default(CancellationToken))
@@ -45,7 +46,8 @@ namespace Ipfs.Api
             var json = await ipfs.DoCommandAsync("bootstrap/list", cancel);
             var addrs = (JArray)(JObject.Parse(json)["Peers"]);
             return addrs
-                .Select(a => new MultiAddress((string)a));
+                .Select(a => MultiAddress.TryCreate((string)a))
+                .Where(ma => ma != null);
         }
 
         public Task RemoveAllAsync(CancellationToken cancel = default(CancellationToken))

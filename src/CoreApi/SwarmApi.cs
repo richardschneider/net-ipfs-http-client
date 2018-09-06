@@ -30,9 +30,9 @@ namespace Ipfs.Api
                 .Select(p => new Peer {
                     Id = p.Name,
                     Addresses = ((JArray)p.Value)
-                        .Where(v => !string.IsNullOrWhiteSpace((string)v))
-                        .Select(v => new MultiAddress((string)v))
-                });
+                        .Select(a => MultiAddress.TryCreate((string)a))
+                        .Where(ma => ma != null)
+        });
         }
 
         public async Task<IEnumerable<Peer>> PeersAsync(CancellationToken cancel = default(CancellationToken))
@@ -110,7 +110,9 @@ namespace Ipfs.Api
 
             if (addrs == null)
                 return new MultiAddress[0];
-            return addrs.Select(a => new MultiAddress((string)a));
+            return addrs
+                .Select(a => MultiAddress.TryCreate((string)a))
+                .Where(ma => ma != null);
         }
 
         public async Task<MultiAddress> RemoveAddressFilterAsync(MultiAddress address, bool persist = false, CancellationToken cancel = default(CancellationToken))
