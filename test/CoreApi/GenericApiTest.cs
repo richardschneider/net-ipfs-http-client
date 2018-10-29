@@ -2,14 +2,13 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Ipfs.Api
 {
     [TestClass]
     public class GenericApiTest
     {
-        const string marsId = "QmSoLMeWqB7YGVLJN3pNLQpmmEk35v6wYtsMGLzSr5QBU3";
-
         [TestMethod]
         public void Local_Node_Info()
         {
@@ -19,11 +18,23 @@ namespace Ipfs.Api
         }
 
         [TestMethod]
-        public void Mars_Node_Info()
+        public async Task Peer_Node_Info()
         {
             var ipfs = TestFixture.Ipfs;
-            var node = ipfs.IdAsync(marsId).Result;
-            Assert.IsInstanceOfType(node, typeof(Peer));
+            Peer node;
+            foreach (var peer in await ipfs.Bootstrap.ListAsync())
+            {
+                try
+                {
+                    node = await ipfs.IdAsync(peer.PeerId);
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
+                Assert.IsInstanceOfType(node, typeof(Peer));
+                break;
+            }
         }
 
         [TestMethod]
