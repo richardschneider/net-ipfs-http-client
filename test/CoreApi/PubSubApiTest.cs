@@ -29,7 +29,7 @@ namespace Ipfs.Api
             var cs = new CancellationTokenSource();
             try
             {
-                await ipfs.PubSub.Subscribe(topic, msg => { }, cs.Token);
+                await ipfs.PubSub.SubscribeAsync(topic, msg => { }, cs.Token);
                 var peers = ipfs.PubSub.PeersAsync().Result.ToArray();
                 Assert.IsTrue(peers.Length > 0);
             }
@@ -56,7 +56,7 @@ namespace Ipfs.Api
             var cs = new CancellationTokenSource();
             try
             {
-                await ipfs.PubSub.Subscribe(topic, msg => { }, cs.Token);
+                await ipfs.PubSub.SubscribeAsync(topic, msg => { }, cs.Token);
                 var topics = ipfs.PubSub.SubscribedTopicsAsync().Result.ToArray();
                 Assert.IsTrue(topics.Length > 0);
                 CollectionAssert.Contains(topics, topic);
@@ -78,11 +78,11 @@ namespace Ipfs.Api
             var cs = new CancellationTokenSource();
             try
             {
-                await ipfs.PubSub.Subscribe(topic, msg =>
+                await ipfs.PubSub.SubscribeAsync(topic, msg =>
                 {
                     Interlocked.Increment(ref messageCount);
                 }, cs.Token);
-                await ipfs.PubSub.Publish(topic, "hello world!");
+                await ipfs.PubSub.PublishAsync(topic, "hello world!");
 
                 await Task.Delay(1000);
                 Assert.AreEqual(1, messageCount);
@@ -103,13 +103,13 @@ namespace Ipfs.Api
             var cs = new CancellationTokenSource();
             try
             {
-                await ipfs.PubSub.Subscribe(topic, msg =>
+                await ipfs.PubSub.SubscribeAsync(topic, msg =>
                 {
                     Interlocked.Increment(ref messageCount);
                 }, cs.Token);
                 foreach (var msg in messages)
                 {
-                    await ipfs.PubSub.Publish(topic, msg);
+                    await ipfs.PubSub.PublishAsync(topic, msg);
                 }
 
                 await Task.Delay(1000);
@@ -135,11 +135,11 @@ namespace Ipfs.Api
             };
             try
             {
-                await ipfs.PubSub.Subscribe(topic, processMessage, cs.Token);
-                await ipfs.PubSub.Subscribe(topic, processMessage, cs.Token);
+                await ipfs.PubSub.SubscribeAsync(topic, processMessage, cs.Token);
+                await ipfs.PubSub.SubscribeAsync(topic, processMessage, cs.Token);
                 foreach (var msg in messages)
                 {
-                    await ipfs.PubSub.Publish(topic, msg);
+                    await ipfs.PubSub.PublishAsync(topic, msg);
                 }
 
                 await Task.Delay(1000);
@@ -160,16 +160,16 @@ namespace Ipfs.Api
             var ipfs = TestFixture.Ipfs;
             var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
             var cs = new CancellationTokenSource();
-            await ipfs.PubSub.Subscribe(topic, msg =>
+            await ipfs.PubSub.SubscribeAsync(topic, msg =>
             {
                 Interlocked.Increment(ref messageCount1);
             }, cs.Token);
-            await ipfs.PubSub.Publish(topic, "hello world!");
+            await ipfs.PubSub.PublishAsync(topic, "hello world!");
             await Task.Delay(1000);
             Assert.AreEqual(1, messageCount1);
 
             cs.Cancel();
-            await ipfs.PubSub.Publish(topic, "hello world!!!");
+            await ipfs.PubSub.PublishAsync(topic, "hello world!!!");
             await Task.Delay(1000);
             Assert.AreEqual(1, messageCount1);
         }

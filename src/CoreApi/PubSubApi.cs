@@ -42,13 +42,13 @@ namespace Ipfs.Api
             return strings.Select(s => new Peer { Id = (string)s } );
         }
 
-        public async Task Publish(string topic, string message, CancellationToken cancel = default(CancellationToken))
+        public async Task PublishAsync(string topic, string message, CancellationToken cancel = default(CancellationToken))
         {
             var _ = await ipfs.DoCommandAsync("pubsub/pub", cancel, topic, "arg=" + message);
             return;
         }
 
-        public async Task Subscribe(string topic, Action<IPublishedMessage> handler, CancellationToken cancellationToken)
+        public async Task SubscribeAsync(string topic, Action<IPublishedMessage> handler, CancellationToken cancellationToken)
         {
             var messageStream = await ipfs.PostDownloadAsync("pubsub/sub", cancellationToken, topic);
             var sr = new StreamReader(messageStream);
