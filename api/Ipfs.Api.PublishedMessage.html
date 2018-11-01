@@ -114,7 +114,8 @@
   <h6><strong>Assembly</strong>: Ipfs.Api.dll</h6>
   <h5 id="Ipfs_Api_PublishedMessage_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PublishedMessage : IPublishedMessage, IDataBlock</code></pre>
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class PublishedMessage : IPublishedMessage, IDataBlock</code></pre>
   </div>
   <h5 id="Ipfs_Api_PublishedMessage_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>The <span class="xref">Ipfs.Api.PubSubApi</span> is used to publish and subsribe to a message.</p>
@@ -126,7 +127,7 @@
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PublishedMessage__ctor_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Api.PublishedMessage.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L25">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L27">View Source</a>
   </span>
   <a id="Ipfs_Api_PublishedMessage__ctor_" data-uid="Ipfs.Api.PublishedMessage.#ctor*"></a>
   <h4 id="Ipfs_Api_PublishedMessage__ctor_System_String_" data-uid="Ipfs.Api.PublishedMessage.#ctor(System.String)">PublishedMessage(String)</h4>
@@ -163,7 +164,7 @@ specified JSON string.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PublishedMessage_DataBytes.md&amp;value=---%0Auid%3A%20Ipfs.Api.PublishedMessage.DataBytes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L45">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L50">View Source</a>
   </span>
   <a id="Ipfs_Api_PublishedMessage_DataBytes_" data-uid="Ipfs.Api.PublishedMessage.DataBytes*"></a>
   <h4 id="Ipfs_Api_PublishedMessage_DataBytes" data-uid="Ipfs.Api.PublishedMessage.DataBytes">DataBytes</h4>
@@ -171,7 +172,8 @@ specified JSON string.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] DataBytes { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[DataMember]
+public byte[] DataBytes { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -193,7 +195,7 @@ specified JSON string.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PublishedMessage_DataStream.md&amp;value=---%0Auid%3A%20Ipfs.Api.PublishedMessage.DataStream%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L48">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L54">View Source</a>
   </span>
   <a id="Ipfs_Api_PublishedMessage_DataStream_" data-uid="Ipfs.Api.PublishedMessage.DataStream*"></a>
   <h4 id="Ipfs_Api_PublishedMessage_DataStream" data-uid="Ipfs.Api.PublishedMessage.DataStream">DataStream</h4>
@@ -223,7 +225,7 @@ specified JSON string.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PublishedMessage_DataString.md&amp;value=---%0Auid%3A%20Ipfs.Api.PublishedMessage.DataString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L67">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L74">View Source</a>
   </span>
   <a id="Ipfs_Api_PublishedMessage_DataString_" data-uid="Ipfs.Api.PublishedMessage.DataString*"></a>
   <h4 id="Ipfs_Api_PublishedMessage_DataString" data-uid="Ipfs.Api.PublishedMessage.DataString">DataString</h4>
@@ -255,7 +257,7 @@ specified JSON string.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PublishedMessage_Id.md&amp;value=---%0Auid%3A%20Ipfs.Api.PublishedMessage.Id%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L81">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L88">View Source</a>
   </span>
   <a id="Ipfs_Api_PublishedMessage_Id_" data-uid="Ipfs.Api.PublishedMessage.Id*"></a>
   <h4 id="Ipfs_Api_PublishedMessage_Id" data-uid="Ipfs.Api.PublishedMessage.Id">Id</h4>
@@ -303,7 +305,7 @@ specified JSON string.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PublishedMessage_Sender.md&amp;value=---%0Auid%3A%20Ipfs.Api.PublishedMessage.Sender%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L36">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L38">View Source</a>
   </span>
   <a id="Ipfs_Api_PublishedMessage_Sender_" data-uid="Ipfs.Api.PublishedMessage.Sender*"></a>
   <h4 id="Ipfs_Api_PublishedMessage_Sender" data-uid="Ipfs.Api.PublishedMessage.Sender">Sender</h4>
@@ -311,7 +313,8 @@ specified JSON string.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Peer Sender { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[DataMember]
+public Peer Sender { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -333,7 +336,7 @@ specified JSON string.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PublishedMessage_SequenceNumber.md&amp;value=---%0Auid%3A%20Ipfs.Api.PublishedMessage.SequenceNumber%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L42">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L46">View Source</a>
   </span>
   <a id="Ipfs_Api_PublishedMessage_SequenceNumber_" data-uid="Ipfs.Api.PublishedMessage.SequenceNumber*"></a>
   <h4 id="Ipfs_Api_PublishedMessage_SequenceNumber" data-uid="Ipfs.Api.PublishedMessage.SequenceNumber">SequenceNumber</h4>
@@ -341,7 +344,8 @@ specified JSON string.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] SequenceNumber { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[DataMember]
+public byte[] SequenceNumber { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -363,7 +367,7 @@ specified JSON string.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PublishedMessage_Size.md&amp;value=---%0Auid%3A%20Ipfs.Api.PublishedMessage.Size%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L57">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L63">View Source</a>
   </span>
   <a id="Ipfs_Api_PublishedMessage_Size_" data-uid="Ipfs.Api.PublishedMessage.Size*"></a>
   <h4 id="Ipfs_Api_PublishedMessage_Size" data-uid="Ipfs.Api.PublishedMessage.Size">Size</h4>
@@ -371,7 +375,8 @@ specified JSON string.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public long Size { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[DataMember]
+public long Size { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -393,7 +398,7 @@ specified JSON string.</p>
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PublishedMessage_Topics.md&amp;value=---%0Auid%3A%20Ipfs.Api.PublishedMessage.Topics%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L39">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L42">View Source</a>
   </span>
   <a id="Ipfs_Api_PublishedMessage_Topics_" data-uid="Ipfs.Api.PublishedMessage.Topics*"></a>
   <h4 id="Ipfs_Api_PublishedMessage_Topics" data-uid="Ipfs.Api.PublishedMessage.Topics">Topics</h4>
@@ -401,7 +406,8 @@ specified JSON string.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; Topics { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[DataMember]
+public IEnumerable&lt;string&gt; Topics { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -436,7 +442,7 @@ specified JSON string.</p>
                     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_PublishedMessage.md&amp;value=---%0Auid%3A%20Ipfs.Api.PublishedMessage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L16" class="contribution-link">View Source</a>
+                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/PublishedMessage.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

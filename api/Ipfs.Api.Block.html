@@ -112,7 +112,8 @@
   <h6><strong>Assembly</strong>: Ipfs.Api.dll</h6>
   <h5 id="Ipfs_Api_Block_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Block : IDataBlock</code></pre>
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class Block : IDataBlock</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -121,7 +122,7 @@
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_Block_DataBytes.md&amp;value=---%0Auid%3A%20Ipfs.Api.Block.DataBytes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Block.cs/#L19">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Block.cs/#L22">View Source</a>
   </span>
   <a id="Ipfs_Api_Block_DataBytes_" data-uid="Ipfs.Api.Block.DataBytes*"></a>
   <h4 id="Ipfs_Api_Block_DataBytes" data-uid="Ipfs.Api.Block.DataBytes">DataBytes</h4>
@@ -129,7 +130,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] DataBytes { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[DataMember]
+public byte[] DataBytes { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -151,7 +153,7 @@
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_Block_DataStream.md&amp;value=---%0Auid%3A%20Ipfs.Api.Block.DataStream%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Block.cs/#L22">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Block.cs/#L26">View Source</a>
   </span>
   <a id="Ipfs_Api_Block_DataStream_" data-uid="Ipfs.Api.Block.DataStream*"></a>
   <h4 id="Ipfs_Api_Block_DataStream" data-uid="Ipfs.Api.Block.DataStream">DataStream</h4>
@@ -181,7 +183,7 @@
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_Block_Id.md&amp;value=---%0Auid%3A%20Ipfs.Api.Block.Id%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Block.cs/#L16">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Block.cs/#L18">View Source</a>
   </span>
   <a id="Ipfs_Api_Block_Id_" data-uid="Ipfs.Api.Block.Id*"></a>
   <h4 id="Ipfs_Api_Block_Id" data-uid="Ipfs.Api.Block.Id">Id</h4>
@@ -189,7 +191,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Cid Id { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[DataMember]
+public Cid Id { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -211,7 +214,7 @@
     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_Block_Size.md&amp;value=---%0Auid%3A%20Ipfs.Api.Block.Size%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Block.cs/#L31">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Block.cs/#L35">View Source</a>
   </span>
   <a id="Ipfs_Api_Block_Size_" data-uid="Ipfs.Api.Block.Size*"></a>
   <h4 id="Ipfs_Api_Block_Size" data-uid="Ipfs.Api.Block.Size">Size</h4>
@@ -219,7 +222,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public long Size { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[DataMember]
+public long Size { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -251,7 +255,7 @@
                     <a href="https://github.com/richardschneider/net-ipfs-api/new/master/apiSpec/new?filename=Ipfs_Api_Block.md&amp;value=---%0Auid%3A%20Ipfs.Api.Block%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Block.cs/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/src/Block.cs/#L12" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
