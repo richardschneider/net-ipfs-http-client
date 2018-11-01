@@ -48,9 +48,10 @@ namespace Ipfs.Api
             return;
         }
 
-        public Task ReplaceAsync(JObject config)
+        public async Task ReplaceAsync(JObject config)
         {
-            throw new NotImplementedException();
+            var data = Encoding.UTF8.GetBytes(config.ToString(Formatting.None));
+            await ipfs.UploadAsync("config/replace", CancellationToken.None, data);
         }
     }
 

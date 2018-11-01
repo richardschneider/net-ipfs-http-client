@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Ipfs.Api
 {
@@ -66,6 +67,22 @@ namespace Ipfs.Api
             IpfsClient ipfs = TestFixture.Ipfs;
             ipfs.Config.SetAsync(key, value).Wait();
             Assert.AreEqual("http://example.io", ipfs.Config.GetAsync(key).Result[0]);
+        }
+
+        [TestMethod]
+        public async Task Replace_Entire_Config()
+        {
+            IpfsClient ipfs = TestFixture.Ipfs;
+            var original = await ipfs.Config.GetAsync();
+            try
+            {
+                var a = JObject.Parse("{ \"foo-x-bar\": 1 }");
+                await ipfs.Config.ReplaceAsync(a);
+            }
+            finally
+            {
+                await ipfs.Config.ReplaceAsync(original);
+            }
         }
 
     }
