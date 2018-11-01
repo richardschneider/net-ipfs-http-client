@@ -51,7 +51,7 @@ namespace Ipfs.Api
                        var address = new MultiAddress(parts[0]);
                        return new Peer
                        {
-                           Id = address.Protocols.First(p => p.Name == "ipfs").Value,
+                           Id = address.PeerId,
                            ConnectedAddress = parts[0],
                            Latency = Duration.Parse(parts[1])
                        };
