@@ -62,8 +62,9 @@ namespace Ipfs.Api
         public async Task<IKey> RemoveAsync(string name, CancellationToken cancel = default(CancellationToken))
         {
             var json = await ipfs.DoCommandAsync("key/rm", cancel, name);
-            var keys = (JArray)(JObject.Parse(json)["Keys"]);
-            return keys
+            var keys = JObject.Parse(json)["Keys"] as JArray;
+
+            return keys?
                 .Select(k => new KeyInfo
                 {
                     Id = (string)k["Id"],
