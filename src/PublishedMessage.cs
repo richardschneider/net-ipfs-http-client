@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Text;
+using System.Runtime.Serialization;
 
 namespace Ipfs.Api
 {
@@ -13,6 +14,7 @@ namespace Ipfs.Api
     /// <remarks>
     ///   The <see cref="PubSubApi"/> is used to publish and subsribe to a message.
     /// </remarks>
+    [DataContract]
     public class PublishedMessage : IPublishedMessage
     {
         /// <summary>
@@ -33,15 +35,19 @@ namespace Ipfs.Api
         }
 
         /// <inheritdoc />
+        [DataMember]
         public Peer Sender { get; private set; }
 
         /// <inheritdoc />
+        [DataMember]
         public IEnumerable<string> Topics { get; private set; }
 
         /// <inheritdoc />
+        [DataMember]
         public byte[] SequenceNumber { get; private set; }
 
         /// <inheritdoc />
+        [DataMember]
         public byte[] DataBytes { get; private set; }
 
         /// <inheritdoc />
@@ -54,6 +60,7 @@ namespace Ipfs.Api
         }
 
         /// <inheritdoc />
+        [DataMember]
         public long Size
         {
             get { return DataBytes.Length;  }

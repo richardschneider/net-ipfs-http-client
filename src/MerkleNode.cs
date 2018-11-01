@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using System.Runtime.Serialization;
 
 namespace Ipfs.Api
 {
@@ -13,6 +14,7 @@ namespace Ipfs.Api
     /// <remarks>
     ///   Initially an <b>MerkleNode</b> is just constructed with its Cid.
     /// </remarks>
+    [DataContract]
     public class MerkleNode : IMerkleNode<IMerkleLink>, IEquatable<MerkleNode>
     {
         bool hasBlockStats;
@@ -91,11 +93,13 @@ namespace Ipfs.Api
         }
 
         /// <inheritdoc />
+        [DataMember]
         public Cid Id { get; private set; }
 
         /// <summary>
         ///   The name for the node.  If unknown it is "" (not null).
         /// </summary>
+        [DataMember]
         public string Name
         {
             get { return name; }
@@ -105,6 +109,7 @@ namespace Ipfs.Api
         /// <summary>
         ///   Size of the raw, encoded node.
         /// </summary>
+        [DataMember]
         public long BlockSize
         {
             get
@@ -116,6 +121,7 @@ namespace Ipfs.Api
 
         /// <inheritdoc />
         /// <seealso cref="BlockSize"/>
+        [DataMember]
         public long Size
         {
             get
@@ -126,6 +132,7 @@ namespace Ipfs.Api
 
 
         /// <inheritdoc />
+        [DataMember]
         public IEnumerable<IMerkleLink> Links
         {
             get
@@ -140,6 +147,7 @@ namespace Ipfs.Api
         }
 
         /// <inheritdoc />
+        [DataMember]
         public byte[] DataBytes
         {
             get

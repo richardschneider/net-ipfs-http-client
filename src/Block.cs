@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Ipfs.Api
 {
     /// <inheritdoc />
+    [DataContract]
     public class Block : IDataBlock
     {
         long? size;
 
         /// <inheritdoc />
+        [DataMember]
         public Cid Id { get; set; }
 
         /// <inheritdoc />
+        [DataMember]
         public byte[] DataBytes { get; set; }
 
         /// <inheritdoc />
@@ -28,6 +32,7 @@ namespace Ipfs.Api
         }
 
         /// <inheritdoc />
+        [DataMember]
         public long Size
         {
             get
