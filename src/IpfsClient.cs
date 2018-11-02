@@ -220,7 +220,10 @@ namespace Ipfs.Api
                             handler.AutomaticDecompression = DecompressionMethods.GZip
                                 | DecompressionMethods.Deflate;
                         }
-                        api = new HttpClient(handler);
+                        api = new HttpClient(handler)
+                        {
+                            Timeout = System.Threading.Timeout.InfiniteTimeSpan
+                        };
                         api.DefaultRequestHeaders.Add("User-Agent", UserAgent);
                     }
                 }
