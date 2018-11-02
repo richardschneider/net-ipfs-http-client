@@ -29,9 +29,8 @@ namespace Ipfs.Api
             return ipfs.IdAsync(id, cancel);
         }
 
-        public async Task<IEnumerable<Peer>> FindProvidersAsync(Cid id, CancellationToken cancel = default(CancellationToken))
+        public async Task<IEnumerable<Peer>> FindProvidersAsync(Cid id, int limit = 20, CancellationToken cancel = default(CancellationToken))
         {
-            int limit = 20; // TODO: should be an argument
             var stream = await ipfs.PostDownloadAsync("dht/findprovs", cancel, id, $"num-providers={limit}");
             return ProviderFromStream(stream, limit);
         }
