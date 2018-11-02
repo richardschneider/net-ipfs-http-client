@@ -31,15 +31,17 @@ namespace Ipfs.Api
 
         public async Task<IEnumerable<Peer>> FindProvidersAsync(Cid id, CancellationToken cancel = default(CancellationToken))
         {
-            var stream = await ipfs.PostDownloadAsync("dht/findprovs", cancel, id);
-            return ProviderFromStream(stream);
+            int limit = 20; // TODO: should be an argument
+            var stream = await ipfs.PostDownloadAsync("dht/findprovs", cancel, id, $"num-providers={limit}");
+            return ProviderFromStream(stream, limit);
         }
 
-        IEnumerable<Peer> ProviderFromStream(Stream stream)
+        IEnumerable<Peer> ProviderFromStream(Stream stream, int limit = int.MaxValue)
         { 
             using (var sr = new StreamReader(stream))
             {
-                while (!sr.EndOfStream)
+                var n = 0;
+                while (!sr.EndOfStream && n < limit)
                 {
                     var json = sr.ReadLine();
                     if (log.IsDebugEnabled)
@@ -48,7 +50,10 @@ namespace Ipfs.Api
                     var r = JObject.Parse(json);
                     var id = (string)r["ID"];
                     if (id != String.Empty)
+                    {
+                        ++n;
                         yield return new Peer { Id = new MultiHash(id) };
+                    }
                     else
                     {
                         var responses = (JArray)r["Responses"];
@@ -58,7 +63,10 @@ namespace Ipfs.Api
                             {
                                 var rid = (string)response["ID"];
                                 if (rid != String.Empty)
+                                {
+                                    ++n;
                                     yield return new Peer { Id = new MultiHash(rid) };
+                                }
                             }
                         }
                     }
