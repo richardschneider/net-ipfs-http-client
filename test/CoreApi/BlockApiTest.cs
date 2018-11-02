@@ -149,7 +149,6 @@ namespace Ipfs.Api
         public async Task Remove_Unknown_OK()
         {
             var cid = await ipfs.Block.RemoveAsync("QmPv52ekjS75L4JmHpXVeuJ5uX2ecSfSZo88NSyxwA3rFF", true);
-            Assert.AreEqual(null, cid);
         }
 
     }

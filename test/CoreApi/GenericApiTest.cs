@@ -22,7 +22,8 @@ namespace Ipfs.Api
         {
             var ipfs = TestFixture.Ipfs;
             Peer node;
-            foreach (var peer in await ipfs.Bootstrap.ListAsync())
+            var peers = await ipfs.Bootstrap.ListAsync();
+            foreach (var peer in peers)
             {
                 try
                 {
@@ -33,7 +34,7 @@ namespace Ipfs.Api
                     continue;
                 }
                 Assert.IsInstanceOfType(node, typeof(Peer));
-                break;
+                return;
             }
         }
 

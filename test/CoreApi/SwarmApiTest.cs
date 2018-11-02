@@ -66,7 +66,6 @@ namespace Ipfs.Api
             {
                 try
                 {
-                    await ipfs.Swarm.DisconnectAsync(peer.ConnectedAddress);
                     await ipfs.Swarm.ConnectAsync(peer.ConnectedAddress);
                     return;
                 }
