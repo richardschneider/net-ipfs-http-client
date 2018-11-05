@@ -8,3 +8,5 @@
   href: envvars.md
 - name: IPFS daemon
   href: daemon.md
+- name: Class Reference
+  href: ../api/Ipfs.Api.yml

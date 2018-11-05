@@ -18,3 +18,15 @@ For Windows using [chocolatey](https://chocolatey.org/)
 > ipfs init
 > ipfs daemon
 ```
+
+## Locating the daemon
+
+By default the client looks for a deamon at `http://localhost:5001`.  This can be overriden by either 
+setting the environment variable [IpfsHttpUrl](envvars.md) or initialising the client with an URL.
+
+```csharp
+// js-ipfs likes this address
+static readonly IpfsClient ipfs = new IpfsClient("http://127.0.0.1:5002");
+```
+
+
