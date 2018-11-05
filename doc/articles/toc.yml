@@ -1,9 +1,10 @@
 - name: Introduction
   href: intro.md
+- name: Accessing IPFS
+  href: client.md
 - name: Asynchronous I/O
   href: async.md
-  items:
-    - name: Cancellation
-      href: cancellation.md
 - name: Environment variables
   href: envvars.md
+- name: IPFS daemon
+  href: daemon.md
