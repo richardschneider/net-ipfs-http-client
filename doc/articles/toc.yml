@@ -2,6 +2,8 @@
   href: intro.md
 - name: Accessing IPFS
   href: client.md
+- name: File system
+  href: filesystem.md
 - name: Asynchronous I/O
   href: async.md
 - name: Environment variables

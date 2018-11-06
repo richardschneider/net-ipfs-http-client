@@ -23,7 +23,7 @@ public class Program
 ## Core API
 
 The [Core API](xref:Ipfs.CoreApi.ICoreApi) is a set of interfaces to IPFS features and is implemented by the client.  The 
-[FileSystem]() and [PubSub]() features are most often used.
+[FileSystem](filesystem.md) and [PubSub]() features are most often used.
 
 ```csharp
 const string filename = "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about";
