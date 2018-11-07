@@ -72,18 +72,31 @@
 <p>All requests to the IPFS server are <a href="https://docs.microsoft.com/en-us/dotnet/csharp/async">asynchronous</a>,
 which does not block current thread.</p>
 <p>This means that callers should <strong>normally</strong> use the <code>async/await</code> paradigm</p>
-<pre><code class="lang-cs">async Task&lt;string&gt; AddText()
+<pre><code class="lang-cs">var result = await ipfs.FileSystem.AddTextAsync(&quot;I am pinned&quot;);
+</code></pre><h2 id="synchronous">Synchronous</h2>
+<p>If a synchronous operation is required, then this can work</p>
+<pre><code class="lang-cs">var result = ipfs.FileSystem.AddTextAsync(&quot;I am pinned&quot;).Result;
+</code></pre><h2 id="cancelling-a-request">Cancelling a request</h2>
+<p>All requests to the IPFS server can be cancelled by supplying 
+an optional <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a>.  When 
+the token is cancelled, 
+a <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> 
+will be <code>thrown</code>.</p>
+<p>Here&#39;s a contrived example (<a href="https://github.com/richardschneider/net-ipfs-api/blob/cancellation/test/CoreApi/CancellationTest.cs">unit test</a>) 
+that forces the getting of info on the local IPFS server to be cancelled</p>
+<pre><code class="lang-csharp">var cts = new CancellationTokenSource(500);
+try
 {
-    var result = await ipfs.FileSystem.AddTextAsync(&quot;I am pinned&quot;);
-    return result.Hash;
+    await Task.Delay(1000);
+    var peer = await ipfs.IdAsync(cts.Token);
+    Assert.Fail(&quot;Did not throw TaskCanceledException&quot;);
 }
-</code></pre><p>If a synchronous operation is required, then this can work</p>
-<pre><code class="lang-cs">string AddText()
+catch (TaskCanceledException)
 {
-    var result = ipfs.FileSystem.AddTextAsync(&quot;I am pinned&quot;).Result;
-    return result.Hash;
+    return;
 }
-</code></pre></article>
+</code></pre><p>See also <a href="https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-cancellation">Task Cancellation</a></p>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>IPFS file system | IPFS API documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="IPFS file system | IPFS API documentation ">
+    <meta name="generator" content="docfx 2.40.1.0">
+    
+    <link rel="shortcut icon" href="../images/ipfs-favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/ipfs-logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="ipfs-file-system">IPFS file system</h1>
+
+<p>The official name is <a href="https://docs.ipfs.io/guides/concepts/unixfs/">UnixFS</a>.  It allows files and directories of any size 
+to be added and retrieved from IPFS via the <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IFileSystemApi.html">FileSystem</a> 
+and <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IObjectApi.html">Object</a> API.  </p>
+<h2 id="files">Files</h2>
+<p>A file has a unique <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Cid.html">content id (CID)</a> which is the cryptographic hash of the content; see
+<a href="https://docs.ipfs.io/guides/concepts/cid/">CID concept</a> for background information.  The file&#39;s content is not just the file&#39;s 
+data but is encapsulated with a <a href="https://en.wikipedia.org/wiki/Protocol_Buffers">protocol buffer</a> encoding of the 
+<a href="https://github.com/ipfs/go-ipfs/blob/0cb22ccf359e05fb5b55a9bf2f9c515bf7d4dba7/merkledag/pb/merkledag.proto#L31-L39">PBNode</a> 
+and <a href="https://github.com/ipfs/go-ipfs/blob/0cb22ccf359e05fb5b55a9bf2f9c515bf7d4dba7/unixfs/pb/unixfs.proto#L3-L20">UnixFS Data</a>.</p>
+<p>Where</p>
+<ul>
+<li><code>PBNode.Data</code> contains unixfs message Data</li>
+<li>unixfs <code>Data.Data</code> contans file&#39;s data</li>
+</ul>
+<p>When the file&#39;s data exceeds the <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.AddFileOptions.html#Ipfs_CoreApi_AddFileOptions_ChunkSize">chunking size</a>, multiple <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBlockApi.html">blocks</a> 
+are generated.  The returned CID points to a block that has <code>PBNode.Links</code> and no <code>PBNode.Data</code>.</p>
+<h3 id="adding-a-file">Adding a file</h3>
+<p><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IFileSystemApi.html#Ipfs_CoreApi_IFileSystemApi_AddAsync_">AddAsync</a> is used to add a stream of data to IPFS.  It returns a 
+<a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IFileSystemNode.html">FileSystemNode</a> which 
+describes the added the data.  Of particular import is its <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IDataBlock.html#Ipfs_IDataBlock_Id">CID</a>.  The helper methods 
+<a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IFileSystemApi.html#Ipfs_CoreApi_IFileSystemApi_AddTextAsync_">AddTextAsync</a> and <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IFileSystemApi.html#Ipfs_CoreApi_IFileSystemApi_AddFileAsync_">AddFileAsync</a> are also available.</p>
+<p>All the Add methods accept <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.AddFileOptions.html">options</a> to control how the data is added to IPFS.</p>
+<pre><code class="lang-csharp">var fsn = await ipfs.FileSystem.AddTextAsync(&quot;hello world&quot;);
+Console.WriteLine((string)fsn.Id)
+
+// Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD
+</code></pre><h3 id="reading-a-file">Reading a file</h3>
+<p><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IFileSystemApi.html#Ipfs_CoreApi_IFileSystemApi_ReadFileAsync_">ReaFileAsync</a> is used to read a stream of data from IPFS.  It returns a 
+<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">Stream</a> containing just the file&#39;s data NOT the protocol buffer encoded data.</p>
+<pre><code class="lang-csharp">string path = &quot;Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD&quot;;
+using (var stream = await ipfs.FileSystem.ReadFileAsyc(path))
+{
+    // Do something with the data
+}
+</code></pre><h3 id="getting-a-cid">Getting a CID</h3>
+<p>Normally, you get the CID by <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IFileSystemApi.html#Ipfs_CoreApi_IFileSystemApi_AddAsync_">adding</a> the file to IPFS.  You can avoid adding it 
+to IPFS by using the <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.AddFileOptions.html#Ipfs_CoreApi_AddFileOptions_OnlyHash">OnlyHash option</a>.</p>
+<pre><code class="lang-csharp">var options = new AddFileOptions { OnlyHash = true };
+var fsn = await ipfs.FileSystem.AddTextAsync(&quot;hello world&quot;, options);
+Console.WriteLine((string)fsn.Id)
+
+// Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/doc/articles/filesystem.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Generated by DocFX
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

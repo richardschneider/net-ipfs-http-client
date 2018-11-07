@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/async.html",
-          "hash": "Co16MpoSBLz1j8rcfA7Fbw=="
+          "hash": "tAXdorwz8IGUIWP6DYr1JQ=="
         }
       },
       "is_incremental": false,
@@ -125,11 +125,23 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/cancellation.md",
+      "source_relative_path": "articles/client.md",
       "output": {
         ".html": {
-          "relative_path": "articles/cancellation.html",
-          "hash": "fqCL/XZ3jNrLfPJTinPsnQ=="
+          "relative_path": "articles/client.html",
+          "hash": "hcsp6Tp0hm5FykoCOW/6Gw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/daemon.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/daemon.html",
+          "hash": "Rqu4ebgVPp01gkES31H7Ug=="
         }
       },
       "is_incremental": false,
@@ -141,7 +153,19 @@
       "output": {
         ".html": {
           "relative_path": "articles/envvars.html",
-          "hash": "522DS17HPnCYxuVoEpZwvA=="
+          "hash": "aykoFHwltbV9fzTmqhqeCg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/filesystem.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/filesystem.html",
+          "hash": "p0YzzeFl8WuXSMRyjDr7Cw=="
         }
       },
       "is_incremental": false,
@@ -165,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "nCcS6NcgwBxTpEJfGFaVDA=="
+          "hash": "nIVfrQCrzmUi3dV/q0Bu7w=="
         }
       },
       "is_incremental": false,

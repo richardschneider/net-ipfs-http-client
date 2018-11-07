@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Cancelling a request | IPFS API documentation </title>
+    <title>IPFS Daemon | IPFS API documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Cancelling a request | IPFS API documentation ">
+    <meta name="title" content="IPFS Daemon | IPFS API documentation ">
     <meta name="generator" content="docfx 2.40.1.0">
     
     <link rel="shortcut icon" href="../images/ipfs-favicon.ico">
@@ -67,28 +67,25 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="cancelling-a-request">Cancelling a request</h1>
+<h1 id="ipfs-daemon">IPFS Daemon</h1>
 
-<p>All requests to the IPFS server can be cancelled by supplying 
-an optional <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a>.  When 
-the token is cancelled, 
-a <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> 
-will be <code>thrown</code>.</p>
-<p>Here&#39;s a contrived example (<a href="https://github.com/richardschneider/net-ipfs-api/blob/cancellation/test/CoreApi/CancellationTest.cs">unit test</a>) 
-that forces the getting of info on the local IPFS server to be cancelled</p>
-<pre><code class="lang-cs">var cts = new CancellationTokenSource(500);
-try
-{
-    await Task.Delay(1000);
-    var peer = await ipfs.IdAsync(cts.Token);
-    Assert.Fail(&quot;Did not throw TaskCanceledException&quot;);
-}
-catch (TaskCanceledException)
-{
-    return;
-}
-</code></pre><p>See also <a href="https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-cancellation">Task Cancellation</a></p>
-</article>
+<p>The IPFS daemon is a service that runs on a machine and allows access to other peers on the network. This 
+is what the <a href="client.html">IPFS client</a> manages.</p>
+<h2 id="installing">Installing</h2>
+<p>The authoritive documentmenation is at <a href="https://docs.ipfs.io/introduction/install/">https://docs.ipfs.io/introduction/install/</a> which 
+describes the <code>go-ipfs</code> implementation. 
+There is also <a href="https://docs.ipfs.io/reference/js/overview/">js-ipfs</a> for NodeJS fans.</p>
+<h3 id="windows">Windows</h3>
+<p>For Windows using <a href="https://chocolatey.org/">chocolatey</a></p>
+<pre><code>&gt; choco install go-ipfs
+&gt; ipfs init
+&gt; ipfs daemon
+</code></pre><h2 id="locating-the-daemon">Locating the daemon</h2>
+<p>By default the client looks for a deamon at <code>http://localhost:5001</code>.  This can be overriden by either 
+setting the environment variable <a href="envvars.html">IpfsHttpUrl</a> or initialising the client with an URL.</p>
+<pre><code class="lang-csharp">// js-ipfs likes this address
+static readonly IpfsClient ipfs = new IpfsClient(&quot;http://127.0.0.1:5002&quot;);
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -96,7 +93,7 @@ catch (TaskCanceledException)
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/doc/articles/cancellation.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/doc/articles/daemon.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

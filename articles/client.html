@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Accessing IPFS | IPFS API documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Accessing IPFS | IPFS API documentation ">
+    <meta name="generator" content="docfx 2.40.1.0">
+    
+    <link rel="shortcut icon" href="../images/ipfs-favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/ipfs-logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="accessing-ipfs">Accessing IPFS</h1>
+
+<p>IPFS is a distributed peer to peer system.  There is no central server!  Typically, each machine (peer) runs 
+a <a href="daemon.html">daemon</a> that communicates with other peers.</p>
+<p>The <a class="xref" href="../api/Ipfs.Api.IpfsClient.html">IpfsClient</a> provides a simple way for your program to access the daemon 
+via the <a href="https://docs.ipfs.io/reference/api/http/">IPFS HTTP API</a> protocol. The client 
+should be used as a shared object in your program, much like <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(v=vs.110).aspx">HttpClient</a>.  It is 
+thread safe (re-entrant) and conserves sockets and TCP connections when only one instance is used.</p>
+<pre><code class="lang-csharp">public class Program
+{
+  static readonly IpfsClient ipfs = new IpfsClient();
+  public async Task Main(string[] args) 
+  {
+    // Get the Peer info of the daemon
+    var peer = await ipfs.IdAsync();
+  }
+}
+</code></pre><h2 id="core-api">Core API</h2>
+<p>The <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.ICoreApi.html">Core API</a> is a set of interfaces to IPFS features and is implemented by the client.  The 
+<a href="filesystem.html">FileSystem</a> and <a href="">PubSub</a> features are most often used.</p>
+<pre><code class="lang-csharp">const string filename = &quot;QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about&quot;;
+string text = await ipfs.FileSystem.ReadAllTextAsync(filename);
+</code></pre><h3 id="features">Features</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBitswapApi.html">Bitswap</a></td>
+<td>Data trading module for IPFS; requests blocks from and sends blocks to other peers</td>
+</tr>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBlockApi.html">Block</a></td>
+<td>Manages the blocks</td>
+</tr>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBootstrapApi.html">Bootstrap</a></td>
+<td>Trusted peers</td>
+</tr>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IConfigApi.html">Config</a></td>
+<td>Manages the configuration of the local peer</td>
+</tr>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IDagApi.html">Dag</a></td>
+<td>Manages the IPLD (linked data) Directed Acrylic Graph</td>
+</tr>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IDhtApi.html">Dht</a></td>
+<td>Manages the Distributed Hash Table</td>
+</tr>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IDhtApi.html">Dns</a></td>
+<td>DNS mapping to IPFS</td>
+</tr>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IGenericApi.html">Misc</a></td>
+<td>Some miscellaneous methods</td>
+</tr>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IFileSystemApi.html">FileSystem</a></td>
+<td>Manages the files/directories in IPFS</td>
+</tr>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IKeyApi.html">Key</a></td>
+<td>Manages the cryptographic keys</td>
+</tr>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.INameApi.html">Name</a></td>
+<td>Manages the Interplanetary Name Space (IPNS)</td>
+</tr>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IObjectApi.html">Object</a></td>
+<td>Manages the IPFS Directed Acrylic Graph</td>
+</tr>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IPinApi.html">Pin</a></td>
+<td>Manage objects that are locally stored and permanent</td>
+</tr>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IPubSubApi.html">PubSub</a></td>
+<td>Publish and subscribe to topic messages</td>
+</tr>
+<tr>
+<td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.ISwarmApi.html">Swarm</a></td>
+<td>Manages the swarm of peers</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/doc/articles/client.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Generated by DocFX
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
