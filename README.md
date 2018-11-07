@@ -3,7 +3,7 @@
 [![build status](https://ci.appveyor.com/api/projects/status/github/richardschneider/net-ipfs-api?branch=master&svg=true)](https://ci.appveyor.com/project/richardschneider/net-ipfs-api) 
 [![Coverage Status](https://coveralls.io/repos/github/richardschneider/net-ipfs-api/badge.svg?branch=master)](https://coveralls.io/github/richardschneider/net-ipfs-api?branch=master)
 [![Version](https://img.shields.io/nuget/v/Ipfs.Api.svg)](https://www.nuget.org/packages/Ipfs.Api)
-[![docs](https://cdn.rawgit.com/richardschneider/net-ipfs-api/master/doc/images/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-api)
+[![docs](https://cdn.rawgit.com/richardschneider/net-ipfs-api/master/doc/images/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-api/articles/client.html)
 
 
 A .Net client library for the IPFS HTTP API, implemented in C#. 
@@ -17,7 +17,7 @@ More information, including the Class Reference, is on the [Project](https://ric
 - [Asynchronous I/O](https://richardschneider.github.io/net-ipfs-api/articles/async.html) to an IPFS server
 - Supports [cancellation](https://richardschneider.github.io/net-ipfs-api/articles/cancellation.html) of all requests to the IPFS Server
 - Requests that all responses are compressed
-- Comprehensive [documentation](https://richardschneider.github.io/net-ipfs-api)
+- Comprehensive [documentation](https://richardschneider.github.io/net-ipfs-api/articles/client.html)
 - C# style access to the [ipfs core interface](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.html)
   - [Bitswap API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBitswapApi.html)
   - [Block API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBlockApi.html)
@@ -45,7 +45,7 @@ For the latest build or older non-released builds see [Continuous Integration](h
 
 Every IPFS Api is a property of the [IpfsClient](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.IpfsClient.html).  The following example reads a text file
 
-```
+```csharp
 var ipfs = new IpfsClient();
 
 const string filename = "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about";

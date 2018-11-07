@@ -88,9 +88,11 @@
     <Content Include="template\fonts\Lato-Regular.ttf" />
     <Content Include="template\fonts\Lato-Regular.woff" />
     <Content Include="template\fonts\Lato-Regular.woff2" />
-    <Content Include="articles\cancellation.md" />
     <Content Include="articles\async.md" />
     <Content Include="articles\envvars.md" />
+    <Content Include="articles\client.md" />
+    <Content Include="articles\daemon.md" />
+    <Content Include="articles\filesystem.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
