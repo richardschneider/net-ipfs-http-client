@@ -17,7 +17,9 @@
     <Title>IPFS API</Title>
     <Description> Provides .Net client access to the InterPlanetary File System.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>https://github.com/richardschneider/net-ipfs-api/releases</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      This is the last release under this name.  Please use the new name Ipfs.Http.Client
+    </PackageReleaseNotes>
     <Copyright>© 2015-2018 Richard Schneider</Copyright>
     <PackageTags>ipfs peer-to-peer distributed file-system</PackageTags>
     <IncludeSymbols>True</IncludeSymbols>
