@@ -18,7 +18,7 @@ namespace Ipfs.Api
         public async Task FindPeer()
         {
             var ipfs = TestFixture.Ipfs;
-            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+            var cts = new CancellationTokenSource(TimeSpan.FromMinutes(2));
             var mars = await ipfs.Dht.FindPeerAsync("QmSoLMeWqB7YGVLJN3pNLQpmmEk35v6wYtsMGLzSr5QBU3", cts.Token);
             Assert.IsNotNull(mars);
         }
@@ -27,7 +27,7 @@ namespace Ipfs.Api
         public async Task FindProviders()
         {
             var ipfs = TestFixture.Ipfs;
-            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+            var cts = new CancellationTokenSource(TimeSpan.FromMinutes(2));
             var providers = await ipfs.Dht.FindProvidersAsync(helloWorldID, 1, cts.Token);
             Assert.AreNotEqual(0, providers.Count());
         }
