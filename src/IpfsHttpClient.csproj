@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard14;netstandard2;net45</TargetFrameworks>
-    <AssemblyName>Ipfs.Api</AssemblyName>
-    <RootNamespace>Ipfs.Api</RootNamespace>
+    <AssemblyName>Ipfs.Http.Client</AssemblyName>
+    <RootNamespace>Ipfs.Http</RootNamespace>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <DebugType>full</DebugType>
     
@@ -12,14 +12,12 @@
     <Version>0.42</Version>
     
     <!-- Nuget specs -->
-    <PackageId>Ipfs.Api</PackageId>
+    <PackageId>Ipfs.Http.Client</PackageId>
     <Authors>Richard Schneider</Authors>
-    <Title>IPFS API</Title>
+    <Title>IPFS HTTP Client</Title>
     <Description> Provides .Net client access to the InterPlanetary File System.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>
-      This is the last release under this name.  Please use the new name Ipfs.Http.Client
-    </PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/richardschneider/net-ipfs-api/releases</PackageReleaseNotes>
     <Copyright>© 2015-2018 Richard Schneider</Copyright>
     <PackageTags>ipfs peer-to-peer distributed file-system</PackageTags>
     <IncludeSymbols>True</IncludeSymbols>

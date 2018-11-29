@@ -13,7 +13,7 @@ using System.Net.Http.Headers;
 using System.Threading;
 using Ipfs.CoreApi;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
     /// <summary>
     ///   A client that allows access to the InterPlanetary File System (IPFS).

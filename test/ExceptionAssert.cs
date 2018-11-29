@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
     /// <summary>
     ///   Asserting an <see cref="Exception"/>.

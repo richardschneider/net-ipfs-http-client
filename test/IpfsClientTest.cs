@@ -1,10 +1,10 @@
-﻿using Ipfs.Api;
+﻿using Ipfs.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Net.Http;
 using System.Threading;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
     
     /// <summary>

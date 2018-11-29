@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Ipfs.CoreApi;
 using System.IO;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
 
     class DnsApi : IDnsApi

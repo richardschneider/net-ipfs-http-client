@@ -8,7 +8,7 @@ using System.IO;
 using System.Net;
 using System.Threading;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
     /// <summary>
     ///   A list of trusted peers.

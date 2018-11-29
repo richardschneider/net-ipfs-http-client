@@ -1,4 +1,4 @@
-﻿using Ipfs.Api;
+﻿using Ipfs.Http;
 using Ipfs.CoreApi;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
     [TestClass]
     public class FileSystemApiTest

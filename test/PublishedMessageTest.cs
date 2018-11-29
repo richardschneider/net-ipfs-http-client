@@ -1,10 +1,10 @@
-﻿using Ipfs.Api;
+﻿using Ipfs.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
 using System.IO;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
     
     [TestClass]

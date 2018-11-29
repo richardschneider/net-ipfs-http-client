@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Runtime.Serialization;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
     /// <summary>
     ///   The IPFS <see href="https://github.com/ipfs/specs/tree/master/merkledag">MerkleDag</see> is the datastructure at the heart of IPFS. It is an acyclic directed graph whose edges are hashes.

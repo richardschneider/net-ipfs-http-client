@@ -2,7 +2,7 @@
 
 [![build status](https://ci.appveyor.com/api/projects/status/github/richardschneider/net-ipfs-api?branch=master&svg=true)](https://ci.appveyor.com/project/richardschneider/net-ipfs-api) 
 [![Coverage Status](https://coveralls.io/repos/github/richardschneider/net-ipfs-api/badge.svg?branch=master)](https://coveralls.io/github/richardschneider/net-ipfs-api?branch=master)
-[![Version](https://img.shields.io/nuget/v/Ipfs.Api.svg)](https://www.nuget.org/packages/Ipfs.Api)
+[![Version](https://img.shields.io/nuget/v/Ipfs.Http.svg)](https://www.nuget.org/packages/Ipfs.Http)
 [![docs](https://cdn.rawgit.com/richardschneider/net-ipfs-api/master/doc/images/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-api/articles/client.html)
 
 
@@ -37,13 +37,11 @@ More information, including the Class Reference, is on the [Project](https://ric
 
 Published releases of IPFS API are available on [NuGet](https://www.nuget.org/packages/ipfs.api/).  To install, run the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console).
 
-    PM> Install-Package Ipfs.Api
+    PM> Install-Package Ipfs.Http.Client
     
-For the latest build or older non-released builds see [Continuous Integration](https://github.com/richardschneider/net-ipfs-core/wiki/Continuous-Integration).
-
 ## IpfsClient
 
-Every IPFS Api is a property of the [IpfsClient](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Api.IpfsClient.html).  The following example reads a text file
+Every IPFS Api is a property of the [IpfsClient](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Http.IpfsClient.html).  The following example reads a text file
 
 ```csharp
 var ipfs = new IpfsClient();

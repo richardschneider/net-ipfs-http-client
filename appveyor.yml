@@ -55,7 +55,7 @@ build_script:
   - dotnet pack -c %CONFIGURATION% --no-build --no-restore -p:Version=%GitVersion_MajorMinorPatch% -p:AssemblyVersion=%GitVersion_MajorMinorPatch%
 
 after_build:
-  - cmd: appveyor PushArtifact "src\bin\%CONFIGURATION%\Ipfs.Http.%GitVersion_MajorMinorPatch%.nupkg"
+  - cmd: appveyor PushArtifact "src\bin\%CONFIGURATION%\Ipfs.Http.Client.%GitVersion_MajorMinorPatch%.nupkg"
 # Build documentation in doc\_site
 # See https://github.com/dotnet/docfx/issues/1752#issuecomment-308909959
   - set MSBUILD_EXE_PATH=C:\Program Files\dotnet\sdk\2.0.0\MSBuild.dll

@@ -10,7 +10,7 @@ using System.Threading;
 using Ipfs.CoreApi;
 using Newtonsoft.Json.Linq;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
     public partial class IpfsClient : IGenericApi
     {

@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Ipfs.CoreApi;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
 
     class PinApi : IPinApi

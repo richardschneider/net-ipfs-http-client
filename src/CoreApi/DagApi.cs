@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Ipfs.CoreApi;
 using System.Globalization;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
 
     class DagApi : IDagApi

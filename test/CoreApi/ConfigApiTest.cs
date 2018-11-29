@@ -1,11 +1,11 @@
-﻿using Ipfs.Api;
+﻿using Ipfs.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
 
     [TestClass]

@@ -1,9 +1,9 @@
-﻿using Ipfs.Api;
+﻿using Ipfs.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
     
     public partial class IpfsClientTest
