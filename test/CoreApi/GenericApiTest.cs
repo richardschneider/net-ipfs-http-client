@@ -21,21 +21,8 @@ namespace Ipfs.Api
         public async Task Peer_Node_Info()
         {
             var ipfs = TestFixture.Ipfs;
-            Peer node;
-            var peers = await ipfs.Bootstrap.ListAsync();
-            foreach (var peer in peers)
-            {
-                try
-                {
-                    node = await ipfs.IdAsync(peer.PeerId);
-                }
-                catch (Exception)
-                {
-                    continue;
-                }
-                Assert.IsInstanceOfType(node, typeof(Peer));
-                return;
-            }
+            var mars = await ipfs.IdAsync("QmSoLMeWqB7YGVLJN3pNLQpmmEk35v6wYtsMGLzSr5QBU3");
+            Assert.IsNotNull(mars);
         }
 
         [TestMethod]

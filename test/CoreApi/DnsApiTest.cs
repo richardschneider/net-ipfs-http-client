@@ -25,7 +25,8 @@ namespace Ipfs.Api
         public async Task Resolve()
         {
             IpfsClient ipfs = TestFixture.Ipfs;
-            var path = await ipfs.Dns.ResolveAsync("ipfs.io", recursive: true);
+            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+            var path = await ipfs.Dns.ResolveAsync("ipfs.io", recursive: true, cancel: cts.Token);
             StringAssert.StartsWith(path, "/ipfs/");
         }
 
