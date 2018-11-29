@@ -113,7 +113,7 @@ namespace Ipfs.Http
         [TestMethod]
         public async Task Get_Nonexistent()
         {
-            var data = Encoding.UTF8.GetBytes("Some data for net-ipfs-api-test that cannot be found");
+            var data = Encoding.UTF8.GetBytes("Some data for net-ipfs-http-client-test that cannot be found");
             var node = new DagNode(data);
             var id = node.Id;
             var cs = new CancellationTokenSource(500);

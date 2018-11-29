@@ -1,23 +1,23 @@
 # net-ipfs-http-client
 
-[![build status](https://ci.appveyor.com/api/projects/status/github/richardschneider/net-ipfs-api?branch=master&svg=true)](https://ci.appveyor.com/project/richardschneider/net-ipfs-api) 
-[![Coverage Status](https://coveralls.io/repos/github/richardschneider/net-ipfs-api/badge.svg?branch=master)](https://coveralls.io/github/richardschneider/net-ipfs-api?branch=master)
+[![build status](https://ci.appveyor.com/api/projects/status/github/richardschneider/net-ipfs-http-client?branch=master&svg=true)](https://ci.appveyor.com/project/richardschneider/net-ipfs-http-client) 
+[![Coverage Status](https://coveralls.io/repos/github/richardschneider/net-ipfs-http-client/badge.svg?branch=master)](https://coveralls.io/github/richardschneider/net-ipfs-http-client?branch=master)
 [![Version](https://img.shields.io/nuget/v/Ipfs.Http.svg)](https://www.nuget.org/packages/Ipfs.Http)
-[![docs](https://cdn.rawgit.com/richardschneider/net-ipfs-api/master/doc/images/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-api/articles/client.html)
+[![docs](https://cdn.rawgit.com/richardschneider/net-ipfs-http-client/master/doc/images/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-http-client/articles/client.html)
 
 
 A .Net client library for managing IPFS using the HTTP API protocol. 
-More information, including the Class Reference, is on the [Project](https://richardschneider.github.io/net-ipfs-api/) web site.
+More information, including the Class Reference, is on the [Project](https://richardschneider.github.io/net-ipfs-http-client/) web site.
 
 ![](https://ipfs.io/ipfs/QmQJ68PFMDdAsgCZvA1UVzzn18asVcf7HVvCDgpjiSCAse)
 
 ## Features
 
 - Targets .NET Framework 4.5, .NET Standard 1.4 and .NET Standard 2.0
-- [Asynchronous I/O](https://richardschneider.github.io/net-ipfs-api/articles/async.html) to an IPFS server
-- Supports [cancellation](https://richardschneider.github.io/net-ipfs-api/articles/cancellation.html) of all requests to the IPFS Server
+- [Asynchronous I/O](https://richardschneider.github.io/net-ipfs-http-client/articles/async.html) to an IPFS server
+- Supports [cancellation](https://richardschneider.github.io/net-ipfs-http-client/articles/cancellation.html) of all requests to the IPFS Server
 - Requests that all responses are compressed
-- Comprehensive [documentation](https://richardschneider.github.io/net-ipfs-api/articles/client.html)
+- Comprehensive [documentation](https://richardschneider.github.io/net-ipfs-http-client/articles/client.html)
 - C# style access to the [ipfs core interface](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.html)
   - [Bitswap API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBitswapApi.html)
   - [Block API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IBlockApi.html)
@@ -41,7 +41,7 @@ Published releases of IPFS API are available on [NuGet](https://www.nuget.org/pa
     
 ## IpfsClient
 
-Every feature of IPFS is a property of the [IpfsClient](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Http.IpfsClient.html).  The following example 
+Every feature of IPFS is a property of the [IpfsClient](https://richardschneider.github.io/net-ipfs-http-client/api/Ipfs.Http.IpfsClient.html).  The following example 
 uses `FileSystem` to read a text file
 
 ```csharp
@@ -56,4 +56,4 @@ string text = await ipfs.FileSystem.ReadAllTextAsync(filename);
 # License
 Copyright © 2015-2018 Richard Schneider (makaretu@gmail.com)
 
-The IPFS API library is licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php "Read more about the MIT license form") license. Refer to the [LICENSE](https://github.com/richardschneider/net-ipfs-api/blob/master/LICENSE) file for more information.
+The IPFS API library is licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php "Read more about the MIT license form") license. Refer to the [LICENSE](https://github.com/richardschneider/net-ipfs-http-client/blob/master/LICENSE) file for more information.

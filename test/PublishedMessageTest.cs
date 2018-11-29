@@ -14,7 +14,7 @@ namespace Ipfs.Http
  ""from"":""EiDzOYdzT4BE42JXwxVM8Q19w6tx30Bp2N3T7tOH/a2nCw=="",
  ""data"":""aGVsbG8gd29ybGQ="",
  ""seqno"":""FPBVj+oTUug="",
- ""topicIDs"":[""net-ipfs-api-test""]
+ ""topicIDs"":[""net-ipfs-http-client-test""]
 }";
 
         [TestMethod]
@@ -25,7 +25,7 @@ namespace Ipfs.Http
             Assert.AreEqual("14f0558fea1352e8", msg.SequenceNumber.ToHexString());
             Assert.AreEqual("68656c6c6f20776f726c64", msg.DataBytes.ToHexString());
             Assert.AreEqual("hello world", msg.DataString);
-            CollectionAssert.Contains(msg.Topics.ToArray(), "net-ipfs-api-test");
+            CollectionAssert.Contains(msg.Topics.ToArray(), "net-ipfs-http-client-test");
 
             var data = msg.DataBytes;
             var streamData = new MemoryStream();
