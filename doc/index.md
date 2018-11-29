@@ -1,4 +1,4 @@
-# IPFS API
+# IPFS HTTP Client
 
 A .Net client library to access the IPFS, it implements the [IPFS Core API](https://github.com/ipfs/interface-ipfs-core). 
 The source code is on [GitHub](https://github.com/richardschneider/net-ipfs-http-client) and the 
