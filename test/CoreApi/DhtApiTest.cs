@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ipfs.Api
@@ -17,29 +18,17 @@ namespace Ipfs.Api
         public async Task FindPeer()
         {
             var ipfs = TestFixture.Ipfs;
-            Peer node;
-            foreach (var peer in await ipfs.Bootstrap.ListAsync())
-            {
-                try
-                {
-                    node = await ipfs.Dht.FindPeerAsync(peer.PeerId);
-                }
-                catch (Exception)
-                {
-                    continue;
-                }
-
-                // If DHT can't find a peer, it will return a 'closer' peer.
-                Assert.IsNotNull(peer);
-                break;
-            }
+            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+            var mars = await ipfs.Dht.FindPeerAsync("QmSoLMeWqB7YGVLJN3pNLQpmmEk35v6wYtsMGLzSr5QBU3", cts.Token);
+            Assert.IsNotNull(mars);
         }
 
         [TestMethod]
         public async Task FindProviders()
         {
             var ipfs = TestFixture.Ipfs;
-            var providers = await ipfs.Dht.FindProvidersAsync(helloWorldID);
+            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+            var providers = await ipfs.Dht.FindProvidersAsync(helloWorldID, 1, cts.Token);
             Assert.AreNotEqual(0, providers.Count());
         }
 
