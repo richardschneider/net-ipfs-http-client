@@ -2,7 +2,7 @@
 
 [![build status](https://ci.appveyor.com/api/projects/status/github/richardschneider/net-ipfs-api?branch=master&svg=true)](https://ci.appveyor.com/project/richardschneider/net-ipfs-api) 
 [![Coverage Status](https://coveralls.io/repos/github/richardschneider/net-ipfs-http-client/badge.svg?branch=master)](https://coveralls.io/github/richardschneider/net-ipfs-http-client?branch=master)
-[![Version](https://img.shields.io/nuget/v/Ipfs.Http.svg)](https://www.nuget.org/packages/Ipfs.Http)
+[![Version](https://img.shields.io/nuget/v/Ipfs.Http.Client.svg)](https://www.nuget.org/packages/Ipfs.Http.Client)
 [![docs](https://img.shields.io/badge/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-http-client/articles/client.html)
 
 
@@ -39,6 +39,10 @@ Published releases of IPFS API are available on [NuGet](https://www.nuget.org/pa
 
     PM> Install-Package Ipfs.Http.Client
     
+Or using [dotnet](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet?tabs=netcore21)
+
+    > dotnet add package Ipfs.Http.Client
+
 ## IpfsClient
 
 Every feature of IPFS is a property of the [IpfsClient](https://richardschneider.github.io/net-ipfs-http-client/api/Ipfs.Http.IpfsClient.html).  The following example 
