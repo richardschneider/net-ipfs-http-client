@@ -30,6 +30,7 @@ environment:
 
 # tools we need for bulding/testing/deploying
 install:
+  - dotnet --info
   - choco install gitversion.portable -y
   - nuget update -self
   - choco install docfx -y
