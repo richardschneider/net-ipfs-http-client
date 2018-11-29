@@ -1,4 +1,4 @@
-# net-ipfs-api
+# net-ipfs-http-client
 
 [![build status](https://ci.appveyor.com/api/projects/status/github/richardschneider/net-ipfs-api?branch=master&svg=true)](https://ci.appveyor.com/project/richardschneider/net-ipfs-api) 
 [![Coverage Status](https://coveralls.io/repos/github/richardschneider/net-ipfs-api/badge.svg?branch=master)](https://coveralls.io/github/richardschneider/net-ipfs-api?branch=master)
@@ -6,7 +6,7 @@
 [![docs](https://cdn.rawgit.com/richardschneider/net-ipfs-api/master/doc/images/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-api/articles/client.html)
 
 
-A .Net client library for the IPFS HTTP API, implemented in C#. 
+A .Net client library for managing IPFS using the HTTP API protocol. 
 More information, including the Class Reference, is on the [Project](https://richardschneider.github.io/net-ipfs-api/) web site.
 
 ![](https://ipfs.io/ipfs/QmQJ68PFMDdAsgCZvA1UVzzn18asVcf7HVvCDgpjiSCAse)
@@ -41,9 +41,12 @@ Published releases of IPFS API are available on [NuGet](https://www.nuget.org/pa
     
 ## IpfsClient
 
-Every IPFS Api is a property of the [IpfsClient](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Http.IpfsClient.html).  The following example reads a text file
+Every feature of IPFS is a property of the [IpfsClient](https://richardschneider.github.io/net-ipfs-api/api/Ipfs.Http.IpfsClient.html).  The following example 
+uses `FileSystem` to read a text file
 
 ```csharp
+using Ipfs.Http;
+
 var ipfs = new IpfsClient();
 
 const string filename = "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about";
