@@ -3,7 +3,7 @@
 [![build status](https://ci.appveyor.com/api/projects/status/github/richardschneider/net-ipfs-http-client?branch=master&svg=true)](https://ci.appveyor.com/project/richardschneider/net-ipfs-http-client) 
 [![Coverage Status](https://coveralls.io/repos/github/richardschneider/net-ipfs-http-client/badge.svg?branch=master)](https://coveralls.io/github/richardschneider/net-ipfs-http-client?branch=master)
 [![Version](https://img.shields.io/nuget/v/Ipfs.Http.svg)](https://www.nuget.org/packages/Ipfs.Http)
-[![docs](https://cdn.rawgit.com/richardschneider/net-ipfs-http-client/master/doc/images/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-http-client/articles/client.html)
+[![docs](https://img.shields.io/badge/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-http-client/articles/client.html)
 
 
 A .Net client library for managing IPFS using the HTTP API protocol. 
@@ -35,7 +35,7 @@ More information, including the Class Reference, is on the [Project](https://ric
 
 ## Getting started
 
-Published releases of IPFS API are available on [NuGet](https://www.nuget.org/packages/ipfs.api/).  To install, run the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console).
+Published releases of IPFS API are available on [NuGet](https://www.nuget.org/packages/ipfs.http.client/).  To install, run the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console).
 
     PM> Install-Package Ipfs.Http.Client
     
