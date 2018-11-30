@@ -17,12 +17,12 @@
     <Title>IPFS HTTP Client</Title>
     <Description> Provides .Net client access to the InterPlanetary File System.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>https://github.com/richardschneider/net-ipfs-api/releases</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/richardschneider/net-ipfs-http-client/releases</PackageReleaseNotes>
     <Copyright>© 2015-2018 Richard Schneider</Copyright>
     <PackageTags>ipfs peer-to-peer distributed file-system</PackageTags>
     <IncludeSymbols>True</IncludeSymbols>
-    <PackageLicenseUrl>https://github.com/richardschneider/net-ipfs-api/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/richardschneider/net-ipfs-api</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/richardschneider/net-ipfs-http-client/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/richardschneider/net-ipfs-http-client</PackageProjectUrl>
     <PackageIconUrl>https://github.com/ipfs/logo/blob/master/platform-icons/osx-menu-bar.png</PackageIconUrl>
   </PropertyGroup>
 
