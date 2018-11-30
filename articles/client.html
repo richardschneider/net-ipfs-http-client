@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Accessing IPFS | IPFS API documentation </title>
+    <title>Accessing IPFS | IPFS HTP Client documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Accessing IPFS | IPFS API documentation ">
+    <meta name="title" content="Accessing IPFS | IPFS HTP Client documentation ">
     <meta name="generator" content="docfx 2.40.4.0">
     
     <link rel="shortcut icon" href="../images/ipfs-favicon.ico">
@@ -71,7 +71,7 @@
 
 <p>IPFS is a distributed peer to peer system.  There is no central server!  Typically, each machine (peer) runs 
 a <a href="daemon.html">daemon</a> that communicates with other peers.</p>
-<p>The <a class="xref" href="../api/Ipfs.Api.IpfsClient.html">IpfsClient</a> provides a simple way for your program to access the daemon 
+<p>The <a class="xref" href="../api/Ipfs.Http.IpfsClient.html">IpfsClient</a> provides a simple way for your program to access the daemon 
 via the <a href="https://docs.ipfs.io/reference/api/http/">IPFS HTTP API</a> protocol. The client 
 should be used as a shared object in your program, much like <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(v=vs.110).aspx">HttpClient</a>.  It is 
 thread safe (re-entrant) and conserves sockets and TCP connections when only one instance is used.</p>
@@ -168,7 +168,7 @@ string text = await ipfs.FileSystem.ReadAllTextAsync(filename);
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/richardschneider/net-ipfs-api/blob/master/doc/articles/client.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/doc/articles/client.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
