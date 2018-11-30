@@ -25,7 +25,7 @@ the token is cancelled,
 a [TaskCanceledException](xref:System.Threading.Tasks.TaskCanceledException) 
 will be `thrown`.
 
-Here's a contrived example ([unit test](https://github.com/richardschneider/net-ipfs-api/blob/cancellation/test/CoreApi/CancellationTest.cs)) 
+Here's a contrived example ([unit test](https://github.com/richardschneider/net-ipfs-http-client/blob/cancellation/test/CoreApi/CancellationTest.cs)) 
 that forces the getting of info on the local IPFS server to be cancelled
 
 ```csharp

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
     public static class TestFixture
     {

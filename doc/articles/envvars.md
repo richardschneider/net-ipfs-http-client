@@ -5,4 +5,4 @@ are used  to control the behaviour of the library.  They override the default va
 
 | Name | Description |
 | --- | --- |
-| IpfsHttpUrl | The [default URL](xref:Ipfs.Api.IpfsClient.DefaultApiUri) to the IPFS HTTP API [daemon](daemon.md).
+| IpfsHttpUrl | The [default URL](xref:Ipfs.Http.IpfsClient.DefaultApiUri) to the IPFS HTTP API [daemon](daemon.md).

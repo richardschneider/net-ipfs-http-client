@@ -1,5 +1,5 @@
 ﻿
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
     /// <summary>
     ///     A link to another file system node in IPFS.

@@ -1,4 +1,4 @@
-﻿using Ipfs.Api;
+﻿using Ipfs.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json.Linq;
 using System;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
 
     [TestClass]
@@ -25,7 +25,7 @@ namespace Ipfs.Api
         public async Task Peers()
         {
             var ipfs = TestFixture.Ipfs;
-            var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
+            var topic = "net-ipfs-http-client-test-" + Guid.NewGuid().ToString();
             var cs = new CancellationTokenSource();
             try
             {
@@ -43,7 +43,7 @@ namespace Ipfs.Api
         public void Peers_Unknown_Topic()
         {
             var ipfs = TestFixture.Ipfs;
-            var topic = "net-ipfs-api-test-unknown" + Guid.NewGuid().ToString();
+            var topic = "net-ipfs-http-client-test-unknown" + Guid.NewGuid().ToString();
             var peers = ipfs.PubSub.PeersAsync(topic).Result.ToArray();
             Assert.AreEqual(0, peers.Length);
         }
@@ -52,7 +52,7 @@ namespace Ipfs.Api
         public async Task Subscribed_Topics()
         {
             var ipfs = TestFixture.Ipfs;
-            var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
+            var topic = "net-ipfs-http-client-test-" + Guid.NewGuid().ToString();
             var cs = new CancellationTokenSource();
             try
             {
@@ -74,7 +74,7 @@ namespace Ipfs.Api
         {
             messageCount = 0;
             var ipfs = TestFixture.Ipfs;
-            var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
+            var topic = "net-ipfs-http-client-test-" + Guid.NewGuid().ToString();
             var cs = new CancellationTokenSource();
             try
             {
@@ -99,7 +99,7 @@ namespace Ipfs.Api
             messageCount = 0;
             var messages = "hello world this is pubsub".Split();
             var ipfs = TestFixture.Ipfs;
-            var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
+            var topic = "net-ipfs-http-client-test-" + Guid.NewGuid().ToString();
             var cs = new CancellationTokenSource();
             try
             {
@@ -127,7 +127,7 @@ namespace Ipfs.Api
             messageCount = 0;
             var messages = "hello world this is pubsub".Split();
             var ipfs = TestFixture.Ipfs;
-            var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
+            var topic = "net-ipfs-http-client-test-" + Guid.NewGuid().ToString();
             var cs = new CancellationTokenSource();
             Action<IPublishedMessage> processMessage = (msg) => 
             {
@@ -158,7 +158,7 @@ namespace Ipfs.Api
         {
             messageCount1 = 0;
             var ipfs = TestFixture.Ipfs;
-            var topic = "net-ipfs-api-test-" + Guid.NewGuid().ToString();
+            var topic = "net-ipfs-http-client-test-" + Guid.NewGuid().ToString();
             var cs = new CancellationTokenSource();
             await ipfs.PubSub.SubscribeAsync(topic, msg =>
             {

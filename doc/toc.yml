@@ -1,4 +1,6 @@
 - name: Articles
   href: articles/
-- name: Api Documentation
+- name: Classes
   href: api/
+- name: Github
+  href: https://github.com/richardschneider/net-ipfs-http-client

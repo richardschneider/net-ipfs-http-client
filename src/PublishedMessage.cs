@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
     /// <summary>
     ///   A published message.

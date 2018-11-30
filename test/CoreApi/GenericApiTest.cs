@@ -4,7 +4,7 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
     [TestClass]
     public class GenericApiTest

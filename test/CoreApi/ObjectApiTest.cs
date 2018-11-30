@@ -1,4 +1,4 @@
-﻿using Ipfs.Api;
+﻿using Ipfs.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json.Linq;
 using System;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Ipfs.Api
+namespace Ipfs.Http
 {
 
     [TestClass]
@@ -113,7 +113,7 @@ namespace Ipfs.Api
         [TestMethod]
         public async Task Get_Nonexistent()
         {
-            var data = Encoding.UTF8.GetBytes("Some data for net-ipfs-api-test that cannot be found");
+            var data = Encoding.UTF8.GetBytes("Some data for net-ipfs-http-client-test that cannot be found");
             var node = new DagNode(data);
             var id = node.Id;
             var cs = new CancellationTokenSource(500);
