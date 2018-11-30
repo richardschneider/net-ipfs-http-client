@@ -1,6 +1,6 @@
 # net-ipfs-http-client
 
-[![build status](https://ci.appveyor.com/api/projects/status/github/richardschneider/net-ipfs-api?branch=master&svg=true)](https://ci.appveyor.com/project/richardschneider/net-ipfs-api) 
+[![build status](https://ci.appveyor.com/api/projects/status/github/richardschneider/net-ipfs-http-client?branch=master&svg=true)](https://ci.appveyor.com/project/richardschneider/net-ipfs-http-client) 
 [![Coverage Status](https://coveralls.io/repos/github/richardschneider/net-ipfs-http-client/badge.svg?branch=master)](https://coveralls.io/github/richardschneider/net-ipfs-http-client?branch=master)
 [![Version](https://img.shields.io/nuget/v/Ipfs.Http.Client.svg)](https://www.nuget.org/packages/Ipfs.Http.Client)
 [![docs](https://img.shields.io/badge/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-http-client/articles/client.html)
