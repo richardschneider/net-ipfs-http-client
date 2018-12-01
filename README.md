@@ -6,7 +6,7 @@
 [![docs](https://img.shields.io/badge/docs-latest-green.svg)](https://richardschneider.github.io/net-ipfs-http-client/articles/client.html)
 
 
-A .Net client library for managing IPFS using the HTTP API protocol. 
+A .Net client library for managing IPFS using the [HTTP API](https://docs.ipfs.io/reference/api/http/) protocol. 
 More information, including the Class Reference, is on the [Project](https://richardschneider.github.io/net-ipfs-http-client/) web site.
 
 ![](https://ipfs.io/ipfs/QmQJ68PFMDdAsgCZvA1UVzzn18asVcf7HVvCDgpjiSCAse)
