@@ -78,6 +78,7 @@ namespace Ipfs.Http
             Generic = this;
             Name = new NameApi(this);
             Dns = new DnsApi(this);
+            Stats = new StatApi(this);
         }
 
         /// <summary>
@@ -127,6 +128,9 @@ namespace Ipfs.Http
 
         /// <inheritdoc />
         public IDnsApi Dns { get; private set; }
+
+        /// <inheritdoc />
+        public IStatsApi Stats { get; private set; }
 
         /// <inheritdoc />
         public INameApi Name { get; private set; }
