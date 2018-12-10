@@ -274,6 +274,36 @@ namespace Ipfs.Http
             }
         }
 
+        [TestMethod]
+        public async Task GetTar_EmptyDirectory()
+        {
+            var ipfs = TestFixture.Ipfs;
+            var temp = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+            Directory.CreateDirectory(temp);
+            try
+            {
+                var dir = ipfs.FileSystem.AddDirectoryAsync(temp, true).Result;
+                var dirid = dir.Id.Encode();
+
+                using (var tar = await ipfs.FileSystem.GetAsync(dir.Id))
+                {
+                    var buffer = new byte[3 * 512];
+                    var offset = 0;
+                    while (offset < buffer.Length)
+                    {
+                        var n = await tar.ReadAsync(buffer, offset, buffer.Length - offset);
+                        Assert.IsTrue(n > 0);
+                        offset += n;
+                    }
+                    Assert.AreEqual(-1, tar.ReadByte());
+                }
+            }
+            finally
+            {
+                DeleteTemp(temp);
+            }
+        }
+
         void DeleteTemp(string temp)
         {
             while (true)

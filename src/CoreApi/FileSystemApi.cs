@@ -237,5 +237,9 @@ namespace Ipfs.Http
             return node;
         }
 
+        public Task<Stream> GetAsync(string path, bool compress = false, CancellationToken cancel = default(CancellationToken))
+        {
+            return ipfs.DownloadAsync("get", cancel, path, $"compress={compress}");
+        }
     }
 }

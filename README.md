@@ -31,6 +31,7 @@ More information, including the Class Reference, is on the [Project](https://ric
   - [Object API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IObjectApi.html)
   - [Pin API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IPinApi.html)
   - [PubSub API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IPubSubApi.html)
+  - [Stats API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IStatsApi.html)
   - [Swarm API](https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.ISwarmApi.html)
 
 ## Getting started

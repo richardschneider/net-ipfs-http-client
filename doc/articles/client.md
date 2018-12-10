@@ -48,5 +48,6 @@ string text = await ipfs.FileSystem.ReadAllTextAsync(filename);
 | [Object](xref:Ipfs.CoreApi.IObjectApi) | Manages the IPFS Directed Acrylic Graph |
 | [Pin](xref:Ipfs.CoreApi.IPinApi) | Manage objects that are locally stored and permanent |
 | [PubSub](xref:Ipfs.CoreApi.IPubSubApi) | Publish and subscribe to topic messages |
+| [Swarm](xref:Ipfs.CoreApi.IStatsApi) | Get statistics on IPFS components |
 | [Swarm](xref:Ipfs.CoreApi.ISwarmApi) | Manages the swarm of peers |
 
