@@ -584,6 +584,19 @@ references:
   isSpec: "True"
   fullName: Ipfs.Http.IpfsClient.ShutdownAsync
   nameWithType: IpfsClient.ShutdownAsync
+- uid: Ipfs.Http.IpfsClient.Stats
+  name: Stats
+  href: api/Ipfs.Http.IpfsClient.html#Ipfs_Http_IpfsClient_Stats
+  commentId: P:Ipfs.Http.IpfsClient.Stats
+  fullName: Ipfs.Http.IpfsClient.Stats
+  nameWithType: IpfsClient.Stats
+- uid: Ipfs.Http.IpfsClient.Stats*
+  name: Stats
+  href: api/Ipfs.Http.IpfsClient.html#Ipfs_Http_IpfsClient_Stats_
+  commentId: Overload:Ipfs.Http.IpfsClient.Stats
+  isSpec: "True"
+  fullName: Ipfs.Http.IpfsClient.Stats
+  nameWithType: IpfsClient.Stats
 - uid: Ipfs.Http.IpfsClient.Swarm
   name: Swarm
   href: api/Ipfs.Http.IpfsClient.html#Ipfs_Http_IpfsClient_Swarm
