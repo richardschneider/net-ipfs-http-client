@@ -59,6 +59,8 @@ namespace Ipfs.Http
                 opts.Add($"hash=${options.Hash}");
             if (options.Encoding != MultiBase.DefaultAlgorithmName)
                 opts.Add($"cid-base=${options.Encoding}");
+            if (!string.IsNullOrWhiteSpace(options.ProtectionKey))
+                opts.Add($"protect={options.ProtectionKey}");
             opts.Add($"chunker=size-{options.ChunkSize}");
 
             var json = await ipfs.UploadAsync("add", cancel, stream, name, opts.ToArray());
