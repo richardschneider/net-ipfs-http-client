@@ -304,6 +304,43 @@ namespace Ipfs.Http
             }
         }
 
+
+        [TestMethod]
+        public async Task AddFile_WithProgress()
+        {
+            var path = Path.GetTempFileName();
+            File.WriteAllText(path, "hello world");
+            try
+            {
+                var ipfs = TestFixture.Ipfs;
+                var bytesTransferred = 0UL;
+                var options = new AddFileOptions
+                {
+                    Progress = new Progress<TransferProgress>(t =>
+                    {
+                        Console.WriteLine("got it");
+                        bytesTransferred += t.Bytes;
+                    })
+                };
+                var result = await ipfs.FileSystem.AddFileAsync(path, options);
+                Assert.AreEqual("Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD", (string)result.Id);
+
+                // Progress reports get posted on another synchronisation context.
+                var stop = DateTime.Now.AddSeconds(3);
+                while (DateTime.Now < stop)
+                {
+                    if (bytesTransferred == 11UL)
+                        break;
+                    await Task.Delay(10);
+                }
+                Assert.AreEqual(11UL, bytesTransferred);
+            }
+            finally
+            {
+                File.Delete(path);
+            }
+        }
+
         void DeleteTemp(string temp)
         {
             while (true)

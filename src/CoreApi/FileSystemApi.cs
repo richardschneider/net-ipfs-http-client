@@ -55,6 +55,8 @@ namespace Ipfs.Http
                 opts.Add("only-hash=true");
             if (options.Trickle)
                 opts.Add("trickle=true");
+            if (options.Progress != null)
+                opts.Add("progress=true");
             if (options.Hash != MultiHash.DefaultAlgorithmName)
                 opts.Add($"hash=${options.Hash}");
             if (options.Encoding != MultiBase.DefaultAlgorithmName)
@@ -74,16 +76,32 @@ namespace Ipfs.Http
                 while (jr.Read())
                 {
                     var r = await JObject.LoadAsync(jr, cancel);
-                    fsn = new FileSystemNode
+
+                    // If a progress report.
+                    if (r.ContainsKey("Bytes"))
                     {
-                        Id = (string)r["Hash"],
-                        Size = long.Parse((string)r["Size"]),
-                        IsDirectory = false,
-                        Name = name,
-                        IpfsClient = ipfs
-                    };
-                    if (log.IsDebugEnabled)
-                        log.Debug("added " + fsn.Id + " " + fsn.Name);
+                        Console.WriteLine("progress");
+                        options.Progress?.Report(new TransferProgress
+                        {
+                            Name = (string)r["Name"],
+                            Bytes = (ulong)r["Bytes"]
+                        });
+                    }
+
+                    // Else must be an added file.
+                    else
+                    {
+                        fsn = new FileSystemNode
+                        {
+                            Id = (string)r["Hash"],
+                            Size = long.Parse((string)r["Size"]),
+                            IsDirectory = false,
+                            Name = name,
+                            IpfsClient = ipfs
+                        };
+                        if (log.IsDebugEnabled)
+                            log.Debug("added " + fsn.Id + " " + fsn.Name);
+                    }
                 }
             }
 
