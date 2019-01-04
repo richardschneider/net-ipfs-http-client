@@ -318,7 +318,6 @@ namespace Ipfs.Http
                 {
                     Progress = new Progress<TransferProgress>(t =>
                     {
-                        Console.WriteLine("got it");
                         bytesTransferred += t.Bytes;
                     })
                 };

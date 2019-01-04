@@ -80,7 +80,6 @@ namespace Ipfs.Http
                     // If a progress report.
                     if (r.ContainsKey("Bytes"))
                     {
-                        Console.WriteLine("progress");
                         options.Progress?.Report(new TransferProgress
                         {
                             Name = (string)r["Name"],
