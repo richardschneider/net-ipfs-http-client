@@ -623,6 +623,22 @@ references:
   isSpec: "True"
   fullName: Ipfs.Http.IpfsClient.TrustedPeers
   nameWithType: IpfsClient.TrustedPeers
+- uid: Ipfs.Http.IpfsClient.Upload2Async(System.String,System.Threading.CancellationToken,System.IO.Stream,System.String,System.String[])
+  name: Upload2Async(String, CancellationToken, Stream, String, String[])
+  href: api/Ipfs.Http.IpfsClient.html#Ipfs_Http_IpfsClient_Upload2Async_System_String_System_Threading_CancellationToken_System_IO_Stream_System_String_System_String___
+  commentId: M:Ipfs.Http.IpfsClient.Upload2Async(System.String,System.Threading.CancellationToken,System.IO.Stream,System.String,System.String[])
+  name.vb: Upload2Async(String, CancellationToken, Stream, String, String())
+  fullName: Ipfs.Http.IpfsClient.Upload2Async(System.String, System.Threading.CancellationToken, System.IO.Stream, System.String, System.String[])
+  fullName.vb: Ipfs.Http.IpfsClient.Upload2Async(System.String, System.Threading.CancellationToken, System.IO.Stream, System.String, System.String())
+  nameWithType: IpfsClient.Upload2Async(String, CancellationToken, Stream, String, String[])
+  nameWithType.vb: IpfsClient.Upload2Async(String, CancellationToken, Stream, String, String())
+- uid: Ipfs.Http.IpfsClient.Upload2Async*
+  name: Upload2Async
+  href: api/Ipfs.Http.IpfsClient.html#Ipfs_Http_IpfsClient_Upload2Async_
+  commentId: Overload:Ipfs.Http.IpfsClient.Upload2Async
+  isSpec: "True"
+  fullName: Ipfs.Http.IpfsClient.Upload2Async
+  nameWithType: IpfsClient.Upload2Async
 - uid: Ipfs.Http.IpfsClient.UploadAsync(System.String,System.Threading.CancellationToken,System.Byte[],System.String[])
   name: UploadAsync(String, CancellationToken, Byte[], String[])
   href: api/Ipfs.Http.IpfsClient.html#Ipfs_Http_IpfsClient_UploadAsync_System_String_System_Threading_CancellationToken_System_Byte___System_String___

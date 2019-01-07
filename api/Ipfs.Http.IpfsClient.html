@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class IpfsClient
    | IPFS HTP Client documentation ">
-    <meta name="generator" content="docfx 2.40.6.0">
+    <meta name="generator" content="docfx 2.40.7.0">
     
     <link rel="shortcut icon" href="../images/ipfs-favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -1385,10 +1385,104 @@ a byte array.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_IpfsClient_Upload2Async_System_String_System_Threading_CancellationToken_System_IO_Stream_System_String_System_String___.md&amp;value=---%0Auid%3A%20Ipfs.Http.IpfsClient.Upload2Async(System.String%2CSystem.Threading.CancellationToken%2CSystem.IO.Stream%2CSystem.String%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/IpfsClient.cs/#L489">View Source</a>
+  </span>
+  <a id="Ipfs_Http_IpfsClient_Upload2Async_" data-uid="Ipfs.Http.IpfsClient.Upload2Async*"></a>
+  <h4 id="Ipfs_Http_IpfsClient_Upload2Async_System_String_System_Threading_CancellationToken_System_IO_Stream_System_String_System_String___" data-uid="Ipfs.Http.IpfsClient.Upload2Async(System.String,System.Threading.CancellationToken,System.IO.Stream,System.String,System.String[])">Upload2Async(String, CancellationToken, Stream, String, String[])</h4>
+  <div class="markdown level1 summary"><p>Perform an <a href="https://ipfs.io/docs/api/">IPFS API command</a> that
+requires uploading of a &quot;file&quot;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Stream&gt; Upload2Async(string command, CancellationToken cancel, Stream data, string name, params string[] options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><span class="parametername">command</span></td>
+        <td><p>The <a href="https://ipfs.io/docs/api/">IPFS API command</a>, such as
+<a href="https://ipfs.io/docs/api/#apiv0add">&quot;add&quot;</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>Is used to stop the task.  When cancelled, the <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> is raised.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">Stream</a></td>
+        <td><span class="parametername">data</span></td>
+        <td><p>A <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">Stream</a> containing the data to upload.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name associated with the <code data-dev-comment-type="paramref" class="paramref">data</code>, can be <strong>null</strong>.
+Typically a filename, such as &quot;hello.txt&quot;.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>[]</td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The optional flags to the command.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/dd321424(v=vs.110).aspx">Task</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">Stream</a>&gt;</td>
+        <td><p>A task that represents the asynchronous operation. The task&apos;s value is 
+the HTTP response as a <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">Stream</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.net.http.httprequestexception(v=vs.110).aspx">HttpRequestException</a></td>
+        <td><p>When the IPFS server indicates an error.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_IpfsClient_UploadAsync_System_String_System_Threading_CancellationToken_System_Byte___System_String___.md&amp;value=---%0Auid%3A%20Ipfs.Http.IpfsClient.UploadAsync(System.String%2CSystem.Threading.CancellationToken%2CSystem.Byte%5B%5D%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/IpfsClient.cs/#L465">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/IpfsClient.cs/#L510">View Source</a>
   </span>
   <a id="Ipfs_Http_IpfsClient_UploadAsync_" data-uid="Ipfs.Http.IpfsClient.UploadAsync*"></a>
   <h4 id="Ipfs_Http_IpfsClient_UploadAsync_System_String_System_Threading_CancellationToken_System_Byte___System_String___" data-uid="Ipfs.Http.IpfsClient.UploadAsync(System.String,System.Threading.CancellationToken,System.Byte[],System.String[])">UploadAsync(String, CancellationToken, Byte[], String[])</h4>
