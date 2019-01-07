@@ -65,12 +65,12 @@ namespace Ipfs.Http
                 opts.Add($"protect={options.ProtectionKey}");
             opts.Add($"chunker=size-{options.ChunkSize}");
 
-            var json = await ipfs.UploadAsync("add", cancel, stream, name, opts.ToArray());
+            var response = await ipfs.Upload2Async("add", cancel, stream, name, opts.ToArray());
 
             // The result is a stream of LDJSON objects.
             // See https://github.com/ipfs/go-ipfs/issues/4852
             FileSystemNode fsn = null;
-            using (var sr = new StringReader(json))
+            using (var sr = new StreamReader(response))
             using (var jr = new JsonTextReader(sr) { SupportMultipleContent = true })
             {
                 while (jr.Read())

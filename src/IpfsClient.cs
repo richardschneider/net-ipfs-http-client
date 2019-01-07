@@ -458,6 +458,51 @@ namespace Ipfs.Http
                 return json;
             }
         }
+        /// <summary>
+        ///   Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> that
+        ///   requires uploading of a "file".
+        /// </summary>
+        /// <param name="command">
+        ///   The <see href="https://ipfs.io/docs/api/">IPFS API command</see>, such as
+        ///   <see href="https://ipfs.io/docs/api/#apiv0add">"add"</see>.
+        /// </param>
+        /// <param name="cancel">
+        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
+        /// </param>
+        /// <param name="data">
+        ///   A <see cref="Stream"/> containing the data to upload.
+        /// </param>
+        /// <param name="name">
+        ///   The name associated with the <paramref name="data"/>, can be <b>null</b>.
+        ///   Typically a filename, such as "hello.txt".
+        /// </param>
+        /// <param name="options">
+        ///   The optional flags to the command.
+        /// </param>
+        /// <returns>
+        ///   A task that represents the asynchronous operation. The task's value is 
+        ///   the HTTP response as a <see cref="Stream"/>.
+        /// </returns>
+        /// <exception cref="HttpRequestException">
+        ///   When the IPFS server indicates an error.
+        /// </exception>
+        public async Task<Stream> Upload2Async(string command, CancellationToken cancel, Stream data, string name, params string[] options)
+        {
+            var content = new MultipartFormDataContent();
+            var streamContent = new StreamContent(data);
+            streamContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+            if (string.IsNullOrEmpty(name))
+                content.Add(streamContent, "file", unknownFilename);
+            else
+                content.Add(streamContent, "file", name);
+
+            var url = BuildCommand(command, null, options);
+            if (log.IsDebugEnabled)
+                log.Debug("POST " + url.ToString());
+            var response = await Api().PostAsync(url, content, cancel);
+            await ThrowOnErrorAsync(response);
+            return await response.Content.ReadAsStreamAsync();
+        }
 
         /// <summary>
         ///  TODO
