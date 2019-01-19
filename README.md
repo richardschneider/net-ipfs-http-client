@@ -62,3 +62,5 @@ string text = await ipfs.FileSystem.ReadAllTextAsync(filename);
 Copyright © 2015-2018 Richard Schneider (makaretu@gmail.com)
 
 The IPFS API library is licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php "Read more about the MIT license form") license. Refer to the [LICENSE](https://github.com/richardschneider/net-ipfs-http-client/blob/master/LICENSE) file for more information.
+
+<a href="https://www.buymeacoffee.com/kmXOxKJ4E" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
