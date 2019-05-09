@@ -102,6 +102,15 @@ namespace Ipfs.Http
             log.DebugFormat("Stop listening for '{0}' messages", topic);
         }
 
+        public Task PublishAsync(string topic, byte[] message, CancellationToken cancel = default(CancellationToken))
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task PublishAsync(string topic, Stream message, CancellationToken cancel = default(CancellationToken))
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

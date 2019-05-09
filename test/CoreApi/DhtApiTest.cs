@@ -28,7 +28,7 @@ namespace Ipfs.Http
         {
             var ipfs = TestFixture.Ipfs;
             var cts = new CancellationTokenSource(TimeSpan.FromMinutes(2));
-            var providers = await ipfs.Dht.FindProvidersAsync(helloWorldID, 1, cts.Token);
+            var providers = await ipfs.Dht.FindProvidersAsync(helloWorldID, 1, cancel: cts.Token);
             Assert.AreNotEqual(0, providers.Count());
         }
 
