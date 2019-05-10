@@ -42,6 +42,23 @@ namespace Ipfs.Http
             return strings.Select(s => new Peer { Id = (string)s } );
         }
 
+        public Task PublishAsync(string topic, byte[] message, CancellationToken cancel = default(CancellationToken))
+        {
+            var url = new StringBuilder();
+            url.Append("/api/v0/pubsub/pub");
+            url.Append("?arg=");
+            url.Append(System.Net.WebUtility.UrlEncode(topic));
+            url.Append("&arg=");
+            var data = Encoding.ASCII.GetString(System.Net.WebUtility.UrlEncodeToBytes(message, 0, message.Length));
+            url.Append(data);
+            return ipfs.DoCommandAsync(new Uri(ipfs.ApiUri, url.ToString()), cancel);
+        }
+
+        public Task PublishAsync(string topic, Stream message, CancellationToken cancel = default(CancellationToken))
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task PublishAsync(string topic, string message, CancellationToken cancel = default(CancellationToken))
         {
             var _ = await ipfs.DoCommandAsync("pubsub/pub", cancel, topic, "arg=" + message);
@@ -102,15 +119,6 @@ namespace Ipfs.Http
             log.DebugFormat("Stop listening for '{0}' messages", topic);
         }
 
-        public Task PublishAsync(string topic, byte[] message, CancellationToken cancel = default(CancellationToken))
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task PublishAsync(string topic, Stream message, CancellationToken cancel = default(CancellationToken))
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }

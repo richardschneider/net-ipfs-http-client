@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -172,6 +173,32 @@ namespace Ipfs.Http
             await ipfs.PubSub.PublishAsync(topic, "hello world!!!");
             await Task.Delay(1000);
             Assert.AreEqual(1, messageCount1);
+        }
+
+        [TestMethod]
+        public async Task Subscribe_BinaryMessage()
+        {
+            var messages = new List<IPublishedMessage>();
+            var expected = new byte[] { 0, 1, 2, 4, (byte)'a', (byte)'b', 0xfe, 0xff };
+            var ipfs = TestFixture.Ipfs;
+            var topic = "net-ipfs-http-client-test-" + Guid.NewGuid().ToString();
+            var cs = new CancellationTokenSource();
+            try
+            {
+                await ipfs.PubSub.SubscribeAsync(topic, msg =>
+                {
+                    messages.Add(msg);
+                }, cs.Token);
+                await ipfs.PubSub.PublishAsync(topic, expected);
+
+                await Task.Delay(1000);
+                Assert.AreEqual(1, messages.Count);
+                CollectionAssert.AreEqual(expected, messages[0].DataBytes);
+            }
+            finally
+            {
+                cs.Cancel();
+            }
         }
     }
 }
