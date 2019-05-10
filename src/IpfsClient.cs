@@ -272,6 +272,21 @@ namespace Ipfs.Http
             }
         }
 
+        internal async Task DoCommandAsync(Uri url, CancellationToken cancel)
+        {
+            if (log.IsDebugEnabled)
+                log.Debug("POST " + url.ToString());
+            using (var response = await Api().PostAsync(url, null, cancel))
+            {
+                await ThrowOnErrorAsync(response);
+                var body = await response.Content.ReadAsStringAsync();
+                if (log.IsDebugEnabled)
+                    log.Debug("RSP " + body);
+                return;
+            }
+        }
+
+
         /// <summary>
         ///   Perform an <see href="https://ipfs.io/docs/api/">IPFS API command</see> returning 
         ///   a specific <see cref="Type"/>.

@@ -29,10 +29,31 @@ namespace Ipfs.Http
             return ipfs.IdAsync(id, cancel);
         }
 
-        public async Task<IEnumerable<Peer>> FindProvidersAsync(Cid id, int limit = 20, CancellationToken cancel = default(CancellationToken))
+        public async Task<IEnumerable<Peer>> FindProvidersAsync(Cid id, int limit = 20, Action<Peer> providerFound = null, CancellationToken cancel = default(CancellationToken))
         {
+            // TODO: providerFound action
             var stream = await ipfs.PostDownloadAsync("dht/findprovs", cancel, id, $"num-providers={limit}");
             return ProviderFromStream(stream, limit);
+        }
+
+        public Task<byte[]> GetAsync(byte[] key, CancellationToken cancel = default(CancellationToken))
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ProvideAsync(Cid cid, bool advertise = true, CancellationToken cancel = default(CancellationToken))
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task PutAsync(byte[] key, out byte[] value, CancellationToken cancel = default(CancellationToken))
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> TryGetAsync(byte[] key, out byte[] value, CancellationToken cancel = default(CancellationToken))
+        {
+            throw new NotImplementedException();
         }
 
         IEnumerable<Peer> ProviderFromStream(Stream stream, int limit = int.MaxValue)

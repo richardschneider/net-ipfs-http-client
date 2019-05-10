@@ -42,6 +42,27 @@ namespace Ipfs.Http
             return strings.Select(s => new Peer { Id = (string)s } );
         }
 
+        public Task PublishAsync(string topic, byte[] message, CancellationToken cancel = default(CancellationToken))
+        {
+            var url = new StringBuilder();
+            url.Append("/api/v0/pubsub/pub");
+            url.Append("?arg=");
+            url.Append(System.Net.WebUtility.UrlEncode(topic));
+            url.Append("&arg=");
+            var data = Encoding.ASCII.GetString(System.Net.WebUtility.UrlEncodeToBytes(message, 0, message.Length));
+            url.Append(data);
+            return ipfs.DoCommandAsync(new Uri(ipfs.ApiUri, url.ToString()), cancel);
+        }
+
+        public Task PublishAsync(string topic, Stream message, CancellationToken cancel = default(CancellationToken))
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                message.CopyTo(ms);
+                return PublishAsync(topic, ms.ToArray(), cancel);
+            }
+        }
+
         public async Task PublishAsync(string topic, string message, CancellationToken cancel = default(CancellationToken))
         {
             var _ = await ipfs.DoCommandAsync("pubsub/pub", cancel, topic, "arg=" + message);
