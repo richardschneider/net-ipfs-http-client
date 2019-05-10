@@ -56,7 +56,11 @@ namespace Ipfs.Http
 
         public Task PublishAsync(string topic, Stream message, CancellationToken cancel = default(CancellationToken))
         {
-            throw new NotImplementedException();
+            using (MemoryStream ms = new MemoryStream())
+            {
+                message.CopyTo(ms);
+                return PublishAsync(topic, ms.ToArray(), cancel);
+            }
         }
 
         public async Task PublishAsync(string topic, string message, CancellationToken cancel = default(CancellationToken))
