@@ -66,6 +66,7 @@ namespace Ipfs.Http
             Bootstrap = new BootstrapApi(this);
             Bitswap = new BitswapApi(this);
             Block = new BlockApi(this);
+            BlockRepository = new BlockRepositoryApi(this);
             Config = new ConfigApi(this);
             Pin = new PinApi(this);
             Dht = new DhtApi(this);
@@ -137,6 +138,9 @@ namespace Ipfs.Http
 
         /// <inheritdoc />
         public IBlockApi Block { get; private set; }
+
+        /// <inheritdoc />
+        public IBlockRepositoryApi BlockRepository { get; private set; }
 
         /// <inheritdoc />
         public IConfigApi Config { get; private set; }

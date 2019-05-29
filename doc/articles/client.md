@@ -36,6 +36,7 @@ string text = await ipfs.FileSystem.ReadAllTextAsync(filename);
 | ------- | ------- |
 | [Bitswap](xref:Ipfs.CoreApi.IBitswapApi) | Data trading module for IPFS; requests blocks from and sends blocks to other peers |
 | [Block](xref:Ipfs.CoreApi.IBlockApi) | Manages the blocks |
+| [BlockRepository](xref:Ipfs.CoreApi.IBlockRepositoryApi) | Manages the repository of blocks |
 | [Bootstrap](xref:Ipfs.CoreApi.IBootstrapApi) | Trusted peers |
 | [Config](xref:Ipfs.CoreApi.IConfigApi) | Manages the configuration of the local peer |
 | [Dag](xref:Ipfs.CoreApi.IDagApi) | Manages the IPLD (linked data) Directed Acrylic Graph |
