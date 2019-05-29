@@ -310,6 +310,19 @@ references:
   isSpec: "True"
   fullName: Ipfs.Http.IpfsClient.Block
   nameWithType: IpfsClient.Block
+- uid: Ipfs.Http.IpfsClient.BlockRepository
+  name: BlockRepository
+  href: api/Ipfs.Http.IpfsClient.html#Ipfs_Http_IpfsClient_BlockRepository
+  commentId: P:Ipfs.Http.IpfsClient.BlockRepository
+  fullName: Ipfs.Http.IpfsClient.BlockRepository
+  nameWithType: IpfsClient.BlockRepository
+- uid: Ipfs.Http.IpfsClient.BlockRepository*
+  name: BlockRepository
+  href: api/Ipfs.Http.IpfsClient.html#Ipfs_Http_IpfsClient_BlockRepository_
+  commentId: Overload:Ipfs.Http.IpfsClient.BlockRepository
+  isSpec: "True"
+  fullName: Ipfs.Http.IpfsClient.BlockRepository
+  nameWithType: IpfsClient.BlockRepository
 - uid: Ipfs.Http.IpfsClient.Bootstrap
   name: Bootstrap
   href: api/Ipfs.Http.IpfsClient.html#Ipfs_Http_IpfsClient_Bootstrap
