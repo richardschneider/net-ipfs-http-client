@@ -31,7 +31,7 @@ namespace Ipfs.Http
         public void Put_Bytes_ContentType()
         {
             var cid = ipfs.Block.PutAsync(blob, contentType: "raw").Result;
-            Assert.AreEqual("zb2rhYDhWhxyHN6HFAKGvHnLogYfnk9KvzBUZvCg7sYhS22N8", (string)cid);
+            Assert.AreEqual("bafkreiaxnnnb7qz2focittuqq3ya25q7rcv3bqynnczfzako47346wosmu", (string)cid);
 
             var data = ipfs.Block.GetAsync(cid).Result;
             Assert.AreEqual(blob.Length, data.Size);
@@ -42,7 +42,7 @@ namespace Ipfs.Http
         public void Put_Bytes_Hash()
         {
             var cid = ipfs.Block.PutAsync(blob, "raw", "sha2-512").Result;
-            Assert.AreEqual("zB7NCfbtX9WqFowgroqE19J841VESUhLc1enF7faMSMhTPMR4M3kWq7rS2AfCvdHeZ3RdfoSM45q7svoMQmw2NDD37z9F", (string)cid);
+            Assert.AreEqual("bafkrgqelljziv4qfg5mefz36m2y3h6voaralnw6lwb4f53xcnrf4mlsykkn7vt6eno547tw5ygcz62kxrle45wnbmpbofo5tvu57jvuaf7k7e", (string)cid);
 
             var data = ipfs.Block.GetAsync(cid).Result;
             Assert.AreEqual(blob.Length, data.Size);
@@ -78,7 +78,7 @@ namespace Ipfs.Http
         public void Put_Stream_ContentType()
         {
             var cid = ipfs.Block.PutAsync(new MemoryStream(blob), contentType: "raw").Result;
-            Assert.AreEqual("zb2rhYDhWhxyHN6HFAKGvHnLogYfnk9KvzBUZvCg7sYhS22N8", (string)cid);
+            Assert.AreEqual("bafkreiaxnnnb7qz2focittuqq3ya25q7rcv3bqynnczfzako47346wosmu", (string)cid);
 
             var data = ipfs.Block.GetAsync(cid).Result;
             Assert.AreEqual(blob.Length, data.Size);
@@ -89,7 +89,7 @@ namespace Ipfs.Http
         public void Put_Stream_Hash()
         {
             var cid = ipfs.Block.PutAsync(new MemoryStream(blob), "raw", "sha2-512").Result;
-            Assert.AreEqual("zB7NCfbtX9WqFowgroqE19J841VESUhLc1enF7faMSMhTPMR4M3kWq7rS2AfCvdHeZ3RdfoSM45q7svoMQmw2NDD37z9F", (string)cid);
+            Assert.AreEqual("bafkrgqelljziv4qfg5mefz36m2y3h6voaralnw6lwb4f53xcnrf4mlsykkn7vt6eno547tw5ygcz62kxrle45wnbmpbofo5tvu57jvuaf7k7e", (string)cid);
 
             var data = ipfs.Block.GetAsync(cid).Result;
             Assert.AreEqual(blob.Length, data.Size);

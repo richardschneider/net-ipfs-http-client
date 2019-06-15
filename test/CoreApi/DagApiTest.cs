@@ -21,7 +21,7 @@ namespace Ipfs.Http
             var ipfs = TestFixture.Ipfs;
             var expected = new JObject();
             expected["a"] = "alpha";
-            var expectedId = "zdpuAyZWTqKMMn76eAAdDoL5nSdwZfSBRn5cSb2L4NALcWcyS";
+            var expectedId = "bafyreigdhej736dobd6z3jt2vxsxvbwrwgyts7e7wms6yrr46rp72uh5bu";
             var id = await ipfs.Dag.PutAsync(expected);
             Assert.IsNotNull(id);
             Assert.AreEqual(expectedId, (string)id);
