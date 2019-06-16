@@ -46,6 +46,19 @@ namespace Ipfs.Http
         {
             await ipfs.DoCommandAsync("bitswap/unwant", cancel, id);
         }
+
+        public async Task<BitswapLedger> LedgerAsync(Peer peer, CancellationToken cancel = default(CancellationToken))
+        {
+            var json = await ipfs.DoCommandAsync("bitswap/ledger", cancel, peer.Id.ToString());
+            var o = JObject.Parse(json);
+            return new BitswapLedger
+            {
+                Peer = (string)o["Peer"],
+                DataReceived = (ulong)o["Sent"],
+                DataSent = (ulong)o["Recv"],
+                BlocksExchanged = (ulong)o["Exchanged"]
+            };
+        }
     }
 
 }
