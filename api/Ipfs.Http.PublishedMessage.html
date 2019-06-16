@@ -1,0 +1,475 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class PublishedMessage
+   | IPFS HTP Client documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class PublishedMessage
+   | IPFS HTP Client documentation ">
+    <meta name="generator" content="docfx 2.42.0.0">
+    
+    <link rel="shortcut icon" href="../images/ipfs-favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/ipfs-cs-logo-48x48.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Ipfs.Http.PublishedMessage">
+  
+  
+  <h1 id="Ipfs_Http_PublishedMessage" data-uid="Ipfs.Http.PublishedMessage" class="text-break">Class PublishedMessage
+  </h1>
+  <div class="markdown level0 summary"><p>A published message.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">PublishedMessage</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IPublishedMessage.html">IPublishedMessage</a></div>
+    <div><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IDataBlock.html">IDataBlock</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Ipfs.Http.html">Ipfs.Http</a></h6>
+  <h6><strong>Assembly</strong>: Ipfs.Http.Client.dll</h6>
+  <h5 id="Ipfs_Http_PublishedMessage_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class PublishedMessage : IPublishedMessage, IDataBlock</code></pre>
+  </div>
+  <h5 id="Ipfs_Http_PublishedMessage_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>The <span class="xref">Ipfs.Http.PubSubApi</span> is used to publish and subsribe to a message.</p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_PublishedMessage__ctor_System_String_.md&amp;value=---%0Auid%3A%20Ipfs.Http.PublishedMessage.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/PublishedMessage.cs/#L27">View Source</a>
+  </span>
+  <a id="Ipfs_Http_PublishedMessage__ctor_" data-uid="Ipfs.Http.PublishedMessage.#ctor*"></a>
+  <h4 id="Ipfs_Http_PublishedMessage__ctor_System_String_" data-uid="Ipfs.Http.PublishedMessage.#ctor(System.String)">PublishedMessage(String)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="Ipfs.Http.PublishedMessage.html">PublishedMessage</a> from the
+specified JSON string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PublishedMessage(string json)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">json</span></td>
+        <td><p>The JSON representation of a published message.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_PublishedMessage_DataBytes.md&amp;value=---%0Auid%3A%20Ipfs.Http.PublishedMessage.DataBytes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/PublishedMessage.cs/#L50">View Source</a>
+  </span>
+  <a id="Ipfs_Http_PublishedMessage_DataBytes_" data-uid="Ipfs.Http.PublishedMessage.DataBytes*"></a>
+  <h4 id="Ipfs_Http_PublishedMessage_DataBytes" data-uid="Ipfs.Http.PublishedMessage.DataBytes">DataBytes</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+public byte[] DataBytes { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_PublishedMessage_DataStream.md&amp;value=---%0Auid%3A%20Ipfs.Http.PublishedMessage.DataStream%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/PublishedMessage.cs/#L54">View Source</a>
+  </span>
+  <a id="Ipfs_Http_PublishedMessage_DataStream_" data-uid="Ipfs.Http.PublishedMessage.DataStream*"></a>
+  <h4 id="Ipfs_Http_PublishedMessage_DataStream" data-uid="Ipfs.Http.PublishedMessage.DataStream">DataStream</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Stream DataStream { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_PublishedMessage_DataString.md&amp;value=---%0Auid%3A%20Ipfs.Http.PublishedMessage.DataString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/PublishedMessage.cs/#L74">View Source</a>
+  </span>
+  <a id="Ipfs_Http_PublishedMessage_DataString_" data-uid="Ipfs.Http.PublishedMessage.DataString*"></a>
+  <h4 id="Ipfs_Http_PublishedMessage_DataString" data-uid="Ipfs.Http.PublishedMessage.DataString">DataString</h4>
+  <div class="markdown level1 summary"><p>Contents as a string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DataString { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The contents interpreted as a UTF-8 string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_PublishedMessage_Id.md&amp;value=---%0Auid%3A%20Ipfs.Http.PublishedMessage.Id%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/PublishedMessage.cs/#L88">View Source</a>
+  </span>
+  <a id="Ipfs_Http_PublishedMessage_Id_" data-uid="Ipfs.Http.PublishedMessage.Id*"></a>
+  <h4 id="Ipfs_Http_PublishedMessage_Id" data-uid="Ipfs.Http.PublishedMessage.Id">Id</h4>
+  <div class="markdown level1 summary"><p>&gt;
+  NOT SUPPORTED.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Cid Id { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Cid.html">Cid</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
+        <td><p>A published message does not have a content id.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_PublishedMessage_Sender.md&amp;value=---%0Auid%3A%20Ipfs.Http.PublishedMessage.Sender%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/PublishedMessage.cs/#L38">View Source</a>
+  </span>
+  <a id="Ipfs_Http_PublishedMessage_Sender_" data-uid="Ipfs.Http.PublishedMessage.Sender*"></a>
+  <h4 id="Ipfs_Http_PublishedMessage_Sender" data-uid="Ipfs.Http.PublishedMessage.Sender">Sender</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+public Peer Sender { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Peer.html">Peer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_PublishedMessage_SequenceNumber.md&amp;value=---%0Auid%3A%20Ipfs.Http.PublishedMessage.SequenceNumber%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/PublishedMessage.cs/#L46">View Source</a>
+  </span>
+  <a id="Ipfs_Http_PublishedMessage_SequenceNumber_" data-uid="Ipfs.Http.PublishedMessage.SequenceNumber*"></a>
+  <h4 id="Ipfs_Http_PublishedMessage_SequenceNumber" data-uid="Ipfs.Http.PublishedMessage.SequenceNumber">SequenceNumber</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+public byte[] SequenceNumber { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_PublishedMessage_Size.md&amp;value=---%0Auid%3A%20Ipfs.Http.PublishedMessage.Size%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/PublishedMessage.cs/#L63">View Source</a>
+  </span>
+  <a id="Ipfs_Http_PublishedMessage_Size_" data-uid="Ipfs.Http.PublishedMessage.Size*"></a>
+  <h4 id="Ipfs_Http_PublishedMessage_Size" data-uid="Ipfs.Http.PublishedMessage.Size">Size</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+public long Size { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_PublishedMessage_Topics.md&amp;value=---%0Auid%3A%20Ipfs.Http.PublishedMessage.Topics%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/PublishedMessage.cs/#L42">View Source</a>
+  </span>
+  <a id="Ipfs_Http_PublishedMessage_Topics_" data-uid="Ipfs.Http.PublishedMessage.Topics*"></a>
+  <h4 id="Ipfs_Http_PublishedMessage_Topics" data-uid="Ipfs.Http.PublishedMessage.Topics">Topics</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+public IEnumerable&lt;string&gt; Topics { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IPublishedMessage.html">IPublishedMessage</a>
+  </div>
+  <div>
+      <a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.IDataBlock.html">IDataBlock</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_PublishedMessage.md&amp;value=---%0Auid%3A%20Ipfs.Http.PublishedMessage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/PublishedMessage.cs/#L17" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Generated by DocFX
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

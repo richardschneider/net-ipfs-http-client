@@ -8,7 +8,7 @@
     <title>Asynchronous I/O | IPFS HTP Client documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Asynchronous I/O | IPFS HTP Client documentation ">
-    <meta name="generator" content="docfx 2.43.0.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../images/ipfs-favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../images/ipfs-logo.svg" alt="">
+                <img id="logo" class="svg" src="../images/ipfs-cs-logo-48x48.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -78,9 +78,9 @@ which does not block current thread.</p>
 <pre><code class="lang-cs">var result = ipfs.FileSystem.AddTextAsync(&quot;I am pinned&quot;).Result;
 </code></pre><h2 id="cancelling-a-request">Cancelling a request</h2>
 <p>All requests to the IPFS server can be cancelled by supplying 
-an optional <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(v=vs.110).aspx">CancellationToken</a>.  When 
+an optional <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>.  When 
 the token is cancelled, 
-a <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcanceledexception(v=vs.110).aspx">TaskCanceledException</a> 
+a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.taskcanceledexception">TaskCanceledException</a> 
 will be <code>thrown</code>.</p>
 <p>Here&#39;s a contrived example (<a href="https://github.com/richardschneider/net-ipfs-http-client/blob/cancellation/test/CoreApi/CancellationTest.cs">unit test</a>) 
 that forces the getting of info on the local IPFS server to be cancelled</p>

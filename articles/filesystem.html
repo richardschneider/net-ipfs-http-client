@@ -8,7 +8,7 @@
     <title>IPFS file system | IPFS HTP Client documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="IPFS file system | IPFS HTP Client documentation ">
-    <meta name="generator" content="docfx 2.43.0.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../images/ipfs-favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../images/ipfs-logo.svg" alt="">
+                <img id="logo" class="svg" src="../images/ipfs-cs-logo-48x48.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -97,7 +97,7 @@ Console.WriteLine((string)fsn.Id)
 // Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD
 </code></pre><h3 id="reading-a-file">Reading a file</h3>
 <p><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.IFileSystemApi.html#Ipfs_CoreApi_IFileSystemApi_ReadFileAsync_">ReaFileAsync</a> is used to read a stream of data from IPFS.  It returns a 
-<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">Stream</a> containing just the file&#39;s data NOT the protocol buffer encoded data.</p>
+<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.io.stream">Stream</a> containing just the file&#39;s data NOT the protocol buffer encoded data.</p>
 <pre><code class="lang-csharp">string path = &quot;Qmf412jQZiuVUtdgnB36FXFX7xg5V6KEbSJ4dpQuhkLyfD&quot;;
 using (var stream = await ipfs.FileSystem.ReadFileAsyc(path))
 {

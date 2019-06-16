@@ -1,0 +1,506 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TrustedPeerCollection
+   | IPFS HTP Client documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TrustedPeerCollection
+   | IPFS HTP Client documentation ">
+    <meta name="generator" content="docfx 2.42.0.0">
+    
+    <link rel="shortcut icon" href="../images/ipfs-favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/ipfs-cs-logo-48x48.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Ipfs.Http.TrustedPeerCollection">
+  
+  
+  <h1 id="Ipfs_Http_TrustedPeerCollection" data-uid="Ipfs.Http.TrustedPeerCollection" class="text-break">Class TrustedPeerCollection
+  </h1>
+  <div class="markdown level0 summary"><p>A list of trusted peers.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">TrustedPeerCollection</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiAddress.html">MultiAddress</a>&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiAddress.html">MultiAddress</a>&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Ipfs.Http.html">Ipfs.Http</a></h6>
+  <h6><strong>Assembly</strong>: Ipfs.Http.Client.dll</h6>
+  <h5 id="Ipfs_Http_TrustedPeerCollection_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TrustedPeerCollection : ICollection&lt;MultiAddress&gt;, IEnumerable&lt;MultiAddress&gt;, IEnumerable</code></pre>
+  </div>
+  <h5 id="Ipfs_Http_TrustedPeerCollection_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This is the list of peers that are initially trusted by IPFS. Its equivalent to the
+<a href="https://ipfs.io/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example#/ipfs/QmThrNbvLj7afQZhxH72m5Nn1qiVn3eMKWFYV49Zp2mv9B/bootstrap/readme.md">ipfs bootstrap</a> command.</p>
+</div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_TrustedPeerCollection_Count.md&amp;value=---%0Auid%3A%20Ipfs.Http.TrustedPeerCollection.Count%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/TrustedPeerCollection.cs/#L88">View Source</a>
+  </span>
+  <a id="Ipfs_Http_TrustedPeerCollection_Count_" data-uid="Ipfs.Http.TrustedPeerCollection.Count*"></a>
+  <h4 id="Ipfs_Http_TrustedPeerCollection_Count" data-uid="Ipfs.Http.TrustedPeerCollection.Count">Count</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_TrustedPeerCollection_IsReadOnly.md&amp;value=---%0Auid%3A%20Ipfs.Http.TrustedPeerCollection.IsReadOnly%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/TrustedPeerCollection.cs/#L99">View Source</a>
+  </span>
+  <a id="Ipfs_Http_TrustedPeerCollection_IsReadOnly_" data-uid="Ipfs.Http.TrustedPeerCollection.IsReadOnly*"></a>
+  <h4 id="Ipfs_Http_TrustedPeerCollection_IsReadOnly" data-uid="Ipfs.Http.TrustedPeerCollection.IsReadOnly">IsReadOnly</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_TrustedPeerCollection_Add_Ipfs_MultiAddress_.md&amp;value=---%0Auid%3A%20Ipfs.Http.TrustedPeerCollection.Add(Ipfs.MultiAddress)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/TrustedPeerCollection.cs/#L40">View Source</a>
+  </span>
+  <a id="Ipfs_Http_TrustedPeerCollection_Add_" data-uid="Ipfs.Http.TrustedPeerCollection.Add*"></a>
+  <h4 id="Ipfs_Http_TrustedPeerCollection_Add_Ipfs_MultiAddress_" data-uid="Ipfs.Http.TrustedPeerCollection.Add(Ipfs.MultiAddress)">Add(MultiAddress)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(MultiAddress peer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiAddress.html">MultiAddress</a></td>
+        <td><span class="parametername">peer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_TrustedPeerCollection_AddDefaultNodes.md&amp;value=---%0Auid%3A%20Ipfs.Http.TrustedPeerCollection.AddDefaultNodes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/TrustedPeerCollection.cs/#L55">View Source</a>
+  </span>
+  <a id="Ipfs_Http_TrustedPeerCollection_AddDefaultNodes_" data-uid="Ipfs.Http.TrustedPeerCollection.AddDefaultNodes*"></a>
+  <h4 id="Ipfs_Http_TrustedPeerCollection_AddDefaultNodes" data-uid="Ipfs.Http.TrustedPeerCollection.AddDefaultNodes">AddDefaultNodes()</h4>
+  <div class="markdown level1 summary"><p>Add the default bootstrap nodes to the trusted peers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddDefaultNodes()</code></pre>
+  </div>
+  <h5 id="Ipfs_Http_TrustedPeerCollection_AddDefaultNodes_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs bootstrap add --default</code>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_TrustedPeerCollection_Clear.md&amp;value=---%0Auid%3A%20Ipfs.Http.TrustedPeerCollection.Clear%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/TrustedPeerCollection.cs/#L67">View Source</a>
+  </span>
+  <a id="Ipfs_Http_TrustedPeerCollection_Clear_" data-uid="Ipfs.Http.TrustedPeerCollection.Clear*"></a>
+  <h4 id="Ipfs_Http_TrustedPeerCollection_Clear" data-uid="Ipfs.Http.TrustedPeerCollection.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>Remove all the trusted peers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+  <h5 id="Ipfs_Http_TrustedPeerCollection_Clear_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs bootstrap rm --all</code>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_TrustedPeerCollection_Contains_Ipfs_MultiAddress_.md&amp;value=---%0Auid%3A%20Ipfs.Http.TrustedPeerCollection.Contains(Ipfs.MultiAddress)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/TrustedPeerCollection.cs/#L74">View Source</a>
+  </span>
+  <a id="Ipfs_Http_TrustedPeerCollection_Contains_" data-uid="Ipfs.Http.TrustedPeerCollection.Contains*"></a>
+  <h4 id="Ipfs_Http_TrustedPeerCollection_Contains_Ipfs_MultiAddress_" data-uid="Ipfs.Http.TrustedPeerCollection.Contains(Ipfs.MultiAddress)">Contains(MultiAddress)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(MultiAddress item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiAddress.html">MultiAddress</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_TrustedPeerCollection_CopyTo_Ipfs_MultiAddress___System_Int32_.md&amp;value=---%0Auid%3A%20Ipfs.Http.TrustedPeerCollection.CopyTo(Ipfs.MultiAddress%5B%5D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/TrustedPeerCollection.cs/#L81">View Source</a>
+  </span>
+  <a id="Ipfs_Http_TrustedPeerCollection_CopyTo_" data-uid="Ipfs.Http.TrustedPeerCollection.CopyTo*"></a>
+  <h4 id="Ipfs_Http_TrustedPeerCollection_CopyTo_Ipfs_MultiAddress___System_Int32_" data-uid="Ipfs.Http.TrustedPeerCollection.CopyTo(Ipfs.MultiAddress[],System.Int32)">CopyTo(MultiAddress[], Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTo(MultiAddress[] array, int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiAddress.html">MultiAddress</a>[]</td>
+        <td><span class="parametername">array</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_TrustedPeerCollection_GetEnumerator.md&amp;value=---%0Auid%3A%20Ipfs.Http.TrustedPeerCollection.GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/TrustedPeerCollection.cs/#L121">View Source</a>
+  </span>
+  <a id="Ipfs_Http_TrustedPeerCollection_GetEnumerator_" data-uid="Ipfs.Http.TrustedPeerCollection.GetEnumerator*"></a>
+  <h4 id="Ipfs_Http_TrustedPeerCollection_GetEnumerator" data-uid="Ipfs.Http.TrustedPeerCollection.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;MultiAddress&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiAddress.html">MultiAddress</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_TrustedPeerCollection_Remove_Ipfs_MultiAddress_.md&amp;value=---%0Auid%3A%20Ipfs.Http.TrustedPeerCollection.Remove(Ipfs.MultiAddress)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/TrustedPeerCollection.cs/#L110">View Source</a>
+  </span>
+  <a id="Ipfs_Http_TrustedPeerCollection_Remove_" data-uid="Ipfs.Http.TrustedPeerCollection.Remove*"></a>
+  <h4 id="Ipfs_Http_TrustedPeerCollection_Remove_Ipfs_MultiAddress_" data-uid="Ipfs.Http.TrustedPeerCollection.Remove(Ipfs.MultiAddress)">Remove(MultiAddress)</h4>
+  <div class="markdown level1 summary"><p>Remove the trusted peer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Remove(MultiAddress peer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiAddress.html">MultiAddress</a></td>
+        <td><span class="parametername">peer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Ipfs_Http_TrustedPeerCollection_Remove_Ipfs_MultiAddress__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Equivalent to <code>ipfs bootstrap rm <em>peer</em></code>.</p>
+</div>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_TrustedPeerCollection_System_Collections_IEnumerable_GetEnumerator.md&amp;value=---%0Auid%3A%20Ipfs.Http.TrustedPeerCollection.System%23Collections%23IEnumerable%23GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/TrustedPeerCollection.cs/#L128">View Source</a>
+  </span>
+  <a id="Ipfs_Http_TrustedPeerCollection_System_Collections_IEnumerable_GetEnumerator_" data-uid="Ipfs.Http.TrustedPeerCollection.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Ipfs_Http_TrustedPeerCollection_System_Collections_IEnumerable_GetEnumerator" data-uid="Ipfs.Http.TrustedPeerCollection.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icollection-1">System.Collections.Generic.ICollection&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_TrustedPeerCollection.md&amp;value=---%0Auid%3A%20Ipfs.Http.TrustedPeerCollection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/TrustedPeerCollection.cs/#L24" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Generated by DocFX
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
