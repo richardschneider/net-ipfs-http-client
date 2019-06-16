@@ -32,8 +32,6 @@ environment:
 install:
   - dotnet --version
   - choco install gitversion.portable -y
-  - nuget update -self
-  - choco install docfx -y
   - npm install gh-pages -g
 
 #  - nuget install secure-file -ExcludeVersion
@@ -56,8 +54,11 @@ build_script:
 
 after_build:
   - cmd: appveyor PushArtifact "src\bin\%CONFIGURATION%\Ipfs.Http.Client.%GitVersion_MajorMinorPatch%.nupkg"
+
 # Build documentation in doc\_site
-  - docfx doc\docfx.json --logLevel Warning
+# v2.43 is requiring VS 2019!!!
+  - cmd: choco install docfx -y --version 2.42 --force
+  - docfx doc\docfx.json --logLevel Warning --warningsAsErrors
   - 7z a -tzip docs.zip doc\_site
   - appveyor PushArtifact docs.zip
   - if defined git_token gh-pages -d doc\_site -m "new docs %GitVersion_FullSemVer%"
