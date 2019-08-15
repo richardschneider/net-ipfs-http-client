@@ -36,7 +36,8 @@ install:
 
 #  - nuget install secure-file -ExcludeVersion
 #  - if defined snk_secret secure-file\tools\secure-file -decrypt src\ipfs.ci.snk.enc -secret %snk_secret% -out src\ipfs.dev.snk
-  - choco install go-ipfs
+#  - choco install go-ipfs
+  - choco install go-ipfs --version 0.4.21 --force
   - ipfs init
   - ps: Start-Process -FilePath "ipfs.exe" -ArgumentList "daemon --enable-pubsub-experiment"
 
