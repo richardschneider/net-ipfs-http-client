@@ -248,7 +248,6 @@ namespace Ipfs.Http
                         Name = (string)l["Name"],
                         Id = (string)l["Hash"],
                         Size = (long)l["Size"],
-                        IsDirectory = (string)l["Type"] == "Directory",
                     })
                     .ToArray();
             }

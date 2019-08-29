@@ -119,7 +119,6 @@ namespace Ipfs.Http
                 Name = string.IsNullOrWhiteSpace(name) ? Name : name,
                 Id = Id,
                 Size = Size,
-                IsDirectory = IsDirectory
             };
             return link;
         }

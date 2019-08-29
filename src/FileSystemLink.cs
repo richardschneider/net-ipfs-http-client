@@ -14,8 +14,5 @@ namespace Ipfs.Http
 
         /// <inheritdoc />
         public long Size { get; set; }
-
-        /// <inheritdoc />
-        public bool IsDirectory { get; set; }
     }
 }

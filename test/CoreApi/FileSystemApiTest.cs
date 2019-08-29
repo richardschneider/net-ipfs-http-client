@@ -204,8 +204,6 @@ namespace Ipfs.Http
                 Assert.AreEqual(2, files.Length);
                 Assert.AreEqual("alpha.txt", files[0].Name);
                 Assert.AreEqual("beta.txt", files[1].Name);
-                Assert.IsFalse(files[0].IsDirectory);
-                Assert.IsFalse(files[1].IsDirectory);
 
                 Assert.AreEqual("alpha", ipfs.FileSystem.ReadAllTextAsync(files[0].Id).Result);
                 Assert.AreEqual("beta", ipfs.FileSystem.ReadAllTextAsync(files[1].Id).Result);
@@ -234,9 +232,6 @@ namespace Ipfs.Http
                 Assert.AreEqual("alpha.txt", files[0].Name);
                 Assert.AreEqual("beta.txt", files[1].Name);
                 Assert.AreEqual("x", files[2].Name);
-                Assert.IsFalse(files[0].IsDirectory);
-                Assert.IsFalse(files[1].IsDirectory);
-                Assert.IsTrue(files[2].IsDirectory);
                 Assert.AreNotEqual(0, files[0].Size);
                 Assert.AreNotEqual(0, files[1].Size);
 
@@ -248,8 +243,6 @@ namespace Ipfs.Http
                 Assert.AreEqual(2, xfiles.Length);
                 Assert.AreEqual("x.txt", xfiles[0].Name);
                 Assert.AreEqual("y", xfiles[1].Name);
-                Assert.IsFalse(xfiles[0].IsDirectory);
-                Assert.IsTrue(xfiles[1].IsDirectory);
 
                 var yfiles = new FileSystemNode
                 {
@@ -258,7 +251,6 @@ namespace Ipfs.Http
                 }.Links.ToArray();
                 Assert.AreEqual(1, yfiles.Length);
                 Assert.AreEqual("y.txt", yfiles[0].Name);
-                Assert.IsFalse(yfiles[0].IsDirectory);
 
                 var y = new FileSystemNode
                 {
