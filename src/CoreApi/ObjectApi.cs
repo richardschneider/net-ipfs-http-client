@@ -19,37 +19,6 @@ namespace Ipfs.Http
 
         IpfsClient ipfs;
 
-        /// <summary>
-        ///  TODO
-        /// </summary>
-        public class DagInfo
-        {
-            /// <summary>
-            ///  TODO
-            /// </summary>
-            public string Hash { get; set; }
-            /// <summary>
-            ///  TODO
-            /// </summary>
-            public int NumLinks { get; set; }
-            /// <summary>
-            ///  TODO
-            /// </summary>
-            public long BlockSize { get; set; }
-            /// <summary>
-            ///  TODO
-            /// </summary>
-            public long LinksSize { get; set; }
-            /// <summary>
-            ///  TODO
-            /// </summary>
-            public long DataSize { get; set; }
-            /// <summary>
-            ///  TODO
-            /// </summary>
-            public long CumulativeSize { get; set; }
-        }
-
         internal ObjectApi(IpfsClient ipfs)
         {
             this.ipfs = ipfs;
@@ -95,21 +64,6 @@ namespace Ipfs.Http
             return GetDagFromJson(json).Links;
         }
 
-        /// <summary>
-        ///   Get the statistics of a MerkleDAG node.
-        /// </summary>
-        /// <param name="id">
-        ///   The <see cref="Cid"/> of the node.
-        /// </param>
-        /// <param name="cancel">
-        ///   Is used to stop the task.  When cancelled, the <see cref="TaskCanceledException"/> is raised.
-        /// </param>
-        /// <returns></returns>
-        public Task<DagInfo> StatAsync(Cid id, CancellationToken cancel = default(CancellationToken))
-        {
-            return ipfs.DoCommandAsync<DagInfo>("object/stat", cancel, id);
-        }
-
         // TOOD: patch sub API
 
         DagNode GetDagFromJson(string json)
@@ -125,6 +79,21 @@ namespace Ipfs.Http
                     (string)link["Hash"],
                     (long)link["Size"]));
             return new DagNode(data, links);
+        }
+
+        public async Task<ObjectStat> StatAsync(Cid id, CancellationToken cancel = default(CancellationToken))
+        {
+            var json = await ipfs.DoCommandAsync("object/stat", cancel, id);
+            var r = JObject.Parse(json);
+
+            return new ObjectStat
+            {
+                LinkCount = (int)r["NumLinks"],
+                LinkSize = (long)r["LinksSize"],
+                BlockSize = (long)r["BlockSize"],
+                DataSize = (long)r["DataSize"],
+                CumulativeSize = (long)r["CumulativeSize"]
+            };
         }
     }
 }
