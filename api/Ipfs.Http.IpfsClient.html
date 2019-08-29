@@ -1194,7 +1194,7 @@ a byte array.</p>
     <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_IpfsClient_IdAsync_Ipfs_MultiHash_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Http.IpfsClient.IdAsync(Ipfs.MultiHash%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/CoreApi/GenericApi.cs/#L18">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/CoreApi/GenericApi.cs/#L21">View Source</a>
   </span>
   <a id="Ipfs_Http_IpfsClient_IdAsync_" data-uid="Ipfs.Http.IpfsClient.IdAsync*"></a>
   <h4 id="Ipfs_Http_IpfsClient_IdAsync_Ipfs_MultiHash_System_Threading_CancellationToken_" data-uid="Ipfs.Http.IpfsClient.IdAsync(Ipfs.MultiHash,System.Threading.CancellationToken)">IdAsync(MultiHash, CancellationToken)</h4>
@@ -1237,6 +1237,120 @@ a byte array.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.Peer.html">Peer</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_IpfsClient_PingAsync_Ipfs_MultiAddress_System_Int32_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Http.IpfsClient.PingAsync(Ipfs.MultiAddress%2CSystem.Int32%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/CoreApi/GenericApi.cs/#L36">View Source</a>
+  </span>
+  <a id="Ipfs_Http_IpfsClient_PingAsync_" data-uid="Ipfs.Http.IpfsClient.PingAsync*"></a>
+  <h4 id="Ipfs_Http_IpfsClient_PingAsync_Ipfs_MultiAddress_System_Int32_System_Threading_CancellationToken_" data-uid="Ipfs.Http.IpfsClient.PingAsync(Ipfs.MultiAddress,System.Int32,System.Threading.CancellationToken)">PingAsync(MultiAddress, Int32, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;PingResult&gt;&gt; PingAsync(MultiAddress address, int count = 10, CancellationToken cancel = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiAddress.html">MultiAddress</a></td>
+        <td><span class="parametername">address</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.PingResult.html">PingResult</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_IpfsClient_PingAsync_Ipfs_MultiHash_System_Int32_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Http.IpfsClient.PingAsync(Ipfs.MultiHash%2CSystem.Int32%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/CoreApi/GenericApi.cs/#L27">View Source</a>
+  </span>
+  <a id="Ipfs_Http_IpfsClient_PingAsync_" data-uid="Ipfs.Http.IpfsClient.PingAsync*"></a>
+  <h4 id="Ipfs_Http_IpfsClient_PingAsync_Ipfs_MultiHash_System_Int32_System_Threading_CancellationToken_" data-uid="Ipfs.Http.IpfsClient.PingAsync(Ipfs.MultiHash,System.Int32,System.Threading.CancellationToken)">PingAsync(MultiHash, Int32, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;PingResult&gt;&gt; PingAsync(MultiHash peer, int count = 10, CancellationToken cancel = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.MultiHash.html">MultiHash</a></td>
+        <td><span class="parametername">peer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://richardschneider.github.io/net-ipfs-core/api/Ipfs.CoreApi.PingResult.html">PingResult</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1331,7 +1445,7 @@ a byte array.</p>
     <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_IpfsClient_ResolveAsync_System_String_System_Boolean_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Http.IpfsClient.ResolveAsync(System.String%2CSystem.Boolean%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/CoreApi/GenericApi.cs/#L24">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/CoreApi/GenericApi.cs/#L66">View Source</a>
   </span>
   <a id="Ipfs_Http_IpfsClient_ResolveAsync_" data-uid="Ipfs.Http.IpfsClient.ResolveAsync*"></a>
   <h4 id="Ipfs_Http_IpfsClient_ResolveAsync_System_String_System_Boolean_System_Threading_CancellationToken_" data-uid="Ipfs.Http.IpfsClient.ResolveAsync(System.String,System.Boolean,System.Threading.CancellationToken)">ResolveAsync(String, Boolean, CancellationToken)</h4>
@@ -1388,7 +1502,7 @@ a byte array.</p>
     <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_IpfsClient_ShutdownAsync.md&amp;value=---%0Auid%3A%20Ipfs.Http.IpfsClient.ShutdownAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/CoreApi/GenericApi.cs/#L34">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/CoreApi/GenericApi.cs/#L76">View Source</a>
   </span>
   <a id="Ipfs_Http_IpfsClient_ShutdownAsync_" data-uid="Ipfs.Http.IpfsClient.ShutdownAsync*"></a>
   <h4 id="Ipfs_Http_IpfsClient_ShutdownAsync" data-uid="Ipfs.Http.IpfsClient.ShutdownAsync">ShutdownAsync()</h4>
@@ -1669,7 +1783,7 @@ the HTTP response as a string.</p>
     <a href="https://github.com/richardschneider/net-ipfs-http-client/new/master/apiSpec/new?filename=Ipfs_Http_IpfsClient_VersionAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Ipfs.Http.IpfsClient.VersionAsync(System.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/CoreApi/GenericApi.cs/#L40">View Source</a>
+    <a href="https://github.com/richardschneider/net-ipfs-http-client/blob/master/src/CoreApi/GenericApi.cs/#L82">View Source</a>
   </span>
   <a id="Ipfs_Http_IpfsClient_VersionAsync_" data-uid="Ipfs.Http.IpfsClient.VersionAsync*"></a>
   <h4 id="Ipfs_Http_IpfsClient_VersionAsync_System_Threading_CancellationToken_" data-uid="Ipfs.Http.IpfsClient.VersionAsync(System.Threading.CancellationToken)">VersionAsync(CancellationToken)</h4>

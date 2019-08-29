@@ -84,19 +84,6 @@ references:
   isSpec: "True"
   fullName: Ipfs.Http.FileSystemLink.Id
   nameWithType: FileSystemLink.Id
-- uid: Ipfs.Http.FileSystemLink.IsDirectory
-  name: IsDirectory
-  href: api/Ipfs.Http.FileSystemLink.html#Ipfs_Http_FileSystemLink_IsDirectory
-  commentId: P:Ipfs.Http.FileSystemLink.IsDirectory
-  fullName: Ipfs.Http.FileSystemLink.IsDirectory
-  nameWithType: FileSystemLink.IsDirectory
-- uid: Ipfs.Http.FileSystemLink.IsDirectory*
-  name: IsDirectory
-  href: api/Ipfs.Http.FileSystemLink.html#Ipfs_Http_FileSystemLink_IsDirectory_
-  commentId: Overload:Ipfs.Http.FileSystemLink.IsDirectory
-  isSpec: "True"
-  fullName: Ipfs.Http.FileSystemLink.IsDirectory
-  nameWithType: FileSystemLink.IsDirectory
 - uid: Ipfs.Http.FileSystemLink.Name
   name: Name
   href: api/Ipfs.Http.FileSystemLink.html#Ipfs_Http_FileSystemLink_Name
@@ -542,6 +529,25 @@ references:
   isSpec: "True"
   fullName: Ipfs.Http.IpfsClient.Pin
   nameWithType: IpfsClient.Pin
+- uid: Ipfs.Http.IpfsClient.PingAsync(Ipfs.MultiAddress,System.Int32,System.Threading.CancellationToken)
+  name: PingAsync(MultiAddress, Int32, CancellationToken)
+  href: api/Ipfs.Http.IpfsClient.html#Ipfs_Http_IpfsClient_PingAsync_Ipfs_MultiAddress_System_Int32_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Http.IpfsClient.PingAsync(Ipfs.MultiAddress,System.Int32,System.Threading.CancellationToken)
+  fullName: Ipfs.Http.IpfsClient.PingAsync(Ipfs.MultiAddress, System.Int32, System.Threading.CancellationToken)
+  nameWithType: IpfsClient.PingAsync(MultiAddress, Int32, CancellationToken)
+- uid: Ipfs.Http.IpfsClient.PingAsync(Ipfs.MultiHash,System.Int32,System.Threading.CancellationToken)
+  name: PingAsync(MultiHash, Int32, CancellationToken)
+  href: api/Ipfs.Http.IpfsClient.html#Ipfs_Http_IpfsClient_PingAsync_Ipfs_MultiHash_System_Int32_System_Threading_CancellationToken_
+  commentId: M:Ipfs.Http.IpfsClient.PingAsync(Ipfs.MultiHash,System.Int32,System.Threading.CancellationToken)
+  fullName: Ipfs.Http.IpfsClient.PingAsync(Ipfs.MultiHash, System.Int32, System.Threading.CancellationToken)
+  nameWithType: IpfsClient.PingAsync(MultiHash, Int32, CancellationToken)
+- uid: Ipfs.Http.IpfsClient.PingAsync*
+  name: PingAsync
+  href: api/Ipfs.Http.IpfsClient.html#Ipfs_Http_IpfsClient_PingAsync_
+  commentId: Overload:Ipfs.Http.IpfsClient.PingAsync
+  isSpec: "True"
+  fullName: Ipfs.Http.IpfsClient.PingAsync
+  nameWithType: IpfsClient.PingAsync
 - uid: Ipfs.Http.IpfsClient.PostDownloadAsync(System.String,System.Threading.CancellationToken,System.String,System.String[])
   name: PostDownloadAsync(String, CancellationToken, String, String[])
   href: api/Ipfs.Http.IpfsClient.html#Ipfs_Http_IpfsClient_PostDownloadAsync_System_String_System_Threading_CancellationToken_System_String_System_String___
