@@ -55,7 +55,7 @@ namespace Ipfs.Http
 
         public Task<Stream> DataAsync(Cid id, CancellationToken cancel = default(CancellationToken))
         {
-            return ipfs.DownloadAsync("object/data", cancel, id);
+            return ipfs.PostDownloadAsync("object/data", cancel, id);
         }
 
         public async Task<IEnumerable<IMerkleLink>> LinksAsync(Cid id, CancellationToken cancel = default(CancellationToken))
