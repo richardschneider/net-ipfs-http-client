@@ -196,7 +196,7 @@ namespace Ipfs.Http
         /// </returns>
         public Task<Stream> ReadFileAsync(string path, CancellationToken cancel = default(CancellationToken))
         {
-            return ipfs.DownloadAsync("cat", cancel, path);
+            return ipfs.PostDownloadAsync("cat", cancel, path);
         }
 
         public Task<Stream> ReadFileAsync(string path, long offset, long length = 0, CancellationToken cancel = default(CancellationToken))
@@ -209,7 +209,7 @@ namespace Ipfs.Http
 
             if (length == 0)
                 length = int.MaxValue; // go-ipfs only accepts int lengths
-            return ipfs.DownloadAsync("cat", cancel, path, 
+            return ipfs.PostDownloadAsync("cat", cancel, path, 
                 $"offset={offset}",
                 $"length={length}");
         }
@@ -257,7 +257,7 @@ namespace Ipfs.Http
 
         public Task<Stream> GetAsync(string path, bool compress = false, CancellationToken cancel = default(CancellationToken))
         {
-            return ipfs.DownloadAsync("get", cancel, path, $"compress={compress}");
+            return ipfs.PostDownloadAsync("get", cancel, path, $"compress={compress}");
         }
     }
 }
