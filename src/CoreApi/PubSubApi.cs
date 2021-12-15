@@ -48,7 +48,7 @@ namespace Ipfs.Http
             url.Append("/api/v0/pubsub/pub");
             url.Append("?arg=");
             url.Append(System.Net.WebUtility.UrlEncode(topic));
-            url.Append("&arg=");
+            url.Append("&data=");
             var data = Encoding.ASCII.GetString(System.Net.WebUtility.UrlEncodeToBytes(message, 0, message.Length));
             url.Append(data);
             return ipfs.DoCommandAsync(new Uri(ipfs.ApiUri, url.ToString()), cancel);
