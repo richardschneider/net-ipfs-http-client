@@ -5,6 +5,7 @@ using System.Linq;
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
+using Multiformats.Base;
 
 namespace Ipfs.Http
 {
@@ -12,7 +13,7 @@ namespace Ipfs.Http
     ///   A published message.
     /// </summary>
     /// <remarks>
-    ///   The <see cref="PubSubApi"/> is used to publish and subsribe to a message.
+    ///   The <see cref="PubSubApi"/> is used to publish and subscribe to a message.
     /// </remarks>
     [DataContract]
     public class PublishedMessage : IPublishedMessage
@@ -27,11 +28,13 @@ namespace Ipfs.Http
         public PublishedMessage(string json)
         {
             var o = JObject.Parse(json);
-            this.Sender = Convert.FromBase64String((string)o["from"]).ToBase58();
-            this.SequenceNumber = Convert.FromBase64String((string)o["seqno"]);
-            this.DataBytes = Convert.FromBase64String((string)o["data"]);
+            
+            this.Sender = (string)o["from"];
+            this.SequenceNumber = Multibase.Decode((string)o["seqno"], out MultibaseEncoding _);
+            this.DataBytes = Multibase.Decode((string)o["data"], out MultibaseEncoding _);
+
             var topics = (JArray) (o["topicIDs"]);
-            this.Topics = topics.Select(t => (string)t);
+            this.Topics = topics.Select(t => Encoding.UTF8.GetString(Multibase.Decode((string)t, out MultibaseEncoding _)));
         }
 
         /// <inheritdoc />

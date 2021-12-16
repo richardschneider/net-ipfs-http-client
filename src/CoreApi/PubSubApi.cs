@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Ipfs.CoreApi;
+using Multiformats.Base;
 
 namespace Ipfs.Http
 {
@@ -46,44 +47,45 @@ namespace Ipfs.Http
         {
             var url = new StringBuilder();
             url.Append("/api/v0/pubsub/pub");
-            url.Append("?arg=");
-            url.Append(System.Net.WebUtility.UrlEncode(topic));
-            url.Append("&data=");
-            var data = Encoding.ASCII.GetString(System.Net.WebUtility.UrlEncodeToBytes(message, 0, message.Length));
-            url.Append(data);
-            return ipfs.DoCommandAsync(new Uri(ipfs.ApiUri, url.ToString()), cancel);
+            url.Append("?arg=u");
+            url.Append(Multibase.Encode(MultibaseEncoding.Base64Url, Encoding.UTF8.GetBytes(topic)));
+
+            return ipfs.DoCommandAsync(new Uri(ipfs.ApiUri, url.ToString()), message, cancel);
         }
 
         public Task PublishAsync(string topic, Stream message, CancellationToken cancel = default(CancellationToken))
         {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                message.CopyTo(ms);
-                return PublishAsync(topic, ms.ToArray(), cancel);
-            }
+            var url = new StringBuilder();
+            url.Append("/api/v0/pubsub/pub");
+            url.Append("?arg=u");
+            url.Append(Multibase.Encode(MultibaseEncoding.Base64Url, Encoding.UTF8.GetBytes(topic)));
+
+            return ipfs.DoCommandAsync(new Uri(ipfs.ApiUri, url.ToString()), message, cancel);
         }
 
-        public async Task PublishAsync(string topic, string message, CancellationToken cancel = default(CancellationToken))
+        public Task PublishAsync(string topic, string message, CancellationToken cancel = default(CancellationToken))
         {
-            var _ = await ipfs.DoCommandAsync("pubsub/pub", cancel, topic, "arg=" + message);
-            return;
+            var url = new StringBuilder();
+            url.Append("/api/v0/pubsub/pub");
+            url.Append("?arg=u");
+            url.Append(Multibase.Encode(MultibaseEncoding.Base64Url, Encoding.UTF8.GetBytes(topic)));
+
+            return ipfs.DoCommandAsync(new Uri(ipfs.ApiUri, url.ToString()), message, cancel);
         }
 
         public async Task SubscribeAsync(string topic, Action<IPublishedMessage> handler, CancellationToken cancellationToken)
         {
-            var messageStream = await ipfs.PostDownloadAsync("pubsub/sub", cancellationToken, topic);
+            var messageStream = await ipfs.PostDownloadAsync("pubsub/sub", cancellationToken, $"u{Multibase.Encode(MultibaseEncoding.Base64Url, Encoding.UTF8.GetBytes(topic))}");
             var sr = new StreamReader(messageStream);
 
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            Task.Run(() => ProcessMessages(topic, handler, sr, cancellationToken));
-#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            _ = Task.Run(() => ProcessMessages(topic, handler, sr, cancellationToken));
 
             return;
         }
 
         void ProcessMessages(string topic, Action<PublishedMessage> handler, StreamReader sr, CancellationToken ct)
         {
-            log.DebugFormat("Start listening for '{0}' messages", topic);
+            log.DebugFormat($"Start listening for '{topic}' messages");
                      
             // .Net needs a ReadLine(CancellationToken)
             // As a work-around, we register a function to close the stream
@@ -95,6 +97,7 @@ namespace Ipfs.Http
                     var json = sr.ReadLine();
                     if (json == null)
                         break;
+
                     if (log.IsDebugEnabled)
                         log.DebugFormat("PubSub message {0}", json);
 
